@@ -57,10 +57,10 @@ export const onRequestPost = safeHandler<PagesContext>(async ({ request, env }: 
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          from: 'US Visa Tracker <notifications@usvisatracker.example.com>',
+          from: 'EasyVisaCheck <notifications@easyvisacheck.com>',
           to: email,
-          subject: 'Confirm your subscription to US Visa Tracker',
-          html: `<p>Thank you for subscribing to ${alertType} alerts!</p><p>Please <a href="https://usvisatracker.example.com/confirm?token=${sub.token}">click here</a> to confirm your subscription.</p>`
+          subject: 'Confirm your subscription to EasyVisaCheck',
+          html: `<p>Thank you for subscribing to ${alertType} alerts!</p><p>Please <a href="https://easyvisacheck.com/confirm?token=${sub.token}">click here</a> to confirm your subscription.</p>`
         })
       });
     } catch (e) {

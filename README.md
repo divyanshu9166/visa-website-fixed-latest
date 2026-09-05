@@ -177,8 +177,8 @@ To enable the auto-rebuild trigger:
 
 ## Before going to production checklist
 
-- [ ] `astro.config.mjs` — replace `site: 'https://usvisatracker.example.com'` with your real domain
-- [ ] `public/robots.txt` — sitemap URL will auto-update once site URL is set
+- [x] `astro.config.mjs` — site set to `https://easyvisacheck.com`
+- [x] `public/robots.txt` — sitemap URL updated to match site URL
 - [ ] Run `npx prisma db push` from your local machine against the real Prisma Postgres DB
 - [ ] Run `npm run data:fetch` locally to seed with live USCIS data before first deploy
 - [ ] Set `DATABASE_URL` in Cloudflare Pages environment variables

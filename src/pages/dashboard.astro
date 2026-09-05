@@ -4,7 +4,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import { TRACKERS } from '../lib/trackers';
 ---
 
-<Layout title="My Dashboard — US Visa Tracker" description="Manage the cases you've submitted to the community trackers.">
+<Layout title="My Dashboard — US Visa Tracker" description="Manage the cases you've submitted to the community trackers." noindex={true}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Dashboard' }]} />
 

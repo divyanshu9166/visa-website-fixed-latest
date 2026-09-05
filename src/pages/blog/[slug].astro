@@ -22,9 +22,43 @@ const allPosts = await getCollection('blog');
 const related = allPosts
   .filter(p => p.id !== post.id && (p.data.category === post.data.category || p.data.tags.some(t => post.data.tags.includes(t))))
   .slice(0, 3);
+
+// Article JSON-LD
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.publishDate,
+  "author": {
+    "@type": "Person",
+    "name": post.data.author,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EasyVisaCheck",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://easyvisacheck.com/favicon.svg"
+    }
+  },
+  ...(post.data.image && { "image": post.data.image }),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": new URL(Astro.url.pathname, Astro.site).href
+  }
+};
 ---
 
-<Layout title={`${post.data.title} | US Visa Tracker`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} | EasyVisaCheck`}
+  description={post.data.description}
+  ogType="article"
+  publishDate={post.data.publishDate}
+  author={post.data.author}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }, { label: post.data.title }]} />
 

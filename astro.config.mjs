@@ -7,9 +7,7 @@ import { EnumChangefreq } from 'sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace with your real production domain before deploying, and
-  // update the matching og:url in src/layouts/Layout.astro.
-  site: 'https://usvisatracker.example.com',
+  site: 'https://easyvisacheck.com',
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -19,6 +17,19 @@ export default defineConfig({
 
   integrations: [
     sitemap({
+      // Exclude utility, account, and error pages from sitemap
+      filter(page) {
+        const excludedPaths = [
+          '/login',
+          '/register',
+          '/dashboard',
+          '/404',
+          '/500',
+          '/confirm', // email confirmation page
+        ];
+        const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
+        return !excludedPaths.includes(pathname);
+      },
       // Higher-value pages get a higher priority hint for crawlers.
       customPages: undefined,
       serialize(item) {

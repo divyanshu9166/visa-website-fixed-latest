@@ -8,7 +8,7 @@ interface Props {
 const { error } = Astro.props;
 ---
 
-<Layout title="500: Server Error" description="An unexpected error has occurred on the server.">
+<Layout title="500: Server Error" description="An unexpected error has occurred on the server." noindex={true}>
 	<div class="min-h-[60vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
 		<h1 class="text-9xl font-extrabold text-red-600 mb-4">500</h1>
 		<h2 class="text-3xl font-bold text-gray-900 mb-4">Internal Server Error</h2>
