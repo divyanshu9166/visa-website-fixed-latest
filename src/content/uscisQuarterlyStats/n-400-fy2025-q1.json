@@ -3,10 +3,10 @@
   "formName": "Application for Naturalization",
   "fiscalYear": 2025,
   "quarter": 1,
-  "receipts": 218821,
-  "completions": 241605,
+  "receipts": 238521,
+  "completions": 242427,
   "pending": 600000,
-  "rfeRate": 27,
+  "rfeRate": 12,
   "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
-  "lastUpdated": "2026-09-05T08:31:41.624Z"
+  "lastUpdated": "2026-09-05T08:35:49.019Z"
 }
