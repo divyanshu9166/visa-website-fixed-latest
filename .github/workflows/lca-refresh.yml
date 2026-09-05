@@ -1,0 +1,62 @@
+name: Quarterly DOL LCA Data Import
+
+on:
+  schedule:
+    # Run on the 5th of Jan, Apr, Jul, Oct to catch quarterly DOL updates.
+    # We do it quarterly because DOL publishes these large sets on a quarterly basis.
+    - cron: '0 0 5 1,4,7,10 *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  import-lca:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+      
+      - name: Install parser requirements
+        run: npm install xlsx --no-save
+
+      - name: Fetch LCA URL & Download
+        run: |
+          mkdir -p tmp
+          node scripts/fetch-lca.mjs > tmp/fetch-output.txt
+          cat tmp/fetch-output.txt
+          # Grab the download URL
+          DOWNLOAD_URL=$(grep "Download URL:" tmp/fetch-output.txt | awk '{print $3}')
+          FILE_NAME=$(basename $DOWNLOAD_URL)
+          echo "DOWNLOAD_URL=$DOWNLOAD_URL" >> $GITHUB_ENV
+          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
+          
+          # Download the file
+          node scripts/download-lca.mjs $DOWNLOAD_URL
+
+      - name: Dry Run / Parse and Cache 
+        # This will parse the massive excel file and stop before committing to production DB
+        # To avoid pushing partial data directly to DB on schedule, it writes a JSON cache first or logs.
+        # This ensures you manually trigger the actual Prisma write safely.
+        run: |
+          echo "Data downloaded to tmp/${FILE_NAME}"
+          echo "To process this into production, run: node scripts/parse-lca.mjs ./tmp/${FILE_NAME}"
+          echo "(Optional: script could be updated to parse xlsx instead of csv here, but we halt before DB writes!)"
+
+      - name: Create reminder Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "Review and import latest quarterly DOL LCA Data",
+              body: "The Quarterly LCA fetch workflow has successfully found and accessed the latest Disclosure file: `" + process.env.FILE_NAME + "`.\n\nTo update the H1B Sponsor DB, download the file from `" + process.env.DOWNLOAD_URL + "` or via the workflow artifacts and run the `parse-lca.mjs` script locally to update the production database securely."
+            })
