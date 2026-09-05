@@ -2,8 +2,7 @@ name: Quarterly DOL LCA Data Import
 
 on:
   schedule:
-    # Run on the 5th of Jan, Apr, Jul, Oct to catch quarterly DOL updates.
-    # We do it quarterly because DOL publishes these large sets on a quarterly basis.
+    # Run on the 5th of Jan, Apr, Jul, Oct 
     - cron: '0 0 5 1,4,7,10 *'
   workflow_dispatch: {}
 
@@ -32,6 +31,7 @@ jobs:
           mkdir -p tmp
           node scripts/fetch-lca.mjs > tmp/fetch-output.txt
           cat tmp/fetch-output.txt
+          
           # Grab the download URL
           DOWNLOAD_URL=$(grep "Download URL:" tmp/fetch-output.txt | awk '{print $3}')
           FILE_NAME=$(basename $DOWNLOAD_URL)
@@ -41,16 +41,21 @@ jobs:
           # Download the file
           node scripts/download-lca.mjs $DOWNLOAD_URL
 
-      - name: Dry Run / Parse and Cache 
-        # This will parse the massive excel file and stop before committing to production DB
-        # To avoid pushing partial data directly to DB on schedule, it writes a JSON cache first or logs.
-        # This ensures you manually trigger the actual Prisma write safely.
+      - name: Parse and Cache 
+        # Parses the massive Excel file to memory and outputs a small JSON array.
+        # Halts before any production database interaction.
         run: |
           echo "Data downloaded to tmp/${FILE_NAME}"
-          echo "To process this into production, run: node scripts/parse-lca.mjs ./tmp/${FILE_NAME}"
-          echo "(Optional: script could be updated to parse xlsx instead of csv here, but we halt before DB writes!)"
+          node scripts/process-lca-cache.mjs ./tmp/${FILE_NAME}
 
-      - name: Create reminder Issue
+      - name: Archive JSON Cache Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lca-aggregated-cache
+          path: tmp/lca-aggregated-cache.json
+          retention-days: 14
+
+      - name: Create Manual Import Reminder Issue
         uses: actions/github-script@v7
         with:
           script: |
@@ -58,5 +63,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: "Review and import latest quarterly DOL LCA Data",
-              body: "The Quarterly LCA fetch workflow has successfully found and accessed the latest Disclosure file: `" + process.env.FILE_NAME + "`.\n\nTo update the H1B Sponsor DB, download the file from `" + process.env.DOWNLOAD_URL + "` or via the workflow artifacts and run the `parse-lca.mjs` script locally to update the production database securely."
+              body: "The Quarterly LCA fetch workflow has successfully processed `" + process.env.FILE_NAME + "`.\n\nTo update the production database:\n1. Download the `lca-aggregated-cache` JSON artifact from this workflow run.\n2. Run locally:\n   ```bash\n   node scripts/import-lca.mjs <path-to-downloaded-json>\n   ```"
             })
