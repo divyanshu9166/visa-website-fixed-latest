@@ -2,29 +2,17 @@
   "country": "Israel",
   "slug": "israel",
   "countryCode": "IL",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Jerusalem",
-      "waitTimeB1B2": 28,
-      "waitTimeStudent": 10,
-      "waitTimeOther": 15,
+      "waitTimeB1B2": 26,
+      "waitTimeStudent": 9,
+      "waitTimeOther": 14,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 29
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 28
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 28
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 19
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 28
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 27
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 26
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 26
         }
       ]
     },
     {
       "name": "Tel Aviv",
-      "waitTimeB1B2": 28,
-      "waitTimeStudent": 10,
-      "waitTimeOther": 15,
+      "waitTimeB1B2": 25,
+      "waitTimeStudent": 9,
+      "waitTimeOther": 14,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 29
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 28
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 27
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 27
@@ -118,6 +106,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 28
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 27
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 26
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 25
         }
       ]
     }

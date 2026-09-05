@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-140 Immigrant Petition [2026]",
   "seoDesc": "Check official USCIS processing times for I-140 Immigrant Petition (Form I-140) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "I-140 - EB-1 - Extraordinary ability / outstanding researcher",
           "minMonths": 4.9,
           "maxMonths": 10.8,
-          "serviceRequestDate": "2025-07-18",
+          "serviceRequestDate": "2025-07-19",
           "history": [
             {
               "period": "2026-01",
@@ -57,7 +57,7 @@
           "caseType": "I-140 - EB-2 - Advanced degree / National Interest Waiver",
           "minMonths": 6.1,
           "maxMonths": 11.1,
-          "serviceRequestDate": "2025-06-18",
+          "serviceRequestDate": "2025-06-19",
           "history": [
             {
               "period": "2026-01",
@@ -95,7 +95,7 @@
           "caseType": "I-140 - EB-3 - Skilled worker / professional",
           "minMonths": 6.6,
           "maxMonths": 11.5,
-          "serviceRequestDate": "2025-06-18",
+          "serviceRequestDate": "2025-06-19",
           "history": [
             {
               "period": "2026-01",
@@ -140,7 +140,7 @@
           "caseType": "I-140 - EB-1 - Extraordinary ability / outstanding researcher",
           "minMonths": 6.2,
           "maxMonths": 11.5,
-          "serviceRequestDate": "2025-06-18",
+          "serviceRequestDate": "2025-06-19",
           "history": [
             {
               "period": "2026-01",
@@ -178,7 +178,7 @@
           "caseType": "I-140 - EB-2 - Advanced degree / National Interest Waiver",
           "minMonths": 6.1,
           "maxMonths": 11.9,
-          "serviceRequestDate": "2025-06-18",
+          "serviceRequestDate": "2025-06-19",
           "history": [
             {
               "period": "2026-01",
@@ -216,7 +216,7 @@
           "caseType": "I-140 - EB-3 - Skilled worker / professional",
           "minMonths": 7.2,
           "maxMonths": 12,
-          "serviceRequestDate": "2025-06-18",
+          "serviceRequestDate": "2025-06-19",
           "history": [
             {
               "period": "2026-01",

@@ -2,29 +2,17 @@
   "country": "Peru",
   "slug": "peru",
   "countryCode": "PE",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Lima",
-      "waitTimeB1B2": 104,
-      "waitTimeStudent": 36,
-      "waitTimeOther": 57,
+      "waitTimeB1B2": 93,
+      "waitTimeStudent": 33,
+      "waitTimeOther": 51,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 108
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 104
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 101
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 101
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 104
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 100
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 96
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 93
         }
       ]
     }

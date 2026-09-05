@@ -2,29 +2,17 @@
   "country": "Ghana",
   "slug": "ghana",
   "countryCode": "GH",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Accra",
-      "waitTimeB1B2": 239,
-      "waitTimeStudent": 84,
-      "waitTimeOther": 131,
+      "waitTimeB1B2": 213,
+      "waitTimeStudent": 75,
+      "waitTimeOther": 117,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 248
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 238
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 231
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 231
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 239
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 230
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 220
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 213
         }
       ]
     }

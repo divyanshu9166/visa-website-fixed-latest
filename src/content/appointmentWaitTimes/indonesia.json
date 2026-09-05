@@ -2,29 +2,17 @@
   "country": "Indonesia",
   "slug": "indonesia",
   "countryCode": "ID",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Jakarta",
-      "waitTimeB1B2": 87,
-      "waitTimeStudent": 30,
-      "waitTimeOther": 48,
+      "waitTimeB1B2": 76,
+      "waitTimeStudent": 27,
+      "waitTimeOther": 42,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 90
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 86
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 83
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 83
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 87
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 83
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 79
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 76
         }
       ]
     },
     {
       "name": "Surabaya",
-      "waitTimeB1B2": 129,
-      "waitTimeStudent": 45,
-      "waitTimeOther": 71,
-      "hasEmergencyAppointments": true,
+      "waitTimeB1B2": 116,
+      "waitTimeStudent": 41,
+      "waitTimeOther": 64,
+      "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 133
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 129
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 125
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 125
@@ -118,6 +106,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 129
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 124
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 119
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 116
         }
       ]
     }

@@ -2,29 +2,17 @@
   "country": "Nigeria",
   "slug": "nigeria",
   "countryCode": "NG",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Lagos",
-      "waitTimeB1B2": 448,
-      "waitTimeStudent": 157,
-      "waitTimeOther": 246,
+      "waitTimeB1B2": 402,
+      "waitTimeStudent": 141,
+      "waitTimeOther": 221,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 462
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 446
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 434
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 433
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 448
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 431
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 414
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 402
         }
       ]
     },
     {
       "name": "Abuja",
-      "waitTimeB1B2": 410,
-      "waitTimeStudent": 144,
-      "waitTimeOther": 226,
+      "waitTimeB1B2": 369,
+      "waitTimeStudent": 129,
+      "waitTimeOther": 203,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 424
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 408
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 397
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 396
@@ -118,6 +106,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 410
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 395
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 380
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 369
         }
       ]
     }

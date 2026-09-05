@@ -2,29 +2,17 @@
   "country": "Bangladesh",
   "slug": "bangladesh",
   "countryCode": "BD",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Dhaka",
-      "waitTimeB1B2": 309,
-      "waitTimeStudent": 108,
-      "waitTimeOther": 170,
+      "waitTimeB1B2": 281,
+      "waitTimeStudent": 98,
+      "waitTimeOther": 155,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 225
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 214
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 207
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 206
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 309
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 299
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 288
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 281
         }
       ]
     }

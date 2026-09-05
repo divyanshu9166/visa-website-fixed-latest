@@ -2,29 +2,17 @@
   "country": "United Arab Emirates",
   "slug": "united-arab-emirates",
   "countryCode": "AE",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Dubai",
-      "waitTimeB1B2": 27,
-      "waitTimeStudent": 9,
-      "waitTimeOther": 15,
+      "waitTimeB1B2": 24,
+      "waitTimeStudent": 8,
+      "waitTimeOther": 13,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 28
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 27
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 26
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 26
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 27
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 26
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 25
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 24
         }
       ]
     },
     {
       "name": "Abu Dhabi",
-      "waitTimeB1B2": 38,
-      "waitTimeStudent": 13,
-      "waitTimeOther": 21,
+      "waitTimeB1B2": 34,
+      "waitTimeStudent": 12,
+      "waitTimeOther": 19,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 39
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 38
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 37
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 37
@@ -118,6 +106,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 38
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 37
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 35
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 34
         }
       ]
     }

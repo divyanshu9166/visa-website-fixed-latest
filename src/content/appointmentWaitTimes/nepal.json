@@ -2,29 +2,17 @@
   "country": "Nepal",
   "slug": "nepal",
   "countryCode": "NP",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Kathmandu",
-      "waitTimeB1B2": 83,
-      "waitTimeStudent": 29,
-      "waitTimeOther": 46,
+      "waitTimeB1B2": 73,
+      "waitTimeStudent": 26,
+      "waitTimeOther": 40,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 87
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 83
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 80
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 80
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 83
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 80
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 76
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 73
         }
       ]
     }

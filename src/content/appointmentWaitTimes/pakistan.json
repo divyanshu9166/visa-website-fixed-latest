@@ -2,29 +2,17 @@
   "country": "Pakistan",
   "slug": "pakistan",
   "countryCode": "PK",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Islamabad",
-      "waitTimeB1B2": 243,
-      "waitTimeStudent": 85,
-      "waitTimeOther": 134,
+      "waitTimeB1B2": 222,
+      "waitTimeStudent": 78,
+      "waitTimeOther": 122,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 178
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 171
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 165
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 164
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 243
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 235
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 227
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 222
         }
       ]
     },
     {
       "name": "Karachi",
-      "waitTimeB1B2": 239,
-      "waitTimeStudent": 84,
-      "waitTimeOther": 131,
+      "waitTimeB1B2": 215,
+      "waitTimeStudent": 75,
+      "waitTimeOther": 118,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 247
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 238
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 232
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 231
@@ -118,29 +106,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 239
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 230
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 221
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 215
         }
       ]
     },
     {
       "name": "Lahore",
-      "waitTimeB1B2": 212,
-      "waitTimeStudent": 74,
-      "waitTimeOther": 117,
+      "waitTimeB1B2": 190,
+      "waitTimeStudent": 67,
+      "waitTimeOther": 105,
       "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 220
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 212
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 205
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 205
@@ -176,6 +164,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 212
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 204
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 196
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 190
         }
       ]
     }

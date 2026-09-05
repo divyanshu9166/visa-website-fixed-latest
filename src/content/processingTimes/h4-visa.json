@@ -6,7 +6,7 @@
   "category": "dependent",
   "seoTitle": "Current USCIS Processing Times for H-4 Dependent Visa [2026]",
   "seoDesc": "Check official USCIS processing times for H-4 Dependent Visa (Form I-539) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
           "minMonths": 4.7,
           "maxMonths": 8.7,
-          "serviceRequestDate": "2025-09-18",
+          "serviceRequestDate": "2025-09-19",
           "history": [
             {
               "period": "2026-01",
@@ -64,7 +64,7 @@
           "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
           "minMonths": 4.1,
           "maxMonths": 8.3,
-          "serviceRequestDate": "2025-09-18",
+          "serviceRequestDate": "2025-09-19",
           "history": [
             {
               "period": "2026-01",
@@ -109,7 +109,7 @@
           "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
           "minMonths": 4.9,
           "maxMonths": 8.3,
-          "serviceRequestDate": "2025-09-18",
+          "serviceRequestDate": "2025-09-19",
           "history": [
             {
               "period": "2026-01",
@@ -154,7 +154,7 @@
           "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
           "minMonths": 5.5,
           "maxMonths": 9.4,
-          "serviceRequestDate": "2025-08-18",
+          "serviceRequestDate": "2025-08-19",
           "history": [
             {
               "period": "2026-01",

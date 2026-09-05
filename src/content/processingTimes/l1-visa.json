@@ -6,7 +6,7 @@
   "category": "work-visas",
   "seoTitle": "Current USCIS Processing Times for L-1 Visa [2026]",
   "seoDesc": "Check official USCIS processing times for L-1 Visa (Form I-129) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "L-1A - Intracompany transferee - Extension of stay in the U.S.",
           "minMonths": 4.4,
           "maxMonths": 7.2,
-          "serviceRequestDate": "2025-10-18",
+          "serviceRequestDate": "2025-10-19",
           "history": [
             {
               "period": "2026-01",
@@ -57,7 +57,7 @@
           "caseType": "L-1B - Intracompany transferee - New employment",
           "minMonths": 5.6,
           "maxMonths": 8,
-          "serviceRequestDate": "2025-10-18",
+          "serviceRequestDate": "2025-10-19",
           "history": [
             {
               "period": "2026-01",
@@ -102,7 +102,7 @@
           "caseType": "L-1A - Intracompany transferee - Extension of stay in the U.S.",
           "minMonths": 4.3,
           "maxMonths": 6.8,
-          "serviceRequestDate": "2025-11-18",
+          "serviceRequestDate": "2025-11-19",
           "history": [
             {
               "period": "2026-01",
@@ -140,7 +140,7 @@
           "caseType": "L-1B - Intracompany transferee - New employment",
           "minMonths": 4.9,
           "maxMonths": 8.1,
-          "serviceRequestDate": "2025-09-18",
+          "serviceRequestDate": "2025-09-19",
           "history": [
             {
               "period": "2026-01",
@@ -185,7 +185,7 @@
           "caseType": "L-1A - Intracompany transferee - Extension of stay in the U.S.",
           "minMonths": 5.2,
           "maxMonths": 7.6,
-          "serviceRequestDate": "2025-10-18",
+          "serviceRequestDate": "2025-10-19",
           "history": [
             {
               "period": "2026-01",
@@ -223,7 +223,7 @@
           "caseType": "L-1B - Intracompany transferee - New employment",
           "minMonths": 5.2,
           "maxMonths": 7.8,
-          "serviceRequestDate": "2025-10-18",
+          "serviceRequestDate": "2025-10-19",
           "history": [
             {
               "period": "2026-01",
@@ -268,7 +268,7 @@
           "caseType": "L-1A - Intracompany transferee - Extension of stay in the U.S.",
           "minMonths": 4.6,
           "maxMonths": 6.8,
-          "serviceRequestDate": "2025-11-18",
+          "serviceRequestDate": "2025-11-19",
           "history": [
             {
               "period": "2026-01",
@@ -306,7 +306,7 @@
           "caseType": "L-1B - Intracompany transferee - New employment",
           "minMonths": 4.7,
           "maxMonths": 7.2,
-          "serviceRequestDate": "2025-10-18",
+          "serviceRequestDate": "2025-10-19",
           "history": [
             {
               "period": "2026-01",

@@ -2,29 +2,17 @@
   "country": "Brazil",
   "slug": "brazil",
   "countryCode": "BR",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Sao Paulo",
-      "waitTimeB1B2": 131,
-      "waitTimeStudent": 46,
-      "waitTimeOther": 72,
-      "hasEmergencyAppointments": true,
+      "waitTimeB1B2": 115,
+      "waitTimeStudent": 40,
+      "waitTimeOther": 63,
+      "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 137
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 131
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 126
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 126
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 131
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 125
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 120
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 115
         }
       ]
     },
     {
       "name": "Rio de Janeiro",
-      "waitTimeB1B2": 172,
-      "waitTimeStudent": 60,
-      "waitTimeOther": 95,
+      "waitTimeB1B2": 154,
+      "waitTimeStudent": 54,
+      "waitTimeOther": 85,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 177
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 171
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 166
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 166
@@ -118,29 +106,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 172
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 165
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 159
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 154
         }
       ]
     },
     {
       "name": "Brasilia",
-      "waitTimeB1B2": 132,
-      "waitTimeStudent": 46,
-      "waitTimeOther": 73,
-      "hasEmergencyAppointments": true,
+      "waitTimeB1B2": 118,
+      "waitTimeStudent": 41,
+      "waitTimeOther": 65,
+      "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 137
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 132
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 128
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 127
@@ -176,6 +164,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 132
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 127
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 122
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 118
         }
       ]
     }

@@ -2,29 +2,17 @@
   "country": "Turkey",
   "slug": "turkey",
   "countryCode": "TR",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Istanbul",
-      "waitTimeB1B2": 65,
-      "waitTimeStudent": 23,
-      "waitTimeOther": 36,
+      "waitTimeB1B2": 57,
+      "waitTimeStudent": 20,
+      "waitTimeOther": 31,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 67
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 64
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 62
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 62
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 65
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 62
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 59
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 57
         }
       ]
     },
     {
       "name": "Ankara",
-      "waitTimeB1B2": 88,
-      "waitTimeStudent": 31,
-      "waitTimeOther": 48,
+      "waitTimeB1B2": 80,
+      "waitTimeStudent": 28,
+      "waitTimeOther": 44,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 64
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 61
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 59
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 58
@@ -118,6 +106,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 88
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 85
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 82
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 80
         }
       ]
     }

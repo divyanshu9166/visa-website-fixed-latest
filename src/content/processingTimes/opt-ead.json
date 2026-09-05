@@ -6,7 +6,7 @@
   "category": "student",
   "seoTitle": "Current USCIS Processing Times for OPT / STEM OPT EAD [2026]",
   "seoDesc": "Check official USCIS processing times for OPT / STEM OPT EAD (Form I-765) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "c(3)(B) - Post-completion OPT",
           "minMonths": 2.1,
           "maxMonths": 4.5,
-          "serviceRequestDate": "2026-01-18",
+          "serviceRequestDate": "2026-01-19",
           "history": [
             {
               "period": "2026-01",
@@ -57,7 +57,7 @@
           "caseType": "c(3)(C) - 24-month STEM OPT extension",
           "minMonths": 3.1,
           "maxMonths": 4.6,
-          "serviceRequestDate": "2026-01-18",
+          "serviceRequestDate": "2026-01-19",
           "history": [
             {
               "period": "2026-01",
@@ -102,7 +102,7 @@
           "caseType": "c(3)(B) - Post-completion OPT",
           "minMonths": 2.7,
           "maxMonths": 3.8,
-          "serviceRequestDate": "2026-02-18",
+          "serviceRequestDate": "2026-02-19",
           "history": [
             {
               "period": "2026-01",
@@ -140,7 +140,7 @@
           "caseType": "c(3)(C) - 24-month STEM OPT extension",
           "minMonths": 3.1,
           "maxMonths": 5.1,
-          "serviceRequestDate": "2025-12-18",
+          "serviceRequestDate": "2025-12-19",
           "history": [
             {
               "period": "2026-01",
@@ -185,7 +185,7 @@
           "caseType": "c(3)(B) - Post-completion OPT",
           "minMonths": 2.3,
           "maxMonths": 5,
-          "serviceRequestDate": "2026-01-18",
+          "serviceRequestDate": "2026-01-19",
           "history": [
             {
               "period": "2026-01",
@@ -223,7 +223,7 @@
           "caseType": "c(3)(C) - 24-month STEM OPT extension",
           "minMonths": 2.8,
           "maxMonths": 4,
-          "serviceRequestDate": "2026-02-18",
+          "serviceRequestDate": "2026-02-19",
           "history": [
             {
               "period": "2026-01",

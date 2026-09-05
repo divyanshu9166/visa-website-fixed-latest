@@ -2,29 +2,17 @@
   "country": "Mexico",
   "slug": "mexico",
   "countryCode": "MX",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Mexico City",
-      "waitTimeB1B2": 268,
-      "waitTimeStudent": 94,
-      "waitTimeOther": 147,
+      "waitTimeB1B2": 237,
+      "waitTimeStudent": 83,
+      "waitTimeOther": 130,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 278
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 267
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 258
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 258
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 268
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 257
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 246
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 237
         }
       ]
     },
     {
       "name": "Guadalajara",
-      "waitTimeB1B2": 326,
-      "waitTimeStudent": 114,
-      "waitTimeOther": 179,
+      "waitTimeB1B2": 293,
+      "waitTimeStudent": 103,
+      "waitTimeOther": 161,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 337
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 325
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 316
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 315
@@ -118,29 +106,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 326
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 314
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 302
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 293
         }
       ]
     },
     {
       "name": "Tijuana",
-      "waitTimeB1B2": 275,
-      "waitTimeStudent": 96,
-      "waitTimeOther": 151,
+      "waitTimeB1B2": 248,
+      "waitTimeStudent": 87,
+      "waitTimeOther": 136,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 284
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 274
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 267
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 266
@@ -176,29 +164,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 275
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 265
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 255
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 248
         }
       ]
     },
     {
       "name": "Ciudad Juarez",
-      "waitTimeB1B2": 246,
-      "waitTimeStudent": 86,
-      "waitTimeOther": 135,
+      "waitTimeB1B2": 220,
+      "waitTimeStudent": 77,
+      "waitTimeOther": 121,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 255
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 245
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 238
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 238
@@ -234,6 +222,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 246
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 237
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 227
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 220
         }
       ]
     }

@@ -2,29 +2,17 @@
   "country": "China",
   "slug": "china",
   "countryCode": "CN",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Beijing",
-      "waitTimeB1B2": 65,
-      "waitTimeStudent": 23,
-      "waitTimeOther": 36,
+      "waitTimeB1B2": 58,
+      "waitTimeStudent": 20,
+      "waitTimeOther": 32,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 67
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 64
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 63
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 62
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 65
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 62
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 60
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 58
         }
       ]
     },
     {
       "name": "Shanghai",
-      "waitTimeB1B2": 63,
-      "waitTimeStudent": 22,
-      "waitTimeOther": 35,
+      "waitTimeB1B2": 57,
+      "waitTimeStudent": 20,
+      "waitTimeOther": 31,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 65
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 62
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 61
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 41
@@ -118,29 +106,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 63
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 60
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 58
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 57
         }
       ]
     },
     {
       "name": "Guangzhou",
-      "waitTimeB1B2": 69,
-      "waitTimeStudent": 24,
-      "waitTimeOther": 38,
+      "waitTimeB1B2": 62,
+      "waitTimeStudent": 22,
+      "waitTimeOther": 34,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 72
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 69
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 67
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 67
@@ -176,6 +164,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 69
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 67
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 64
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 62
         }
       ]
     }

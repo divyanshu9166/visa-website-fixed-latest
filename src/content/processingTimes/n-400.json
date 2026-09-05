@@ -6,7 +6,7 @@
   "category": "citizenship",
   "seoTitle": "Current USCIS Processing Times for N-400 Naturalization [2026]",
   "seoDesc": "Check official USCIS processing times for N-400 Naturalization (Form N-400) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "N-400 - Naturalization application (field office average)",
           "minMonths": 5.7,
           "maxMonths": 12.7,
-          "serviceRequestDate": "2025-05-18",
+          "serviceRequestDate": "2025-05-19",
           "history": [
             {
               "period": "2026-01",

@@ -2,29 +2,17 @@
   "country": "Canada",
   "slug": "canada",
   "countryCode": "CA",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Toronto",
-      "waitTimeB1B2": 33,
-      "waitTimeStudent": 12,
-      "waitTimeOther": 18,
+      "waitTimeB1B2": 29,
+      "waitTimeStudent": 10,
+      "waitTimeOther": 16,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 34
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 33
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 32
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 32
@@ -60,29 +48,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 33
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 31
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 30
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 29
         }
       ]
     },
     {
       "name": "Vancouver",
-      "waitTimeB1B2": 40,
-      "waitTimeStudent": 14,
-      "waitTimeOther": 22,
+      "waitTimeB1B2": 35,
+      "waitTimeStudent": 12,
+      "waitTimeOther": 19,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 41
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 39
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 38
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 38
@@ -118,29 +106,29 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 40
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 38
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 36
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 35
         }
       ]
     },
     {
       "name": "Montreal",
-      "waitTimeB1B2": 37,
-      "waitTimeStudent": 13,
-      "waitTimeOther": 20,
+      "waitTimeB1B2": 33,
+      "waitTimeStudent": 12,
+      "waitTimeOther": 18,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 39
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 37
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 36
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 36
@@ -176,6 +164,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 37
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 36
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 34
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 33
         }
       ]
     }

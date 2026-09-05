@@ -2,29 +2,17 @@
   "country": "South Korea",
   "slug": "south-korea",
   "countryCode": "KR",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Seoul",
-      "waitTimeB1B2": 44,
-      "waitTimeStudent": 15,
-      "waitTimeOther": 24,
+      "waitTimeB1B2": 38,
+      "waitTimeStudent": 13,
+      "waitTimeOther": 21,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 45
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 43
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 42
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 42
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 44
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 42
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 40
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 38
         }
       ]
     }

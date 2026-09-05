@@ -2,29 +2,17 @@
   "country": "Philippines",
   "slug": "philippines",
   "countryCode": "PH",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Manila",
-      "waitTimeB1B2": 169,
-      "waitTimeStudent": 59,
-      "waitTimeOther": 93,
+      "waitTimeB1B2": 154,
+      "waitTimeStudent": 54,
+      "waitTimeOther": 85,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 123
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 118
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 114
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 113
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 169
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 163
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 158
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 154
         }
       ]
     }

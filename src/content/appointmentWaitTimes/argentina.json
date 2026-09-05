@@ -2,29 +2,17 @@
   "country": "Argentina",
   "slug": "argentina",
   "countryCode": "AR",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-05",
   "dataSource": "seed",
   "consulates": [
     {
       "name": "Buenos Aires",
-      "waitTimeB1B2": 64,
-      "waitTimeStudent": 22,
-      "waitTimeOther": 35,
+      "waitTimeB1B2": 57,
+      "waitTimeStudent": 20,
+      "waitTimeOther": 31,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
-        {
-          "period": "2025-07",
-          "waitTimeB1B2": 66
-        },
-        {
-          "period": "2025-08",
-          "waitTimeB1B2": 63
-        },
-        {
-          "period": "2025-09",
-          "waitTimeB1B2": 62
-        },
         {
           "period": "2025-10",
           "waitTimeB1B2": 61
@@ -60,6 +48,18 @@
         {
           "period": "2026-06",
           "waitTimeB1B2": 64
+        },
+        {
+          "period": "2026-07",
+          "waitTimeB1B2": 61
+        },
+        {
+          "period": "2026-08",
+          "waitTimeB1B2": 59
+        },
+        {
+          "period": "2026-09",
+          "waitTimeB1B2": 57
         }
       ]
     }
