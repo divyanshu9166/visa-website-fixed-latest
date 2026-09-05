@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'Marriage Green Card Fee Calculator', href: '/tools/marriage-gc-fees' },
+];
+
+const faqs = [
+  { q: "What is the total filing fee for a marriage green card in 2026?", a: "If you file I-130 online and I-485 with biometrics, the base fee is $2,115. If you add the I-765 (work permit) and I-131 (travel document), the total is $3,005 under the current USCIS fee schedule." },
+  { q: "Is the I-765 work permit still free when filed with I-485?", a: "No. USCIS ended the free bundling of I-765 and I-131 with adjustment of status applications in 2024. You must now pay for these forms separately." },
+  { q: "Do I get a discount for filing the I-765 with my I-485?", a: "Yes. The standard fee for Form I-765 is $520, but if you file it concurrently with a pending I-485, the fee is discounted to $260." },
+  { q: "Is there a discount for the I-131 Advance Parole?", a: "No. Unlike the I-765, there is no discount for filing the I-131 travel document with your I-485. The fee is a flat $630." },
+  { q: "Is it cheaper to file Form I-130 online or on paper?", a: "Filing Form I-130 online costs $675. Filing it by mail (paper) costs $675 plus a $50 paper filing surcharge, bringing the total to $725." },
+  { q: "Are biometrics fees included in the I-485 fee?", a: "Yes. The $1,440 fee for Form I-485 now includes the cost of biometrics (fingerprinting and background checks). There is no longer a separate $85 fee." },
+  { q: "Can I pay USCIS fees with a credit card?", a: "Yes, you can pay online filings with a credit card, or use Form G-1450 to pay by credit card for paper applications filed at a USCIS lockbox." },
+  { q: "What happens if my I-485 is denied? Do I get a refund?", a: "No. USCIS filing fees are generally non-refundable, regardless of whether your application is approved, denied, or withdrawn." },
+  { q: "Are there any hidden fees for a marriage green card?", a: "In addition to USCIS filing fees, you must pay for a mandatory immigration medical exam (Form I-693), which is paid directly to a civil surgeon and typically costs $200-$500." },
+  { q: "Can I request a fee waiver for the marriage green card process?", a: "Yes, you can file Form I-912 (Request for Fee Waiver) for the I-485, but only if you can demonstrate severe financial hardship. Fee waivers are strictly scrutinized." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+---
+
+<Layout
+  title="Marriage Green Card Fee Calculator (2026 USCIS Rates)"
+  description="Calculate the total USCIS filing fees for a marriage-based green card (I-130, I-485, I-765, I-131) based on the latest fee rules."
+  breadcrumbs={breadcrumbs}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="mt-8 mb-8 text-center md:text-left">
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">Marriage Green Card Fee Calculator</h1>
+      <p class="text-lg text-neutral-500 max-w-2xl">USCIS updated their fee structure. "Free" work permits and travel documents are a thing of the past. Calculate your total filing cost based on what you actually need.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <!-- Form -->
+      <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 h-fit">
+        <h2 class="text-base font-bold text-neutral-900 mb-5">Select Forms to File</h2>
+        <div class="space-y-4">
+          
+          <label class="flex items-start gap-3 p-3 border border-neutral-200 rounded-xl cursor-pointer hover:bg-neutral-50 transition-colors">
+            <input type="checkbox" id="fee-130" checked disabled class="mt-1 w-4 h-4 text-neutral-900 focus:ring-neutral-900" />
+            <div>
+              <div class="font-bold text-sm text-neutral-900">Form I-130 (Petition for Alien Relative)</div>
+              <div class="text-xs text-neutral-500">Required. Filed online. ($675)</div>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 border border-neutral-200 rounded-xl cursor-pointer hover:bg-neutral-50 transition-colors">
+            <input type="checkbox" id="fee-485" checked disabled class="mt-1 w-4 h-4 text-neutral-900 focus:ring-neutral-900" />
+            <div>
+              <div class="font-bold text-sm text-neutral-900">Form I-485 (Adjustment of Status)</div>
+              <div class="text-xs text-neutral-500">Required. Includes biometrics. ($1,440)</div>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 border border-emerald-200 bg-emerald-50 rounded-xl cursor-pointer hover:bg-emerald-100 transition-colors">
+            <input type="checkbox" id="fee-765" checked class="mt-1 w-4 h-4 text-emerald-900 focus:ring-emerald-900" />
+            <div>
+              <div class="font-bold text-sm text-emerald-900">Form I-765 (Work Permit / EAD)</div>
+              <div class="text-xs text-emerald-700">Optional but recommended. Discounted when filed with I-485. ($260)</div>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 border border-emerald-200 bg-emerald-50 rounded-xl cursor-pointer hover:bg-emerald-100 transition-colors">
+            <input type="checkbox" id="fee-131" checked class="mt-1 w-4 h-4 text-emerald-900 focus:ring-emerald-900" />
+            <div>
+              <div class="font-bold text-sm text-emerald-900">Form I-131 (Advance Parole / Travel)</div>
+              <div class="text-xs text-emerald-700">Optional. Allows international travel while pending. No discount. ($630)</div>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- Results Display -->
+      <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-center text-center text-white shadow-lg">
+        <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-2">Total USCIS Filing Fee</h3>
+        <div id="totalFee" class="font-black text-6xl mb-6">$3,005</div>
+        
+        <div class="text-left bg-neutral-800/50 rounded-xl p-4 text-sm text-neutral-300 space-y-2">
+          <div class="flex justify-between"><span>I-130 (Online)</span><span>$675</span></div>
+          <div class="flex justify-between"><span>I-485 (w/ Biometrics)</span><span>$1,440</span></div>
+          <div id="line-765" class="flex justify-between"><span>I-765 (Discounted)</span><span>$260</span></div>
+          <div id="line-131" class="flex justify-between"><span>I-131</span><span>$630</span></div>
+          <div class="border-t border-neutral-700 pt-2 mt-2 font-bold text-white flex justify-between"><span>Total</span><span id="line-total">$3,005</span></div>
+        </div>
+      </div>
+    </div>
+    
+    <FAQAccordion faqs={faqs} title="Marriage Green Card Fee FAQs" />
+  </div>
+</Layout>
+
+<script>
+  const cb765 = document.getElementById('fee-765') as HTMLInputElement;
+  const cb131 = document.getElementById('fee-131') as HTMLInputElement;
+  
+  const totalDisplay = document.getElementById('totalFee')!;
+  const lineTotal = document.getElementById('line-total')!;
+  const line765 = document.getElementById('line-765')!;
+  const line131 = document.getElementById('line-131')!;
+
+  function calculate() {
+    let total = 675 + 1440; // Base I-130 + I-485
+    
+    if (cb765.checked) {
+      total += 260;
+      line765.classList.remove('hidden');
+      line765.classList.add('flex');
+    } else {
+      line765.classList.add('hidden');
+      line765.classList.remove('flex');
+    }
+    
+    if (cb131.checked) {
+      total += 630;
+      line131.classList.remove('hidden');
+      line131.classList.add('flex');
+    } else {
+      line131.classList.add('hidden');
+      line131.classList.remove('flex');
+    }
+    
+    const formatted = '$' + total.toLocaleString();
+    totalDisplay.textContent = formatted;
+    lineTotal.textContent = formatted;
+  }
+
+  cb765?.addEventListener('change', calculate);
+  cb131?.addEventListener('change', calculate);
+</script>

@@ -1,0 +1,254 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'H4 EAD Automatic-Extension Eligibility Checker', href: '/tools/h4-ead-extension-checker' },
+];
+
+const faqs = [
+  {
+    q: 'What changed with the H4 EAD automatic extension on October 30, 2025?',
+    a: 'DHS ended the 540-day automatic extension benefit for any H4 EAD renewal filed on or after that date. Renewals filed before then can still qualify if they were timely and filed in the same category.',
+  },
+  {
+    q: 'What does "timely filed" mean for the automatic extension?',
+    a: 'Your renewal has to be filed with USCIS on or before the expiration date printed on your current EAD card. Filing even one day after that date removes eligibility for the automatic extension.',
+  },
+  {
+    q: 'What documents prove the automatic extension to my employer?',
+    a: 'Your expired EAD card together with your Form I-797C receipt notice for the renewal — these two documents together satisfy Form I-9 requirements during the extension period.',
+  },
+  {
+    q: 'Can I still get an automatic extension if I file today?',
+    a: 'No. Filings made on or after October 30, 2025 don\'t qualify for the automatic extension regardless of how timely they are.',
+  },
+  {
+    q: 'What if my H4 EAD renewal gets a Request for Evidence (RFE)?',
+    a: 'An RFE doesn\'t end an existing automatic extension by itself, but a late or incomplete response can put your case at risk. Confirm specifics with an immigration attorney since RFE handling varies by case.',
+  },
+  {
+    q: 'Does the 540-day extension apply to other EAD categories like L-2 or asylum?',
+    a: 'The October 2025 rule change affected several categories differently. While H4 (c)(26) lost the 540-day extension, always check the exact USCIS guidance for your specific category as policies change frequently.',
+  },
+  {
+    q: 'Can I travel internationally while my automatic extension is active?',
+    a: 'International travel during an automatic EAD extension is highly discouraged. A pending I-765 does not grant you the right to re-enter the US, and your expired EAD card is not a valid entry document.',
+  },
+  {
+    q: 'What happens if my H-4 status expires before my EAD automatic extension?',
+    a: 'Your EAD automatic extension is tied to your underlying H-4 status. If your I-94 (H-4 status) expires, your work authorization immediately ends, regardless of the 540-day rule.',
+  },
+  {
+    q: 'How can I speed up my H4 EAD renewal?',
+    a: 'You can file your H4 EAD concurrently with an H-1B premium processing petition. Historically, USCIS has often processed the H-4 and H4 EAD alongside the H-1B in 15 days, though this is not legally guaranteed.',
+  },
+  {
+    q: 'If I lose my job, what happens to my H4 EAD?',
+    a: 'Unlike an H-1B, an H4 EAD is not tied to a specific employer. As long as the primary H-1B spouse maintains their status and your H-4 remains valid, you can remain unemployed or change jobs freely.',
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<Layout
+  title="H4 EAD Automatic Extension Checker — Is Your Renewal Eligible? [2026]"
+  description="Check if your H4 EAD renewal qualifies for the 540-day automatic extension after the October 30, 2025 USCIS rule change. Free instant checker."
+  breadcrumbs={breadcrumbs}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="mt-8 mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="inline-block bg-neutral-100 text-neutral-600 text-xs font-bold uppercase px-2.5 py-1 rounded-full">Updated June 27, 2026</span>
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-4">H4 EAD Automatic-Extension Eligibility Checker</h1>
+      <p class="text-lg text-neutral-600 leading-relaxed">
+        DHS eliminated the H4 EAD automatic extension benefit for renewals filed on or after October 30, 2025. Renewals filed before that date can still qualify for a 540 day extension if they were timely filed and in the same category. Check if your H4 EAD renewal October 2025 rule change eligibility is still intact below.
+      </p>
+    </div>
+
+    <!-- Checker Card -->
+    <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 sm:p-8 mb-8">
+      <div class="space-y-6">
+        <div>
+          <label class="block text-sm font-semibold text-neutral-900 mb-1" for="eadExpiry">
+            When does/did your current H4 EAD card expire?
+          </label>
+          <p class="text-xs text-neutral-500 mb-2">Check the 'Card Expires' date on your EAD (Form I-766).</p>
+          <input
+            id="eadExpiry"
+            type="date"
+            class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900 outline-none transition-shadow"
+          />
+        </div>
+        
+        <div>
+          <label class="block text-sm font-semibold text-neutral-900 mb-1" for="filingDate">
+            When did you file your H4 EAD renewal (Form I-765)?
+          </label>
+          <p class="text-xs text-neutral-500 mb-2">Use the date on your I-797C receipt notice.</p>
+          <input
+            id="filingDate"
+            type="date"
+            class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900 outline-none transition-shadow"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-neutral-900 mb-1">
+            Is this renewal in the same category as your current card?
+          </label>
+          <p class="text-xs text-neutral-500 mb-3">Most H4 spouse renewals are filed under category (c)(26).</p>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-2 text-sm font-medium cursor-pointer">
+              <input type="radio" name="sameCategory" value="yes" checked class="w-4 h-4 text-neutral-900 focus:ring-neutral-900 border-neutral-300" />
+              Yes
+            </label>
+            <label class="flex items-center gap-2 text-sm font-medium cursor-pointer">
+              <input type="radio" name="sameCategory" value="no" class="w-4 h-4 text-neutral-900 focus:ring-neutral-900 border-neutral-300" />
+              No
+            </label>
+          </div>
+        </div>
+
+        <button
+          id="checkBtn"
+          class="w-full py-3.5 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-800 focus:ring-4 focus:ring-neutral-200 active:scale-[0.98] transition-all text-sm"
+        >
+          Check Eligibility
+        </button>
+        <p class="text-xs text-center text-neutral-400 mt-3">We don't store the dates you enter — the calculation runs entirely in your browser.</p>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="result" class="hidden mb-10" role="alert" aria-live="polite"></div>
+
+    <FAQAccordion faqs={faqs} title="H4 EAD Automatic Extension FAQs" />
+    
+    <!-- Related Pages -->
+    <div class="mt-12 pt-8 border-t border-neutral-200">
+      <h3 class="text-base font-bold text-neutral-900 mb-4">Related Pages</h3>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/blog/h4-ead-automatic-extension-eliminated-2026" class="flex-1 bg-white border border-neutral-200 rounded-xl p-5 hover:border-neutral-900 hover:shadow-sm transition-all">
+          <h4 class="font-bold text-neutral-900 text-sm mb-1">H4 EAD Policy Change Full Guide</h4>
+          <p class="text-xs text-neutral-500">Read our complete breakdown of what the October 2025 rule change means.</p>
+        </a>
+        <a href="/uscis-processing-times/h4-ead" class="flex-1 bg-white border border-neutral-200 rounded-xl p-5 hover:border-neutral-900 hover:shadow-sm transition-all">
+          <h4 class="font-bold text-neutral-900 text-sm mb-1">H4 EAD Processing Times</h4>
+          <p class="text-xs text-neutral-500">Check current I-765 wait times to estimate when your new card will arrive.</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Global Disclaimer -->
+    <p class="text-xs text-neutral-400 mt-12 text-center max-w-2xl mx-auto leading-relaxed">
+      Not affiliated with USCIS, DHS, or the US State Department. This tool provides general estimates based on published rules and is not legal advice. Always consult a qualified immigration attorney about your specific case.
+    </p>
+
+  </div>
+</Layout>
+
+<script>
+  // Helper to parse "YYYY-MM-DD" as local date (ignoring timezone offsets)
+  function parseLocalDate(dateStr: string) {
+    if (!dateStr) return null;
+    const [y, m, d] = dateStr.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  const checkBtn = document.getElementById('checkBtn');
+  const resultEl = document.getElementById('result')!;
+
+  checkBtn?.addEventListener('click', () => {
+    const eadInput = (document.getElementById('eadExpiry') as HTMLInputElement).value;
+    const filingInput = (document.getElementById('filingDate') as HTMLInputElement).value;
+    const sameCat = (document.querySelector('input[name="sameCategory"]:checked') as HTMLInputElement).value === 'yes';
+
+    if (!eadInput || !filingInput) {
+      resultEl.className = 'p-5 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl text-sm text-amber-900 shadow-sm';
+      resultEl.innerHTML = '⚠️ Please enter both your EAD expiration date and your filing date.';
+      resultEl.classList.remove('hidden');
+      return;
+    }
+
+    const eadExpiry = parseLocalDate(eadInput)!;
+    const filingDate = parseLocalDate(filingInput)!;
+    const cutoff = new Date(2025, 9, 30); // Oct 30, 2025
+
+    let html = '';
+    let classList = '';
+
+    if (filingDate >= cutoff) {
+      classList = 'p-6 bg-red-50 border-l-4 border-red-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-red-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-red-900 mb-2">NOT ELIGIBLE</h3>
+            <p class="text-sm text-red-800 leading-relaxed">No automatic extension applies. Filed on/after Oct 30, 2025 — DHS eliminated this benefit regardless of timeliness. Must wait for approval + physical card before resuming/continuing work.</p>
+          </div>
+        </div>
+      `;
+    } else if (filingDate > eadExpiry) {
+      classList = 'p-6 bg-red-50 border-l-4 border-red-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-red-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-red-900 mb-2">NOT ELIGIBLE</h3>
+            <p class="text-sm text-red-800 leading-relaxed">Not eligible — renewal filed after the card's expiration date. Automatic extension requires a TIMELY filing (on or before the card's expiration), independent of the Oct 2025 cutoff.</p>
+          </div>
+        </div>
+      `;
+    } else if (!sameCat) {
+      classList = 'p-6 bg-red-50 border-l-4 border-red-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-red-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-red-900 mb-2">NOT ELIGIBLE</h3>
+            <p class="text-sm text-red-800 leading-relaxed">Not eligible — automatic extension only applies when the renewal is filed under the same EAD category as the expiring card.</p>
+          </div>
+        </div>
+      `;
+    } else {
+      const newExpiry = new Date(eadExpiry.getTime());
+      newExpiry.setDate(newExpiry.getDate() + 540);
+      const newExpiryStr = newExpiry.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      
+      classList = 'p-6 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-emerald-900 mb-2">ELIGIBLE</h3>
+            <p class="text-sm text-emerald-800 leading-relaxed">Eligible for up to a 540-day automatic extension, through <strong>${newExpiryStr}</strong>, or until USCIS decides the case — whichever is first. For Form I-9 purposes, show your employer: (1) the expired EAD card, and (2) the I-797C receipt notice for this renewal.</p>
+          </div>
+        </div>
+      `;
+    }
+
+    resultEl.className = classList;
+    resultEl.innerHTML = html;
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>

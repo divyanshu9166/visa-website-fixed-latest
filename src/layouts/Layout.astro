@@ -4,6 +4,7 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	breadcrumbs?: { label: string; href: string }[];
 	/** Set to "article" for blog posts; defaults to "website" */
 	ogType?: string;
 	/** ISO date string for article:published_time */
@@ -19,6 +20,7 @@ interface Props {
 const {
 	title,
 	description = "Track US Visa & Immigration Processing Times.",
+	breadcrumbs,
 	ogType = "website",
 	publishDate,
 	author,
@@ -28,15 +30,36 @@ const {
 
 const SITE = Astro.site?.toString().replace(/\/$/, '') || 'https://easyvisacheck.com';
 const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 1 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbs.map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: b.label,
+    item: b.href.startsWith('http') ? b.href : `https://easyvisacheck.com${b.href}`
+  }))
+} : null;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-TMKXXYBY5Y"></script>
+		<script is:inline>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-TMKXXYBY5Y');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link rel="canonical" href={canonicalURL} />
@@ -48,6 +71,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content={ogType} />
 		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={`${SITE}/logo-black.png`} />
 		<meta property="og:site_name" content="EasyVisaCheck" />
 		<meta property="og:locale" content="en_US" />
 
@@ -62,15 +86,12 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${SITE}/logo-black.png`} />
 
-		<!-- Google Analytics — TODO: replace G-XXXXXXXXXX with your real GA4 Measurement ID -->
-		<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', 'G-XXXXXXXXXX');
-		</script> -->
+		<!-- BreadcrumbList Schema (when breadcrumbs provided) -->
+		{breadcrumbSchema && (
+			<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+		)}
 
 		<!-- Google AdSense -->
 		<script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8372328308593046" crossorigin="anonymous" onerror="console.warn('Ad blocker detected or DNS resolution failed for AdSense');"></script>
@@ -78,11 +99,16 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 	<body class="bg-[#fafafa] text-neutral-900 font-sans antialiased min-h-screen flex flex-col selection:bg-neutral-200 selection:text-neutral-900">
 		<header class="bg-white/80 backdrop-blur-md border-b border-neutral-200 sticky top-0 z-10 transition-colors">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between items-center h-16">
-					<div class="flex-shrink-0 flex items-center">
-						<a href="/" class="text-xl font-bold tracking-tighter text-neutral-900 hover:text-neutral-600 transition-colors">EasyVisaCheck</a>
+				<div class="flex justify-between items-center py-3 min-h-[5rem]">
+					<!-- Logo -->
+					<div class="flex-shrink-0 flex items-center lg:w-48">
+						<a href="/" class="flex items-center gap-2 text-xl font-bold tracking-tighter text-neutral-900 hover:text-neutral-600 transition-colors">
+							<img src="/logo-black.png" alt="EVC Logo" class="h-20 w-auto object-contain scale-150 origin-left" />
+						</a>
 					</div>
-					<nav class="hidden md:flex space-x-1 items-center">
+
+					<!-- Centered Navigation -->
+					<nav class="hidden lg:flex flex-1 justify-center space-x-2 items-center">
 						<a href="/uscis-processing-times" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Processing</a>
 						<a href="/green-card/visa-bulletin" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Visa Bulletin</a>
 						<a href="/h1b" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">H1B DB</a>
@@ -90,12 +116,15 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 						<a href="/uscis-trackers" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Trackers</a>
 						<a href="/blog" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
 						<a href="/resources" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Resources</a>
-						<span class="text-neutral-200">|</span>
-						<a href="/login" id="nav-auth-link" class="text-neutral-900 px-3 py-1.5 rounded-lg text-sm font-semibold border border-neutral-200 hover:bg-neutral-50 transition-colors">Sign In</a>
 					</nav>
-					<button id="mobile-menu-btn" class="md:hidden p-2 text-neutral-700" aria-label="Open menu" aria-expanded="false">
-						<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-					</button>
+
+					<!-- Right Side: Auth & Mobile Menu -->
+					<div class="flex items-center justify-end lg:w-48 gap-4">
+						<a href="/login" id="nav-auth-link" class="hidden md:inline-flex text-neutral-900 px-3 py-1.5 rounded-lg text-sm font-semibold border border-neutral-200 hover:bg-neutral-50 transition-colors">Sign In</a>
+						<button id="mobile-menu-btn" class="lg:hidden p-2 text-neutral-700" aria-label="Open menu" aria-expanded="false">
+							<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+						</button>
+					</div>
 				</div>
 			</div>
 			<nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-200 bg-white">
@@ -143,6 +172,11 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 		</main>
 
 		<footer class="bg-[#fafafa] mt-12 py-12 border-t border-neutral-200">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+				<a href="/" class="inline-block">
+					<img src="/logo-black.png" alt="EVC Logo" class="h-20 w-auto object-contain scale-150 origin-left opacity-90 hover:opacity-100 transition-opacity" />
+				</a>
+			</div>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
 				<div>
 					<h4 class="text-xs font-bold text-neutral-900 uppercase tracking-wider mb-3">Processing Times</h4>
@@ -160,6 +194,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 					<ul class="space-y-2 text-sm text-neutral-500">
 						<li><a href="/green-card/visa-bulletin/india" class="hover:text-neutral-900">Visa Bulletin — India</a></li>
 						<li><a href="/green-card/visa-bulletin/china" class="hover:text-neutral-900">Visa Bulletin — China</a></li>
+						<li><a href="/green-card/marriage-gc-timeline" class="hover:text-neutral-900">Marriage GC Timeline</a></li>
 						<li><a href="/green-card/queue-calculator" class="hover:text-neutral-900">Queue Calculator</a></li>
 						<li><a href="/green-card/retrogression-tracker" class="hover:text-neutral-900">Retrogression Tracker</a></li>
 						<li><a href="/green-card/dos-predictions" class="hover:text-neutral-900">DOS Predictions</a></li>
@@ -171,6 +206,8 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE).href;
 					<ul class="space-y-2 text-sm text-neutral-500">
 						<li><a href="/h1b" class="hover:text-neutral-900">H1B Sponsor DB</a></li>
 						<li><a href="/tools/h1b-lottery-calculator" class="hover:text-neutral-900">Lottery Calculator</a></li>
+						<li><a href="/tools/cap-gap-calculator" class="hover:text-neutral-900">F-1 Cap-Gap Calculator</a></li>
+						<li><a href="/tools/h4-ead-extension-checker" class="hover:text-neutral-900">H4 EAD Checker</a></li>
 						<li><a href="/tools/receipt-number-decoder" class="hover:text-neutral-900">Receipt Decoder</a></li>
 						<li><a href="/tools/uscis-phone-calculator" class="hover:text-neutral-900">Phone Navigator</a></li>
 						<li><a href="/green-card/visa-bulletin/hidden-checker" class="hover:text-neutral-900">Hidden Bulletin</a></li>

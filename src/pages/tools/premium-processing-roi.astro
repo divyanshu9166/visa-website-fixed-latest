@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'Premium Processing ROI', href: '/tools/premium-processing-roi' },
+];
+
+const faqs = [
+  { q: "What is USCIS Premium Processing?", a: "Premium Processing is an optional service (Form I-907) where USCIS guarantees a decision or action on your case within 15 to 45 days, depending on the form, in exchange for an additional filing fee." },
+  { q: "How much is the premium processing fee in 2026?", a: "For most employment-based forms like H-1B (I-129) and I-140, the fee is $2,805. For student/dependent forms like the I-539, the fee is $1,965. For F-1 OPT/STEM EADs (I-765), the fee is $1,685." },
+  { q: "Does premium processing guarantee an approval?", a: "No. Premium processing only guarantees that USCIS will take an action on your case within the specified timeframe. That action could be an approval, a denial, a Request for Evidence (RFE), or a Notice of Intent to Deny (NOID)." },
+  { q: "What happens if USCIS doesn't meet the premium processing deadline?", a: "If USCIS fails to take action within the guaranteed 15-45 day window, they are required to refund your premium processing fee, but they will continue to process your case on an expedited basis." },
+  { q: "Does premium processing speed up my green card wait time?", a: "No. Premium processing only speeds up the adjudication of the I-140 petition itself. It does not change your priority date or speed up the Visa Bulletin backlog." },
+  { q: "Can I upgrade to premium processing after I've already filed?", a: "Yes. You can file Form I-907 to upgrade an already pending petition to premium processing at any time, provided the category is eligible." },
+  { q: "Who pays for the H-1B premium processing fee?", a: "By law, the employer must pay the base H-1B filing fees. However, the employee is allowed to pay the $2,805 premium processing fee if they are requesting it for their own personal reasons (e.g., upcoming personal travel)." },
+  { q: "Does an RFE pause the premium processing clock?", a: "Yes. If USCIS issues a Request for Evidence (RFE), the clock stops. Once USCIS receives your full response to the RFE, a new 15 or 45-day clock begins." },
+  { q: "Is premium processing available for marriage green cards?", a: "No. Currently, premium processing is not available for family-based I-130 petitions or the I-485 adjustment of status applications." },
+  { q: "Is it financially worth it to pay $2,805 for an H-1B transfer?", a: "It depends on your situation. If waiting for regular processing means you must go on unpaid leave for a month, the lost wages usually far exceed the $2,805 fee. You can use our ROI calculator to check your exact break-even point." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+---
+
+<Layout
+  title="Premium Processing ROI Calculator"
+  description="Calculate whether the $2,805 Premium Processing fee is worth it for your H-1B or I-140 based on your current salary and potential lost wages."
+  breadcrumbs={breadcrumbs}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="mt-8 mb-8 text-center md:text-left">
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">Premium Processing ROI Calculator</h1>
+      <p class="text-lg text-neutral-500 max-w-2xl">Is it worth paying $2,805 for Premium Processing? Calculate your break-even point based on your salary and how many days of work you might lose without it.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <!-- Calculator Form -->
+      <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 h-fit">
+        <h2 class="text-base font-bold text-neutral-900 mb-5">Salary Details</h2>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-neutral-700 mb-1.5" for="salary">
+              Annual Salary (USD)
+            </label>
+            <div class="relative">
+              <span class="absolute left-4 top-3 text-neutral-400 font-bold">$</span>
+              <input
+                id="salary"
+                type="number"
+                placeholder="120000"
+                class="w-full pl-8 pr-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-neutral-700 mb-1.5" for="fee">
+              Premium Processing Fee
+            </label>
+            <select id="fee" class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900">
+              <option value="2805">I-129 (H-1B, L-1, O-1) - $2,805</option>
+              <option value="2805">I-140 (EB-1, EB-2, EB-3) - $2,805</option>
+              <option value="1965">I-539 (H-4, L-2, F-1) - $1,965</option>
+              <option value="1685">I-765 (F-1 OPT/STEM) - $1,685</option>
+            </select>
+          </div>
+          <button
+            id="calculateBtn"
+            class="w-full py-3.5 mt-2 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 active:scale-[0.98] transition-all text-sm"
+          >
+            Calculate Break-Even
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Display -->
+      <div id="resultsContainer" class="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 flex flex-col justify-center text-center">
+        <div class="text-neutral-400 mb-3">
+          <svg class="w-12 h-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <p class="text-neutral-500 text-sm font-medium">Enter your salary to see how many days of work you need to save to make premium processing worth the cost.</p>
+      </div>
+    </div>
+    
+    <FAQAccordion faqs={faqs} title="Premium Processing FAQs" />
+  </div>
+</Layout>
+
+<script>
+  const calcBtn = document.getElementById('calculateBtn');
+  const resultsContainer = document.getElementById('resultsContainer')!;
+  
+  calcBtn?.addEventListener('click', () => {
+    const salary = parseFloat((document.getElementById('salary') as HTMLInputElement).value);
+    const fee = parseFloat((document.getElementById('fee') as HTMLSelectElement).value);
+
+    if (!salary || isNaN(salary)) {
+      resultsContainer.innerHTML = '<div class="text-red-600 font-medium">Please enter a valid salary.</div>';
+      return;
+    }
+
+    const dailyRate = salary / 260; // Approximate working days in a year
+    const daysToBreakEven = Math.ceil(fee / dailyRate);
+    
+    resultsContainer.className = "bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col text-left shadow-sm";
+    resultsContainer.innerHTML = `
+      <h3 class="text-lg font-bold text-neutral-900 mb-4">Your ROI Breakdown</h3>
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="bg-neutral-50 rounded-xl p-4 border border-neutral-200 text-center">
+          <div class="text-xs font-bold uppercase text-neutral-400 mb-1">Your Daily Rate</div>
+          <div class="font-bold text-neutral-900 text-xl">$${dailyRate.toFixed(2)}</div>
+        </div>
+        <div class="bg-neutral-50 rounded-xl p-4 border border-neutral-200 text-center">
+          <div class="text-xs font-bold uppercase text-neutral-400 mb-1">Premium Fee</div>
+          <div class="font-bold text-neutral-900 text-xl">$${fee.toLocaleString()}</div>
+        </div>
+      </div>
+      <div class="bg-emerald-50 rounded-xl p-5 border border-emerald-200 text-center mb-4">
+        <div class="text-sm font-bold uppercase text-emerald-600 mb-1">Break-Even Point</div>
+        <div class="font-black text-3xl text-emerald-800">${daysToBreakEven} Days</div>
+        <p class="text-xs text-emerald-700 mt-2">of unpaid leave avoided</p>
+      </div>
+      <p class="text-sm text-neutral-600 leading-relaxed">
+        If paying for Premium Processing saves you from missing at least <strong>${daysToBreakEven} days</strong> of work (due to a lapsed EAD or waiting abroad), the fee pays for itself. 
+      </p>
+    `;
+  });
+</script>

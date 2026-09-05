@@ -3,12 +3,17 @@ import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const tools = [
+  { href: '/tools/cap-gap-calculator', title: 'F-1 to H-1B Cap-Gap Calculator', desc: 'See exactly how cap-gap affects your F-1 status and work authorization, with a visual timeline.', badge: 'New', color: 'emerald' },
+  { href: '/tools/h4-ead-extension-checker', title: 'H4 EAD Extension Checker', desc: 'Check if your H4 EAD renewal qualifies for the automatic work-authorization extension.', badge: 'New', color: 'emerald' },
+  { href: '/tools/marriage-gc-fees', title: 'Marriage Green Card Fees', desc: 'Calculate exact total government filing fees for marriage-based adjustment of status under the latest rules.', badge: 'New', color: 'emerald' },
+  { href: '/tools/premium-processing-roi', title: 'Premium Processing ROI', desc: 'Calculate if paying the $2,805 premium processing fee is financially worth it for your salary.', badge: null, color: null },
   { href: '/tools/h1b-lottery-calculator', title: 'H1B Lottery Odds Calculator', desc: 'Calculate your FY2027 H1B selection probability under the wage-weighted lottery rule.', badge: 'Hot', color: 'red' },
   { href: '/tools/receipt-number-decoder', title: 'USCIS Receipt Number Decoder', desc: 'Decode your I-797 receipt number to find service center, fiscal year, and filing date.', badge: null, color: null },
   { href: '/tools/uscis-phone-calculator', title: 'USCIS Phone Navigator + N-400 Calculator', desc: 'Navigate the USCIS call center to a live agent. Plus: find your earliest N-400 filing date.', badge: null, color: null },
   { href: '/green-card/queue-calculator', title: 'Green Card Queue Calculator', desc: 'Estimate how many years until your priority date becomes current based on real USCIS inventory.', badge: 'New', color: 'emerald' },
   { href: '/green-card/retrogression-tracker', title: 'Retrogression Tracker', desc: 'View historical months when priority dates moved backwards and by how much.', badge: null, color: null },
   { href: '/green-card/visa-bulletin/hidden-checker', title: 'Hidden Visa Bulletin Checker', desc: "Check if the next month's Visa Bulletin has been published early on the DOS website.", badge: null, color: null },
+  { href: '/visa-stats/consulate-refusal-rates', title: 'B1/B2 Consulate Refusal Rates', desc: 'See which countries have the highest and lowest visitor visa denial rates.', badge: null, color: null },
 ];
 ---
 

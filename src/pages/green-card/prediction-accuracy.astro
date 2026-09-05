@@ -94,8 +94,8 @@ const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString
     <!-- Movement history table (actual data) -->
     <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden mb-8">
       <div class="px-6 py-4 border-b border-neutral-100">
-        <h2 class="text-base font-bold text-neutral-900">EB-2 India — Month-by-Month Movement History</h2>
-        <p class="text-xs text-neutral-400 mt-1">Actual Final Action Date movement from Visa Bulletin data.</p>
+        <h2 class="text-base font-bold text-neutral-900">EB-2 India — Month-by-Month Actual Movement History</h2>
+        <p class="text-xs text-neutral-400 mt-1">Actual Final Action Date movement from Visa Bulletin data. Use this to gauge the pace of forward movement for planning.</p>
       </div>
       {accuracyRows.length === 0 ? (
         <div class="p-8 text-center text-neutral-500 text-sm">Not enough historical data points yet. Accuracy tracking improves as we accumulate more months of bulletin data.</div>
@@ -105,7 +105,7 @@ const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString
             <thead>
               <tr class="bg-neutral-50 border-b border-neutral-100">
                 <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Bulletin Month</th>
-                <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Movement</th>
+                <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Movement Type</th>
                 <th class="text-right px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Days Moved</th>
               </tr>
             </thead>

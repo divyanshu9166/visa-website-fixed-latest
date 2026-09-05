@@ -11,7 +11,7 @@
     "build": "prisma generate --no-engine && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npm run build && npx wrangler pages deploy dist",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name easy-visa-check",
     "data:fetch": "node scripts/fetch-data.mjs",
     "db:generate": "prisma generate --no-engine",
     "db:push": "prisma db push",

@@ -1,12 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  { q: "How can I speak to a live person at USCIS?", a: "Call 1-800-375-5283. Say 'InfoPass' when asked what you are calling about. This often bypasses the automated system and puts you in the queue for a live agent." },
+  { q: "What is a Tier 1 vs Tier 2 USCIS officer?", a: "Tier 1 officers are customer service representatives who can only see what you see online. Tier 2 officers are actual immigration service officers who can see internal system notes and issue service requests." },
+  { q: "How do I get transferred to a Tier 2 officer?", a: "If your case is outside normal processing times or you have an emergency, ask the Tier 1 agent to escalate your call to a Tier 2 officer. You will usually receive a call back within 72 hours." },
+  { q: "What are the best days to call USCIS?", a: "Tuesday, Wednesday, and Thursday between 8:00 AM and 10:00 AM EST generally have the shortest hold times. Avoid Mondays and Fridays if possible." },
+  { q: "What is the 90-day early filing rule for naturalization?", a: "Applicants for US citizenship (Form N-400) can submit their application up to 90 days before reaching their 3-year or 5-year anniversary as a permanent resident." },
+  { q: "Does the 90-day rule apply to the physical presence requirement?", a: "No. The 90-day early filing rule only applies to the continuous residence requirement. You must fully meet the physical presence requirement (30 or 18 months) on the exact day you file." },
+  { q: "Can I file my N-400 exactly 90 days early?", a: "It is highly recommended to wait until at least 89 days before your anniversary date. Filing even one day too early (e.g. 91 days) will result in a denial and loss of the filing fee." },
+  { q: "What happens if I call USCIS without a receipt number?", a: "You can still speak to an agent for general questions or InfoPass appointments. Just press 2 at the receipt number prompt, or say 'I don't have it' to the automated voice." },
+  { q: "Will calling USCIS speed up my case?", a: "Generally, no. Unless your case is officially 'outside normal processing times' or you qualify for an expedite request (like a medical emergency), calling will not move your case faster." },
+  { q: "How do I make an InfoPass appointment?", a: "InfoPass appointments cannot be scheduled online anymore. You must call the USCIS Contact Center and request an appointment for an emergency advance parole or ADIT stamp." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
 ---
 
 <Layout
   title="USCIS Phone Navigator & N-400 Early Filing Calculator — Free Tools"
   description="Navigate the USCIS call center menu to reach a live agent fast. Plus: calculate your exact N-400 earliest filing date based on your green card or continuous residence date."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Tools', href: '/tools' }, { label: 'USCIS Phone & N-400 Calculator' }]} />
 
@@ -136,6 +161,8 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
         ))}
       </div>
     </div>
+
+    <FAQAccordion faqs={faqs} title="USCIS Phone & N-400 FAQs" />
   </div>
 </Layout>
 

@@ -1,6 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  { q: "What is a USCIS receipt number?", a: "A USCIS receipt number is a unique 13-character identifier assigned to every application or petition received by USCIS. It is used to track cases and check processing times." },
+  { q: "How do I find my receipt number?", a: "Your receipt number is printed on your Form I-797C, Notice of Action. It usually starts with three letters like EAC, WAC, LIN, or SRC." },
+  { q: "What does the IOE receipt number mean?", a: "IOE stands for USCIS Electronic Immigration System. It means your case is being processed electronically, either because you filed online or USCIS scanned your paper application into their digital system." },
+  { q: "Can I use my receipt number to check my case status?", a: "Yes. You can enter your 13-character receipt number in the USCIS Case Status Online tool to see the current status of your application." },
+  { q: "What is the difference between EAC and VSC?", a: "They are the same. EAC originally stood for Eastern Adjudication Center, which was later renamed the Vermont Service Center (VSC). USCIS still uses the EAC code for Vermont." },
+  { q: "What is the difference between WAC and CSC?", a: "They are the same. WAC originally stood for Western Adjudication Center, which was later renamed the California Service Center (CSC). USCIS still uses the WAC code." },
+  { q: "What do the digits in my receipt number mean?", a: "The first two digits represent the fiscal year your case was received. The next three digits represent the computer workday (Day 001 is Oct 1). The final five digits are a unique case sequence number." },
+  { q: "Why doesn't my receipt number follow the standard format?", a: "Some older receipt numbers, or receipt numbers for specific programs like DACA (often starting with IOE or PSC), may follow slightly different numbering conventions for the sequence portion." },
+  { q: "Does the service center affect my processing time?", a: "Yes. Processing times vary significantly between service centers. You must check the processing time for the specific service center that is handling your case." },
+  { q: "What if my receipt number starts with MSC?", a: "MSC stands for Missouri Service Center, which was the original name of the National Benefits Center (NBC). Your case is being processed by the NBC, which handles many family-based and adjustment of status applications." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
 
 const centers = [
   { code: 'EAC', name: 'Vermont Service Center', location: 'St. Albans, Vermont', handles: ['H-1B (cap-exempt)', 'I-140', 'I-485', 'I-765', 'I-131'] },
@@ -10,7 +34,8 @@ const centers = [
   { code: 'NBC', name: 'National Benefits Center', location: 'Lee\'s Summit, Missouri', handles: ['N-400', 'I-485 (interview)'] },
   { code: 'MSC', name: 'Missouri (legacy NBC)', location: 'Lee\'s Summit, Missouri', handles: ['Various legacy cases'] },
   { code: 'IOE', name: 'USCIS Electronic Immigration System', location: 'Online Filing Only', handles: ['Online-filed petitions'] },
-  { code: 'YSC', name: 'Potomac Service Center', location: 'Arlington, Virginia', handles: ['DACA', 'T/U visa', 'Special programs'] },
+  { code: 'PSC', name: 'Potomac Service Center', location: 'Arlington, Virginia', handles: ['DACA', 'T/U visa', 'Special programs'] },
+  { code: 'YSC', name: 'Potomac Service Center (legacy code)', location: 'Arlington, Virginia', handles: ['Legacy DACA, T/U visa cases'] },
 ];
 ---
 
@@ -18,6 +43,7 @@ const centers = [
   title="USCIS Receipt Number Decoder — What Your Receipt Number Means"
   description="Decode your USCIS receipt number instantly. Understand which service center processed your case, when it was filed, and what form type it is. Free tool."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Tools', href: '/tools' }, { label: 'Receipt Number Decoder' }]} />
 
@@ -134,6 +160,8 @@ const centers = [
         </table>
       </div>
     </div>
+    
+    <FAQAccordion faqs={faqs} title="USCIS Receipt Number FAQs" />
   </div>
 </Layout>
 
@@ -146,12 +174,14 @@ const centers = [
     NBC: { name: 'National Benefits Center', location: "Lee's Summit, Missouri", handles: ['N-400', 'I-485 (interview)'] },
     MSC: { name: 'Missouri Legacy Center', location: "Lee's Summit, Missouri", handles: ['Various legacy cases'] },
     IOE: { name: 'Electronic Immigration System', location: 'Online Filing Only', handles: ['Online-filed petitions'] },
-    YSC: { name: 'Potomac Service Center', location: 'Arlington, Virginia', handles: ['DACA', 'T/U visa', 'Special programs'] },
+    YSC: { name: 'Potomac Service Center (legacy code)', location: 'Arlington, Virginia', handles: ['Legacy DACA, T/U visa cases'] },
+    PSC: { name: 'Potomac Service Center', location: 'Arlington, Virginia', handles: ['DACA', 'T/U visa', 'Special programs'] },
     CSC: { name: 'California Service Center (alt)', location: 'Laguna Niguel, California', handles: ['H-1B', 'L-1'] },
-    NSC: { name: 'Nebraska Service Center (alt)', location: 'Lincoln, Nebraska', handles: ['Various'] },
+    NSC: { name: 'Nebraska Service Center (legacy alt)', location: 'Lincoln, Nebraska', handles: ['Legacy cases — LIN is the active code'] },
     TSC: { name: 'Texas Service Center (alt)', location: 'Irving, Texas', handles: ['Various'] },
     VSC: { name: 'Vermont Service Center (alt)', location: 'St. Albans, Vermont', handles: ['Various'] },
   };
+
 
   function fiscalYearDayToDate(fy: number, day: number): string {
     // FY starts Oct 1 of prior calendar year
@@ -190,7 +220,10 @@ const centers = [
     document.getElementById('resultCenter')!.textContent = center.name;
     document.getElementById('resultLocation')!.textContent = center.location;
     document.getElementById('resultYear')!.textContent = `FY${fy} (Oct ${fy - 1} – Sep ${fy})`;
-    document.getElementById('resultDay')!.textContent = `Day ${day} of ${365}`;
+    // Calculate actual days in this fiscal year (accounting for leap years)
+    const fyStartYear = fy - 1; // FY starts Oct 1 of prior calendar year
+    const daysInFY = (new Date(Date.UTC(fy, 8, 30)).getTime() - new Date(Date.UTC(fyStartYear, 9, 1)).getTime()) / (1000*60*60*24) + 1;
+    document.getElementById('resultDay')!.textContent = `Day ${day} of ${daysInFY}`;
     document.getElementById('resultCalDate')!.textContent = `≈ ${fiscalYearDayToDate(fy, day)}`;
     document.getElementById('resultSeq')!.textContent = `#${parseInt(seq).toLocaleString()} at this center on that day`;
     document.getElementById('resultHandles')!.innerHTML = `<strong>${centerCode} commonly processes:</strong> ${center.handles.join(' · ')}`;

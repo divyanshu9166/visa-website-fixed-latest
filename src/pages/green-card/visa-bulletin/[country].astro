@@ -67,9 +67,15 @@ const jsonLd = {
   description: `Employment-based Visa Bulletin Final Action Dates and Dates for Filing history for applicants born in ${countryMeta.name}.`,
   creator: { "@type": "Organization", name: "U.S. Department of State" },
 };
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Visa Bulletin', href: '/green-card/visa-bulletin' },
+  { label: countryMeta.name, href: `/green-card/visa-bulletin/${countryMeta.slug}` },
+];
 ---
 
-<Layout title={`Green Card Visa Bulletin — ${countryMeta.name} [${formattedMonth}]`} description={`Track Visa Bulletin Final Action Dates and Dates for Filing for ${countryMeta.name}-born applicants across EB-1 through EB-5, with 24-month movement charts.`}>
+<Layout title={`Green Card Visa Bulletin — ${countryMeta.name} [${formattedMonth}]`} description={`Track Visa Bulletin Final Action Dates and Dates for Filing for ${countryMeta.name}-born applicants across EB-1 through EB-5, with 24-month movement charts.`} breadcrumbs={breadcrumbs}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

@@ -29,6 +29,15 @@ const allCases = f.servicecenters.flatMap((sc) => sc.cases);
 const minOfMin = Math.min(...allCases.map((c) => c.minMonths));
 const maxOfMax = Math.max(...allCases.map((c) => c.maxMonths));
 
+// Noindex pages still on seed data to protect YMYL accuracy trust signal
+const shouldNoIndex = f.dataSource === 'seed';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'USCIS Processing Times', href: '/uscis-processing-times' },
+  { label: f.visaLabel, href: `/uscis-processing-times/${f.visaSlug}` },
+];
+
 // JSON-LD: WebApplication (for the predictor tool) + Dataset
 const jsonLd = [
   {
@@ -51,7 +60,7 @@ const jsonLd = [
 ];
 ---
 
-<Layout title={f.seoTitle} description={f.seoDesc}>
+<Layout title={f.seoTitle} description={f.seoDesc} breadcrumbs={breadcrumbs} noindex={shouldNoIndex}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

@@ -1,12 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  { q: "What is the wage-weighted H1B lottery?", a: "Under the DHS proposed rule for FY2027, H1B registrations are assigned a 'weight' based on the prevailing wage level offered. Level IV (highest wages) registrations count 8× more than Level I registrations in the selection pool." },
+  { q: "When does the FY2027 H1B registration open?", a: "H1B cap registration for FY2027 (starting October 1, 2026) typically opens in early March and runs for about 2 weeks. USCIS announces exact dates in February." },
+  { q: "Does the rule change my $250 registration fee?", a: "No. The $250 per-beneficiary registration fee applies regardless of wage level. The fee is nonrefundable even if not selected." },
+  { q: "What if the wage-weighted rule is overturned?", a: "If overturned, the lottery would revert to a pure random draw (FY2026 model) where all registrations have equal probability." },
+  { q: "Can I have multiple registrations?", a: "Each beneficiary (worker) can only have one registration per employer. Multiple employers can register the same beneficiary, but USCIS selects the beneficiary — not duplicate registrations." },
+  { q: "Does a Master's degree improve my odds?", a: "Yes. The Master's cap provides an additional 20,000 slots. Those who are not selected in the regular cap are put into a second lottery for the Master's cap, effectively giving them two chances." },
+  { q: "What happens if I'm not selected?", a: "If you are not selected, your status will remain 'Submitted' in the USCIS portal. Sometimes USCIS runs a second or third lottery later in the year if the initial cap is not met." },
+  { q: "Can my employer artificially inflate my wage level?", a: "No. The wage level must accurately reflect the job duties, requirements, and location on the Labor Condition Application (LCA). Falsifying wage levels is fraud." },
+  { q: "Is the wage-weighted lottery finalized?", a: "As of mid-2026, it is a proposed rule by DHS. Always check the latest USCIS announcements before the March registration period." },
+  { q: "How do I know what my wage level is?", a: "Your wage level is determined by the Department of Labor's OES prevailing wage data for your specific occupation and geographic area. Your employer or attorney will determine this when filing the LCA." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
 ---
 
 <Layout
   title="H1B Lottery Odds Calculator FY2027 — Wage-Weighted Selection"
   description="Calculate your H1B lottery selection odds for FY2027 under the new DHS wage-level-weighted registration rule. Enter your wage level and see your chances."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Tools', href: '/tools' }, { label: 'H1B Lottery Calculator' }]} />
 
@@ -103,22 +128,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
       </div>
     </div>
 
-    <!-- FAQ -->
-    <div class="space-y-4 mb-8">
-      <h2 class="text-xl font-bold text-neutral-900">Frequently Asked Questions</h2>
-      {[
-        { q: "What is the wage-weighted H1B lottery?", a: "Under the DHS December 2025 proposed rule, H1B registrations are assigned a 'weight' based on the prevailing wage level offered. Level IV (highest wages) registrations count 8× more than Level I registrations in the selection pool, dramatically improving odds for employers offering higher salaries." },
-        { q: "When does the FY2027 H1B registration open?", a: "H1B cap registration for FY2027 (starting October 1, 2026) typically opens in early March and runs for about 2 weeks. USCIS announces exact dates in February." },
-        { q: "Does the rule change my $250 registration fee?", a: "No. The $250 per-beneficiary registration fee applies regardless of wage level. The fee is nonrefundable even if not selected." },
-        { q: "What if the wage-weighted rule is overturned?", a: "The DHS rule is still proposed/pending as of mid-2026. If overturned, the lottery would revert to a pure random draw (FY2026 model) where all registrations have equal probability ~13–15%." },
-        { q: "Can I have multiple registrations?", a: "Each beneficiary (worker) can only have one registration per employer. Multiple employers can register the same beneficiary, each registration being separate, but USCIS selects the beneficiary — not duplicate registrations for the same person at the same employer." },
-      ].map(faq => (
-        <div class="bg-white border border-neutral-200 rounded-xl p-5">
-          <h3 class="text-sm font-semibold text-neutral-900 mb-2">{faq.q}</h3>
-          <p class="text-sm text-neutral-500">{faq.a}</p>
-        </div>
-      ))}
-    </div>
+    <FAQAccordion faqs={faqs} title="H1B Lottery FAQs" />
 
     <!-- Disclaimer -->
     <p class="text-xs text-neutral-400 p-4 bg-neutral-50 rounded-xl border border-neutral-200">

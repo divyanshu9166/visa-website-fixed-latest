@@ -1,0 +1,318 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'F-1 OPT → H-1B Cap-Gap Calculator', href: '/tools/cap-gap-calculator' },
+];
+
+const faqs = [
+  {
+    q: 'What is cap-gap?',
+    a: 'Cap-gap is an automatic extension of F-1 status (and in some cases, work authorization) for students on OPT or STEM OPT whose employer filed a cap-subject H-1B petition requesting an October 1 start date.',
+  },
+  {
+    q: 'Does cap-gap extend my work authorization or just my F-1 status?',
+    a: 'It always extends F-1 status if the petition is timely and cap-subject. It only extends work authorization if your OPT/STEM OPT EAD hadn\'t already expired at the time the petition was filed — if your EAD had already lapsed, you must stop working even though your F-1 status continues.',
+  },
+  {
+    q: 'What happens if my H-1B petition is denied?',
+    a: 'Cap-gap protection ends immediately as of the denial, revocation, or withdrawal decision — even if that happens before October 1 or before your grace period would otherwise end.',
+  },
+  {
+    q: 'What if I missed the 60-day grace period?',
+    a: 'If your H-1B petition wasn\'t filed within 60 days of your OPT/STEM OPT EAD expiring, cap-gap doesn\'t apply and you may already be out of status. Contact your school\'s international student office and an immigration attorney immediately.',
+  },
+  {
+    q: 'Does cap-gap apply if my employer is cap-exempt?',
+    a: 'Not in the same way. Cap-exempt employers (like universities and certain nonprofits) aren\'t subject to the October 1 start date limit, so the standard cap-gap framework generally doesn\'t apply the same way as it does for cap-subject employers.',
+  },
+  {
+    q: 'Can I travel internationally during the cap-gap period?',
+    a: 'International travel during the cap-gap period is extremely risky. Because your EAD card is usually expired, you may not have the proper documents to re-enter the US. Always consult your DSO and immigration attorney before traveling.',
+  },
+  {
+    q: 'How do I prove my work authorization to my employer during cap-gap?',
+    a: 'You must provide your employer with your expired OPT EAD card and a new I-20 from your DSO that explicitly shows the cap-gap extension has been applied to your SEVIS record.',
+  },
+  {
+    q: 'Does the cap-gap extension cost extra money?',
+    a: 'No. The cap-gap extension is an automatic regulatory benefit and does not require an additional filing fee or a separate application to USCIS, though your DSO must update your SEVIS record.',
+  },
+  {
+    q: 'What if my H-1B is selected in the lottery but not filed until July?',
+    a: 'The cap-gap protection only begins on the date the H-1B petition is actually filed with USCIS (the receipt date). If your EAD expires in June and you wait until July to file, you will have a gap in work authorization.',
+  },
+  {
+    q: 'Does cap-gap apply if I am doing consular processing?',
+    a: 'No. Cap-gap only applies if the H-1B petition is filed as a Change of Status (COS). If your employer files for consular processing, you must leave the US before your grace period ends and re-enter with an H-1B visa stamp.',
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<Layout
+  title="F-1 OPT to H-1B Cap-Gap Calculator — Check Your Status & Work Authorization [2026]"
+  description="Calculate exactly how cap-gap affects your F-1 status and work authorization between OPT ending and your H-1B start date on October 1. Free instant calculator with timeline."
+  breadcrumbs={breadcrumbs}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="mt-8 mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="inline-block bg-neutral-100 text-neutral-600 text-xs font-bold uppercase px-2.5 py-1 rounded-full">Updated June 27, 2026</span>
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-4">F-1 OPT → H-1B Cap-Gap Calculator</h1>
+      <p class="text-lg text-neutral-600 leading-relaxed">
+        For F-1 students on OPT or STEM OPT with a cap-subject H-1B petition filed as a Change of Status with an October 1 start date, USCIS automatically extends F-1 status while the petition is pending. However, whether your work authorization also continues depends on exact timing. Use this cap-gap calculator to check your status.
+      </p>
+    </div>
+
+    <!-- Calculator Card -->
+    <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 sm:p-8 mb-8">
+      <div class="space-y-6">
+        <div>
+          <label class="block text-sm font-semibold text-neutral-900 mb-1" for="eadEnd">
+            When does/did your OPT or STEM OPT EAD expire?
+          </label>
+          <p class="text-xs text-neutral-500 mb-2">The 'Card Expires' date on your EAD (Form I-766).</p>
+          <input
+            id="eadEnd"
+            type="date"
+            class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900 outline-none transition-shadow"
+          />
+        </div>
+        
+        <div>
+          <label class="block text-sm font-semibold text-neutral-900 mb-1" for="filingDate">
+            When was your H-1B petition (Form I-129) filed?
+          </label>
+          <p class="text-xs text-neutral-500 mb-2">Use the date on your I-797 receipt notice.</p>
+          <input
+            id="filingDate"
+            type="date"
+            class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900 focus:border-neutral-900 outline-none transition-shadow"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-neutral-900 mb-1">
+            Is this a cap-subject petition requesting Change of Status with an Oct 1 start date?
+          </label>
+          <p class="text-xs text-neutral-500 mb-3">If your employer is cap-exempt, or you're doing consular processing, select No.</p>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-2 text-sm font-medium cursor-pointer">
+              <input type="radio" name="capSubjectCOS" value="yes" checked class="w-4 h-4 text-neutral-900 focus:ring-neutral-900 border-neutral-300" />
+              Yes
+            </label>
+            <label class="flex items-center gap-2 text-sm font-medium cursor-pointer">
+              <input type="radio" name="capSubjectCOS" value="no" class="w-4 h-4 text-neutral-900 focus:ring-neutral-900 border-neutral-300" />
+              No
+            </label>
+          </div>
+        </div>
+
+        <button
+          id="checkBtn"
+          class="w-full py-3.5 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-800 focus:ring-4 focus:ring-neutral-200 active:scale-[0.98] transition-all text-sm"
+        >
+          Check Cap-Gap Status
+        </button>
+        <p class="text-xs text-center text-neutral-400 mt-3">We don't store the dates you enter — the calculation runs entirely in your browser.</p>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="result" class="hidden mb-10" role="alert" aria-live="polite"></div>
+
+    <FAQAccordion faqs={faqs} title="Cap-Gap Extension FAQs" />
+    
+    <!-- Related Pages -->
+    <div class="mt-12 pt-8 border-t border-neutral-200">
+      <h3 class="text-base font-bold text-neutral-900 mb-4">Related Pages</h3>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/blog/stem-opt-cap-gap-rules-f1-h1b-2026" class="flex-1 bg-white border border-neutral-200 rounded-xl p-5 hover:border-neutral-900 hover:shadow-sm transition-all">
+          <h4 class="font-bold text-neutral-900 text-sm mb-1">STEM OPT Extension and Cap-Gap Rules</h4>
+          <p class="text-xs text-neutral-500">Read our complete 2026 guide for F-1 students transitioning to H-1B.</p>
+        </a>
+        <a href="/tools/h1b-lottery-calculator" class="flex-1 bg-white border border-neutral-200 rounded-xl p-5 hover:border-neutral-900 hover:shadow-sm transition-all">
+          <h4 class="font-bold text-neutral-900 text-sm mb-1">H-1B Lottery Calculator</h4>
+          <p class="text-xs text-neutral-500">Calculate your FY2027 selection probability under the wage-weighted lottery.</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Global Disclaimer -->
+    <p class="text-xs text-neutral-400 mt-12 text-center max-w-2xl mx-auto leading-relaxed">
+      Not affiliated with USCIS, DHS, or the US State Department. This tool provides general estimates based on published rules and is not legal advice. Always consult a qualified immigration attorney about your specific case.
+    </p>
+
+  </div>
+</Layout>
+
+<script>
+  function parseLocalDate(dateStr: string) {
+    if (!dateStr) return null;
+    const [y, m, d] = dateStr.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+  
+  function fmt(d: Date) {
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  const checkBtn = document.getElementById('checkBtn');
+  const resultEl = document.getElementById('result')!;
+
+  checkBtn?.addEventListener('click', () => {
+    const eadInput = (document.getElementById('eadEnd') as HTMLInputElement).value;
+    const filingInput = (document.getElementById('filingDate') as HTMLInputElement).value;
+    const capSub = (document.querySelector('input[name="capSubjectCOS"]:checked') as HTMLInputElement).value === 'yes';
+
+    if (!eadInput || !filingInput) {
+      resultEl.className = 'p-5 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl text-sm text-amber-900 shadow-sm';
+      resultEl.innerHTML = '⚠️ Please enter both your OPT expiration date and your H-1B filing date.';
+      resultEl.classList.remove('hidden');
+      return;
+    }
+
+    const eadEnd = parseLocalDate(eadInput)!;
+    const filingDate = parseLocalDate(filingInput)!;
+    
+    const graceEnd = new Date(eadEnd.getTime());
+    graceEnd.setDate(graceEnd.getDate() + 60);
+    
+    // oct1 logic: Oct 1 of filing year, or next year if filing is already past Oct 1
+    let octYear = filingDate.getFullYear();
+    const filingOct1 = new Date(octYear, 9, 1);
+    if (filingDate > filingOct1) {
+      octYear++;
+    }
+    const oct1 = new Date(octYear, 9, 1);
+
+    let html = '';
+    let classList = '';
+    let renderTimeline = true;
+
+    if (!capSub) {
+      classList = 'p-6 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-amber-900 mb-2">CAUTION</h3>
+            <p class="text-sm text-amber-800 leading-relaxed">Standard cap-gap rules don't apply to your case — these extensions are specifically for cap-subject petitions filed as a Change of Status with an Oct 1 start date. Cap-exempt employers have no Oct 1 limit, so cap-gap may not be needed at all. Confirm with your DSO.</p>
+          </div>
+        </div>
+      `;
+      renderTimeline = false;
+    } else if (filingDate <= eadEnd) {
+      classList = 'p-6 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-emerald-900 mb-2">FULL CAP-GAP</h3>
+            <p class="text-sm text-emerald-800 leading-relaxed">Full cap-gap applies — both F-1 status and work authorization are automatically extended through September 30, ${oct1.getFullYear()}, or until a final decision on the petition, whichever is first. No gap in employment.</p>
+          </div>
+        </div>
+      `;
+    } else if (filingDate <= graceEnd) {
+      classList = 'p-6 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-amber-900 mb-2">PARTIAL CAP-GAP</h3>
+            <p class="text-sm text-amber-800 leading-relaxed">Partial cap-gap — F-1 status is extended, but work authorization is NOT, because the EAD had already expired before the petition was filed. Must stop working as of ${fmt(eadEnd)} and cannot resume until the H-1B start date.</p>
+          </div>
+        </div>
+      `;
+    } else {
+      classList = 'p-6 bg-red-50 border-l-4 border-red-500 rounded-r-xl shadow-sm';
+      html = `
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-red-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div>
+            <h3 class="text-lg font-bold text-red-900 mb-2">NOT ELIGIBLE</h3>
+            <p class="text-sm text-red-800 leading-relaxed">Cap-gap does not apply — the petition was filed after the 60-day grace period closed on ${fmt(graceEnd)}. May already be out of status — contact the DSO and an immigration attorney immediately.</p>
+          </div>
+        </div>
+      `;
+    }
+
+    if (capSub) {
+      html += `
+        <div class="mt-4 pt-4 border-t border-black/10">
+          <p class="text-xs text-neutral-600 font-medium">If the H-1B petition is denied, revoked, or withdrawn at any point, cap-gap protection ends immediately as of that decision — even before the dates above.</p>
+        </div>
+      `;
+    }
+
+    if (renderTimeline) {
+      // Create SVG timeline
+      // Total span roughly from eadEnd - 60 days to oct1 + 30 days
+      const totalSpan = oct1.getTime() - eadEnd.getTime();
+      const pctGrace = Math.min(100, Math.max(0, ((graceEnd.getTime() - eadEnd.getTime()) / totalSpan) * 100));
+      const pctOct = 100;
+      let filePct = ((filingDate.getTime() - eadEnd.getTime()) / totalSpan) * 100;
+      filePct = Math.max(-10, Math.min(100, filePct));
+
+      const svgHtml = `
+        <div class="mt-8 bg-white p-5 rounded-xl border border-neutral-200">
+          <h4 class="text-sm font-bold text-neutral-900 mb-6">Cap-Gap Timeline</h4>
+          <div class="relative w-full h-12">
+            <!-- Background track (Gray) -->
+            <div class="absolute inset-x-0 top-3 h-2 bg-neutral-200 rounded-full"></div>
+            <!-- Work authorized track (Green) -->
+            <div class="absolute left-0 top-3 h-2 bg-emerald-500 rounded-l-full" style="width: 20%;"></div>
+            <!-- Grace period track (Amber) -->
+            <div class="absolute left-[20%] top-3 h-2 bg-amber-400" style="width: ${(pctGrace * 0.8)}%;"></div>
+            
+            <!-- EAD End Tick -->
+            <div class="absolute top-2 w-0.5 h-4 bg-neutral-800" style="left: 20%;">
+              <span class="absolute -left-10 top-6 w-20 text-center text-[10px] font-bold text-neutral-600">EAD Expires<br/>${fmt(eadEnd)}</span>
+            </div>
+            
+            <!-- Grace End Tick -->
+            <div class="absolute top-2 w-0.5 h-4 bg-neutral-800" style="left: ${20 + (pctGrace * 0.8)}%;">
+              <span class="absolute -left-10 top-6 w-20 text-center text-[10px] font-bold text-neutral-600">Grace Period<br/>Ends</span>
+            </div>
+
+            <!-- Oct 1 Tick -->
+            <div class="absolute top-2 w-0.5 h-4 bg-neutral-800" style="left: 100%;">
+              <span class="absolute -left-12 top-6 w-24 text-center text-[10px] font-bold text-neutral-900">Oct 1 Start</span>
+            </div>
+
+            <!-- Filing Date Marker (Blue Dot) -->
+            <div class="absolute top-1 w-4 h-4 bg-blue-600 border-2 border-white rounded-full shadow-sm z-10" style="left: calc(${20 + (filePct * 0.8)}% - 8px);">
+              <span class="absolute -left-12 -top-6 w-24 text-center text-xs font-bold text-blue-700">H-1B Filed</span>
+            </div>
+          </div>
+        </div>
+      `;
+      html += svgHtml;
+    }
+
+    resultEl.className = classList;
+    resultEl.innerHTML = html;
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>

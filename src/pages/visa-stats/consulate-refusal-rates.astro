@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Visa Stats', href: '/visa-stats' },
+  { label: 'Consulate Refusal Rates', href: '/visa-stats/consulate-refusal-rates' },
+];
+
+const faqs = [
+  { q: "What is a 214(b) visa refusal?", a: "Section 214(b) of the Immigration and Nationality Act requires consular officers to assume every applicant intends to immigrate to the US permanently. It is the applicant's burden to prove they have strong enough ties to their home country to ensure their return." },
+  { q: "Can I appeal a B1/B2 visa denial?", a: "No, there is no formal appeal process for a 214(b) denial. However, you can reapply at any time. You will need to pay the application fee again and schedule a new interview." },
+  { q: "How long should I wait before reapplying after a denial?", a: "Unless your circumstances have changed significantly (e.g., a new steady job, marriage, property ownership), applying immediately after a denial usually results in another denial." },
+  { q: "Which country has the highest US visa refusal rate?", a: "Historically, countries like Nigeria, Cuba, and Afghanistan have some of the highest B1/B2 refusal rates, often exceeding 50-60% due to historical overstay data." },
+  { q: "Does an invitation letter guarantee a visa approval?", a: "No. An invitation letter from a US citizen or resident is helpful to explain the purpose of your trip, but it does not overcome 214(b). You must still prove your own strong ties to your home country." },
+  { q: "Do they check my bank balance during the interview?", a: "The officer may ask to see your bank statements to verify you can afford the trip, but strong financial standing alone is not enough to overcome the presumption of immigrant intent." },
+  { q: "What does 'Adjusted Refusal Rate' mean?", a: "The State Department's Adjusted Refusal Rate subtracts cases where a visa was initially refused (usually under 221(g) for missing documents) but eventually issued within the same fiscal year." },
+  { q: "Are refusal rates the same for student (F-1) visas?", a: "No. The refusal rates for F-1 student visas are calculated separately and are generally based on the legitimacy of the school and the student's academic intent and financial ability." },
+  { q: "Does a previous denial affect my future applications?", a: "A previous denial is visible to the consular officer in future interviews. While it doesn't automatically mean you will be denied again, you will be expected to explain what has changed since your last application." },
+  { q: "Why are Canadian refusal rates surprisingly high?", a: "Most Canadian citizens don't need a B1/B2 visa to enter the US. The Canadians who DO apply for B visas are often those who are otherwise ineligible to enter visa-free (e.g., due to past criminal records), which drastically skews the refusal rate higher." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const bVisaRates = [
+  { country: 'India', rate: 11.0 },
+  { country: 'China', rate: 26.6 },
+  { country: 'Mexico', rate: 14.8 },
+  { country: 'Philippines', rate: 22.1 },
+  { country: 'Nigeria', rate: 58.7 },
+  { country: 'Colombia', rate: 37.7 },
+  { country: 'Brazil', rate: 13.9 },
+  { country: 'Vietnam', rate: 19.3 },
+  { country: 'Pakistan', rate: 42.6 },
+  { country: 'Canada', rate: 36.1 }, // Surprising stat often searched
+];
+
+// Sort highest to lowest
+bVisaRates.sort((a, b) => b.rate - a.rate);
+---
+
+<Layout
+  title="US Visa Refusal Rates by Country (B1/B2 Visitor Visas)"
+  description="Check the official US State Department B1/B2 tourist visa refusal rates by country. Find out how likely your visitor visa is to be denied."
+  breadcrumbs={breadcrumbs}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="mt-8 mb-8 text-center md:text-left">
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">B1/B2 Visa Refusal Rates by Country</h1>
+      <p class="text-lg text-neutral-500 max-w-2xl">Based on official US Department of State data (Adjusted Refusal Rates for B-Visas). A high refusal rate generally indicates strict scrutiny on 214(b) non-immigrant intent.</p>
+    </div>
+
+    <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden mb-8">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-neutral-200">
+          <thead class="bg-neutral-50">
+            <tr>
+              <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-neutral-500 uppercase tracking-wider">Country of Nationality</th>
+              <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-neutral-500 uppercase tracking-wider">Refusal Rate (%)</th>
+              <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-neutral-500 uppercase tracking-wider">Status</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-neutral-200">
+            {bVisaRates.map((data) => (
+              <tr class="hover:bg-neutral-50 transition-colors">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-neutral-900">{data.country}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <span class="text-sm font-bold text-neutral-900 w-12">{data.rate.toFixed(1)}%</span>
+                    <div class="w-32 bg-neutral-200 rounded-full h-2 ml-2">
+                      <div class={`h-2 rounded-full ${data.rate > 40 ? 'bg-red-500' : data.rate > 20 ? 'bg-amber-500' : 'bg-emerald-500'}`} style={`width: ${data.rate}%`}></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  {data.rate > 40 ? (
+                    <span class="px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-full bg-red-100 text-red-800">High Scrutiny</span>
+                  ) : data.rate > 20 ? (
+                    <span class="px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-full bg-amber-100 text-amber-800">Moderate</span>
+                  ) : (
+                    <span class="px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-full bg-emerald-100 text-emerald-800">Favorable</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6 text-sm text-blue-800 mb-8">
+      <h3 class="font-bold mb-2">What does "Section 214(b)" mean?</h3>
+      <p>The vast majority of B1/B2 visa denials are under INA Section 214(b). This section presumes that every visitor actually intends to immigrate permanently to the US. It is the applicant's burden to prove otherwise by showing strong ties to their home country (job, property, family) that will compel them to return after their visit.</p>
+    </div>
+    
+    <FAQAccordion faqs={faqs} title="US Visa Refusal FAQs" />
+  </div>
+</Layout>

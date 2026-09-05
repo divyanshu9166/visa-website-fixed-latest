@@ -2,7 +2,7 @@
   "month": "2026-06",
   "category": "EB-2",
   "country": "Philippines",
-  "finalActionDate": "C",
-  "dateForFiling": "C",
-  "dataSource": "seed"
+  "finalActionDate": "2024-12-31",
+  "dateForFiling": "2025-02-14",
+  "dataSource": "live"
 }

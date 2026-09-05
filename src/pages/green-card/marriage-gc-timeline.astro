@@ -1,0 +1,237 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { getCollection } from 'astro:content';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Green Card', href: '/green-card' },
+  { label: 'Marriage GC Timeline', href: '/green-card/marriage-gc-timeline' },
+];
+
+const faqs = [
+  {
+    q: 'Can I file I-130 and I-485 at the same time?',
+    a: 'Yes, but ONLY if you are married to a US Citizen AND you are physically inside the US on a valid visa (or entered legally). This is called "concurrent filing." If you are married to a Lawful Permanent Resident (LPR), you usually cannot file concurrently because the F-2A category has a backlog.',
+  },
+  {
+    q: 'How long does the marriage green card process take in 2026?',
+    a: 'For spouses of US Citizens filing inside the US (adjustment of status), it typically takes 10 to 14 months from filing to having the green card in hand. For spouses of US Citizens applying outside the US (consular processing), it takes 12 to 18 months. Spouses of LPRs face a backlog and can wait 3 to 4 years.',
+  },
+  {
+    q: 'What is the total cost of a marriage green card application?',
+    a: 'For a US Citizen spouse adjusting status in the US, the mandatory government fees (under the new 2024 fee schedule) are $1,440 for the I-485 and $675 for the I-130 (online), totaling $2,115. Consular processing fees total roughly $1,200 but involve additional travel and medical costs abroad.',
+  },
+  {
+    q: 'Can my spouse work while the green card is pending?',
+    a: 'If they are adjusting status in the US, they can apply for an Employment Authorization Document (I-765). Under current processing times, this work permit often arrives in 3 to 5 months, long before the actual green card is approved.',
+  },
+  {
+    q: 'Do we have to do an interview?',
+    a: 'In many cases, yes. USCIS wants to verify that the marriage is bona fide (real). However, in recent years, USCIS has increasingly waived the interview requirement for strong cases with overwhelming evidence of a shared life (joint leases, bank accounts, children together).',
+  },
+  {
+    q: 'What happens if we have been married for less than 2 years?',
+    a: 'If your marriage is less than two years old on the day your green card is approved, you will receive a "Conditional Green Card" (CR-1) valid for 2 years. You must file Form I-751 before it expires to remove the conditions and get a 10-year card.',
+  },
+  {
+    q: 'Can a Green Card holder (LPR) sponsor their spouse?',
+    a: 'Yes, but spouses of Green Card holders fall into the F-2A Family Preference category. This category has an annual cap, meaning there is usually a backlog on the Visa Bulletin. You must wait for your Priority Date to become current before you can get the green card.',
+  },
+  {
+    q: 'What is a bona fide marriage?',
+    a: 'A bona fide marriage means you married for love and a shared life, not solely to obtain an immigration benefit. USCIS looks for joint financial documents, cohabitation evidence, photos over time, and affidavits from friends/family to prove this.',
+  },
+  {
+    q: 'Can my spouse travel internationally while the I-485 is pending?',
+    a: 'Not immediately. If they are inside the US adjusting status, they must wait until their Advance Parole (Form I-131) is approved before leaving the country. Leaving before it is approved will automatically abandon the green card application.',
+  },
+  {
+    q: 'Is there a minimum income requirement to sponsor a spouse?',
+    a: 'Yes. The US Citizen or LPR sponsor must submit an Affidavit of Support (Form I-864) proving they make at least 125% of the Federal Poverty Guidelines for their household size. If they don\'t make enough, a joint sponsor can be used.',
+  }
+];
+
+// Fetch F-2A dates for LPRs
+const allBulletin = await getCollection('visaBulletin');
+const latestMonth = [...new Set(allBulletin.map(d => d.data.month))].sort().reverse()[0];
+const f2aData = allBulletin.find(d => d.data.month === latestMonth && d.data.category === 'F-2A' && d.data.country === 'All Chargeability Areas');
+const f2aDate = f2aData?.data.finalActionDate || 'Varies';
+---
+
+<Layout
+  title="Marriage Green Card Timeline Estimator 2026 — I-130 & I-485"
+  description="Estimate your marriage green card timeline for 2026. Custom timeline calculator for US Citizens and LPRs, including adjustment of status and consular processing."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumb items={breadcrumbs} />
+
+    <div class="mt-8 mb-8 text-center md:text-left">
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">Marriage Green Card Timeline Estimator</h1>
+      <p class="text-lg text-neutral-500 max-w-2xl">How long does the marriage green card process take? Enter your situation below for a customized step-by-step timeline and fee breakdown.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <!-- Calculator Form -->
+      <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 h-fit">
+        <h2 class="text-base font-bold text-neutral-900 mb-5">Your Case Details</h2>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-neutral-700 mb-1.5">Sponsor's Status</label>
+            <select id="sponsorStatus" class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900">
+              <option value="usc">U.S. Citizen</option>
+              <option value="lpr">Lawful Permanent Resident (Green Card Holder)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-neutral-700 mb-1.5">Where is the foreign spouse currently living?</label>
+            <select id="applicantLocation" class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900">
+              <option value="inside">Inside the US (Adjustment of Status)</option>
+              <option value="outside">Outside the US (Consular Processing)</option>
+            </select>
+          </div>
+          <div id="i130Group" class="hidden">
+            <label class="block text-sm font-semibold text-neutral-700 mb-1.5">Has the I-130 been filed?</label>
+            <select id="i130Filed" class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-sm focus:ring-2 focus:ring-neutral-900">
+              <option value="no">No, not yet filed</option>
+              <option value="yes">Yes, already pending</option>
+            </select>
+          </div>
+          <button
+            id="calculateBtn"
+            class="w-full py-3.5 mt-2 bg-neutral-900 text-white font-bold rounded-xl hover:bg-neutral-700 active:scale-[0.98] transition-all text-sm"
+          >
+            Generate Timeline
+          </button>
+        </div>
+      </div>
+
+      <!-- Overview Results -->
+      <div id="summaryCard" class="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 flex flex-col justify-center">
+        <div class="text-center">
+          <svg class="w-12 h-12 text-neutral-300 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <p class="text-neutral-500 font-medium">Select your details to see the estimated timeline.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step by step timeline -->
+    <div id="timelineContainer" class="hidden bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 md:p-8 mb-10">
+      <h3 class="text-lg font-bold text-neutral-900 mb-6">Step-by-Step Process</h3>
+      <div id="timelineSteps" class="space-y-6 relative before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-neutral-100">
+        <!-- JS injected -->
+      </div>
+    </div>
+
+    <div class="flex gap-3 flex-wrap mb-10">
+      <a href="/blog/marriage-green-card-timeline-2026" class="px-5 py-2.5 bg-neutral-900 text-white font-semibold rounded-xl hover:bg-neutral-700 text-sm">Read the Full Guide →</a>
+      <a href="/uscis-processing-times/i-130" class="px-5 py-2.5 bg-white border border-neutral-200 text-neutral-900 font-semibold rounded-xl hover:border-neutral-800 text-sm">View I-130 Wait Times</a>
+    </div>
+
+    <FAQAccordion faqs={faqs} title="Marriage Green Card FAQs" />
+  </div>
+</Layout>
+
+<script define:vars={{ f2aDate }}>
+  const sponsorStatus = document.getElementById('sponsorStatus');
+  const applicantLocation = document.getElementById('applicantLocation');
+  const i130Group = document.getElementById('i130Group');
+  const calcBtn = document.getElementById('calculateBtn');
+  const summaryCard = document.getElementById('summaryCard');
+  const timelineContainer = document.getElementById('timelineContainer');
+  const timelineSteps = document.getElementById('timelineSteps');
+
+  // LPR requires checking if I-130 is filed because of the F2A backlog
+  sponsorStatus?.addEventListener('change', (e) => {
+    if (e.target.value === 'lpr') {
+      i130Group.classList.remove('hidden');
+    } else {
+      i130Group.classList.add('hidden');
+    }
+  });
+
+  calcBtn?.addEventListener('click', () => {
+    const isUsc = sponsorStatus.value === 'usc';
+    const isInside = applicantLocation.value === 'inside';
+    
+    let pathName = '';
+    let estTime = '';
+    let fee = '';
+    let steps = [];
+
+    if (isUsc && isInside) {
+      pathName = "Concurrent Filing (Immediate Relative)";
+      estTime = "10 to 14 months";
+      fee = "$2,115 (I-130 + I-485)";
+      steps = [
+        { title: "File I-130 & I-485 Concurrently", time: "Month 1", desc: "Submit the petition, adjustment of status, work permit (I-765), and travel document (I-131) all at once." },
+        { title: "Biometrics Appointment", time: "Month 2", desc: "USCIS takes your fingerprints and photograph." },
+        { title: "Work Permit & Advance Parole Arrive", time: "Months 4-6", desc: "You receive your EAD/AP combo card (or standalone EAD), allowing you to work and travel." },
+        { title: "Interview (if not waived)", time: "Months 10-14", desc: "Attend the marriage interview at your local USCIS field office." },
+        { title: "Green Card Approved", time: "Months 10-14", desc: "If approved, your Green Card arrives in the mail." }
+      ];
+    } else if (isUsc && !isInside) {
+      pathName = "Consular Processing (Immediate Relative)";
+      estTime = "12 to 18 months";
+      fee = "$675 (I-130) + NVC Fees + Medical";
+      steps = [
+        { title: "File Form I-130", time: "Month 1", desc: "US citizen files petition with USCIS." },
+        { title: "I-130 Approval", time: "Months 10-12", desc: "USCIS approves petition and forwards it to the National Visa Center (NVC)." },
+        { title: "NVC Processing", time: "Months 11-14", desc: "Pay fees, submit DS-260, and upload civil documents to the CEAC portal." },
+        { title: "Embassy Interview", time: "Months 12-18", desc: "Attend interview at the US consulate in the foreign spouse's home country." },
+        { title: "Enter US as Permanent Resident", time: "After Approval", desc: "Your visa stamp serves as a temporary green card upon entry." }
+      ];
+    } else if (!isUsc) {
+      pathName = isInside ? "F-2A Category (Adjustment)" : "F-2A Category (Consular)";
+      estTime = "3 to 4 years (Due to Visa Bulletin Backlog)";
+      fee = "Varies based on path";
+      steps = [
+        { title: "File Form I-130", time: "Step 1", desc: "Establish your priority date in the F-2A category." },
+        { title: "I-130 Approval", time: "Step 2 (Months 10-24)", desc: "USCIS approves petition, but you cannot move to the next step yet." },
+        { title: "Wait for Priority Date to be Current", time: "Step 3 (Years 2-4)", desc: `Wait for the F-2A Final Action Date to pass your filing date. (Currently: ${f2aDate})` },
+        { title: isInside ? "File I-485" : "NVC Processing", time: "Step 4", desc: "Once your date is current on the Visa Bulletin, file the final adjustment or consular application." },
+        { title: "Interview and Approval", time: "Step 5", desc: "Final adjudication of the green card." }
+      ];
+    }
+
+    // Render Summary
+    summaryCard.innerHTML = `
+      <div class="text-center sm:text-left">
+        <h3 class="text-lg font-bold text-neutral-900 mb-1">${pathName}</h3>
+        <p class="text-sm text-neutral-500 mb-6">Your customized timeline estimate based on current USCIS and State Department data.</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl p-4 border border-neutral-200">
+            <div class="text-xs font-bold uppercase text-neutral-400 mb-1">Estimated Timeline</div>
+            <div class="font-black text-xl text-emerald-700">${estTime}</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 border border-neutral-200">
+            <div class="text-xs font-bold uppercase text-neutral-400 mb-1">Govt Filing Fees</div>
+            <div class="font-bold text-lg text-neutral-900">${fee}</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Render Timeline Steps
+    timelineSteps.innerHTML = steps.map((s, i) => `
+      <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+        <div class="flex items-center justify-center w-8 h-8 rounded-full border-4 border-white bg-neutral-900 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow flex-col text-xs font-bold z-10 ml-[3px] md:ml-0">
+          ${i + 1}
+        </div>
+        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl border border-neutral-200 bg-neutral-50 shadow-sm">
+          <div class="flex items-center justify-between space-x-2 mb-1">
+            <h4 class="font-bold text-neutral-900 text-sm">${s.title}</h4>
+            <time class="font-mono text-xs text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded">${s.time}</time>
+          </div>
+          <div class="text-sm text-neutral-600">${s.desc}</div>
+        </div>
+      </div>
+    `).join('');
+
+    timelineContainer.classList.remove('hidden');
+    summaryCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>
