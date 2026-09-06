@@ -9,8 +9,10 @@
     {
       "name": "Dubai",
       "waitTimeB1B2": 24,
-      "waitTimeStudent": 8,
+      "waitTimeStudent": 11,
       "waitTimeOther": 13,
+      "waitTimePetition": 4,
+      "waitTimeCrewTransit": 5,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -67,8 +69,10 @@
     {
       "name": "Abu Dhabi",
       "waitTimeB1B2": 34,
-      "waitTimeStudent": 12,
+      "waitTimeStudent": 6,
       "waitTimeOther": 19,
+      "waitTimePetition": 6,
+      "waitTimeCrewTransit": 6,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

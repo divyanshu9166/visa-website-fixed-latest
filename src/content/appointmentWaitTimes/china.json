@@ -9,8 +9,10 @@
     {
       "name": "Beijing",
       "waitTimeB1B2": 58,
-      "waitTimeStudent": 20,
+      "waitTimeStudent": 4,
       "waitTimeOther": 32,
+      "waitTimePetition": 5,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -67,8 +69,10 @@
     {
       "name": "Shanghai",
       "waitTimeB1B2": 57,
-      "waitTimeStudent": 20,
+      "waitTimeStudent": 0,
       "waitTimeOther": 31,
+      "waitTimePetition": 3,
+      "waitTimeCrewTransit": 2,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -124,9 +128,11 @@
     },
     {
       "name": "Guangzhou",
-      "waitTimeB1B2": 62,
-      "waitTimeStudent": 22,
-      "waitTimeOther": 34,
+      "waitTimeB1B2": 1,
+      "waitTimeStudent": 1,
+      "waitTimeOther": 5,
+      "waitTimePetition": 2,
+      "waitTimeCrewTransit": 2,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -176,7 +182,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 62
+          "waitTimeB1B2": 1
         }
       ]
     }

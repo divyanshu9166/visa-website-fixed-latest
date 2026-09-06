@@ -8,11 +8,13 @@
   "consulates": [
     {
       "name": "Islamabad",
-      "waitTimeB1B2": 222,
-      "waitTimeStudent": 78,
-      "waitTimeOther": 122,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 8,
+      "waitTimeStudent": 12,
+      "waitTimeOther": 5,
+      "waitTimePetition": 5,
+      "waitTimeCrewTransit": 5,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -60,17 +62,19 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 222
+          "waitTimeB1B2": 8
         }
       ]
     },
     {
       "name": "Karachi",
-      "waitTimeB1B2": 215,
-      "waitTimeStudent": 75,
-      "waitTimeOther": 118,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 7,
+      "waitTimeOther": 5,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 0,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -118,7 +122,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 215
+          "waitTimeB1B2": 7
         }
       ]
     },
@@ -127,6 +131,8 @@
       "waitTimeB1B2": 190,
       "waitTimeStudent": 67,
       "waitTimeOther": 105,
+      "waitTimePetition": null,
+      "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [

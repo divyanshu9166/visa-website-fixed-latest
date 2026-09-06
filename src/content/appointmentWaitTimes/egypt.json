@@ -9,8 +9,10 @@
     {
       "name": "Cairo",
       "waitTimeB1B2": 143,
-      "waitTimeStudent": 50,
+      "waitTimeStudent": 2,
       "waitTimeOther": 79,
+      "waitTimePetition": 2,
+      "waitTimeCrewTransit": 2,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [

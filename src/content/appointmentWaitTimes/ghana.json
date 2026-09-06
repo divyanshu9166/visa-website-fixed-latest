@@ -8,11 +8,13 @@
   "consulates": [
     {
       "name": "Accra",
-      "waitTimeB1B2": 213,
-      "waitTimeStudent": 75,
-      "waitTimeOther": 117,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 1,
+      "waitTimeStudent": 3,
+      "waitTimeOther": 5,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 2,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -60,7 +62,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 213
+          "waitTimeB1B2": 1
         }
       ]
     }

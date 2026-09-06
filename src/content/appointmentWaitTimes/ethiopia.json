@@ -9,8 +9,10 @@
     {
       "name": "Addis Ababa",
       "waitTimeB1B2": 166,
-      "waitTimeStudent": 58,
+      "waitTimeStudent": 3,
       "waitTimeOther": 91,
+      "waitTimePetition": 2,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [

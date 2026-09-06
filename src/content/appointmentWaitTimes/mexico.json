@@ -8,11 +8,13 @@
   "consulates": [
     {
       "name": "Mexico City",
-      "waitTimeB1B2": 237,
-      "waitTimeStudent": 83,
-      "waitTimeOther": 130,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 6,
+      "waitTimeStudent": 4,
+      "waitTimeOther": 5,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 1,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -60,17 +62,19 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 237
+          "waitTimeB1B2": 6
         }
       ]
     },
     {
       "name": "Guadalajara",
-      "waitTimeB1B2": 293,
-      "waitTimeStudent": 103,
-      "waitTimeOther": 161,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 6,
+      "waitTimeOther": 5,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -118,15 +122,17 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 293
+          "waitTimeB1B2": 7
         }
       ]
     },
     {
       "name": "Tijuana",
       "waitTimeB1B2": 248,
-      "waitTimeStudent": 87,
+      "waitTimeStudent": 2,
       "waitTimeOther": 136,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
@@ -182,11 +188,13 @@
     },
     {
       "name": "Ciudad Juarez",
-      "waitTimeB1B2": 220,
-      "waitTimeStudent": 77,
-      "waitTimeOther": 121,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 5,
+      "waitTimeStudent": 4,
+      "waitTimeOther": 5,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -234,7 +242,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 220
+          "waitTimeB1B2": 5
         }
       ]
     }

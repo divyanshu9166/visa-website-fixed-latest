@@ -8,11 +8,13 @@
   "consulates": [
     {
       "name": "New Delhi",
-      "waitTimeB1B2": 415,
-      "waitTimeStudent": 145,
-      "waitTimeOther": 228,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 9,
+      "waitTimeOther": 5,
+      "waitTimePetition": 2,
+      "waitTimeCrewTransit": 0,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -60,17 +62,19 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 415
+          "waitTimeB1B2": 7
         }
       ]
     },
     {
       "name": "Mumbai",
-      "waitTimeB1B2": 421,
-      "waitTimeStudent": 147,
-      "waitTimeOther": 232,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 14,
+      "waitTimeStudent": 14,
+      "waitTimeOther": 8,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 1,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -118,17 +122,19 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 421
+          "waitTimeB1B2": 14
         }
       ]
     },
     {
       "name": "Chennai",
-      "waitTimeB1B2": 346,
-      "waitTimeStudent": 121,
-      "waitTimeOther": 190,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 3,
+      "waitTimeOther": 5,
+      "waitTimePetition": null,
+      "waitTimeCrewTransit": null,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -176,17 +182,19 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 346
+          "waitTimeB1B2": 7
         }
       ]
     },
     {
       "name": "Hyderabad",
-      "waitTimeB1B2": 351,
-      "waitTimeStudent": 123,
-      "waitTimeOther": 193,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 9,
+      "waitTimeStudent": 9,
+      "waitTimeOther": 5,
+      "waitTimePetition": 4,
+      "waitTimeCrewTransit": 0,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -234,17 +242,19 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 351
+          "waitTimeB1B2": 9
         }
       ]
     },
     {
       "name": "Kolkata",
-      "waitTimeB1B2": 289,
-      "waitTimeStudent": 101,
-      "waitTimeOther": 159,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 4,
+      "waitTimeStudent": 4,
+      "waitTimeOther": 5,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": null,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -292,7 +302,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 289
+          "waitTimeB1B2": 4
         }
       ]
     }

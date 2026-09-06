@@ -8,11 +8,13 @@
   "consulates": [
     {
       "name": "Dhaka",
-      "waitTimeB1B2": 281,
-      "waitTimeStudent": 98,
-      "waitTimeOther": 155,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 3,
+      "waitTimeOther": 5,
+      "waitTimePetition": 3,
+      "waitTimeCrewTransit": 3,
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -60,7 +62,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 281
+          "waitTimeB1B2": 7
         }
       ]
     }

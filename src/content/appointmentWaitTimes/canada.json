@@ -8,9 +8,11 @@
   "consulates": [
     {
       "name": "Toronto",
-      "waitTimeB1B2": 29,
-      "waitTimeStudent": 10,
-      "waitTimeOther": 16,
+      "waitTimeB1B2": 23,
+      "waitTimeStudent": 24,
+      "waitTimeOther": 13,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -60,15 +62,17 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 29
+          "waitTimeB1B2": 23
         }
       ]
     },
     {
       "name": "Vancouver",
-      "waitTimeB1B2": 35,
-      "waitTimeStudent": 12,
-      "waitTimeOther": 19,
+      "waitTimeB1B2": 16,
+      "waitTimeStudent": 16,
+      "waitTimeOther": 9,
+      "waitTimePetition": 5,
+      "waitTimeCrewTransit": 2,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -118,7 +122,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 35
+          "waitTimeB1B2": 16
         }
       ]
     },
@@ -127,6 +131,8 @@
       "waitTimeB1B2": 33,
       "waitTimeStudent": 12,
       "waitTimeOther": 18,
+      "waitTimePetition": null,
+      "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

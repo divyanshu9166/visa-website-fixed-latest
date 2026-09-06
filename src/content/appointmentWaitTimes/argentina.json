@@ -9,8 +9,10 @@
     {
       "name": "Buenos Aires",
       "waitTimeB1B2": 57,
-      "waitTimeStudent": 20,
+      "waitTimeStudent": 0,
       "waitTimeOther": 31,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

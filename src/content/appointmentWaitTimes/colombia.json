@@ -8,9 +8,11 @@
   "consulates": [
     {
       "name": "Bogota",
-      "waitTimeB1B2": 87,
-      "waitTimeStudent": 30,
-      "waitTimeOther": 48,
+      "waitTimeB1B2": 11,
+      "waitTimeStudent": 9,
+      "waitTimeOther": 6,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -60,7 +62,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 87
+          "waitTimeB1B2": 11
         }
       ]
     }

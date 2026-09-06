@@ -8,9 +8,11 @@
   "consulates": [
     {
       "name": "Jerusalem",
-      "waitTimeB1B2": 26,
-      "waitTimeStudent": 9,
-      "waitTimeOther": 14,
+      "waitTimeB1B2": 4,
+      "waitTimeStudent": 6,
+      "waitTimeOther": 5,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 6,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -60,15 +62,17 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 26
+          "waitTimeB1B2": 4
         }
       ]
     },
     {
       "name": "Tel Aviv",
       "waitTimeB1B2": 25,
-      "waitTimeStudent": 9,
+      "waitTimeStudent": 2,
       "waitTimeOther": 14,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

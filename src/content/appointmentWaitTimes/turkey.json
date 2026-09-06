@@ -9,8 +9,10 @@
     {
       "name": "Istanbul",
       "waitTimeB1B2": 57,
-      "waitTimeStudent": 20,
+      "waitTimeStudent": 4,
       "waitTimeOther": 31,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -66,9 +68,11 @@
     },
     {
       "name": "Ankara",
-      "waitTimeB1B2": 80,
-      "waitTimeStudent": 28,
-      "waitTimeOther": 44,
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 4,
+      "waitTimeOther": 5,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -118,7 +122,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 80
+          "waitTimeB1B2": 7
         }
       ]
     }

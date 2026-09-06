@@ -9,8 +9,10 @@
     {
       "name": "Ho Chi Minh City",
       "waitTimeB1B2": 77,
-      "waitTimeStudent": 27,
+      "waitTimeStudent": 1,
       "waitTimeOther": 42,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -67,8 +69,10 @@
     {
       "name": "Hanoi",
       "waitTimeB1B2": 77,
-      "waitTimeStudent": 27,
+      "waitTimeStudent": 0,
       "waitTimeOther": 42,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

@@ -9,8 +9,10 @@
     {
       "name": "Sao Paulo",
       "waitTimeB1B2": 115,
-      "waitTimeStudent": 40,
+      "waitTimeStudent": 1,
       "waitTimeOther": 63,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -67,8 +69,10 @@
     {
       "name": "Rio de Janeiro",
       "waitTimeB1B2": 154,
-      "waitTimeStudent": 54,
+      "waitTimeStudent": 1,
       "waitTimeOther": 85,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [
@@ -125,8 +129,10 @@
     {
       "name": "Brasilia",
       "waitTimeB1B2": 118,
-      "waitTimeStudent": 41,
+      "waitTimeStudent": 1,
       "waitTimeOther": 65,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

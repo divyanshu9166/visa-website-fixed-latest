@@ -8,9 +8,11 @@
   "consulates": [
     {
       "name": "Santo Domingo",
-      "waitTimeB1B2": 82,
-      "waitTimeStudent": 29,
-      "waitTimeOther": 45,
+      "waitTimeB1B2": 6,
+      "waitTimeStudent": 9,
+      "waitTimeOther": 5,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -60,7 +62,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 82
+          "waitTimeB1B2": 6
         }
       ]
     }

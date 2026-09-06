@@ -9,8 +9,10 @@
     {
       "name": "Nairobi",
       "waitTimeB1B2": 148,
-      "waitTimeStudent": 52,
+      "waitTimeStudent": 2,
       "waitTimeOther": 81,
+      "waitTimePetition": 2,
+      "waitTimeCrewTransit": 2,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [

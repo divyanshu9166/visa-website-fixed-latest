@@ -9,8 +9,10 @@
     {
       "name": "Paris",
       "waitTimeB1B2": 32,
-      "waitTimeStudent": 11,
+      "waitTimeStudent": 2,
       "waitTimeOther": 18,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

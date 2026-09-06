@@ -9,8 +9,10 @@
     {
       "name": "Lagos",
       "waitTimeB1B2": 402,
-      "waitTimeStudent": 141,
+      "waitTimeStudent": 1,
       "waitTimeOther": 221,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
@@ -69,6 +71,8 @@
       "waitTimeB1B2": 369,
       "waitTimeStudent": 129,
       "waitTimeOther": 203,
+      "waitTimePetition": null,
+      "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": true,
       "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [

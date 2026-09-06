@@ -9,8 +9,10 @@
     {
       "name": "Frankfurt",
       "waitTimeB1B2": 33,
-      "waitTimeStudent": 12,
+      "waitTimeStudent": 2,
       "waitTimeOther": 18,
+      "waitTimePetition": 2,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -67,8 +69,10 @@
     {
       "name": "Berlin",
       "waitTimeB1B2": 37,
-      "waitTimeStudent": 13,
+      "waitTimeStudent": 0,
       "waitTimeOther": 20,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

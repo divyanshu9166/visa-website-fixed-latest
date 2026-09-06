@@ -9,8 +9,10 @@
     {
       "name": "Kingston",
       "waitTimeB1B2": 65,
-      "waitTimeStudent": 23,
+      "waitTimeStudent": 0,
       "waitTimeOther": 36,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
