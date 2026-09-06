@@ -17,7 +17,9 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "dev:full": "wrangler pages dev --proxy 4321 -- npm run dev"
+    "dev:full": "wrangler pages dev --proxy 4321 -- npm run dev",
+    "data:dos": "node scripts/automated-dos-wait-times.mjs",
+    "check:staleness": "node scripts/check-staleness.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

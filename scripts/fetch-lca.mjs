@@ -1,66 +1,32 @@
-import fs from 'fs';
-import path from 'path';
-import { spawn } from 'child_process';
+import fs from 'node:fs';
+import path from 'node:path';
 import * as cheerio from 'cheerio';
 
 const DOL_URL = 'https://www.dol.gov/agencies/eta/foreign-labor/performance';
-const DOWNLOAD_DIR = path.join(process.cwd(), 'tmp');
+const MANIFEST_PATH = path.join(process.cwd(), 'src', 'content', 'lca-manifest.json');
 
-async function main() {
-  console.log(`Fetching DOL Performance Page: ${DOL_URL}...`);
-  const res = await fetch(DOL_URL, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;'
-    }
-  });
-
-  if (!res.ok) {
-    console.error(`Failed to load DOL page: ${res.statusText}`);
-    process.exit(1);
-  }
-
-  const html = await res.text();
-  const $ = cheerio.load(html);
-  const matches = [];
-
-  $('a[href]').each((_, el) => {
-    const href = $(el).attr('href');
-    if (!href) return;
-    
-    // Match LCA Disclosure Data specifically.
-    // Handles typos like "LCA_Dislclosure_Data" that we saw in the test script.
-    const fileMatch = href.match(/LCA_Dis[a-z]*_Data_FY(\d{4})_Q(\d)\.(xlsx|csv)/i);
-    if (fileMatch) {
-      const fy = parseInt(fileMatch[1], 10);
-      const quarter = parseInt(fileMatch[2], 10);
-      const ext = fileMatch[3].toLowerCase();
-      
-      let url = href;
-      if (url.startsWith('/')) {
-        url = `https://www.dol.gov${url.replace(/^\/+/, '/')}`;
-      }
-      url = url.replace('https://www.dol.gov//', 'https://www.dol.gov/');
-      
-      matches.push({ fy, quarter, ext, url, filename: href.split('/').pop() });
-    }
-  });
-
-  matches.sort((a, b) => b.fy - a.fy || b.quarter - a.quarter);
-  
-  if (matches.length === 0) {
-    console.error('Could not find any LCA disclosure files on the page.');
-    process.exit(1);
-  }
-
-  const latest = matches[0];
-  console.log(`Found latest disclosure file: FY${latest.fy} Q${latest.quarter} - ${latest.filename}`);
-  console.log(`Download URL: ${latest.url}`);
-  
-  // Set output path in next step.
-  console.log(`\nTo run the import:`);
-  console.log(`1. node scripts/download.mjs ${latest.url}`);
-  console.log(`2. node scripts/parse-lca.mjs ./tmp/${latest.filename}`);
+const response = await fetch(DOL_URL, { headers: { 'User-Agent': 'EasyVisaCheck data-refresh/1.0', Accept: 'text/html,application/xhtml+xml' } });
+if (!response.ok) throw new Error(`DOL performance page returned HTTP ${response.status}`);
+const $ = cheerio.load(await response.text());
+const matches = [];
+$('a[href]').each((_, el) => {
+  const href = $(el).attr('href') || '';
+  const match = href.match(/LCA_(?:Dis[a-z]*_Data|Programs)_FY(\d{4})(?:[_-]Q(\d))?\.(xlsx|csv)(?:\?[^#]*)?$/i);
+  if (!match) return;
+  const url = new URL(href, DOL_URL).toString();
+  matches.push({ fy: Number(match[1]), quarter: Number(match[2] || 4), ext: match[3].toLowerCase(), url, filename: path.basename(new URL(url).pathname) });
+});
+if (!matches.length) throw new Error('No LCA disclosure files found on the DOL performance page');
+matches.sort((a, b) => b.fy - a.fy || b.quarter - a.quarter || (a.ext === 'xlsx' ? -1 : 1));
+const latest = matches[0];
+let manifest = { latestImportedFiscalYear: 0, latestImportedQuarter: 0 };
+if (fs.existsSync(MANIFEST_PATH)) {
+  try { manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8')); } catch { console.warn('Ignoring invalid LCA manifest'); }
 }
-
-main().catch(console.error);
+const force = process.argv.includes('--force');
+const isNew = force || latest.fy > Number(manifest.latestImportedFiscalYear || 0) || (latest.fy === Number(manifest.latestImportedFiscalYear || 0) && latest.quarter > Number(manifest.latestImportedQuarter || 0));
+console.log(`Discovered latest DOL file: FY${latest.fy} Q${latest.quarter} ${latest.filename}`);
+console.log(`Status: ${isNew ? 'NEW_QUARTER_AVAILABLE' : 'UP_TO_DATE'}`);
+if (process.env.GITHUB_OUTPUT) {
+  fs.appendFileSync(process.env.GITHUB_OUTPUT, `has_new_data=${isNew}\ndownload_url=${latest.url}\nfile_name=${latest.filename}\nfy=${latest.fy}\nquarter=${latest.quarter}\n`);
+}
