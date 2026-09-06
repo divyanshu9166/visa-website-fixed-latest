@@ -26,6 +26,17 @@
       "liveCount": 46,
       "staleCount": 0,
       "lastError": null
+    },
+    "dosWaitTimes": {
+      "status": "PRESERVED",
+      "liveCount": 0,
+      "staleCount": 54,
+      "lastError": "Preserved official Department of State global wait times dataset"
+    },
+    "dolLca": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "Quarterly LCA workflow is separate from the daily refresh."
     }
   }
 }
