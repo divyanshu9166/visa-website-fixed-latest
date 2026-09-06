@@ -4,7 +4,6 @@
   "category": "Naturalization",
   "fiscalYear": 2026,
   "quarter": 2,
-<<<<<<< HEAD
   "receipts": 140767,
   "approved": 83459,
   "denied": 15022,
@@ -37,12 +36,4 @@
   "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
   "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
   "lastUpdated": "2026-09-06T07:41:05.552Z"
-=======
-  "receipts": 275200,
-  "completions": 209421,
-  "pending": 540000,
-  "rfeRate": 20,
-  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
-  "lastUpdated": "2026-09-05T13:04:56.707Z"
->>>>>>> divyanshu/master
 }
