@@ -2,21 +2,33 @@
   "processingTimes": {
     "consecutiveFailures": 0,
     "lastFailed": null,
-    "lastError": null
+    "lastError": null,
+    "lastSuccess": "2026-09-06T14:42:54.369Z"
   },
   "visaBulletin": {
-    "consecutiveFailures": 0,
-    "lastFailed": null,
-    "lastError": null
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-09-06T14:42:54.369Z",
+    "lastError": "HTTP 403 (Forbidden) via DirectFetch"
   },
   "waitTimes": {
-    "consecutiveFailures": 0,
-    "lastFailed": null,
-    "lastError": null
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-09-06T14:42:54.369Z",
+    "lastError": "HTTP 403 (Forbidden) via DirectFetch"
   },
   "uscisQuarterlyStats": {
     "consecutiveFailures": 0,
     "lastFailed": null,
-    "lastError": null
+    "lastError": null,
+    "lastSuccess": "2026-09-06T14:42:54.369Z"
+  },
+  "dosWaitTimes": {
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-09-06T14:42:54.369Z",
+    "lastError": "DOS browser refresh exited with code 1"
+  },
+  "dolLca": {
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-09-06T14:42:54.369Z",
+    "lastError": "Quarterly LCA workflow is separate from the daily refresh."
   }
 }

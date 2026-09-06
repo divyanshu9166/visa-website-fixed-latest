@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-09-06T14:00:00.000Z",
+  "timestamp": "2026-09-06T14:42:54.369Z",
   "seedOnly": false,
   "sources": {
     "processingTimes": {
@@ -13,19 +13,34 @@
       "status": "PRESERVED",
       "liveCount": 0,
       "staleCount": 720,
-      "lastError": "HTTP 403 (Forbidden)"
+      "lastError": "HTTP 403 (Forbidden) via DirectFetch"
     },
     "waitTimes": {
       "status": "PRESERVED",
       "liveCount": 0,
       "staleCount": 30,
-      "lastError": "HTTP 403 (Forbidden)"
+      "lastError": "HTTP 403 (Forbidden) via DirectFetch"
     },
     "uscisQuarterlyStats": {
       "status": "LIVE_VALIDATED",
       "liveCount": 46,
       "staleCount": 0,
       "lastError": null
+    },
+    "dosWaitTimes": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "DOS browser refresh exited with code 1"
+    },
+    "dolLca": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "Quarterly LCA workflow is separate from the daily refresh."
     }
+  },
+  "publication": "PRESERVED_LAST_VALIDATED_SNAPSHOT",
+  "rollback": {
+    "performed": true,
+    "backupId": "2026-09-06T14-34-45-342Z"
   }
 }
