@@ -125,14 +125,11 @@ async function fetchLiveDatabaseWithRetry() {
 async function fetchLiveHtmlWithRetry(maxRetries = 3) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      const res = await fetch(WAIT_TIMES_HTML_URL, { headers: BROWSER_HEADERS });
-      if (res.status === 403 || res.status === 429) {
-        throw new Error(`HTTP ${res.status} (WAF/RateLimit)`);
-      }
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      const html = await res.text();
+      const html = await fetchWithBypass(WAIT_TIMES_HTML_URL, {
+        headers: BROWSER_HEADERS,
+        renderJs: true,
+        timeout: 25000,
+      });
       const $ = cheerio.load(html);
 
       const tables = $('table');
@@ -199,14 +196,11 @@ async function fetchLiveHtmlWithRetry(maxRetries = 3) {
 async function fetchLiveXmlWithRetry(maxRetries = 2) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      const res = await fetch(WAIT_TIMES_XML_URL, { headers: BROWSER_HEADERS });
-      if (res.status === 403 || res.status === 429) {
-        throw new Error(`HTTP ${res.status} (WAF/RateLimit)`);
-      }
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      const xml = await res.text();
+      const xml = await fetchWithBypass(WAIT_TIMES_XML_URL, {
+        headers: BROWSER_HEADERS,
+        renderJs: false,
+        timeout: 25000,
+      });
 
       const postBlocks = xml.split(/<\/(?:Post|post|MissionPost)>/).filter((b) => b.includes('<'));
       const posts = postBlocks.map((block) => ({
