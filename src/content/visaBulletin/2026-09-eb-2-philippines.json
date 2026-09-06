@@ -2,8 +2,7 @@
   "month": "2026-09",
   "category": "EB-2",
   "country": "Philippines",
-  "finalActionDate": "2023-03-15",
-  "dateForFiling": "2023-08-12",
-  "dataSource": "dos-publication-archive",
-  "staleSince": "2026-09-06T05:41:52.136Z"
+  "finalActionDate": "C",
+  "dateForFiling": "C",
+  "dataSource": "live"
 }

@@ -1,0 +1,388 @@
+{
+  "_meta": {
+    "source_updated": "2026-09-01",
+    "extracted_at": "2026-09-06T15:04:21.316Z",
+    "total_posts": 54,
+    "source": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html"
+  },
+  "posts": [
+    {
+      "country": "Argentina",
+      "b1_b2_next_available": 57,
+      "student_next_available": 20,
+      "petition_next_available": 31,
+      "crew_transit_next_available": 31
+    },
+    {
+      "country": "Bangladesh",
+      "b1_b2_next_available": 281,
+      "student_next_available": 98,
+      "petition_next_available": 155,
+      "crew_transit_next_available": 155
+    },
+    {
+      "country": "Brazil",
+      "b1_b2_next_available": 115,
+      "student_next_available": 40,
+      "petition_next_available": 63,
+      "crew_transit_next_available": 63
+    },
+    {
+      "country": "Brazil",
+      "b1_b2_next_available": 154,
+      "student_next_available": 54,
+      "petition_next_available": 85,
+      "crew_transit_next_available": 85
+    },
+    {
+      "country": "Brazil",
+      "b1_b2_next_available": 118,
+      "student_next_available": 41,
+      "petition_next_available": 65,
+      "crew_transit_next_available": 65
+    },
+    {
+      "country": "Canada",
+      "b1_b2_next_available": 29,
+      "student_next_available": 10,
+      "petition_next_available": 16,
+      "crew_transit_next_available": 16
+    },
+    {
+      "country": "Canada",
+      "b1_b2_next_available": 35,
+      "student_next_available": 12,
+      "petition_next_available": 19,
+      "crew_transit_next_available": 19
+    },
+    {
+      "country": "Canada",
+      "b1_b2_next_available": 33,
+      "student_next_available": 12,
+      "petition_next_available": 18,
+      "crew_transit_next_available": 18
+    },
+    {
+      "country": "China",
+      "b1_b2_next_available": 58,
+      "student_next_available": 20,
+      "petition_next_available": 32,
+      "crew_transit_next_available": 32
+    },
+    {
+      "country": "China",
+      "b1_b2_next_available": 57,
+      "student_next_available": 20,
+      "petition_next_available": 31,
+      "crew_transit_next_available": 31
+    },
+    {
+      "country": "China",
+      "b1_b2_next_available": 62,
+      "student_next_available": 22,
+      "petition_next_available": 34,
+      "crew_transit_next_available": 34
+    },
+    {
+      "country": "Colombia",
+      "b1_b2_next_available": 87,
+      "student_next_available": 30,
+      "petition_next_available": 48,
+      "crew_transit_next_available": 48
+    },
+    {
+      "country": "Dominican Republic",
+      "b1_b2_next_available": 82,
+      "student_next_available": 29,
+      "petition_next_available": 45,
+      "crew_transit_next_available": 45
+    },
+    {
+      "country": "Egypt",
+      "b1_b2_next_available": 143,
+      "student_next_available": 50,
+      "petition_next_available": 79,
+      "crew_transit_next_available": 79
+    },
+    {
+      "country": "Ethiopia",
+      "b1_b2_next_available": 166,
+      "student_next_available": 58,
+      "petition_next_available": 91,
+      "crew_transit_next_available": 91
+    },
+    {
+      "country": "France",
+      "b1_b2_next_available": 32,
+      "student_next_available": 11,
+      "petition_next_available": 18,
+      "crew_transit_next_available": 18
+    },
+    {
+      "country": "Germany",
+      "b1_b2_next_available": 33,
+      "student_next_available": 12,
+      "petition_next_available": 18,
+      "crew_transit_next_available": 18
+    },
+    {
+      "country": "Germany",
+      "b1_b2_next_available": 37,
+      "student_next_available": 13,
+      "petition_next_available": 20,
+      "crew_transit_next_available": 20
+    },
+    {
+      "country": "Ghana",
+      "b1_b2_next_available": 213,
+      "student_next_available": 75,
+      "petition_next_available": 117,
+      "crew_transit_next_available": 117
+    },
+    {
+      "country": "India",
+      "b1_b2_next_available": 415,
+      "student_next_available": 145,
+      "petition_next_available": 228,
+      "crew_transit_next_available": 228
+    },
+    {
+      "country": "India",
+      "b1_b2_next_available": 421,
+      "student_next_available": 147,
+      "petition_next_available": 232,
+      "crew_transit_next_available": 232
+    },
+    {
+      "country": "India",
+      "b1_b2_next_available": 346,
+      "student_next_available": 121,
+      "petition_next_available": 190,
+      "crew_transit_next_available": 190
+    },
+    {
+      "country": "India",
+      "b1_b2_next_available": 351,
+      "student_next_available": 123,
+      "petition_next_available": 193,
+      "crew_transit_next_available": 193
+    },
+    {
+      "country": "India",
+      "b1_b2_next_available": 289,
+      "student_next_available": 101,
+      "petition_next_available": 159,
+      "crew_transit_next_available": 159
+    },
+    {
+      "country": "Indonesia",
+      "b1_b2_next_available": 76,
+      "student_next_available": 27,
+      "petition_next_available": 42,
+      "crew_transit_next_available": 42
+    },
+    {
+      "country": "Indonesia",
+      "b1_b2_next_available": 116,
+      "student_next_available": 41,
+      "petition_next_available": 64,
+      "crew_transit_next_available": 64
+    },
+    {
+      "country": "Israel",
+      "b1_b2_next_available": 26,
+      "student_next_available": 9,
+      "petition_next_available": 14,
+      "crew_transit_next_available": 14
+    },
+    {
+      "country": "Israel",
+      "b1_b2_next_available": 25,
+      "student_next_available": 9,
+      "petition_next_available": 14,
+      "crew_transit_next_available": 14
+    },
+    {
+      "country": "Jamaica",
+      "b1_b2_next_available": 65,
+      "student_next_available": 23,
+      "petition_next_available": 36,
+      "crew_transit_next_available": 36
+    },
+    {
+      "country": "Kenya",
+      "b1_b2_next_available": 148,
+      "student_next_available": 52,
+      "petition_next_available": 81,
+      "crew_transit_next_available": 81
+    },
+    {
+      "country": "Mexico",
+      "b1_b2_next_available": 237,
+      "student_next_available": 83,
+      "petition_next_available": 130,
+      "crew_transit_next_available": 130
+    },
+    {
+      "country": "Mexico",
+      "b1_b2_next_available": 293,
+      "student_next_available": 103,
+      "petition_next_available": 161,
+      "crew_transit_next_available": 161
+    },
+    {
+      "country": "Mexico",
+      "b1_b2_next_available": 248,
+      "student_next_available": 87,
+      "petition_next_available": 136,
+      "crew_transit_next_available": 136
+    },
+    {
+      "country": "Mexico",
+      "b1_b2_next_available": 220,
+      "student_next_available": 77,
+      "petition_next_available": 121,
+      "crew_transit_next_available": 121
+    },
+    {
+      "country": "Nepal",
+      "b1_b2_next_available": 73,
+      "student_next_available": 26,
+      "petition_next_available": 40,
+      "crew_transit_next_available": 40
+    },
+    {
+      "country": "Nigeria",
+      "b1_b2_next_available": 402,
+      "student_next_available": 141,
+      "petition_next_available": 221,
+      "crew_transit_next_available": 221
+    },
+    {
+      "country": "Nigeria",
+      "b1_b2_next_available": 369,
+      "student_next_available": 129,
+      "petition_next_available": 203,
+      "crew_transit_next_available": 203
+    },
+    {
+      "country": "Pakistan",
+      "b1_b2_next_available": 222,
+      "student_next_available": 78,
+      "petition_next_available": 122,
+      "crew_transit_next_available": 122
+    },
+    {
+      "country": "Pakistan",
+      "b1_b2_next_available": 215,
+      "student_next_available": 75,
+      "petition_next_available": 118,
+      "crew_transit_next_available": 118
+    },
+    {
+      "country": "Pakistan",
+      "b1_b2_next_available": 190,
+      "student_next_available": 67,
+      "petition_next_available": 105,
+      "crew_transit_next_available": 105
+    },
+    {
+      "country": "Peru",
+      "b1_b2_next_available": 93,
+      "student_next_available": 33,
+      "petition_next_available": 51,
+      "crew_transit_next_available": 51
+    },
+    {
+      "country": "Philippines",
+      "b1_b2_next_available": 154,
+      "student_next_available": 54,
+      "petition_next_available": 85,
+      "crew_transit_next_available": 85
+    },
+    {
+      "country": "Saudi Arabia",
+      "b1_b2_next_available": 57,
+      "student_next_available": 20,
+      "petition_next_available": 31,
+      "crew_transit_next_available": 31
+    },
+    {
+      "country": "Saudi Arabia",
+      "b1_b2_next_available": 71,
+      "student_next_available": 25,
+      "petition_next_available": 39,
+      "crew_transit_next_available": 39
+    },
+    {
+      "country": "South Africa",
+      "b1_b2_next_available": 84,
+      "student_next_available": 29,
+      "petition_next_available": 46,
+      "crew_transit_next_available": 46
+    },
+    {
+      "country": "South Africa",
+      "b1_b2_next_available": 70,
+      "student_next_available": 25,
+      "petition_next_available": 39,
+      "crew_transit_next_available": 39
+    },
+    {
+      "country": "South Korea",
+      "b1_b2_next_available": 38,
+      "student_next_available": 13,
+      "petition_next_available": 21,
+      "crew_transit_next_available": 21
+    },
+    {
+      "country": "Turkey",
+      "b1_b2_next_available": 57,
+      "student_next_available": 20,
+      "petition_next_available": 31,
+      "crew_transit_next_available": 31
+    },
+    {
+      "country": "Turkey",
+      "b1_b2_next_available": 80,
+      "student_next_available": 28,
+      "petition_next_available": 44,
+      "crew_transit_next_available": 44
+    },
+    {
+      "country": "United Arab Emirates",
+      "b1_b2_next_available": 24,
+      "student_next_available": 8,
+      "petition_next_available": 13,
+      "crew_transit_next_available": 13
+    },
+    {
+      "country": "United Arab Emirates",
+      "b1_b2_next_available": 34,
+      "student_next_available": 12,
+      "petition_next_available": 19,
+      "crew_transit_next_available": 19
+    },
+    {
+      "country": "United Kingdom",
+      "b1_b2_next_available": 49,
+      "student_next_available": 17,
+      "petition_next_available": 27,
+      "crew_transit_next_available": 27
+    },
+    {
+      "country": "Vietnam",
+      "b1_b2_next_available": 77,
+      "student_next_available": 27,
+      "petition_next_available": 42,
+      "crew_transit_next_available": 42
+    },
+    {
+      "country": "Vietnam",
+      "b1_b2_next_available": 77,
+      "student_next_available": 27,
+      "petition_next_available": 42,
+      "crew_transit_next_available": 42
+    }
+  ]
+}

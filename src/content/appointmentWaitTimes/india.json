@@ -2,8 +2,9 @@
   "country": "India",
   "slug": "india",
   "countryCode": "IN",
-  "lastUpdated": "2026-09-06",
-  "dataSource": "seed",
+  "lastUpdated": "2026-09-01",
+  "dataSource": "dos-attended-snapshot",
+  "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "New Delhi",
@@ -296,5 +297,5 @@
       ]
     }
   ],
-  "staleSince": "2026-09-05T12:56:18.256Z"
+  "staleSince": "2026-09-06T15:06:20.765Z"
 }

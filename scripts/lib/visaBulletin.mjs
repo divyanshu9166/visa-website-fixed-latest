@@ -22,6 +22,99 @@ function bulletinUrl(year, monthName) {
   return `https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/${year}/visa-bulletin-for-${monthName}-${year}.html`;
 }
 
+function parseUscisDate(raw) {
+  if (!raw) return null;
+  const str = raw.trim().toUpperCase();
+  if (str === 'C' || str === 'CURRENT') return 'C';
+  if (str === 'U' || str === 'UNAVAILABLE') return 'Unavailable';
+  const match = str.match(/^(\d{1,2})[-\s]?([A-Z]{3})[-\s]?(\d{2,4})$/);
+  if (match) {
+    const day = match[1].padStart(2, '0');
+    const monthStr = match[2];
+    const rawYear = match[3];
+    const year = rawYear.length === 2 ? (parseInt(rawYear, 10) > 50 ? '19' + rawYear : '20' + rawYear) : rawYear;
+    const months = { JAN: '01', FEB: '02', MAR: '03', APR: '04', MAY: '05', JUN: '06', JUL: '07', AUG: '08', SEP: '09', OCT: '10', NOV: '11', DEC: '12' };
+    const month = months[monthStr];
+    if (month) return `${year}-${month}-${day}`;
+  }
+  const d = new Date(str);
+  if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+  return str;
+}
+
+async function fetchUscisVisaBulletinMirror(year, monthIndex) {
+  const monthName = MONTH_NAMES[monthIndex];
+  console.log(`[visaBulletin] Attempting USCIS official mirror for ${monthName} ${year}...`);
+  const indexUrl = 'https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/adjustment-of-status-filing-charts-from-the-visa-bulletin';
+  const indexHtml = await fetchWithBypass(indexUrl, { renderJs: false });
+  const $index = cheerio.load(indexHtml);
+
+  let targetHref = null;
+  $index('a').each((_, a) => {
+    const text = $index(a).text().toLowerCase();
+    const href = $index(a).attr('href') || '';
+    if (text.includes(monthName.toLowerCase()) && text.includes(String(year))) {
+      targetHref = href;
+    }
+  });
+
+  if (!targetHref) {
+    throw new Error(`USCIS mirror: Could not find filing chart link for ${monthName} ${year}`);
+  }
+
+  const fullUrl = targetHref.startsWith('http') ? targetHref : `https://www.uscis.gov${targetHref}`;
+  const pageHtml = await fetchWithBypass(fullUrl, { renderJs: false });
+  const $ = cheerio.load(pageHtml);
+
+  const results = [];
+  $('table').each((_, table) => {
+    const $table = $(table);
+    const headerRow = $table.find('tr').first();
+    const headerText = headerRow.text().toLowerCase();
+    if (!headerText.includes('employment') && !headerText.includes('india') && !headerText.includes('china')) return;
+
+    const countryColumns = [];
+    headerRow.find('th, td').each((i, cell) => {
+      const text = $(cell).text().trim().toLowerCase();
+      if (text.includes('all') || text.includes('except') || text.includes('worldwide')) {
+        countryColumns[i] = 'rest-of-world';
+      } else {
+        const match = BULLETIN_COUNTRIES.find((c) => text.includes(c.slug) || text.includes(c.name.toLowerCase().split(' ')[0]));
+        if (match) countryColumns[i] = match.slug;
+      }
+    });
+
+    $table.find('tr').slice(1).each((_, row) => {
+      const cells = $(row).find('th, td');
+      const categoryRaw = $(cells[0]).text().trim();
+      let category = null;
+      if (categoryRaw.includes('1st') || categoryRaw.includes('EB-1')) category = 'EB-1';
+      else if (categoryRaw.includes('2nd') || categoryRaw.includes('EB-2')) category = 'EB-2';
+      else if (categoryRaw.includes('3rd') && !categoryRaw.toLowerCase().includes('other')) category = 'EB-3';
+      else if (categoryRaw.includes('4th') || categoryRaw.includes('EB-4')) category = 'EB-4';
+      else if (categoryRaw.includes('5th') && (categoryRaw.includes('Unreserved') || categoryRaw.includes('Non-Regional') || !results.some(r => r.category === 'EB-5'))) category = 'EB-5';
+
+      if (!category) return;
+
+      cells.each((i, cell) => {
+        const slug = countryColumns[i];
+        if (!slug) return;
+        const rawValue = $(cell).text().trim();
+        const value = parseUscisDate(rawValue);
+        if (value) {
+          results.push({ category, countrySlug: slug, value });
+        }
+      });
+    });
+  });
+
+  if (!results.length) {
+    throw new Error(`USCIS mirror: Parsed 0 rows for ${monthName} ${year}`);
+  }
+
+  return results;
+}
+
 async function fetchLiveMonthWithRetry(year, monthIndex, maxRetries = 3) {
   const monthName = MONTH_NAMES[monthIndex];
   const url = bulletinUrl(year, monthName);
@@ -69,7 +162,12 @@ async function fetchLiveMonthWithRetry(year, monthIndex, maxRetries = 3) {
       return results;
     } catch (err) {
       if (attempt === maxRetries) {
-        throw err;
+        // Try USCIS official mirror before throwing final error
+        try {
+          return await fetchUscisVisaBulletinMirror(year, monthIndex);
+        } catch (mirrorErr) {
+          throw new Error(`DOS scrape failed (${err.message}) and USCIS mirror failed (${mirrorErr.message})`);
+        }
       }
       const delay = Math.pow(2, attempt) * 1000 + Math.random() * 500;
       await new Promise(resolve => setTimeout(resolve, delay));
@@ -271,18 +369,22 @@ export async function fetchVisaBulletin({ seedOnly = false, forceBootstrap = fal
           const val = liveItem.value;
           if (val.toUpperCase() === 'C' || val.toLowerCase() === 'current') {
             finalActionDate = 'C';
+          } else if (val.toUpperCase() === 'U' || val.toLowerCase() === 'unavailable') {
+            finalActionDate = 'Unavailable';
           } else {
             const parsed = new Date(val);
             if (!isNaN(parsed.getTime())) {
               finalActionDate = parsed.toISOString().slice(0, 10);
             } else {
-              continue;
+              finalActionDate = val;
             }
           }
 
           let dateForFiling;
           if (finalActionDate === 'C') {
             dateForFiling = 'C';
+          } else if (finalActionDate === 'Unavailable' || finalActionDate === 'U') {
+            dateForFiling = 'Unavailable';
           } else {
             const dff = new Date(finalActionDate);
             dff.setDate(dff.getDate() + (FILING_OFFSET_DAYS[category] || 30));
