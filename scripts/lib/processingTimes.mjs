@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import https from 'https';
 import { FORMS } from './formsConfig.mjs';
+import { fetchWithBypass } from './fetchClient.mjs';
 
 const OUT_DIR = path.join(process.cwd(), 'src', 'content', 'processingTimes');
 
@@ -53,34 +53,14 @@ const VISA_API_CONFIG = {
   'i-829': { apiForm: 'i-829', filter: o => o.subtype === '148C' || !o.subtype },
 };
 
-function fetchJson(urlStr) {
-  return new Promise((resolve, reject) => {
-    const url = new URL(urlStr);
-    const req = https.request({
-      hostname: url.hostname,
-      path: url.pathname + url.search,
-      method: 'GET',
-      headers: {
-        'User-Agent': 'EasyVisaCheck-Bot/1.0 (https://easyvisacheck.com; data verification)',
-        'Accept': 'application/json'
-      }
-    }, (res) => {
-      let data = '';
-      res.on('data', chunk => { data += chunk; });
-      res.on('end', () => {
-        if (res.statusCode && res.statusCode >= 200 && res.statusCode < 300) {
-          try {
-            resolve(JSON.parse(data));
-          } catch (e) {
-            reject(new Error(`JSON parse error: ${e.message}`));
-          }
-        } else {
-          reject(new Error(`HTTP ${res.statusCode} from ${urlStr}`));
-        }
-      });
-    });
-    req.on('error', (err) => reject(err));
-    req.end();
+async function fetchJson(urlStr) {
+  return await fetchWithBypass(urlStr, {
+    isJson: true,
+    renderJs: false,
+    headers: {
+      'Accept': 'application/json'
+    },
+    timeout: 30000
   });
 }
 

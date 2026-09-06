@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
 import * as XLSX from 'xlsx';
+import { fetchWithBypass } from './fetchClient.mjs';
 
 const OUT_DIR = path.join(process.cwd(), 'src', 'content', 'uscisQuarterlyStats');
 const LANDING_PAGE_URL = 'https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data';
@@ -41,18 +42,14 @@ function safeWriteFileSync(filePath, content, retries = 5) {
  * Discover the latest quarterly "All Forms" report URL from USCIS open data page.
  */
 async function discoverLatestReportUrl() {
-  const res = await fetch(LANDING_PAGE_URL, {
+  const html = await fetchWithBypass(LANDING_PAGE_URL, {
     headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
       Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     },
+    renderJs: false,
+    timeout: 30000
   });
 
-  if (!res.ok) {
-    throw new Error(`USCIS Open Data landing page returned HTTP ${res.status} (${res.statusText})`);
-  }
-
-  const html = await res.text();
   const $ = cheerio.load(html);
 
   let targetHref = null;

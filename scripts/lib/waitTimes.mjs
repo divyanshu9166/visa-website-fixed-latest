@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
 import { WAIT_TIME_COUNTRIES } from './formsConfig.mjs';
+import { fetchWithBypass } from './fetchClient.mjs';
 
 const OUT_DIR = path.join(process.cwd(), 'src', 'content', 'appointmentWaitTimes');
 
@@ -82,14 +83,11 @@ const POST_CID_MAP = {
 // Query the real travel.state.gov backend endpoint used by the live wait-times web tool
 async function fetchPostFromDatabase(postName, cid) {
   const url = `https://travel.state.gov/content/travel/resources/database/database.getVisaWaitTimes.html?cid=${cid}&aid=VisaWaitTimesHomePage`;
-  const res = await fetch(url, { headers: BROWSER_HEADERS });
-  if (res.status === 403 || res.status === 429) {
-    throw new Error(`HTTP ${res.status} (WAF/RateLimit)`);
-  }
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status}`);
-  }
-  const body = await res.text();
+  const body = await fetchWithBypass(url, {
+    headers: BROWSER_HEADERS,
+    renderJs: false,
+    timeout: 20000
+  });
   // Format is pipe-separated: e.g. "120 Days | 15 Days | 30 Days | 5 Days"
   const parts = body.split('|').map(s => s.trim());
   if (parts.length < 2) {

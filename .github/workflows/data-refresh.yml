@@ -28,9 +28,13 @@ jobs:
           sudo apt-get update && sudo apt-get install -y xvfb
           npx playwright install --with-deps chrome
 
-      - name: Fetch latest USCIS / State Dept data (Tier 3 Real Browser)
+      - name: Fetch latest USCIS / State Dept data (Tier 3 Real Browser & Scraping Proxy)
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          ZENROWS_API_KEY: ${{ secrets.ZENROWS_API_KEY }}
+          SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
         run: xvfb-run --auto-servernum npm run data:fetch
         continue-on-error: true
 

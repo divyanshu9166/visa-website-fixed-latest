@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-06T07:43:52.359Z",
+  "timestamp": "2026-09-06T13:38:52.878Z",
   "seedOnly": false,
   "processingTimes": {
     "liveCount": 16,
@@ -11,13 +11,13 @@
     "liveCount": 0,
     "staleCount": 720,
     "totalCount": 720,
-    "lastError": "HTTP 403 (WAF/RateLimit)"
+    "lastError": "HTTP 403 (Forbidden)"
   },
   "waitTimes": {
     "liveCount": 0,
     "staleCount": 30,
     "seedCount": 0,
-    "lastError": "HTTP 403 (WAF/RateLimit)"
+    "lastError": "HTTP 403 (Forbidden)"
   },
   "uscisQuarterlyStats": {
     "liveCount": 46,

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
 import { BULLETIN_COUNTRIES, BULLETIN_CATEGORIES } from './formsConfig.mjs';
+import { fetchWithBypass } from './fetchClient.mjs';
 
 const OUT_DIR = path.join(process.cwd(), 'src', 'content', 'visaBulletin');
 
@@ -27,14 +28,11 @@ async function fetchLiveMonthWithRetry(year, monthIndex, maxRetries = 3) {
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      const res = await fetch(url, { headers: BROWSER_HEADERS });
-      if (res.status === 403 || res.status === 429) {
-        throw new Error(`HTTP ${res.status} (WAF/RateLimit)`);
-      }
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      const html = await res.text();
+      const html = await fetchWithBypass(url, {
+        headers: BROWSER_HEADERS,
+        renderJs: true,
+        timeout: 25000
+      });
       const $ = cheerio.load(html);
 
       const tables = $('table');
