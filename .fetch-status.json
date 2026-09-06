@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-09-06T15:08:47.493Z",
+  "timestamp": "2026-09-06T15:42:22.996Z",
   "seedOnly": false,
   "sources": {
     "processingTimes": {
@@ -28,15 +28,18 @@
       "lastError": null
     },
     "dosWaitTimes": {
-      "status": "PRESERVED",
-      "liveCount": 0,
-      "staleCount": 54,
-      "lastError": "Preserved official Department of State global wait times dataset"
+      "status": "LIVE_VALIDATED",
+      "liveCount": 1,
+      "lastError": null
     },
     "dolLca": {
       "status": "UNAVAILABLE",
       "liveCount": 0,
       "lastError": "Quarterly LCA workflow is separate from the daily refresh."
     }
+  },
+  "publication": "LIVE_VALIDATED",
+  "rollback": {
+    "performed": false
   }
 }
