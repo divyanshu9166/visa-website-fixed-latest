@@ -3,16 +3,16 @@
     "consecutiveFailures": 0,
     "lastFailed": "2026-09-05T18:46:44.341Z",
     "lastError": null,
-    "lastSuccess": "2026-09-06T13:14:40.554Z"
+    "lastSuccess": "2026-09-06T14:21:06.168Z"
   },
   "visaBulletin": {
-    "consecutiveFailures": 6,
-    "lastFailed": "2026-09-06T13:14:40.554Z",
+    "consecutiveFailures": 7,
+    "lastFailed": "2026-09-06T14:21:06.168Z",
     "lastError": "HTTP 403 (WAF/RateLimit)"
   },
   "waitTimes": {
-    "consecutiveFailures": 6,
-    "lastFailed": "2026-09-06T13:14:40.554Z",
+    "consecutiveFailures": 7,
+    "lastFailed": "2026-09-06T14:21:06.168Z",
     "lastError": "HTTP 403 (WAF/RateLimit)"
   }
 }
