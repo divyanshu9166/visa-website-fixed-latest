@@ -9,6 +9,9 @@ const ENDPOINT_LABELS = {
   processingTimes: 'USCIS Processing Times (https://egov.uscis.gov/processing-times/)',
   visaBulletin: 'DOS Visa Bulletin (https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html)',
   waitTimes: 'DOS Consular Appointment Wait Times (https://travel.state.gov)',
+  dosWaitTimes: 'DOS Consular Appointment Wait Times browser adapter (https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html)',
+  uscisQuarterlyStats: 'USCIS Quarterly Workload Statistics (https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data)',
+  dolLca: 'DOL OFLC LCA Disclosure Data (https://www.dol.gov/agencies/eta/foreign-labor/performance)',
 };
 
 function loadJson(filePath, fallback) {
@@ -48,14 +51,14 @@ async function checkHealth() {
 
     health[key] = health[key] || { consecutiveFailures: 0, lastFailed: null, lastError: null };
 
-    if (epStatus.liveCount > 0) {
+    if (epStatus.status === 'LIVE_VALIDATED') {
       health[key].consecutiveFailures = 0;
       health[key].lastSuccess = status.timestamp;
       health[key].lastError = null;
     } else {
       health[key].consecutiveFailures = (health[key].consecutiveFailures || 0) + 1;
       health[key].lastFailed = status.timestamp;
-      health[key].lastError = epStatus.lastError || 'Live fetch returned 0 records (preservation fallback active)';
+      health[key].lastError = epStatus.lastError || `Source status is ${epStatus.status || 'UNKNOWN'} (preservation fallback active)`;
 
       if (health[key].consecutiveFailures >= 3) {
         alerts.push({
