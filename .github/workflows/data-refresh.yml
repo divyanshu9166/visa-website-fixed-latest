@@ -2,8 +2,8 @@ name: Daily data refresh
 
 on:
   schedule:
-    - cron: '0 6 * * *'
-  workflow_dispatch: {}
+    - cron: "0 6 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -32,19 +32,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify Playwright dependency
+        run: node -e "import('playwright').then(() => console.log('Playwright package is available'))"
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Refresh USCIS, Visa Bulletin, and USCIS statistics
-        id: government-fetch
+      - name: Run strict live refresh atomically
+        id: live-refresh
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: npm run data:fetch
-        continue-on-error: true
-
-      - name: Refresh DOS appointment wait times
-        id: dos-fetch
-        run: npm run data:dos
+          STRICT_LIVE: "1"
+        run: npm run data:refresh
         continue-on-error: true
 
       - name: Check dataset health and open persistent-failure issue
@@ -53,30 +52,49 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: node scripts/check-fetch-health.mjs
 
-      - name: Check staleness
+      - name: Check live evidence and staleness
+        id: staleness
         if: always()
         run: npm run check:staleness
         continue-on-error: true
 
-      - name: Commit confirmed data changes
+      - name: Commit evidence and confirmed data only
         if: always()
         run: |
+          set -e
+
           git config user.name "data-refresh-bot"
           git config user.email "actions@users.noreply.github.com"
 
-          git add src/content
+          # Evidence files are safe to commit even when refresh fails.
+          # They record UNAVAILABLE or LIVE_VALIDATED explicitly.
+          git add .fetch-status.json 2>/dev/null || true
+          git add .fetch-health.json 2>/dev/null || true
 
-          # These files and directories may not exist on the first run.
-          git add data 2>/dev/null || true
-          git add .fetch-status.json .fetch-health.json 2>/dev/null || true
+          # Only add public content when the atomic refresh was fully validated.
+          if node -e "const fs=require('fs'); const s=JSON.parse(fs.readFileSync('.fetch-status.json','utf8')); process.exit(s.publication === 'LIVE_VALIDATED' ? 0 : 1)"; then
+            echo "LIVE_VALIDATED: staging confirmed content changes."
+            git add src/content 2>/dev/null || true
+            git add data 2>/dev/null || true
+          else
+            echo "No LIVE_VALIDATED result: public content will not be staged."
+          fi
 
           if git diff --cached --quiet; then
-            echo "No confirmed data changes."
+            echo "No evidence or confirmed data changes to commit."
           else
-            git commit -m "chore: daily data refresh $(date -u +%Y-%m-%d)"
+            git commit -m "chore: record data refresh evidence $(date -u +%Y-%m-%d)"
             git push origin HEAD:${GITHUB_REF_NAME}
           fi
 
-      - name: Fail workflow if an upstream job failed
-        if: steps.government-fetch.outcome == 'failure' || steps.dos-fetch.outcome == 'failure'
-        run: exit 1
+      - name: Fail workflow if strict live refresh failed
+        if: steps.live-refresh.outcome == 'failure'
+        run: |
+          echo "Strict live refresh failed. Existing validated snapshots were preserved."
+          exit 1
+
+      - name: Fail workflow if live evidence is not validated
+        if: steps.staleness.outcome == 'failure'
+        run: |
+          echo "Live evidence or staleness validation failed."
+          exit 1
