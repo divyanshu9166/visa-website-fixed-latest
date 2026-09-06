@@ -45,8 +45,9 @@ async function checkHealth() {
 
   const alerts = [];
 
+  const sourceStatuses = status.sources || status;
   for (const [key, label] of Object.entries(ENDPOINT_LABELS)) {
-    const epStatus = status[key];
+    const epStatus = sourceStatuses[key];
     if (!epStatus) continue;
 
     health[key] = health[key] || { consecutiveFailures: 0, lastFailed: null, lastError: null };
