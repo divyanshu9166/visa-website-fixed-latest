@@ -2,66 +2,66 @@ name: Quarterly DOL LCA Data Import
 
 on:
   schedule:
-    # Run on the 5th of Jan, Apr, Jul, Oct 
     - cron: '0 0 5 1,4,7,10 *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force_import:
+        description: Force import even if the quarter is already recorded
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+
+concurrency:
+  group: lca-refresh
+  cancel-in-progress: false
 
 jobs:
   import-lca:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
+        with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
+          cache: npm
       - run: npm ci
-      
-      - name: Install parser requirements
-        run: npm install xlsx --no-save
-
-      - name: Fetch LCA URL & Download
+      - name: Discover latest disclosure
+        id: discover
+        run: node scripts/fetch-lca.mjs ${{ inputs.force_import == true && '--force' || '' }}
+      - name: Download disclosure
+        if: steps.discover.outputs.has_new_data == 'true'
+        run: node scripts/download-lca.mjs "${{ steps.discover.outputs.download_url }}"
+      - name: Stream and aggregate disclosure
+        if: steps.discover.outputs.has_new_data == 'true'
+        run: node scripts/process-lca-cache.mjs "tmp/${{ steps.discover.outputs.file_name }}"
+      - name: Validate aggregation
+        if: steps.discover.outputs.has_new_data == 'true'
+        run: node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('tmp/lca-aggregated-cache.json'));if(!Array.isArray(d)||!d.length||d.some(x=>!x.employerName||!Number.isInteger(x.totalLCAs)))process.exit(1);console.log('Validated '+d.length+' employers')"
+      - name: Import to PostgreSQL
+        if: steps.discover.outputs.has_new_data == 'true'
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: node scripts/import-lca.mjs tmp/lca-aggregated-cache.json
+      - name: Update manifest and commit
+        if: steps.discover.outputs.has_new_data == 'true'
+        env:
+          FY: ${{ steps.discover.outputs.fy }}
+          QUARTER: ${{ steps.discover.outputs.quarter }}
+          FILE_NAME: ${{ steps.discover.outputs.file_name }}
         run: |
-          mkdir -p tmp
-          node scripts/fetch-lca.mjs > tmp/fetch-output.txt
-          cat tmp/fetch-output.txt
-          
-          # Grab the download URL
-          DOWNLOAD_URL=$(grep "Download URL:" tmp/fetch-output.txt | awk '{print $3}')
-          FILE_NAME=$(basename $DOWNLOAD_URL)
-          echo "DOWNLOAD_URL=$DOWNLOAD_URL" >> $GITHUB_ENV
-          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
-          
-          # Download the file
-          node scripts/download-lca.mjs $DOWNLOAD_URL
-
-      - name: Parse and Cache 
-        # Parses the massive Excel file to memory and outputs a small JSON array.
-        # Halts before any production database interaction.
-        run: |
-          echo "Data downloaded to tmp/${FILE_NAME}"
-          node scripts/process-lca-cache.mjs ./tmp/${FILE_NAME}
-
-      - name: Archive JSON Cache Artifact
-        uses: actions/upload-artifact@v4
+          node -e "const fs=require('fs');fs.writeFileSync('src/content/lca-manifest.json',JSON.stringify({latestImportedFiscalYear:Number(process.env.FY),latestImportedQuarter:Number(process.env.QUARTER),latestImportedFile:process.env.FILE_NAME,recordCount:JSON.parse(fs.readFileSync('tmp/lca-aggregated-cache.json')).length,lastImportedAt:new Date().toISOString()},null,2)+'\\n')"
+          git config user.name lca-refresh-bot
+          git config user.email actions@users.noreply.github.com
+          git add src/content/lca-manifest.json
+          git diff --cached --quiet || (git commit -m "chore: import DOL LCA FY${FY}-Q${QUARTER}" && git push origin HEAD:${GITHUB_REF_NAME})
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.discover.outputs.has_new_data == 'true'
         with:
           name: lca-aggregated-cache
           path: tmp/lca-aggregated-cache.json
+          if-no-files-found: ignore
           retention-days: 14
-
-      - name: Create Manual Import Reminder Issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: "Review and import latest quarterly DOL LCA Data",
-              body: "The Quarterly LCA fetch workflow has successfully processed `" + process.env.FILE_NAME + "`.\n\nTo update the production database:\n1. Download the `lca-aggregated-cache` JSON artifact from this workflow run.\n2. Run locally:\n   ```bash\n   node scripts/import-lca.mjs <path-to-downloaded-json>\n   ```"
-            })
