@@ -3,34 +3,34 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-09-06T16:22:43.606Z"
+    "lastSuccess": "2026-09-06T17:01:17.374Z"
   },
   "visaBulletin": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
     "lastError": null,
-    "lastSuccess": "2026-09-06T16:22:43.606Z"
+    "lastSuccess": "2026-09-06T17:01:17.374Z"
   },
   "waitTimes": {
-    "consecutiveFailures": 3,
-    "lastFailed": "2026-09-06T16:22:43.606Z",
+    "consecutiveFailures": 4,
+    "lastFailed": "2026-09-06T17:01:17.374Z",
     "lastError": "HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block)"
   },
   "uscisQuarterlyStats": {
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-09-06T16:22:43.606Z"
+    "lastSuccess": "2026-09-06T17:01:17.374Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 0,
-    "lastFailed": "2026-09-06T14:42:54.369Z",
-    "lastError": null,
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-09-06T17:01:17.374Z",
+    "lastError": "Source status is PRESERVED (preservation fallback active)",
     "lastSuccess": "2026-09-06T16:22:43.606Z"
   },
   "dolLca": {
-    "consecutiveFailures": 3,
-    "lastFailed": "2026-09-06T16:22:43.606Z",
+    "consecutiveFailures": 4,
+    "lastFailed": "2026-09-06T17:01:17.374Z",
     "lastError": "Quarterly LCA workflow is separate from the daily refresh."
   }
 }
