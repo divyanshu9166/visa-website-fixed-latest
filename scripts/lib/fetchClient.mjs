@@ -65,9 +65,9 @@ export async function fetchWithBypass(targetUrl, options = {}) {
     detailedTelemetry = false
   } = options;
 
-  const zenrowsKey = process.env.ZENROWS_API_KEY || process.env.SCRAPER_API_KEY;
+  const zenrowsKey = process.env.ZENROWS_API_KEY;
   const scrapingbeeKey = process.env.SCRAPINGBEE_API_KEY;
-  const scraperApiKey = process.env.SCRAPERAPI_KEY;
+  const scraperApiKey = process.env.SCRAPERAPI_KEY || process.env.SCRAPER_API_KEY;
 
   // Proxy headers
   const proxyHeaders = {
@@ -86,8 +86,13 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (zenrowsKey) {
     const encoded = encodeURIComponent(targetUrl);
-    let url = `https://api.zenrows.com/v1/?apikey=${zenrowsKey}&url=${encoded}&js_render=${renderJs}&premium_proxy=true&wait=3000`;
-    if (isJson) url += '&json_response=true';
+    let url = `https://api.zenrows.com/v1/?apikey=${zenrowsKey}&url=${encoded}&premium_proxy=true`;
+    if (renderJs) {
+      url += '&js_render=true&wait=3000';
+    }
+    if (isJson && renderJs) {
+      url += '&json_response=true';
+    }
     providers.push({ name: 'ZenRows', url, headers: proxyHeaders });
   }
 
