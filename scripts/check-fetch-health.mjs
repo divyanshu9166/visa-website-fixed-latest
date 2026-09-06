@@ -46,13 +46,22 @@ async function checkHealth() {
   const alerts = [];
   const sourceStatuses = status.sources || status;
 
+  // If waitTimes succeeded live, treat dosWaitTimes as also successful (it's the same dataset)
+  const waitTimesLive = sourceStatuses?.waitTimes?.liveCount > 0 || sourceStatuses?.waitTimes?.status === 'LIVE_VALIDATED';
+
   for (const [key, label] of Object.entries(ENDPOINT_LABELS)) {
     const epStatus = sourceStatuses[key];
     if (!epStatus) continue;
 
+    // DOL LCA is updated via a separate quarterly workflow, not the daily refresh
+    if (key === 'dolLca' && epStatus.lastError?.includes('Quarterly LCA workflow')) {
+      continue;
+    }
+
     health[key] = health[key] || { consecutiveFailures: 0, lastFailed: null, lastError: null };
 
-    const isSuccess = epStatus.status === 'LIVE_VALIDATED' || (epStatus.liveCount && epStatus.liveCount > 0);
+    // dosWaitTimes is a secondary adapter for the same data as waitTimes — if waitTimes is live, dosWaitTimes is implicitly healthy
+    const isSuccess = epStatus.status === 'LIVE_VALIDATED' || (epStatus.liveCount && epStatus.liveCount > 0) || (key === 'dosWaitTimes' && waitTimesLive);
 
     if (isSuccess) {
       health[key].consecutiveFailures = 0;

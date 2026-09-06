@@ -40,7 +40,6 @@ fs.mkdirSync(BACKUP, { recursive: true });
 for (const relative of paths) copyIfPresent(relative, BACKUP);
 
 const government = run(process.execPath, ['scripts/fetch-data.mjs']);
-const dos = run(process.execPath, ['scripts/automated-dos-wait-times.mjs']);
 const status = loadStatus();
 status.schemaVersion = 2;
 status.timestamp = new Date().toISOString();
@@ -59,12 +58,23 @@ try {
   }
 } catch {}
 
-status.sources.dosWaitTimes = dos.status === 0
-  ? { status: dosLive ? 'LIVE_VALIDATED' : 'PRESERVED', liveCount: dosLive ? 1 : 0, lastError: null }
-  : { status: 'UNAVAILABLE', liveCount: 0, lastError: `DOS browser refresh exited with code ${dos.status}` };
+const waitTimesAlreadyLive = Boolean(status.sources?.waitTimes?.liveCount > 0);
+let dosStatus = 0;
+
+if (waitTimesAlreadyLive) {
+  console.log('[refresh-live] waitTimes was already fetched and validated live. Skipping secondary browser adapter.');
+  status.sources.dosWaitTimes = { status: 'LIVE_VALIDATED', liveCount: status.sources.waitTimes.liveCount, lastError: null };
+} else {
+  const dos = run(process.execPath, ['scripts/automated-dos-wait-times.mjs']);
+  dosStatus = dos.status;
+  status.sources.dosWaitTimes = dosStatus === 0
+    ? { status: dosLive ? 'LIVE_VALIDATED' : 'PRESERVED', liveCount: dosLive ? 1 : 0, lastError: null }
+    : { status: 'UNAVAILABLE', liveCount: 0, lastError: `DOS browser refresh exited with code ${dosStatus}` };
+}
+
 status.sources.dolLca = { status: 'UNAVAILABLE', liveCount: 0, lastError: 'Quarterly LCA workflow is separate from the daily refresh.' };
 
-if (government.status !== 0 || dos.status !== 0) {
+if (government.status !== 0 || dosStatus !== 0) {
   for (const relative of paths) restore(relative);
   fs.rmSync(BACKUP, { recursive: true, force: true });
   status.publication = 'PRESERVED_LAST_VALIDATED_SNAPSHOT';

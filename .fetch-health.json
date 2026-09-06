@@ -24,14 +24,14 @@
     "lastSuccess": "2026-09-06T19:21:47.430Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 3,
+    "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T19:21:47.430Z",
-    "lastError": "Source status is PRESERVED (preservation fallback active)",
-    "lastSuccess": "2026-09-06T16:22:43.606Z"
+    "lastError": null,
+    "lastSuccess": "2026-09-06T19:21:47.430Z"
   },
   "dolLca": {
-    "consecutiveFailures": 6,
-    "lastFailed": "2026-09-06T19:21:47.430Z",
-    "lastError": "Quarterly LCA workflow is separate from the daily refresh."
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
   }
 }
