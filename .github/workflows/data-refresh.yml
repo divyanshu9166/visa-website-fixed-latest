@@ -37,7 +37,7 @@ jobs:
           sudo apt-get update && sudo apt-get install -y xvfb
           npx playwright install --with-deps chromium
 
-      - name: Fetch latest USCIS / State Dept data (Proxy & Browser Engine)
+      - name: Run strict live refresh atomically
         id: live-refresh
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -45,10 +45,11 @@ jobs:
           SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
           SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
-        run: xvfb-run --auto-servernum npm run data:fetch
+          STRICT_LIVE: "1"
+        run: xvfb-run --auto-servernum npm run data:refresh
         continue-on-error: true
 
-      - name: Check dataset health and alert on persistent failures
+      - name: Check dataset health and open persistent-failure issue
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
@@ -60,22 +61,28 @@ jobs:
         run: npm run check:staleness
         continue-on-error: true
 
-      - name: Commit evidence and confirmed data
+      - name: Commit evidence and confirmed data only
         if: always()
         run: |
           set -e
-
           git config user.name "data-refresh-bot"
           git config user.email "actions@users.noreply.github.com"
 
           git add .fetch-status.json 2>/dev/null || true
           git add .fetch-health.json 2>/dev/null || true
-          git add src/content 2>/dev/null || true
-          git add data 2>/dev/null || true
+
+          if node -e "const fs=require('fs'); const s=JSON.parse(fs.readFileSync('.fetch-status.json','utf8')); process.exit(s.publication === 'LIVE_VALIDATED' ? 0 : 1)"; then
+            echo "LIVE_VALIDATED: staging confirmed content changes."
+            git add src/content 2>/dev/null || true
+            git add data 2>/dev/null || true
+          else
+            echo "No LIVE_VALIDATED result: public content will not be staged."
+          fi
 
           if git diff --cached --quiet; then
-            echo "No data or evidence changes to commit."
+            echo "No evidence or confirmed data changes to commit."
           else
             git commit -m "chore: record data refresh evidence $(date -u +%Y-%m-%d)"
+            git pull --rebase origin ${GITHUB_REF_NAME} 2>/dev/null || true
             git push origin HEAD:${GITHUB_REF_NAME}
           fi
