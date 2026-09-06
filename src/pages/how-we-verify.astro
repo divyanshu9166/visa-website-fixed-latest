@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'How We Verify Our Data', href: '/how-we-verify' }
+];
+
+const sources = [
+  {
+    title: 'USCIS Processing Times',
+    agency: 'U.S. Citizenship and Immigration Services (DHS)',
+    cadence: 'Daily automated ingestion',
+    mechanism: 'Direct API queries with resilient proxy fallbacks against egov.uscis.gov/processing-times',
+    reliability: 'Authoritative Official Government Data',
+    officialUrl: 'https://egov.uscis.gov/processing-times/',
+    details: 'We poll USCIS published processing times for every form category and service center. If the upstream USCIS server fails or is blocked by Cloudflare WAF, our atomic ingestion engine halts publication and preserves the last confirmed official snapshot with a visible provenance badge.',
+    badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+  },
+  {
+    title: 'Department of State Visa Bulletin',
+    agency: 'U.S. Department of State (Bureau of Consular Affairs)',
+    cadence: 'Monthly upon official release',
+    mechanism: 'Automated HTML & PDF parser cross-verified against USCIS Adjustment of Status filing charts',
+    reliability: 'Authoritative Official Government Cutoffs',
+    officialUrl: 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html',
+    details: 'Each month when the Department of State releases the upcoming Visa Bulletin, we ingest both the "Final Action Dates" and "Dates for Filing" tables. We also mirror the USCIS companion announcement confirming which chart applies for domestic I-485 submissions.',
+    badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+  },
+  {
+    title: 'USCIS Quarterly Workload Statistics',
+    agency: 'USCIS Office of Performance and Quality',
+    cadence: 'Quarterly official release',
+    mechanism: 'Structured ingestion of official government XLSX/CSV statistical reports',
+    reliability: 'Official Government Workload Statistics',
+    officialUrl: 'https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data',
+    details: 'We parse official quarterly filings, approvals, denials, and pending case inventories across service centers and field offices (e.g., Form I-140, I-485, N-400), providing historical trends and queue visibility without estimation.',
+    badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+  },
+  {
+    title: 'Department of Labor LCA Database',
+    agency: 'Employment and Training Administration (DOL)',
+    cadence: 'Quarterly disclosure releases',
+    mechanism: 'Direct ETL on official OFLC disclosure data files from foreignlaborcert.doleta.gov',
+    reliability: 'Official Certified Labor Records',
+    officialUrl: 'https://www.dol.gov/agencies/eta/foreign-labor/performance',
+    details: 'Our H-1B sponsor database and prevailing wage references are built from certified Labor Condition Applications (ETA-9035) published by the Department of Labor. We do not use third-party scrape aggregations.',
+    badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+  },
+  {
+    title: 'Consular Appointment Wait Times',
+    agency: 'U.S. Department of State Consular Posts',
+    cadence: 'Weekly snapshot verification',
+    mechanism: 'Ingestion of public consular appointment wait time tables',
+    reliability: 'Official Government Post Averages (Estimates)',
+    officialUrl: 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html',
+    details: 'Consular appointment wait times represent State Department weekly averages across interview categories (B1/B2, F-1, H-1B, L-1). These are informational averages published by individual embassies and consulates and fluctuate based on post staffing and seasonal demand.',
+    badgeClass: 'bg-blue-50 text-blue-800 border-blue-200',
+  },
+];
+---
+
+<Layout
+  title="How We Verify Our Data | EasyVisaCheck Data Integrity Standards"
+  description="Learn how EasyVisaCheck ingests, verifies, and publishes official US visa and immigration data directly from USCIS, the Department of State, and Department of Labor."
+  breadcrumbs={breadcrumbs}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Calm Header -->
+    <div class="border-b border-stone-200 pb-8 mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-800 border border-stone-200 mb-4">
+        <svg class="w-3.5 h-3.5 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        Data Integrity & Provenance Standards
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+        How We Verify Our Data
+      </h1>
+      <p class="mt-3 text-base text-stone-600 leading-relaxed max-w-2xl">
+        Immigration decisions are life-defining. EasyVisaCheck adheres to strict data integrity standards so you never have to guess whether numbers are accurate, current, or artificially inflated.
+      </p>
+    </div>
+
+    <!-- Core Commitments Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white p-5 rounded-xl border border-stone-200">
+        <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-800 flex items-center justify-center font-bold text-sm mb-3">
+          1
+        </div>
+        <h2 class="font-semibold text-stone-900 text-base mb-1.5">Zero Synthetic Estimates</h2>
+        <p class="text-xs text-stone-600 leading-relaxed">
+          We never fabricate or extrapolate processing dates. Every wait time, priority date cutoff, and form processing range is taken directly from an official agency release.
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-xl border border-stone-200">
+        <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-800 flex items-center justify-center font-bold text-sm mb-3">
+          2
+        </div>
+        <h2 class="font-semibold text-stone-900 text-base mb-1.5">Fail-Closed Atomic Publishing</h2>
+        <p class="text-xs text-stone-600 leading-relaxed">
+          If an automated daily scrape encounters an upstream government outage or Cloudflare block, our system refuses to publish incomplete records and preserves the last validated state.
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-xl border border-stone-200">
+        <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-800 flex items-center justify-center font-bold text-sm mb-3">
+          3
+        </div>
+        <h2 class="font-semibold text-stone-900 text-base mb-1.5">Transparent Staleness Notice</h2>
+        <p class="text-xs text-stone-600 leading-relaxed">
+          Every card and page displays a timestamp. If upstream data is delayed, we prominently display a verification notice rather than claiming false real-time precision.
+        </p>
+      </div>
+    </div>
+
+    <!-- Data Sources Breakdown -->
+    <div class="mb-12">
+      <h2 class="text-xl font-bold text-stone-900 mb-6">Our Official Government Data Feeds</h2>
+      <div class="space-y-6">
+        {sources.map((src) => (
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-base font-semibold text-stone-900">{src.title}</h3>
+                <p class="text-xs text-stone-500">{src.agency}</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class={`inline-block px-2.5 py-1 rounded-full text-xs font-medium border ${src.badgeClass}`}>
+                  {src.cadence}
+                </span>
+              </div>
+            </div>
+
+            <p class="text-sm text-stone-600 leading-relaxed mb-4">
+              {src.details}
+            </p>
+
+            <div class="pt-3 border-t border-stone-100 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-stone-500 gap-2">
+              <span class="font-medium text-stone-700">Method: {src.mechanism}</span>
+              <a
+                href={src.officialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-teal-800 hover:text-teal-950 underline font-medium inline-flex items-center gap-1"
+              >
+                Official Agency Portal &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Disclaimers & Ethics -->
+    <div class="bg-stone-50 rounded-xl border border-stone-200 p-6 text-sm text-stone-700 space-y-3">
+      <h3 class="font-semibold text-stone-900 text-base">Important Non-Affiliation & Legal Notice</h3>
+      <p class="text-xs sm:text-sm leading-relaxed text-stone-600">
+        EasyVisaCheck is an independent public information utility. We are not affiliated with, endorsed by, or operating on behalf of the United States Citizenship and Immigration Services (USCIS), the Department of Homeland Security (DHS), the Department of State (DOS), or the Department of Labor (DOL).
+      </p>
+      <p class="text-xs sm:text-sm leading-relaxed text-stone-600">
+        The information presented on this website is for educational and tracking purposes only and does not constitute legal advice. Immigration regulations and adjudications depend on the unique circumstances of each petition. For individual legal counsel, consult a licensed immigration attorney.
+      </p>
+    </div>
+  </div>
+</Layout>

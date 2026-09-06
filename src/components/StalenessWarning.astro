@@ -5,6 +5,8 @@ interface Props {
   maxAgeDays?: number;
   sourceName?: string;
   sourceUrl?: string;
+  mode?: 'banner' | 'badge' | 'card-footer';
+  isLiveValidated?: boolean;
 }
 
 const {
@@ -13,6 +15,8 @@ const {
   maxAgeDays = 2,
   sourceName = 'Official Government Source',
   sourceUrl,
+  mode = 'banner',
+  isLiveValidated = true,
 } = Astro.props;
 
 let isStale = false;
@@ -27,8 +31,7 @@ if (staleSince) {
 } else if (lastUpdated) {
   const updatedTime = new Date(lastUpdated).getTime();
   if (!isNaN(updatedTime)) {
-    // Upstream government releases (USCIS processing times, DOS Visa Bulletins) publish monthly (~30-45 days).
-    // If no upstream fetch outage occurred (staleSince is null), only flag if no publication in >60 days.
+    // Upstream government releases publish periodically. Flag if no publication in >60 days.
     const daysDiff = (Date.now() - updatedTime) / (1000 * 60 * 60 * 24);
     if (daysDiff >= Math.max(maxAgeDays, 60)) {
       isStale = true;
@@ -46,22 +49,47 @@ if (verifiedDateStr) {
 }
 ---
 
-{isStale && (
-  <div class="mb-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900 shadow-sm" role="alert">
+{mode === 'banner' && isStale && (
+  <aside class="mb-6 rounded-lg border border-amber-300/80 bg-amber-50/90 p-4 text-amber-950" role="status" aria-label="Data Freshness Notice">
     <div class="flex items-start gap-3">
-      <span class="text-xl leading-none">⚠️</span>
-      <div class="text-sm">
-        <p class="font-bold text-amber-950">Data Verification Notice</p>
-        <p class="mt-0.5 text-amber-800">
-          Upstream updates from {sourceName} are currently experiencing delay. Displaying last confirmed official government records
+      <svg class="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <div class="text-xs sm:text-sm">
+        <p class="font-semibold text-amber-950">Upstream Synchronization Notice</p>
+        <p class="mt-0.5 text-amber-900 leading-relaxed">
+          Daily live synchronization with {sourceName} was delayed upstream. Displaying last confirmed government records
           {verifiedDateStr ? ` from ${verifiedDateStr}` : ''}.
           {sourceUrl && (
-            <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="ml-1 underline font-medium hover:text-amber-950">
-              Verify directly on {sourceName} &rarr;
+            <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="ml-1 underline font-medium text-amber-950 hover:text-stone-900">
+              Cross-verify directly on {sourceName} &rarr;
             </a>
           )}
         </p>
       </div>
     </div>
+  </aside>
+)}
+
+{mode === 'badge' && (
+  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200">
+    <span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
+    <span>{isStale ? `Preserved snapshot: ${verifiedDateStr}` : `Verified official data: ${verifiedDateStr || 'Current'}`}</span>
+  </div>
+)}
+
+{mode === 'card-footer' && (
+  <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
+    <span class="flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
+      <span>Verified {verifiedDateStr || 'Official Data'}</span>
+    </span>
+    {sourceUrl ? (
+      <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-stone-800 underline">
+        Source
+      </a>
+    ) : (
+      <span>{sourceName}</span>
+    )}
   </div>
 )}

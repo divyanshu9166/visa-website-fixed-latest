@@ -19,7 +19,7 @@ interface Props {
 
 const {
 	title,
-	description = "Track US Visa & Immigration Processing Times.",
+	description = "Track US Visa & Immigration Processing Times with verified official government data.",
 	breadcrumbs,
 	ogType = "website",
 	publishDate,
@@ -96,50 +96,55 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 1 ? {
 		<!-- Google AdSense -->
 		<script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8372328308593046" crossorigin="anonymous" onerror="console.warn('Ad blocker detected or DNS resolution failed for AdSense');"></script>
 	</head>
-	<body class="bg-[#fafafa] text-neutral-900 font-sans antialiased min-h-screen flex flex-col selection:bg-neutral-200 selection:text-neutral-900">
-		<header class="bg-white/80 backdrop-blur-md border-b border-neutral-200 sticky top-0 z-10 transition-colors">
+	<body class="bg-[#FBFBF9] text-stone-900 font-sans antialiased min-h-screen flex flex-col selection:bg-stone-200 selection:text-stone-900 leading-relaxed">
+		<header class="bg-[#FBFBF9]/90 backdrop-blur-md border-b border-stone-200 sticky top-0 z-20 transition-colors">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between items-center py-3 min-h-[5rem]">
+				<div class="flex justify-between items-center py-2.5 min-h-[4.5rem]">
 					<!-- Logo -->
 					<div class="flex-shrink-0 flex items-center lg:w-48">
-						<a href="/" class="flex items-center gap-2 text-xl font-bold tracking-tighter text-neutral-900 hover:text-neutral-600 transition-colors">
-							<img src="/logo-black.png" alt="EVC Logo" class="h-20 w-auto object-contain scale-150 origin-left" />
+						<a href="/" class="flex items-center gap-2 font-bold tracking-tight text-stone-900 hover:opacity-80 transition-opacity">
+							<img src="/logo-black.png" alt="EasyVisaCheck Logo" class="h-16 w-auto object-contain scale-125 origin-left" />
 						</a>
 					</div>
 
-					<!-- Centered Navigation -->
-					<nav class="hidden lg:flex flex-1 justify-center space-x-2 items-center">
-						<a href="/uscis-processing-times" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Processing</a>
-						<a href="/green-card/visa-bulletin" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Visa Bulletin</a>
-						<a href="/h1b" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">H1B DB</a>
-						<a href="/tools" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Tools</a>
-						<a href="/uscis-trackers" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Trackers</a>
-						<a href="/blog" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
-						<a href="/resources" class="text-neutral-500 hover:text-neutral-900 px-2 py-2 rounded-md text-sm font-medium transition-colors">Resources</a>
+					<!-- Centered Navigation with calm styling -->
+					<nav class="hidden lg:flex flex-1 justify-center space-x-1 items-center">
+						<a href="/uscis-processing-times" class="text-stone-600 hover:text-stone-950 px-3 py-2 rounded-md text-sm font-medium transition-colors">Processing Times</a>
+						<a href="/green-card/visa-bulletin" class="text-stone-600 hover:text-stone-950 px-3 py-2 rounded-md text-sm font-medium transition-colors">Visa Bulletin</a>
+						<a href="/us-visa-appointment-wait-times" class="text-stone-600 hover:text-stone-950 px-3 py-2 rounded-md text-sm font-medium transition-colors">Wait Times</a>
+						<a href="/h1b" class="text-stone-600 hover:text-stone-950 px-3 py-2 rounded-md text-sm font-medium transition-colors">H-1B Sponsors</a>
+						<a href="/tools" class="text-stone-600 hover:text-stone-950 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tools</a>
+						<a href="/blog" class="text-stone-600 hover:text-stone-950 px-3 py-2 rounded-md text-sm font-medium transition-colors">Guides</a>
+						<a href="/how-we-verify" class="text-teal-800 hover:text-teal-950 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1.5">
+							<svg class="w-3.5 h-3.5 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+							How We Verify
+						</a>
 					</nav>
 
 					<!-- Right Side: Auth & Mobile Menu -->
-					<div class="flex items-center justify-end lg:w-48 gap-4">
-						<a href="/login" id="nav-auth-link" class="hidden md:inline-flex text-neutral-900 px-3 py-1.5 rounded-lg text-sm font-semibold border border-neutral-200 hover:bg-neutral-50 transition-colors">Sign In</a>
-						<button id="mobile-menu-btn" class="lg:hidden p-2 text-neutral-700" aria-label="Open menu" aria-expanded="false">
+					<div class="flex items-center justify-end lg:w-48 gap-3">
+						<a href="/login" id="nav-auth-link" class="hidden md:inline-flex text-stone-800 px-3.5 py-1.5 rounded-md text-sm font-medium border border-stone-300 hover:bg-stone-100 transition-colors">Sign In</a>
+						<button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-md text-stone-700 hover:bg-stone-100 min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
 							<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
 						</button>
 					</div>
 				</div>
 			</div>
-			<nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-200 bg-white">
-				<div class="px-4 py-3 flex flex-col space-y-1">
-					<a href="/uscis-processing-times" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Processing Times</a>
-					<a href="/green-card/visa-bulletin" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Visa Bulletin</a>
-					<a href="/h1b" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">H1B Database</a>
-					<a href="/tools" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Free Tools</a>
-					<a href="/uscis-trackers" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Community Trackers</a>
-					<a href="/blog" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Blog</a>
-					<a href="/resources" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Resources</a>
-					<a href="/us-visa-appointment-wait-times" class="text-neutral-600 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Appointment Wait Times</a>
-					<a href="/login" class="text-neutral-900 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-semibold">Sign In</a>
-					<a href="/about-us" class="text-neutral-400 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">About</a>
-					<a href="/contact-us" class="text-neutral-400 hover:text-neutral-900 px-2 py-2.5 rounded-md text-sm font-medium">Contact</a>
+			<nav id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-[#FBFBF9]">
+				<div class="px-4 py-3 flex flex-col space-y-1.5">
+					<a href="/uscis-processing-times" class="text-stone-700 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-medium">Processing Times</a>
+					<a href="/green-card/visa-bulletin" class="text-stone-700 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-medium">Visa Bulletin</a>
+					<a href="/us-visa-appointment-wait-times" class="text-stone-700 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-medium">Appointment Wait Times</a>
+					<a href="/h1b" class="text-stone-700 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-medium">H-1B Sponsor Database</a>
+					<a href="/tools" class="text-stone-700 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-medium">Free Calculators & Tools</a>
+					<a href="/how-we-verify" class="text-teal-800 font-semibold px-3 py-2.5 rounded-md text-sm flex items-center gap-2">
+						<svg class="w-4 h-4 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+						How We Verify Our Data
+					</a>
+					<a href="/blog" class="text-stone-700 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-medium">Guides & Analysis</a>
+					<a href="/login" class="text-stone-900 hover:text-stone-950 px-3 py-2.5 rounded-md text-sm font-semibold">Sign In</a>
+					<a href="/about-us" class="text-stone-500 hover:text-stone-900 px-3 py-2 rounded-md text-sm">About EasyVisaCheck</a>
+					<a href="/contact-us" class="text-stone-500 hover:text-stone-900 px-3 py-2 rounded-md text-sm">Contact</a>
 				</div>
 			</nav>
 		</header>
@@ -171,79 +176,73 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 1 ? {
 			<slot />
 		</main>
 
-		<footer class="bg-[#fafafa] mt-12 py-12 border-t border-neutral-200">
+		<footer class="bg-[#F6F6F2] mt-16 py-12 border-t border-stone-200">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
 				<a href="/" class="inline-block">
-					<img src="/logo-black.png" alt="EVC Logo" class="h-20 w-auto object-contain scale-150 origin-left opacity-90 hover:opacity-100 transition-opacity" />
+					<img src="/logo-black.png" alt="EasyVisaCheck Logo" class="h-16 w-auto object-contain scale-125 origin-left opacity-90 hover:opacity-100 transition-opacity" />
 				</a>
 			</div>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
 				<div>
-					<h4 class="text-xs font-bold text-neutral-900 uppercase tracking-wider mb-3">Processing Times</h4>
-					<ul class="space-y-2 text-sm text-neutral-500">
-						<li><a href="/uscis-processing-times/h1b-visa" class="hover:text-neutral-900">H-1B Visa</a></li>
-						<li><a href="/uscis-processing-times/i-140" class="hover:text-neutral-900">I-140</a></li>
-						<li><a href="/uscis-processing-times/i-485-eb" class="hover:text-neutral-900">I-485 (EB)</a></li>
-						<li><a href="/uscis-processing-times/n-400" class="hover:text-neutral-900">N-400 Citizenship</a></li>
-						<li><a href="/uscis-processing-times/nvc" class="hover:text-neutral-900">NVC Processing</a></li>
-						<li><a href="/uscis-processing-times" class="hover:text-neutral-900">View all &rarr;</a></li>
+					<h4 class="text-xs font-semibold text-stone-900 uppercase tracking-wider mb-3">Processing Times</h4>
+					<ul class="space-y-2 text-sm text-stone-600">
+						<li><a href="/uscis-processing-times/h1b-visa" class="hover:text-stone-900">H-1B Visa</a></li>
+						<li><a href="/uscis-processing-times/i-140" class="hover:text-stone-900">I-140 Immigrant Petition</a></li>
+						<li><a href="/uscis-processing-times/i-485-eb" class="hover:text-stone-900">I-485 Green Card (EB)</a></li>
+						<li><a href="/uscis-processing-times/n-400" class="hover:text-stone-900">N-400 Citizenship</a></li>
+						<li><a href="/uscis-processing-times/nvc" class="hover:text-stone-900">NVC Processing</a></li>
+						<li><a href="/uscis-processing-times" class="hover:text-stone-900">All 14+ Visas &rarr;</a></li>
 					</ul>
 				</div>
 				<div>
-					<h4 class="text-xs font-bold text-neutral-900 uppercase tracking-wider mb-3">Green Card</h4>
-					<ul class="space-y-2 text-sm text-neutral-500">
-						<li><a href="/green-card/visa-bulletin/india" class="hover:text-neutral-900">Visa Bulletin — India</a></li>
-						<li><a href="/green-card/visa-bulletin/china" class="hover:text-neutral-900">Visa Bulletin — China</a></li>
-						<li><a href="/green-card/marriage-gc-timeline" class="hover:text-neutral-900">Marriage GC Timeline</a></li>
-						<li><a href="/green-card/queue-calculator" class="hover:text-neutral-900">Queue Calculator</a></li>
-						<li><a href="/green-card/retrogression-tracker" class="hover:text-neutral-900">Retrogression Tracker</a></li>
-						<li><a href="/green-card/dos-predictions" class="hover:text-neutral-900">DOS Predictions</a></li>
-						<li><a href="/green-card/gc-stats" class="hover:text-neutral-900">GC Statistics</a></li>
+					<h4 class="text-xs font-semibold text-stone-900 uppercase tracking-wider mb-3">Green Card</h4>
+					<ul class="space-y-2 text-sm text-stone-600">
+						<li><a href="/green-card/visa-bulletin/india" class="hover:text-stone-900">Visa Bulletin — India</a></li>
+						<li><a href="/green-card/visa-bulletin/china" class="hover:text-stone-900">Visa Bulletin — China</a></li>
+						<li><a href="/green-card/marriage-gc-timeline" class="hover:text-stone-900">Marriage GC Timeline</a></li>
+						<li><a href="/green-card/queue-calculator" class="hover:text-stone-900">Queue Calculator</a></li>
+						<li><a href="/green-card/retrogression-tracker" class="hover:text-stone-900">Retrogression Tracker</a></li>
+						<li><a href="/green-card/gc-stats" class="hover:text-stone-900">Quarterly GC Stats</a></li>
 					</ul>
 				</div>
 				<div>
-					<h4 class="text-xs font-bold text-neutral-900 uppercase tracking-wider mb-3">H1B & Tools</h4>
-					<ul class="space-y-2 text-sm text-neutral-500">
-						<li><a href="/h1b" class="hover:text-neutral-900">H1B Sponsor DB</a></li>
-						<li><a href="/tools/h1b-lottery-calculator" class="hover:text-neutral-900">Lottery Calculator</a></li>
-						<li><a href="/tools/cap-gap-calculator" class="hover:text-neutral-900">F-1 Cap-Gap Calculator</a></li>
-						<li><a href="/tools/h4-ead-extension-checker" class="hover:text-neutral-900">H4 EAD Checker</a></li>
-						<li><a href="/tools/receipt-number-decoder" class="hover:text-neutral-900">Receipt Decoder</a></li>
-						<li><a href="/tools/uscis-phone-calculator" class="hover:text-neutral-900">Phone Navigator</a></li>
-						<li><a href="/green-card/visa-bulletin/hidden-checker" class="hover:text-neutral-900">Hidden Bulletin</a></li>
-						<li><a href="/tools" class="hover:text-neutral-900">All Tools &rarr;</a></li>
+					<h4 class="text-xs font-semibold text-stone-900 uppercase tracking-wider mb-3">H-1B & Tools</h4>
+					<ul class="space-y-2 text-sm text-stone-600">
+						<li><a href="/h1b" class="hover:text-stone-900">H-1B Sponsor Database</a></li>
+						<li><a href="/tools/h1b-lottery-calculator" class="hover:text-stone-900">Lottery Selection Estimator</a></li>
+						<li><a href="/tools/cap-gap-calculator" class="hover:text-stone-900">F-1 Cap-Gap Calculator</a></li>
+						<li><a href="/tools/h4-ead-extension-checker" class="hover:text-stone-900">H4 EAD Auto-Extension</a></li>
+						<li><a href="/tools/receipt-number-decoder" class="hover:text-stone-900">Receipt Number Decoder</a></li>
+						<li><a href="/tools" class="hover:text-stone-900">All Calculators &rarr;</a></li>
 					</ul>
 				</div>
 				<div>
-					<h4 class="text-xs font-bold text-neutral-900 uppercase tracking-wider mb-3">Appointments</h4>
-					<ul class="space-y-2 text-sm text-neutral-500">
-						<li><a href="/us-visa-appointment-wait-times/india" class="hover:text-neutral-900">India Wait Times</a></li>
-						<li><a href="/us-visa-appointment-wait-times/mexico" class="hover:text-neutral-900">Mexico Wait Times</a></li>
-						<li><a href="/trackers/slot-screenshots" class="hover:text-neutral-900">Slot Screenshots</a></li>
-						<li><a href="/us-visa-trackers/221g-tracker" class="hover:text-neutral-900">221(g) Tracker</a></li>
-						<li><a href="/uscis-trackers" class="hover:text-neutral-900">All Trackers</a></li>
+					<h4 class="text-xs font-semibold text-stone-900 uppercase tracking-wider mb-3">Appointments</h4>
+					<ul class="space-y-2 text-sm text-stone-600">
+						<li><a href="/us-visa-appointment-wait-times/india" class="hover:text-stone-900">India Consulates</a></li>
+						<li><a href="/us-visa-appointment-wait-times/mexico" class="hover:text-stone-900">Mexico Consulates</a></li>
+						<li><a href="/us-visa-appointment-wait-times/canada" class="hover:text-stone-900">Canada Consulates</a></li>
+						<li><a href="/us-visa-appointment-wait-times" class="hover:text-stone-900">All Global Posts &rarr;</a></li>
 					</ul>
 				</div>
 				<div>
-					<h4 class="text-xs font-bold text-neutral-900 uppercase tracking-wider mb-3">Resources</h4>
-					<ul class="space-y-2 text-sm text-neutral-500">
-						<li><a href="/blog" class="hover:text-neutral-900">Blog</a></li>
-						<li><a href="/resources/how-to-read-visa-bulletin" class="hover:text-neutral-900">How to Read Bulletin</a></li>
-						<li><a href="/resources/h1b-layoff-guide" class="hover:text-neutral-900">H1B Layoff Guide</a></li>
-						<li><a href="/resources/ac21-portability" class="hover:text-neutral-900">AC21 Guide</a></li>
-						<li><a href="/visa-stats" class="hover:text-neutral-900">Visa Statistics</a></li>
-						<li><a href="/about-us" class="hover:text-neutral-900">About Us</a></li>
+					<h4 class="text-xs font-semibold text-stone-900 uppercase tracking-wider mb-3">Trust & Ethics</h4>
+					<ul class="space-y-2 text-sm text-stone-600">
+						<li><a href="/how-we-verify" class="font-medium text-teal-800 hover:text-teal-950">How We Verify Data</a></li>
+						<li><a href="/about-us" class="hover:text-stone-900">About Our Mission</a></li>
+						<li><a href="/contact-us" class="hover:text-stone-900">Contact & Feedback</a></li>
+						<li><a href="/blog" class="hover:text-stone-900">Immigration Guides</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm border-t border-neutral-200 pt-8">
-				<div class="mb-4 md:mb-0 text-center md:text-left">
-					<p class="mb-2 font-medium text-neutral-800">Not affiliated with USCIS, DHS, or the US State Department.</p>
-					<p class="text-neutral-500 max-w-md">Data is sourced from public government publications and updated regularly. For official information, always refer to uscis.gov and travel.state.gov.</p>
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center text-sm border-t border-stone-200 pt-8 gap-4">
+				<div class="text-left">
+					<p class="mb-1 font-medium text-stone-800">EasyVisaCheck is an independent informational resource and is not affiliated with USCIS, DHS, or the US Department of State.</p>
+					<p class="text-stone-500 max-w-2xl text-xs">Data is aggregated directly from official public government publications (egov.uscis.gov, travel.state.gov, and dol.gov). For official case status and legal determinations, always consult your attorney and official government portals. Read our <a href="/how-we-verify" class="underline text-teal-800 hover:text-teal-950">Data Verification Standards</a>.</p>
 				</div>
-			</div>
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-neutral-200 text-center text-neutral-400 text-xs">
-				&copy; {new Date().getFullYear()} EasyVisaCheck. All Rights Reserved.
+				<div class="text-stone-400 text-xs whitespace-nowrap self-start md:self-center">
+					&copy; {new Date().getFullYear()} EasyVisaCheck.
+				</div>
 			</div>
 		</footer>
 	</body>

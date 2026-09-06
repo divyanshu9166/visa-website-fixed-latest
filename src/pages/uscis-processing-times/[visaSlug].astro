@@ -44,7 +44,7 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: `${f.visaLabel} Processing Time Predictor`,
+    name: `${f.visaLabel} Processing Time Calculator`,
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Any",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -64,7 +64,7 @@ const jsonLd = [
 <Layout title={f.seoTitle} description={f.seoDesc} breadcrumbs={breadcrumbs} noindex={shouldNoIndex}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'USCIS Processing Times', href: '/uscis-processing-times' },
@@ -80,34 +80,38 @@ const jsonLd = [
     />
 
     <div class="mb-10">
-      <div class="flex flex-wrap items-center gap-3 mb-5">
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-neutral-900 text-white text-xs font-semibold tracking-wide uppercase">{f.formType}</span>
-        <span class="inline-flex items-center gap-2 text-xs font-medium text-neutral-500 bg-neutral-100 px-3 py-1.5 rounded-full">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          Updated {new Date(f.lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-        </span>
+      <div class="flex flex-wrap items-center gap-2.5 mb-4">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-stone-900 text-white text-xs font-semibold tracking-wide uppercase">{f.formType}</span>
+        <StalenessWarning
+          lastUpdated={f.lastUpdated}
+          staleSince={f.staleSince}
+          maxAgeDays={2}
+          sourceName="USCIS.gov"
+          mode="badge"
+        />
         {f.dataSource === 'seed' && (
-          <span class="inline-flex items-center text-xs font-medium text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-full" title="This build is using placeholder seed data. Run `npm run data:fetch` on a network with access to uscis.gov to pull live figures.">
-            Sample data — run data:fetch for live figures
+          <span class="inline-flex items-center text-xs font-medium text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md" title="This build is using placeholder seed data.">
+            Sample baseline data
           </span>
         )}
       </div>
-      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-4">{f.seoTitle}</h1>
-      <p class="text-xl text-neutral-500">{f.formName}</p>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 mb-2">{f.seoTitle}</h1>
+      <p class="text-base sm:text-lg text-stone-600">{f.formName}</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-      <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 p-6 sm:col-span-1">
-        <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2">Overall Range</p>
-        <p class="text-3xl font-black tracking-tighter text-neutral-900">{minOfMin}–{maxOfMax}<span class="text-base font-medium text-neutral-500"> mo</span></p>
+    <!-- Calm Stat Summary Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+      <div class="bg-white rounded-xl border border-stone-200 p-5">
+        <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Overall Processing Range</p>
+        <p class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900">{minOfMin}–{maxOfMax}<span class="text-sm font-normal text-stone-500"> months</span></p>
       </div>
-      <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 p-6 sm:col-span-1">
-        <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2">Service Centers</p>
-        <p class="text-3xl font-black tracking-tighter text-neutral-900">{f.servicecenters.length}</p>
+      <div class="bg-white rounded-xl border border-stone-200 p-5">
+        <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Service Centers</p>
+        <p class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900">{f.servicecenters.length}</p>
       </div>
-      <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 p-6 sm:col-span-1">
-        <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2">Case Types Tracked</p>
-        <p class="text-3xl font-black tracking-tighter text-neutral-900">{allCases.length}</p>
+      <div class="bg-white rounded-xl border border-stone-200 p-5">
+        <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Case Categories</p>
+        <p class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900">{allCases.length}</p>
       </div>
     </div>
 
@@ -117,7 +121,7 @@ const jsonLd = [
     </div>
 
     <!-- Per service center tables + trend chart -->
-    <div class="space-y-10 mb-12">
+    <div class="space-y-8 mb-12">
       {f.servicecenters.map((sc) => (
         <div>
           <ProcessingTimeTable centerName={sc.name} centerCode={sc.code} cases={sc.cases} />
@@ -135,30 +139,31 @@ const jsonLd = [
 
     {relatedEntries.length > 0 && (
       <div class="mb-12">
-        <h2 class="text-lg font-bold text-neutral-900 mb-4">Related Pages</h2>
-        <div class="flex flex-wrap gap-3">
+        <h2 class="text-base font-bold text-stone-900 mb-3">Related Visa Categories</h2>
+        <div class="flex flex-wrap gap-2.5">
           {relatedEntries.map((r: any) => (
-            <a href={`/uscis-processing-times/${r.data.visaSlug}`} class="px-4 py-2 rounded-full bg-white border border-neutral-200 text-sm font-medium text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">
+            <a href={`/uscis-processing-times/${r.data.visaSlug}`} class="px-3.5 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium text-stone-700 hover:border-stone-400 hover:text-stone-900 transition-colors">
               {r.data.visaLabel} &rarr;
             </a>
           ))}
-          <a href="/uscis-trackers" class="px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-sm font-medium text-emerald-800 hover:border-emerald-400 transition-colors">
-            {f.visaLabel} Community Tracker &rarr;
+          <a href="/uscis-stats/historic-trends" class="px-3.5 py-1.5 rounded-lg bg-stone-100 border border-stone-200 text-xs font-medium text-stone-800 hover:border-stone-400 transition-colors">
+            Quarterly Workload Stats &rarr;
           </a>
         </div>
       </div>
     )}
 
-    <div class="prose prose-neutral max-w-none text-neutral-600 bg-neutral-50 p-8 rounded-2xl border border-neutral-200 mb-4">
-      <p class="text-sm leading-relaxed">{f.seoText}</p>
-      <p class="text-xs mt-4 mb-0 text-neutral-500">
-        Data provenance: Processing times sourced from <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">USCIS Case Processing Times</a>, aggregated and licensed via <a href="https://immigrationtimes.org/data/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">ImmigrationTimes.org</a> under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">CC BY 4.0</a>.
-      </p>
+    <!-- Data Provenance Note -->
+    <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 mb-8">
+      <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3">{f.seoText}</p>
+      <div class="pt-3 border-t border-stone-200 text-xs text-stone-500 leading-relaxed">
+        <strong>Data Guarantee:</strong> Figures are ingested directly from official <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer" class="text-stone-700 font-medium underline hover:text-stone-900">USCIS Case Processing Times</a> publications. Read our <a href="/how-we-verify" class="text-stone-700 font-medium underline hover:text-stone-900">verification standards</a>.
+      </div>
     </div>
 
-    <FAQAccordion faqs={f.faqs} title={`${f.visaLabel} FAQs`} />
+    <FAQAccordion faqs={f.faqs} title={`${f.visaLabel} Processing FAQs`} />
     <div class="mt-8">
-      <EmailCapture alertType="newsletter" label="Get Processing Time Alerts" sublabel="We'll notify you when USCIS updates processing times for this form." />
+      <EmailCapture alertType="newsletter" label="Get Processing Time Updates" sublabel="We will notify you when USCIS updates processing times for this form." />
     </div>
     <DisqusComments pageIdentifier={`processing-${f.visaSlug}`} title={`${f.visaLabel} Processing Time Discussion`} />
   </div>

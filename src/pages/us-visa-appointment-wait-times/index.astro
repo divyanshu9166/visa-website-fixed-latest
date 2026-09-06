@@ -23,7 +23,7 @@ const staleSince = countries.find((c) => c.data.staleSince)?.data.staleSince;
 ---
 
 <Layout title="US Visa Appointment Wait Times by Country [2026]" description="Compare current US nonimmigrant visa interview appointment wait times by country and consulate, updated regularly from State Department data.">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Appointment Wait Times' }]} />
 
     <StalenessWarning
@@ -31,42 +31,61 @@ const staleSince = countries.find((c) => c.data.staleSince)?.data.staleSince;
       staleSince={staleSince}
       maxAgeDays={45}
       sourceName="U.S. Department of State Consular Affairs"
-      sourceUrl="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html"
+      sourceUrl="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html"
+      mode="banner"
     />
 
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-neutral-200 pb-6 mb-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-stone-200 pb-6 mb-8">
       <div>
-        <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-2">US Visa Appointment Wait Times</h1>
-        <p class="text-lg text-neutral-500">Visitor visa (B1/B2) interview wait times by country and consulate.</p>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 mb-2">US Visa Appointment Wait Times</h1>
+        <p class="text-base sm:text-lg text-stone-600 max-w-2xl">Official State Department post averages for visitor (B1/B2), student, and work visa interview scheduling.</p>
       </div>
-      {lastUpdated && (
-        <span class="inline-flex items-center gap-2 text-xs font-medium text-neutral-500 bg-neutral-100 px-3 py-1.5 rounded-full self-start">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          Updated {new Date(lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-        </span>
-      )}
+      <div class="flex-shrink-0 self-start md:self-end pb-1">
+        <StalenessWarning
+          lastUpdated={lastUpdated}
+          staleSince={staleSince}
+          maxAgeDays={45}
+          sourceName="State Dept."
+          mode="badge"
+        />
+      </div>
     </div>
 
-    <div class="flex flex-wrap gap-3 mb-8 text-xs font-medium">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-100 text-green-800"><span class="w-2 h-2 rounded-full bg-green-500"></span> Under 60 days</span>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-100 text-amber-800"><span class="w-2 h-2 rounded-full bg-amber-500"></span> 60–180 days</span>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-100 text-red-800"><span class="w-2 h-2 rounded-full bg-red-500"></span> 180+ days</span>
+    <!-- Educational Context Callout -->
+    <div class="bg-blue-50/70 border border-blue-200/80 rounded-xl p-5 text-xs sm:text-sm text-blue-950 mb-8 leading-relaxed">
+      <div class="flex items-start gap-3">
+        <svg class="w-5 h-5 text-blue-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <div>
+          <strong class="font-semibold">Consular Estimation Notice:</strong> Consular wait times represent weekly rolling averages published by individual U.S. embassies and consulates. Actual appointment slot availability fluctuates constantly based on staffing, seasonal demand, and local conditions. Always verify live appointment calendars directly in the official appointment scheduling system (ustraveldocs / ais.usvisa-info) before making travel commitments.
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Calm Wait Time Legend -->
+    <div class="flex flex-wrap gap-2.5 mb-8 text-xs">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
+        <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Under 60 days
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-stone-100 text-stone-800 border border-stone-200">
+        <span class="w-2 h-2 rounded-full bg-stone-500"></span> 60–180 days
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-50 text-amber-900 border border-amber-200">
+        <span class="w-2 h-2 rounded-full bg-amber-600"></span> 180+ days (High volume)
+      </span>
+    </div>
+
+    <!-- Countries Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
       {rows.map((r) => (
         <WaitTimeCard country={r.country} slug={r.slug} countryCode={r.countryCode} fastest={r.fastest} slowest={r.slowest} />
       ))}
     </div>
 
-    <div class="mt-16 bg-neutral-50 rounded-2xl p-6 md:p-8 border border-neutral-200">
-      <h3 class="text-lg font-bold tracking-tight text-neutral-900 mb-2">About this data</h3>
-      <p class="text-sm text-neutral-600 leading-relaxed max-w-3xl">
-        Wait times reflect the typical number of days between scheduling and the next available visitor visa (B1/B2) interview
-        appointment at each post, as published by the U.S. Department of State. Wait times change frequently due to staffing,
-        seasonal demand, and local conditions — always confirm current availability on the embassy or consulate's own website
-        before making travel plans.
-      </p>
+    <!-- Data Provenance Note -->
+    <div class="bg-stone-50 rounded-lg p-5 text-xs text-stone-500 leading-relaxed">
+      <span class="font-semibold text-stone-700">Data Guarantee:</span> Sourced from the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html" target="_blank" rel="noopener noreferrer" class="text-stone-700 font-medium underline hover:text-stone-900">U.S. Department of State Global Visa Wait Times</a> feed. Read our <a href="/how-we-verify" class="text-stone-700 font-medium underline hover:text-stone-900">verification standards</a>.
     </div>
   </div>
 </Layout>

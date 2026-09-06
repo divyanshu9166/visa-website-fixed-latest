@@ -7,6 +7,7 @@ import Breadcrumb from '../../../components/Breadcrumb.astro';
 import VisaBulletinChart from '../../../components/VisaBulletinChart.astro';
 import FAQAccordion from '../../../components/FAQAccordion.astro';
 import StalenessWarning from '../../../components/StalenessWarning.astro';
+import DualTerminology from '../../../components/DualTerminology.astro';
 import { BULLETIN_COUNTRIES, BULLETIN_CATEGORIES } from '../../../../scripts/lib/formsConfig.mjs';
 
 export async function getStaticPaths() {
@@ -48,16 +49,16 @@ const isLiveMonth = categories.length > 0 && categories.every((c) => c.latest?.d
 
 const faqs = [
   {
-    q: `Why is the green card backlog for ${countryMeta.name} so long?`,
-    a: 'US immigration law caps any single country of birth at no more than 7% of total annual employment-based green cards. When demand from one country far exceeds that 7% share, a backlog accumulates for applicants born there, regardless of when their employer filed the petition.',
+    q: `Why is the green card queue for ${countryMeta.name} subject to longer waits?`,
+    a: 'Under the Immigration and Nationality Act (INA), no single country of birth can receive more than 7% of total family-sponsored and employment-based immigrant visas in a fiscal year. When the number of qualified applicants from a specific country exceeds this 7% statutory cap, a queue forms based strictly on the applicant’s priority date.',
   },
   {
-    q: 'What is the difference between Final Action Date and Date for Filing?',
-    a: 'Final Action Date is the cutoff USCIS uses to actually approve a green card. Date for Filing is an earlier, more lenient cutoff that determines when applicants already in the US can submit Form I-485. USCIS announces each month which chart to use for filing.',
+    q: 'What is the distinction between Final Action Date and Dates for Filing?',
+    a: 'The Final Action Date is the priority date cutoff for when USCIS or the Department of State can issue an approved immigrant visa or green card. The Dates for Filing chart indicates when applicants currently residing in the US may assemble and submit Form I-485. Each month, USCIS designates which of the two charts applies for domestic filings.',
   },
   {
-    q: `How is the wait time for ${countryMeta.name} estimated?`,
-    a: 'The estimate on this page extrapolates the recent average pace ("velocity") at which the Final Action Date has moved forward, then projects how long it would take to reach your specific priority date at that same pace. Visa Bulletin movement is not linear and can stall or retrogress.',
+    q: `How should historical movement trends for ${countryMeta.name} be interpreted?`,
+    a: 'Priority date movements reflect historical changes in official cutoff dates. Because visa demand, annual statutory cap releases, and quarterly agency adjudications vary, historical movement is not a guaranteed linear forecast.',
   },
 ];
 
@@ -79,10 +80,10 @@ const staleSince = countryData.find((d) => d.data.staleSince)?.data.staleSince;
 const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 ---
 
-<Layout title={`Green Card Visa Bulletin — ${countryMeta.name} [${formattedMonth}]`} description={`Track Visa Bulletin Final Action Dates and Dates for Filing for ${countryMeta.name}-born applicants across EB-1 through EB-5, with 24-month movement charts.`} breadcrumbs={breadcrumbs}>
+<Layout title={`Green Card Visa Bulletin — ${countryMeta.name} [${formattedMonth}]`} description={`Track Visa Bulletin Final Action Dates and Dates for Filing for ${countryMeta.name}-born applicants across EB-1 through EB-5, with historical movement charts.`} breadcrumbs={breadcrumbs}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Visa Bulletin', href: '/green-card/visa-bulletin' },
@@ -95,96 +96,117 @@ const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
       maxAgeDays={35}
       sourceName="U.S. Department of State Visa Bulletin"
       sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+      mode="banner"
     />
 
-    <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-2">Green Card Visa Bulletin — {countryMeta.name}</h1>
-    <p class="text-lg text-neutral-500 mb-3">{formattedMonth} Final Action Dates and Dates for Filing, by employment-based category.</p>
-    <p class="mb-10">
-      {isLiveMonth ? (
-        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Confirmed from the live State Dept. bulletin</span>
-      ) : (
-        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Placeholder estimate — not yet confirmed live</span>
-      )}
-    </p>
-
-    <!-- Current month summary table -->
-    <div class="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden mb-6">
-      <table class="min-w-full divide-y divide-neutral-200 text-sm">
-        <thead class="bg-neutral-50">
-          <tr>
-            <th class="px-6 py-3 text-left font-semibold text-neutral-900 uppercase tracking-wider text-xs">Category</th>
-            <th class="px-6 py-3 text-left font-semibold text-neutral-900 uppercase tracking-wider text-xs">Final Action Date</th>
-            <th class="px-6 py-3 text-left font-semibold text-neutral-900 uppercase tracking-wider text-xs">Date for Filing</th>
-            <th class="px-6 py-3 text-left font-semibold text-neutral-900 uppercase tracking-wider text-xs">Monthly Movement</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-neutral-100">
-          {categories.map(({ cat, latest, movementDays }) => (
-            <tr class="hover:bg-neutral-50/50 transition-colors">
-              <td class="px-6 py-4 font-medium text-neutral-900">{cat}</td>
-              <td class="px-6 py-4">
-                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  latest?.finalActionDate === 'C' ? 'bg-green-100 text-green-800' :
-                  latest?.finalActionDate === 'Unavailable' || latest?.finalActionDate === 'U' ? 'bg-amber-100 text-amber-800' :
-                  'bg-neutral-100 text-neutral-800'
-                }`}>
-                  {latest?.finalActionDate === 'C' ? 'Current' : latest?.finalActionDate || '—'}
-                </span>
-              </td>
-              <td class="px-6 py-4">
-                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  latest?.dateForFiling === 'C' ? 'bg-green-100 text-green-800' :
-                  latest?.dateForFiling === 'Unavailable' || latest?.dateForFiling === 'U' ? 'bg-amber-100 text-amber-800' :
-                  'bg-neutral-100 text-neutral-800'
-                }`}>
-                  {latest?.dateForFiling === 'C' ? 'Current' : latest?.dateForFiling || '—'}
-                </span>
-              </td>
-              <td class="px-6 py-4">
-                {latest?.finalActionDate === 'Unavailable' || latest?.finalActionDate === 'U' ? (
-                  <span class="text-amber-700 font-medium text-xs">Statutory Limit Reached</span>
-                ) : movementDays === null ? (
-                  <span class="text-neutral-400">—</span>
-                ) : movementDays > 0 ? (
-                  <span class="text-green-700 font-medium">+{movementDays} days</span>
-                ) : movementDays < 0 ? (
-                  <span class="text-red-700 font-medium">{movementDays} days (retrogressed)</span>
-                ) : (
-                  <span class="text-neutral-500">No change</span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div class="mb-8">
+      <div class="flex flex-wrap items-center gap-2.5 mb-3">
+        <StalenessWarning
+          lastUpdated={lastUpdatedDate}
+          staleSince={staleSince}
+          maxAgeDays={35}
+          sourceName="State Dept."
+          mode="badge"
+        />
+        {isLiveMonth ? (
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">Official DOS Bulletin</span>
+        ) : (
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200">Historical Snapshot</span>
+        )}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 mb-2">Green Card Visa Bulletin — {countryMeta.name}</h1>
+      <p class="text-base sm:text-lg text-stone-600">{formattedMonth} Final Action Dates and Dates for Filing by employment-based category.</p>
     </div>
 
-    <a href={`/green-card/priority-date-calculator?country=${countryMeta.slug}`} class="block bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-12 hover:bg-emerald-100 transition-all">
-      <p class="text-sm text-emerald-800"><strong>Have a priority date?</strong> Use the Priority Date Estimator to project when your category may become current. <span class="font-medium underline">Open calculator &rarr;</span></p>
-    </a>
+    <!-- Educational Terminology Callout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div class="bg-white p-5 rounded-xl border border-stone-200">
+        <DualTerminology term="final-action-date" class="w-full" />
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-stone-200">
+        <DualTerminology term="dates-for-filing" class="w-full" />
+      </div>
+    </div>
+
+    <!-- Current month summary table -->
+    <div class="bg-white rounded-xl border border-stone-200 overflow-hidden mb-8">
+      <div class="px-5 py-4 border-b border-stone-200 bg-stone-50/50">
+        <h2 class="font-semibold text-stone-900 text-base tracking-tight">{formattedMonth} Cutoff Summary</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-stone-200 text-sm whitespace-nowrap">
+          <thead class="bg-white">
+            <tr>
+              <th class="px-5 py-3 text-left font-semibold text-stone-800 text-xs tracking-wide">Category</th>
+              <th class="px-5 py-3 text-left font-semibold text-stone-800 text-xs tracking-wide">Final Action Date</th>
+              <th class="px-5 py-3 text-left font-semibold text-stone-800 text-xs tracking-wide">Date for Filing</th>
+              <th class="px-5 py-3 text-left font-semibold text-stone-800 text-xs tracking-wide">30-Day Movement</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-stone-100">
+            {categories.map(({ cat, latest, movementDays }) => (
+              <tr class="hover:bg-stone-50/50 transition-colors">
+                <td class="px-5 py-3.5 font-medium text-stone-900">{cat}</td>
+                <td class="px-5 py-3.5">
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium ${
+                    latest?.finalActionDate === 'C' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
+                    latest?.finalActionDate === 'Unavailable' || latest?.finalActionDate === 'U' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                    'bg-stone-100 text-stone-800 border border-stone-200'
+                  }`}>
+                    {latest?.finalActionDate === 'C' ? 'Current' : latest?.finalActionDate || '—'}
+                  </span>
+                </td>
+                <td class="px-5 py-3.5">
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium ${
+                    latest?.dateForFiling === 'C' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
+                    latest?.dateForFiling === 'Unavailable' || latest?.dateForFiling === 'U' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                    'bg-stone-100 text-stone-800 border border-stone-200'
+                  }`}>
+                    {latest?.dateForFiling === 'C' ? 'Current' : latest?.dateForFiling || '—'}
+                  </span>
+                </td>
+                <td class="px-5 py-3.5">
+                  {latest?.finalActionDate === 'Unavailable' || latest?.finalActionDate === 'U' ? (
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-50 text-amber-800 border border-amber-200">Annual Limit Reached</span>
+                  ) : movementDays === null ? (
+                    <span class="text-stone-400">—</span>
+                  ) : movementDays > 0 ? (
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-50 text-emerald-800 border border-emerald-200">+{movementDays} days</span>
+                  ) : movementDays < 0 ? (
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-50 text-amber-800 border border-amber-200">{movementDays} days (retrogressed)</span>
+                  ) : (
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-stone-100 text-stone-700 border border-stone-200">Stable</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Per-category charts -->
-    <div class="space-y-8 mb-12">
+    <div class="space-y-8 mb-10">
       {categories.filter((c) => c.history.length > 1).map(({ cat, history }) => (
-        <VisaBulletinChart title={`${cat} — ${countryMeta.name} (24-month trend)`} history={history} />
+        <VisaBulletinChart title={`${cat} — ${countryMeta.name} (Historical Movement)`} history={history} />
       ))}
     </div>
 
-    <div class="prose prose-neutral max-w-none text-neutral-600 bg-neutral-50 p-8 rounded-2xl border border-neutral-200 mb-4">
-      <h3 class="text-lg font-bold text-neutral-900 mt-0">About {countryMeta.name}'s Visa Bulletin Backlog</h3>
-      <p class="text-sm leading-relaxed">
-        This page tracks Final Action Dates and Dates for Filing published monthly by the U.S. Department of State for applicants
-        born in {countryMeta.name}. Per-country annual caps mean high-demand countries like India and China see significantly
-        longer waits in the employment-based categories than the rest of the world. The charts above show how each category's
-        cutoff date has moved over the trailing 24 months — useful for judging whether your category is moving forward, stalled,
-        or retrogressing.
+    <!-- Background Explanation Card -->
+    <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 mb-8">
+      <h3 class="text-base font-semibold text-stone-900 mb-2">Understanding {countryMeta.name}'s Queue Dynamics</h3>
+      <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+        This page displays official priority date cutoffs published by the U.S. Department of State for individuals born in {countryMeta.name}. Under the Immigration and Nationality Act (INA § 202), statutory 7% per-country limits mean high-volume countries experience queue formation. These historical cutoff curves illustrate how priority dates have progressed or retrogressed over time.
       </p>
+      <div class="mt-4 pt-3 border-t border-stone-200 text-xs text-stone-500">
+        Data provenance: Ingested from the official <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" class="text-stone-700 font-medium underline hover:text-stone-900">U.S. Department of State Visa Bulletin</a>. Read our <a href="/how-we-verify" class="text-stone-700 font-medium underline hover:text-stone-900">verification standards</a>.
+      </div>
     </div>
 
     <FAQAccordion faqs={faqs} title={`${countryMeta.name} Visa Bulletin FAQs`} />
   </div>
-    <div class='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8'>
-      <EmailCapture alertType='visa_bulletin' label='Get Visa Bulletin Alerts' sublabel='Email alerts when priority dates change for this country.' metadata={{ country: countryMeta.slug }} />
-      <DisqusComments pageIdentifier={`visa-bulletin-${countryMeta.slug}`} title={`${countryMeta.name} Visa Bulletin Discussion`} />
-    </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <EmailCapture alertType="visa_bulletin" label="Get Visa Bulletin Updates" sublabel="We will notify you when priority date cutoffs advance for this country." metadata={{ country: countryMeta.slug }} />
+    <DisqusComments pageIdentifier={`visa-bulletin-${countryMeta.slug}`} title={`${countryMeta.name} Visa Bulletin Discussion`} />
+  </div>
 </Layout>

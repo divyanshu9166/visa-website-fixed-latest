@@ -18,30 +18,30 @@ const { entry } = Astro.props;
 const c = entry.data;
 
 function badge(days: number | null) {
-  if (days === null) return { cls: 'bg-neutral-100 text-neutral-700', label: 'N/A' };
-  if (days < 60) return { cls: 'bg-green-100 text-green-800', label: 'Fast' };
-  if (days < 180) return { cls: 'bg-amber-100 text-amber-800', label: 'Moderate' };
-  return { cls: 'bg-red-100 text-red-800', label: 'High demand' };
+  if (days === null) return { cls: 'bg-stone-100 text-stone-700 border border-stone-200', label: 'N/A' };
+  if (days < 60) return { cls: 'bg-emerald-50 text-emerald-800 border border-emerald-200', label: '< 60 days' };
+  if (days < 180) return { cls: 'bg-stone-100 text-stone-800 border border-stone-200', label: '60–180 days' };
+  return { cls: 'bg-amber-50 text-amber-900 border border-amber-200', label: '180+ days' };
 }
 
 const faqs = [
   {
-    q: `How accurate are these wait times for ${c.country}?`,
-    a: 'Wait times reflect a snapshot of the next available standard visitor visa appointment slot at each post. They can shift by days or weeks based on staffing changes, local holidays, and demand spikes, so always confirm the live figure on the embassy or consulate booking site before finalizing travel plans.',
+    q: `How should consular wait times for ${c.country} be interpreted?`,
+    a: 'Published wait times reflect weekly rolling averages reported by the State Department for standard nonimmigrant appointment slots. Because appointments are released in tranches and cancellation openings occur dynamically, real-time availability on the official booking portal can vary.',
   },
   {
-    q: 'What is an emergency or expedited appointment?',
-    a: 'Most posts offer an expedite request process for urgent travel needs (medical emergencies, funeral travel, business-critical trips). Approval criteria and availability vary by post and are decided case by case.',
+    q: 'How do emergency or expedited appointment requests work?',
+    a: 'Each U.S. embassy and consulate maintains an emergency appointment procedure for urgent, unforeseen travel (such as urgent medical treatment, unexpected death of an immediate family member, or urgent business travel). Expedite requests are evaluated individually by consular officers.',
   },
   {
-    q: 'Does a long wait time affect my visa approval chances?',
-    a: 'No — wait time only reflects appointment scheduling availability at that post, not the likelihood of visa approval. Approval depends on your individual application and consular interview.',
+    q: 'Does appointment wait time affect the likelihood of visa issuance?',
+    a: 'No. Appointment wait times reflect post operational capacity and scheduling demand only. Consular officers adjudicate applications strictly based on eligibility under U.S. immigration law.',
   },
 ];
 ---
 
-<Layout title={`US Visa Appointment Wait Times — ${c.country} [2026]`} description={`Current US visitor visa interview appointment wait times for ${c.country}, by consulate, with 12-month trend charts.`}>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<Layout title={`US Visa Appointment Wait Times — ${c.country} [2026]`} description={`Current US visitor visa interview appointment wait times for ${c.country}, by consulate, with historical trend charts.`}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Appointment Wait Times', href: '/us-visa-appointment-wait-times' },
@@ -53,50 +53,70 @@ const faqs = [
       staleSince={c.staleSince}
       maxAgeDays={45}
       sourceName="U.S. Department of State Consular Affairs"
-      sourceUrl="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html"
+      sourceUrl="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html"
+      mode="banner"
     />
 
-    <div class="flex items-center gap-3 mb-2">
-      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900">{c.country}</h1>
+    <div class="mb-8">
+      <div class="flex items-center gap-2.5 mb-3">
+        <StalenessWarning
+          lastUpdated={c.lastUpdated}
+          staleSince={c.staleSince}
+          maxAgeDays={45}
+          sourceName="State Dept."
+          mode="badge"
+        />
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 mb-2">{c.country}</h1>
+      <p class="text-base sm:text-lg text-stone-600">Visitor (B1/B2), student, and employment appointment wait time averages by consulate.</p>
     </div>
-    <p class="text-lg text-neutral-500 mb-10">Visitor visa (B1/B2) appointment wait times by consulate. Updated {new Date(c.lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}.</p>
 
-    <div class="space-y-8">
+    <!-- Educational Context Callout -->
+    <div class="bg-blue-50/70 border border-blue-200/80 rounded-xl p-5 text-xs sm:text-sm text-blue-950 mb-8 leading-relaxed">
+      <strong>Important Booking Note:</strong> These wait times are informational post averages published weekly by the U.S. Department of State. For confirmed appointment booking, log into the official consular appointment scheduling portal for {c.country}.
+    </div>
+
+    <div class="space-y-6 mb-12">
       {c.consulates.map((co) => {
         const b = badge(co.waitTimeB1B2);
         return (
-          <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
-            <div class="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/60">
-              <h2 class="font-bold text-neutral-900">{co.name}</h2>
-              <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${b.cls}`}>{b.label}</span>
+          <div class="bg-white rounded-xl border border-stone-200 overflow-hidden">
+            <div class="px-5 py-4 border-b border-stone-200 flex items-center justify-between bg-stone-50/50">
+              <h2 class="font-semibold text-stone-900 text-base">{co.name}</h2>
+              <span class={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-semibold ${b.cls}`}>{b.label}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-100 border-b border-neutral-100">
+            <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-stone-100 border-b border-stone-100">
               <div class="p-4 text-center">
-                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Visitor (B1/B2)</p>
-                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimeB1B2 ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
+                <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Visitor (B1/B2)</p>
+                <p class="text-xl sm:text-2xl font-bold text-stone-900">{co.waitTimeB1B2 ?? '—'}<span class="text-xs font-normal text-stone-500"> days</span></p>
               </div>
               <div class="p-4 text-center">
-                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Student (F/M/J)</p>
-                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimeStudent ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
+                <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Student (F/M/J)</p>
+                <p class="text-xl sm:text-2xl font-bold text-stone-900">{co.waitTimeStudent ?? '—'}<span class="text-xs font-normal text-stone-500"> days</span></p>
               </div>
               <div class="p-4 text-center">
-                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Work (H/L/O/P)</p>
-                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimePetition ?? co.waitTimeOther ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
+                <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Work (H/L/O/P)</p>
+                <p class="text-xl sm:text-2xl font-bold text-stone-900">{co.waitTimePetition ?? co.waitTimeOther ?? '—'}<span class="text-xs font-normal text-stone-500"> days</span></p>
               </div>
               <div class="p-4 text-center">
-                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Crew / Transit</p>
-                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimeCrewTransit ?? co.waitTimeOther ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
+                <p class="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">Crew / Transit</p>
+                <p class="text-xl sm:text-2xl font-bold text-stone-900">{co.waitTimeCrewTransit ?? co.waitTimeOther ?? '—'}<span class="text-xs font-normal text-stone-500"> days</span></p>
               </div>
             </div>
             {co.notes && (
-              <div class="px-6 py-3 bg-amber-50 border-b border-amber-100 text-xs text-amber-900">{co.notes}</div>
+              <div class="px-5 py-3 bg-amber-50 border-b border-amber-200/60 text-xs text-amber-900 leading-relaxed">{co.notes}</div>
             )}
-            <div class="p-6">
+            <div class="p-5">
               <WaitTimeTrendChart history={co.history} title={`${co.name} — Appointment Wait Trend`} />
             </div>
           </div>
         );
       })}
+    </div>
+
+    <!-- Data Provenance Note -->
+    <div class="bg-stone-50 rounded-lg p-5 text-xs text-stone-500 leading-relaxed mb-8">
+      <span class="font-semibold text-stone-700">Data Guarantee:</span> Sourced from the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html" target="_blank" rel="noopener noreferrer" class="text-stone-700 font-medium underline hover:text-stone-900">U.S. Department of State Global Visa Wait Times</a> feed. Read our <a href="/how-we-verify" class="text-stone-700 font-medium underline hover:text-stone-900">verification standards</a>.
     </div>
 
     <FAQAccordion faqs={faqs} title={`${c.country} Visa Appointment FAQs`} />

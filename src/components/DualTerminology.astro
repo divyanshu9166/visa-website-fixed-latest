@@ -1,0 +1,81 @@
+---
+interface Props {
+  term: string;
+  officialText?: string;
+  plainText?: string;
+  class?: string;
+}
+
+const {
+  term,
+  officialText,
+  plainText,
+  class: className = '',
+} = Astro.props;
+
+const GLOSSARY: Record<string, { official: string; plain: string }> = {
+  'final-action-date': {
+    official: 'Final Action Date',
+    plain: 'When USCIS or State Dept can officially approve and issue your immigrant visa / green card.',
+  },
+  'dates-for-filing': {
+    official: 'Dates for Filing',
+    plain: 'When you can assemble and officially submit your I-485 adjustment of status application packet.',
+  },
+  'service-request-date': {
+    official: 'Receipt Date for Case Inquiry',
+    plain: 'If your case was received before this date, you can submit an official outside-normal-processing inquiry.',
+  },
+  'priority-date': {
+    official: 'Priority Date',
+    plain: 'Your permanent spot in line for an immigrant visa, fixed by your PERM or petition filing date.',
+  },
+  'historical-average': {
+    official: '80th Percentile Processing Time',
+    plain: 'The time USCIS took to complete 80% of adjudicated cases over the previous 6 months.',
+  },
+  'cap-gap': {
+    official: 'Cap-Gap Extension',
+    plain: 'Automatic bridge extending F-1 student status and OPT authorization until H-1B starts on Oct 1.',
+  },
+  'i-129': {
+    official: 'Form I-129 (Nonimmigrant Worker)',
+    plain: 'Employer petition for temporary work visas including H-1B, L-1, and O-1.',
+  },
+  'i-140': {
+    official: 'Form I-140 (Immigrant Worker)',
+    plain: 'Employer petition establishing immigrant visa eligibility for EB-1, EB-2, or EB-3 permanent residency.',
+  },
+  'i-485': {
+    official: 'Form I-485 (Adjustment of Status)',
+    plain: 'Final green card application to convert from temporary nonimmigrant status to lawful permanent resident.',
+  },
+  'n-400': {
+    official: 'Form N-400 (Naturalization)',
+    plain: 'Application for lawful permanent residents to obtain United States citizenship.',
+  },
+  'i-765': {
+    official: 'Form I-765 (Employment Authorization)',
+    plain: 'Application for a work permit (EAD card) while an underlying petition or status is pending.',
+  },
+  'i-131': {
+    official: 'Form I-131 (Advance Parole / Travel Document)',
+    plain: 'Application for permission to re-enter the US while adjustment of status is pending.',
+  },
+};
+
+const entry = GLOSSARY[term.toLowerCase()] || {
+  official: officialText || term,
+  plain: plainText || '',
+};
+
+const displayOfficial = officialText || entry.official;
+const displayPlain = plainText || entry.plain;
+---
+
+<div class={`inline-flex flex-col text-left ${className}`}>
+  <span class="font-medium text-stone-900">{displayOfficial}</span>
+  {displayPlain && (
+    <span class="text-xs text-stone-500 font-normal leading-normal mt-0.5">{displayPlain}</span>
+  )}
+</div>

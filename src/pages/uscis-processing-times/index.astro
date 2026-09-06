@@ -30,28 +30,32 @@ const staleSince = forms.find((f) => f.data.staleSince)?.data.staleSince;
 ---
 
 <Layout title="USCIS Processing Times — All Forms [2026]" description="Browse official USCIS processing times for H-1B, L-1, O-1, I-140, I-485, N-400 and more, broken down by service center with historical trend charts.">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'USCIS Processing Times' }]} />
 
     <StalenessWarning
       lastUpdated={lastUpdated}
       staleSince={staleSince}
       maxAgeDays={2}
-      sourceName="USCIS Case Processing Times"
+      sourceName="USCIS.gov"
       sourceUrl="https://egov.uscis.gov/processing-times/"
+      mode="banner"
     />
 
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-neutral-200 pb-6 mb-12">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-stone-200 pb-6 mb-10">
       <div>
-        <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-2">USCIS Processing Times</h1>
-        <p class="text-lg text-neutral-500">Official processing time ranges for every major visa and green card form, by service center.</p>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 mb-2">USCIS Processing Times</h1>
+        <p class="text-base sm:text-lg text-stone-600 max-w-2xl">Official processing ranges for every major visa and green card form, by adjudicating service center.</p>
       </div>
-      {lastUpdated && (
-        <span class="inline-flex items-center gap-2 text-xs font-medium text-neutral-500 bg-neutral-100 px-3 py-1.5 rounded-full self-start">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          Last updated {new Date(lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-        </span>
-      )}
+      <div class="flex-shrink-0 self-start md:self-end pb-1">
+        <StalenessWarning
+          lastUpdated={lastUpdated}
+          staleSince={staleSince}
+          maxAgeDays={2}
+          sourceName="USCIS.gov"
+          mode="badge"
+        />
+      </div>
     </div>
 
     {categoryOrder.map((cat) => {
@@ -59,25 +63,28 @@ const staleSince = forms.find((f) => f.data.staleSince)?.data.staleSince;
       if (!list || !list.length) return null;
       return (
         <div class="mb-14">
-          <h2 class="text-xl font-bold tracking-tight text-neutral-900 mb-5">{CATEGORY_LABELS[cat] || cat}</h2>
+          <h2 class="text-lg font-bold tracking-tight text-stone-800 mb-5 pb-2 border-b border-stone-100">{CATEGORY_LABELS[cat] || cat}</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {list.sort((a, b) => a.data.visaLabel.localeCompare(b.data.visaLabel)).map((f) => {
               const allCases = f.data.servicecenters.flatMap((sc) => sc.cases);
               const minOfMin = Math.min(...allCases.map((c) => c.minMonths));
               const maxOfMax = Math.max(...allCases.map((c) => c.maxMonths));
               return (
-                <a href={`/uscis-processing-times/${f.data.visaSlug}`} class="block bg-white border border-neutral-200 rounded-2xl p-6 hover:border-neutral-900 hover:shadow-md transition-all group">
-                  <div class="flex justify-between items-start mb-3">
-                    <h3 class="text-lg font-bold text-neutral-900 group-hover:underline">{f.data.visaLabel}</h3>
-                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-neutral-100 text-neutral-700 shrink-0">{f.data.formType}</span>
+                <a href={`/uscis-processing-times/${f.data.visaSlug}`} class="block bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-400 group transition-colors flex flex-col h-full">
+                  <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-base font-semibold text-stone-900 group-hover:text-stone-900">{f.data.visaLabel}</h3>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-stone-100 border border-stone-200 text-stone-600 shrink-0">{f.data.formType}</span>
                   </div>
-                  <p class="text-sm text-neutral-500 mb-5 min-h-[20px]">{f.data.formName}</p>
-                  <div class="flex items-baseline gap-2 border-t border-neutral-100 pt-4">
-                    <span class="text-2xl font-black tracking-tight text-neutral-900">{minOfMin}–{maxOfMax}</span>
-                    <span class="text-sm text-neutral-500">months</span>
-                  </div>
-                  <div class="mt-4 flex items-center text-sm font-medium text-neutral-400 group-hover:text-neutral-900 transition-colors">
-                    View details &amp; trends <span aria-hidden="true" class="ml-1">&rarr;</span>
+                  <p class="text-xs text-stone-500 mb-4 h-8 overflow-hidden">{f.data.formName}</p>
+
+                  <div class="mt-auto border-t border-stone-100 pt-3 flex items-center justify-between">
+                    <div class="flex items-baseline gap-1.5">
+                      <span class="text-xl font-bold tracking-tight text-stone-900">{minOfMin}–{maxOfMax}</span>
+                      <span class="text-xs font-medium text-stone-500">months</span>
+                    </div>
+                    <div class="text-xs font-semibold text-[#1E3A5F] opacity-0 group-hover:opacity-100 transition-opacity">
+                      View details &rarr;
+                    </div>
                   </div>
                 </a>
               );
@@ -87,21 +94,20 @@ const staleSince = forms.find((f) => f.data.staleSince)?.data.staleSince;
       );
     })}
 
-    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-      <a href="/uscis-stats/historic-trends" class="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 hover:border-neutral-900 transition-all">
-        <h3 class="font-bold text-neutral-900 mb-1">USCIS Quarterly Stats &amp; Historic Trends</h3>
-        <p class="text-sm text-neutral-500">Receipt and completion volumes by fiscal quarter, straight from USCIS reports.</p>
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <a href="/uscis-stats/historic-trends" class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-stone-300 transition-colors">
+        <h3 class="text-sm font-semibold text-stone-900 mb-1">USCIS Quarterly Workload Statistics</h3>
+        <p class="text-xs text-stone-600 leading-relaxed">Official receipt and completion volumes by fiscal quarter.</p>
       </a>
-      <a href="/green-card/visa-bulletin" class="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 hover:border-neutral-900 transition-all">
-        <h3 class="font-bold text-neutral-900 mb-1">Visa Bulletin &amp; Priority Dates</h3>
-        <p class="text-sm text-neutral-500">Track green card priority date movement by country and category.</p>
+      <a href="/green-card/visa-bulletin" class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-stone-300 transition-colors">
+        <h3 class="text-sm font-semibold text-stone-900 mb-1">Department of State Visa Bulletin</h3>
+        <p class="text-xs text-stone-600 leading-relaxed">Track green card priority date advancements and retrogression.</p>
       </a>
     </div>
 
-    <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200 text-xs text-neutral-500 leading-relaxed">
-      <p class="mb-0">
-        <strong>Data Provenance &amp; Attribution:</strong> Processing time figures are derived from official <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">USCIS Case Processing Times</a> publications, aggregated and licensed via <a href="https://immigrationtimes.org/data/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">ImmigrationTimes.org</a> under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>.
-      </p>
+    <!-- Data Provenance Note -->
+    <div class="bg-stone-50 rounded-lg p-5 text-xs text-stone-500 leading-relaxed">
+      <span class="font-semibold text-stone-700">Data Guarantee:</span> We do not synthesize or forecast processing date ranges. These figures are ingested directly from official <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer" class="text-stone-700 font-medium underline hover:text-stone-900">USCIS Case Processing Times</a> publications. Read our <a href="/how-we-verify" class="text-stone-700 font-medium underline hover:text-stone-900">verification standards</a>.
     </div>
   </div>
 </Layout>
