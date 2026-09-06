@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-09-06T17:01:17.374Z",
+  "timestamp": "2026-09-06T17:36:06.237Z",
   "seedOnly": false,
   "sources": {
     "processingTimes": {
@@ -19,7 +19,7 @@
       "status": "PRESERVED",
       "liveCount": 0,
       "staleCount": 30,
-      "lastError": "HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block)"
+      "lastError": "HTML table error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no- | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-"
     },
     "uscisQuarterlyStats": {
       "status": "LIVE_VALIDATED",
