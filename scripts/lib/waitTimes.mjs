@@ -25,7 +25,7 @@ const BROWSER_HEADERS = {
   'Sec-Ch-Ua-Platform': '"Windows"',
 };
 
-function parseWaitDays(val) {
+export function parseWaitDays(val) {
   if (val === null || val === undefined) return null;
   const str = String(val).trim().toLowerCase();
   if (str === 'same day' || str === '0 days' || str === '0') return 0;
@@ -47,6 +47,8 @@ function xmlTag(block, tag) {
 }
 
 // Master CID mapping from travel.state.gov getVisaWaitTimes backend
+// Reference: https://travel.state.gov/content/travel/resources/database/database.getVisaWaitTimes.html
+// Open source reference: https://github.com/missuo/USVisaWaitTimes
 const POST_CID_MAP = {
   'New Delhi': 'P147', Mumbai: 'P139', Chennai: 'P48', Hyderabad: 'P85', Kolkata: 'P100',
   Beijing: 'P24', Shanghai: 'P187', Guangzhou: 'P73', Shenyang: 'P188', Wuhan: 'P217',
@@ -80,43 +82,112 @@ const POST_CID_MAP = {
   Kingston: 'P105',
 };
 
+// Validate body returned by database machine endpoint
+export function validateDatabasePayload(body) {
+  if (typeof body !== 'string') return { valid: false, error: 'Response is not a string' };
+  const trimmed = body.trim();
+  const lower = trimmed.toLowerCase();
+  if (lower.includes('<html') || lower.includes('<!doctype') || lower.includes('access denied') || lower.includes('turnstile') || lower.includes('cloudflare')) {
+    return { valid: false, error: 'Returned HTML/WAF challenge page instead of pipe-delimited machine payload' };
+  }
+  const parts = trimmed.split('|').map(s => s.trim());
+  if (parts.length < 2) {
+    return { valid: false, error: `Insufficient pipe segments in machine response (expected >= 2, got ${parts.length}): "${trimmed.slice(0, 50)}"` };
+  }
+  return { valid: true, parts };
+}
+
 // Query the real travel.state.gov backend endpoint used by the live wait-times web tool
-async function fetchPostFromDatabase(postName, cid) {
+export async function fetchPostFromDatabase(postName, cid) {
   const url = `https://travel.state.gov/content/travel/resources/database/database.getVisaWaitTimes.html?cid=${cid}&aid=VisaWaitTimesHomePage`;
   const body = await fetchWithBypass(url, {
     headers: BROWSER_HEADERS,
     renderJs: false,
-    timeout: 20000
+    timeout: 25000,
+    validateBody: (b) => {
+      const v = validateDatabasePayload(b);
+      return v.valid ? true : { valid: false, error: v.error };
+    }
   });
-  // Format is pipe-separated: e.g. "120 Days | 15 Days | 30 Days | 5 Days"
-  const parts = body.split('|').map(s => s.trim());
-  if (parts.length < 2) {
-    throw new Error(`Unexpected database response format for post ${postName}: ${body}`);
-  }
+
+  const { parts } = validateDatabasePayload(body);
 
   return {
     post: postName,
+    cid,
     waitTimeB1B2: parseWaitDays(parts[0]),
     waitTimeStudent: parseWaitDays(parts[2] || parts[1]),
     waitTimeWorker: parseWaitDays(parts[3] || parts[2]),
+    rawResponse: body.trim(),
   };
+}
+
+// Canary Diagnostic Function: test single post (e.g. New Delhi P147) and return diagnostic telemetry
+export async function runCanaryDiagnostic(postName = 'New Delhi', cid = 'P147') {
+  const startTime = Date.now();
+  const targetUrl = `https://travel.state.gov/content/travel/resources/database/database.getVisaWaitTimes.html?cid=${cid}&aid=VisaWaitTimesHomePage`;
+  console.log(`[waitTimes:canary] Running canary diagnostic on ${postName} (${cid})...`);
+
+  try {
+    const result = await fetchPostFromDatabase(postName, cid);
+    const elapsedMs = Date.now() - startTime;
+    const diagnostic = {
+      post: postName,
+      cid,
+      target: targetUrl,
+      httpStatus: 200,
+      elapsedMs,
+      preview: result.rawResponse.slice(0, 100),
+      parsed: true,
+      categories: ['Visitor (B1/B2)', 'Student (F/M/J)', 'Petition (H/L/O)'],
+      metrics: {
+        waitTimeB1B2: result.waitTimeB1B2,
+        waitTimeStudent: result.waitTimeStudent,
+        waitTimeWorker: result.waitTimeWorker,
+      },
+      error: null
+    };
+    console.log(`[waitTimes:canary] Canary diagnostic passed!`, JSON.stringify(diagnostic, null, 2));
+    return diagnostic;
+  } catch (err) {
+    const elapsedMs = Date.now() - startTime;
+    const diagnostic = {
+      post: postName,
+      cid,
+      target: targetUrl,
+      httpStatus: err.message.match(/HTTP\s+(\d+)/)?.[1] ? parseInt(err.message.match(/HTTP\s+(\d+)/)[1], 10) : null,
+      elapsedMs,
+      preview: null,
+      parsed: false,
+      categories: [],
+      error: err.message
+    };
+    console.warn(`[waitTimes:canary] Canary diagnostic failed:`, JSON.stringify(diagnostic, null, 2));
+    return diagnostic;
+  }
 }
 
 async function fetchLiveDatabaseWithRetry() {
   const posts = [];
   const entries = Object.entries(POST_CID_MAP);
-  // Test first post to verify endpoint accessibility before batching
+
+  // 1. Canary post execution: test New Delhi (P147) first
+  console.log(`[waitTimes] Executing canary verification on ${entries[0][0]} (${entries[0][1]})...`);
   const [firstPost, firstCid] = entries[0];
   const firstResult = await fetchPostFromDatabase(firstPost, firstCid);
   posts.push(firstResult);
+  console.log(`[waitTimes] Canary passed: ${firstPost} -> B1/B2: ${firstResult.waitTimeB1B2}d, Student: ${firstResult.waitTimeStudent}d, Worker: ${firstResult.waitTimeWorker}d`);
 
+  // 2. If canary succeeds, proceed with batch with politeness throttle
   for (let i = 1; i < entries.length; i++) {
     const [post, cid] = entries[i];
     try {
       const result = await fetchPostFromDatabase(post, cid);
       posts.push(result);
       await new Promise(r => setTimeout(r, 100)); // Politeness throttle
-    } catch {}
+    } catch (postErr) {
+      console.warn(`  [waitTimes] Skipped post ${post} (${cid}): ${postErr.message}`);
+    }
   }
   return posts;
 }

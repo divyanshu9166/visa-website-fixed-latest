@@ -26,22 +26,37 @@ if (typeof process.loadEnvFile === 'function') {
  * 4. Direct Browser Impersonation (Default fallback)
  */
 
+export function classifyFetchError(status, message, bodySample = '') {
+  if (status === 401 || message?.includes('401')) {
+    return 'AUTH_OR_QUOTA_EXHAUSTED (Provider rejected authentication or plan quota exceeded)';
+  }
+  if (status === 403 || message?.includes('403')) {
+    return 'WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block)';
+  }
+  if (status === 408 || message?.includes('timeout') || message?.includes('AbortError')) {
+    return 'TIMEOUT_LATENCY_EXCEEDED (Upstream challenge or gateway timeout)';
+  }
+  if (bodySample && (bodySample.includes('<html') || bodySample.includes('Turnstile') || bodySample.includes('challenge-platform') || bodySample.includes('Attention Required'))) {
+    return 'CHALLENGE_PAGE_RETURNED_AS_200 (WAF returned captcha/challenge HTML instead of machine payload)';
+  }
+  return `UPSTREAM_ERROR (${message || 'Unknown network error'})`;
+}
+
 export async function fetchWithBypass(targetUrl, options = {}) {
   const {
     isJson = false,
     renderJs = true,
     headers = {},
-    timeout = 35000
+    timeout = 35000,
+    validateBody = null,
+    detailedTelemetry = false
   } = options;
 
   const zenrowsKey = process.env.ZENROWS_API_KEY || process.env.SCRAPER_API_KEY;
   const scrapingbeeKey = process.env.SCRAPINGBEE_API_KEY;
   const scraperApiKey = process.env.SCRAPERAPI_KEY;
 
-  // We should only pass innocent-looking clean headers through to APIs
-  // Do NOT send `Sec-Fetch-Site` or `Referer` of the target to the proxy API endpoint directly,
-  // as the proxy gateway WAF will reject it as malformed cross-site protocol!
-  // Send these only for DirectFetch or explicitly injected inner headers.
+  // Proxy headers
   const proxyHeaders = {
     'Accept': isJson ? 'application/json' : 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   };
@@ -58,7 +73,6 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (zenrowsKey) {
     const encoded = encodeURIComponent(targetUrl);
-    // Force residential IPs (premium_proxy=true) to bypass Akamai Datacenter ASN Blocks
     let url = `https://api.zenrows.com/v1/?apikey=${zenrowsKey}&url=${encoded}&js_render=${renderJs}&antibot=true&premium_proxy=true`;
     if (isJson) url += '&json_response=true';
     providers.push({ name: 'ZenRows', url, headers: proxyHeaders });
@@ -66,8 +80,6 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (scrapingbeeKey) {
     const encoded = encodeURIComponent(targetUrl);
-    // Force stealth residential mode to bypass Akamai/Cloudflare
-    // wait=5000 ensures Cloudflare turnstile can execute before snapshot
     const url = `https://app.scrapingbee.com/api/v1/?api_key=${scrapingbeeKey}&url=${encoded}&render_js=${renderJs}&stealth_proxy=true&premium_proxy=true&wait=5000`;
     providers.push({ name: 'ScrapingBee', url, headers: proxyHeaders });
   }
@@ -86,29 +98,54 @@ export async function fetchWithBypass(targetUrl, options = {}) {
   for (const provider of providers) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
+    const startTime = Date.now();
 
     try {
-      console.log(`[fetchClient] Attempting via ${provider.name} -> Target: ${targetUrl.slice(0, 50)}...`);
+      console.log(`[fetchClient] Attempting via ${provider.name} -> Target: ${targetUrl.slice(0, 70)}...`);
       const res = await fetch(provider.url, {
         headers: provider.headers,
         signal: controller.signal
       });
       clearTimeout(timer);
+      const elapsedMs = Date.now() - startTime;
+      const contentType = res.headers.get('content-type') || 'unknown';
 
       if (!res.ok) {
-        throw new Error(`HTTP ${res.status} (${res.statusText})`);
+        const errorClass = classifyFetchError(res.status, res.statusText);
+        throw new Error(`HTTP ${res.status} (${res.statusText}) - ${errorClass}`);
       }
 
-      console.log(`[fetchClient] ${provider.name} succeeded HTTP 200`);
-      if (isJson) {
-        return await res.json();
+      let payload = isJson ? await res.json() : await res.text();
+      const preview = typeof payload === 'string' ? payload.slice(0, 150).replace(/\s+/g, ' ') : JSON.stringify(payload).slice(0, 150);
+
+      // Body validation to reject HTTP 200 captcha / challenges
+      if (typeof payload === 'string') {
+        const lower = payload.toLowerCase();
+        if (lower.includes('access denied') || lower.includes('attention required! | cloudflare') || lower.includes('challenge-platform') || lower.includes('cf-turnstile')) {
+          const errorClass = classifyFetchError(200, 'Challenge page', payload);
+          throw new Error(`Invalid response body: WAF challenge page returned with HTTP 200 - ${errorClass}`);
+        }
       }
-      return await res.text();
+
+      if (validateBody && typeof validateBody === 'function') {
+        const validationResult = validateBody(payload, res.status, contentType);
+        if (validationResult === false || (validationResult && validationResult.valid === false)) {
+          const reason = validationResult?.error || 'Custom validation check failed';
+          throw new Error(`Body validation failed: ${reason}`);
+        }
+      }
+
+      console.log(`[fetchClient] ${provider.name} succeeded HTTP 200 in ${elapsedMs}ms (${contentType}, size: ${typeof payload === 'string' ? payload.length : 'JSON'} bytes)`);
+      if (detailedTelemetry) {
+        console.log(`  [diagnosticPreview] "${preview}"`);
+      }
+
+      return payload;
     } catch (err) {
       clearTimeout(timer);
-      console.warn(`  [fetchClient] ${provider.name} failed: ${err.message}`);
+      const elapsedMs = Date.now() - startTime;
+      console.warn(`  [fetchClient] ${provider.name} failed after ${elapsedMs}ms: ${err.message}`);
       lastError = err;
-      // If provider failed (e.g. out of credits or 403) and we have more providers, continue
       if (providers.indexOf(provider) < providers.length - 1) {
         continue;
       }

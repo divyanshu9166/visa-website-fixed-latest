@@ -16,6 +16,7 @@
     "data:dos": "node scripts/automated-dos-wait-times.mjs",
     "data:refresh": "node scripts/refresh-live.mjs",
     "check:staleness": "node scripts/check-staleness.mjs",
+    "test:wait-times": "node scripts/test-wait-times-validation.mjs && node scripts/test-wait-times-canary.mjs",
     "lca:fetch": "node scripts/fetch-lca.mjs",
     "lca:process": "node scripts/process-lca-cache.mjs",
     "lca:import": "node scripts/import-lca.mjs",
