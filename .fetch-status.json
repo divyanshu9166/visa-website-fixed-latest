@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-09-06T11:35:20.407Z",
+  "timestamp": "2026-09-06T11:45:13.274Z",
   "mode": "strict-live",
   "sources": {
     "processingTimes": {
@@ -38,6 +38,6 @@
   "publication": "PRESERVED_LAST_VALIDATED_SNAPSHOT",
   "rollback": {
     "performed": true,
-    "backupId": "2026-09-06T11-35-15-127Z"
+    "backupId": "2026-09-06T11-45-11-334Z"
   }
 }

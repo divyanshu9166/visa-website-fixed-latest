@@ -1,0 +1,17 @@
+{
+  "processingTimes": {
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
+  },
+  "visaBulletin": {
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
+  },
+  "waitTimes": {
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
+  }
+}
