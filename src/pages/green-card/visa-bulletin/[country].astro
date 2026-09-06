@@ -6,6 +6,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import VisaBulletinChart from '../../../components/VisaBulletinChart.astro';
 import FAQAccordion from '../../../components/FAQAccordion.astro';
+import StalenessWarning from '../../../components/StalenessWarning.astro';
 import { BULLETIN_COUNTRIES, BULLETIN_CATEGORIES } from '../../../../scripts/lib/formsConfig.mjs';
 
 export async function getStaticPaths() {
@@ -73,6 +74,9 @@ const breadcrumbs = [
   { label: 'Visa Bulletin', href: '/green-card/visa-bulletin' },
   { label: countryMeta.name, href: `/green-card/visa-bulletin/${countryMeta.slug}` },
 ];
+
+const staleSince = countryData.find((d) => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 ---
 
 <Layout title={`Green Card Visa Bulletin — ${countryMeta.name} [${formattedMonth}]`} description={`Track Visa Bulletin Final Action Dates and Dates for Filing for ${countryMeta.name}-born applicants across EB-1 through EB-5, with 24-month movement charts.`} breadcrumbs={breadcrumbs}>
@@ -84,6 +88,14 @@ const breadcrumbs = [
       { label: 'Visa Bulletin', href: '/green-card/visa-bulletin' },
       { label: countryMeta.name },
     ]} />
+
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
 
     <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-2">Green Card Visa Bulletin — {countryMeta.name}</h1>
     <p class="text-lg text-neutral-500 mb-3">{formattedMonth} Final Action Dates and Dates for Filing, by employment-based category.</p>
@@ -111,17 +123,27 @@ const breadcrumbs = [
             <tr class="hover:bg-neutral-50/50 transition-colors">
               <td class="px-6 py-4 font-medium text-neutral-900">{cat}</td>
               <td class="px-6 py-4">
-                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${latest?.finalActionDate === 'C' ? 'bg-green-100 text-green-800' : 'bg-neutral-100 text-neutral-800'}`}>
+                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  latest?.finalActionDate === 'C' ? 'bg-green-100 text-green-800' :
+                  latest?.finalActionDate === 'Unavailable' || latest?.finalActionDate === 'U' ? 'bg-amber-100 text-amber-800' :
+                  'bg-neutral-100 text-neutral-800'
+                }`}>
                   {latest?.finalActionDate === 'C' ? 'Current' : latest?.finalActionDate || '—'}
                 </span>
               </td>
               <td class="px-6 py-4">
-                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${latest?.dateForFiling === 'C' ? 'bg-green-100 text-green-800' : 'bg-neutral-100 text-neutral-800'}`}>
+                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  latest?.dateForFiling === 'C' ? 'bg-green-100 text-green-800' :
+                  latest?.dateForFiling === 'Unavailable' || latest?.dateForFiling === 'U' ? 'bg-amber-100 text-amber-800' :
+                  'bg-neutral-100 text-neutral-800'
+                }`}>
                   {latest?.dateForFiling === 'C' ? 'Current' : latest?.dateForFiling || '—'}
                 </span>
               </td>
               <td class="px-6 py-4">
-                {movementDays === null ? (
+                {latest?.finalActionDate === 'Unavailable' || latest?.finalActionDate === 'U' ? (
+                  <span class="text-amber-700 font-medium text-xs">Statutory Limit Reached</span>
+                ) : movementDays === null ? (
                   <span class="text-neutral-400">—</span>
                 ) : movementDays > 0 ? (
                   <span class="text-green-700 font-medium">+{movementDays} days</span>

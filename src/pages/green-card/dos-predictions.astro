@@ -1,10 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 import { getCollection } from 'astro:content';
 
 const allBulletin = await getCollection('visaBulletin');
 const latestMonth = [...new Set(allBulletin.map(d => d.data.month))].sort().reverse()[0];
+const staleSince = allBulletin.find(d => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 const latestEB2India = allBulletin.find(d => d.data.month === latestMonth && d.data.category === 'EB-2' && d.data.country === 'India');
 const latestEB3India = allBulletin.find(d => d.data.month === latestMonth && d.data.category === 'EB-3' && d.data.country === 'India');
 const fmtDate = (d: string) => { try { return new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }); } catch { return d; } };
@@ -13,6 +16,14 @@ const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString
 <Layout title="DOS Visa Bulletin Predictions — Charlie Oppenheim Analysis 2026" description="Monthly State Department predictions for EB visa bulletin movement. Analysis of DOS Charlie Oppenheim commentary on priority date trends for India, China, EB-2, EB-3.">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Green Card', href: '/green-card/visa-bulletin' }, { label: 'DOS Predictions' }]} />
+
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
 
     <div class="mt-8 mb-8">
       <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">DOS Visa Bulletin Predictions</h1>

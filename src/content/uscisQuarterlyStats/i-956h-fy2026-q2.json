@@ -1,0 +1,30 @@
+{
+  "formType": "I-956H",
+  "formName": "Bona Fides of Person Involved in Regional Center Program",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 721,
+  "approved": 0,
+  "denied": 0,
+  "completions": 0,
+  "pending": 0,
+  "processingTimeMonths": 0,
+  "approvalRate": null,
+  "denialRate": null,
+  "subtypes": [
+    {
+      "subtypeName": "Bona Fides of Person Involved in Regional Center Program",
+      "receipts": 721,
+      "approved": 0,
+      "denied": 0,
+      "completions": 0,
+      "pending": 0,
+      "processingTimeMonths": 0
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.549Z"
+}

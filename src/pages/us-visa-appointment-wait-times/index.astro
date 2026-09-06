@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import WaitTimeCard from '../../components/WaitTimeCard.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 
 const countries = await getCollection('appointmentWaitTimes');
 
@@ -18,11 +19,20 @@ const rows = countries.map((c) => {
 }).sort((a, b) => a.country.localeCompare(b.country));
 
 const lastUpdated = countries.length ? countries[0].data.lastUpdated : null;
+const staleSince = countries.find((c) => c.data.staleSince)?.data.staleSince;
 ---
 
 <Layout title="US Visa Appointment Wait Times by Country [2026]" description="Compare current US nonimmigrant visa interview appointment wait times by country and consulate, updated regularly from State Department data.">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Appointment Wait Times' }]} />
+
+    <StalenessWarning
+      lastUpdated={lastUpdated}
+      staleSince={staleSince}
+      maxAgeDays={45}
+      sourceName="U.S. Department of State Consular Affairs"
+      sourceUrl="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html"
+    />
 
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-neutral-200 pb-6 mb-10">
       <div>

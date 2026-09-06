@@ -31,7 +31,7 @@ const levelPcts = [d.wageLevelDist.L1, d.wageLevelDist.L2, d.wageLevelDist.L3, d
 
 <Layout
   title={`${d.employerName} H1B Sponsorship Data — Salary, Approval Rate & LCA Records`}
-  description={`${d.employerName} H1B data: ${d.totalLCAs.toLocaleString()} LCAs in FY${d.fiscalYear}, ${d.approvalRate}% approval rate, avg salary $${(d.avgWage/1000).toFixed(0)}K. Grade: ${d.grade}.`}
+  description={`${d.employerName} H1B data: ${d.totalLCAs.toLocaleString('en-US')} LCAs in FY${d.fiscalYear}, ${d.approvalRate}% approval rate, avg salary $${(d.avgWage/1000).toFixed(0)}K. Grade: ${d.grade}.`}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'H1B Database', href: '/h1b' }, { label: d.employerName }]} />
@@ -47,7 +47,7 @@ const levelPcts = [d.wageLevelDist.L1, d.wageLevelDist.L2, d.wageLevelDist.L3, d
     <!-- Key stats -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
       {[
-        { label: 'Total LCAs', value: d.totalLCAs.toLocaleString() },
+        { label: 'Total LCAs', value: d.totalLCAs.toLocaleString('en-US') },
         { label: 'Approval Rate', value: `${d.approvalRate}%`, highlight: d.approvalRate >= 95 },
         { label: 'Avg Salary', value: `$${(d.avgWage/1000).toFixed(0)}K` },
         { label: 'Median Salary', value: `$${(d.medianWage/1000).toFixed(0)}K` },
@@ -105,7 +105,7 @@ const levelPcts = [d.wageLevelDist.L1, d.wageLevelDist.L2, d.wageLevelDist.L3, d
           {d.topTitles.map((t: any) => (
             <tr class="hover:bg-neutral-50">
               <td class="px-6 py-3 font-medium text-neutral-900">{t.title}</td>
-              <td class="px-6 py-3 text-right font-mono text-neutral-600">{t.count.toLocaleString()}</td>
+              <td class="px-6 py-3 text-right font-mono text-neutral-600">{t.count.toLocaleString('en-US')}</td>
               <td class="px-6 py-3 text-right font-mono font-semibold text-neutral-900">${(t.avgWage/1000).toFixed(0)}K</td>
               <td class="px-6 py-3 text-neutral-400 font-mono text-xs">{t.socCode}</td>
             </tr>
@@ -127,7 +127,7 @@ const levelPcts = [d.wageLevelDist.L1, d.wageLevelDist.L2, d.wageLevelDist.L3, d
               <div class="flex-1 bg-neutral-100 rounded-full h-2">
                 <div class="bg-neutral-900 h-2 rounded-full" style={`width: ${pct}%`}></div>
               </div>
-              <span class="text-xs font-mono text-neutral-500 w-16 text-right flex-shrink-0">{s.count.toLocaleString()}</span>
+              <span class="text-xs font-mono text-neutral-500 w-16 text-right flex-shrink-0">{s.count.toLocaleString('en-US')}</span>
             </div>
           );
         })}
@@ -137,7 +137,7 @@ const levelPcts = [d.wageLevelDist.L1, d.wageLevelDist.L2, d.wageLevelDist.L3, d
     <!-- Does this employer sponsor H1B? CTA -->
     <div class="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-8">
       <h3 class="font-bold text-blue-900 mb-1">Does {d.employerName} sponsor H-1B visas?</h3>
-      <p class="text-sm text-blue-800">Yes — {d.employerName} filed <strong>{d.totalLCAs.toLocaleString()}</strong> H-1B LCAs in FY{d.fiscalYear} with a <strong>{d.approvalRate}%</strong> approval rate. They are an active H-1B sponsor. The most common role is <strong>{d.topTitles[0]?.title}</strong> at an average wage of <strong>${(d.topTitles[0]?.avgWage / 1000).toFixed(0)}K</strong>.</p>
+      <p class="text-sm text-blue-800">Yes — {d.employerName} filed <strong>{d.totalLCAs.toLocaleString('en-US')}</strong> H-1B LCAs in FY{d.fiscalYear} with a <strong>{d.approvalRate}%</strong> approval rate. They are an active H-1B sponsor. The most common role is <strong>{d.topTitles[0]?.title}</strong> at an average wage of <strong>${(d.topTitles[0]?.avgWage / 1000).toFixed(0)}K</strong>.</p>
     </div>
 
     <div class="flex gap-3 mb-8">

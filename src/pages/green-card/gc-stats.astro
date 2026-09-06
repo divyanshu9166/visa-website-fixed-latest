@@ -51,7 +51,7 @@ const totalLatest = gcByCategory.reduce((s, r) => s + r.fy2024, 0);
     <!-- Total stat -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
       <div class="bg-white border border-neutral-200 rounded-xl p-5 text-center col-span-2">
-        <div class="text-4xl font-extrabold text-neutral-900 mb-1">{totalLatest.toLocaleString()}</div>
+        <div class="text-4xl font-extrabold text-neutral-900 mb-1">{totalLatest.toLocaleString('en-US')}</div>
         <div class="text-sm text-neutral-500">Total Green Cards Issued — {dataYear}</div>
       </div>
       <div class="bg-white border border-neutral-200 rounded-xl p-5 text-center">
@@ -85,10 +85,10 @@ const totalLatest = gcByCategory.reduce((s, r) => s + r.fy2024, 0);
             {gcByCategory.map(row => (
               <tr class="hover:bg-neutral-50">
                 <td class="px-6 py-3 font-medium text-neutral-900">{row.category}</td>
-                <td class="px-6 py-3 text-right font-mono font-semibold text-neutral-900">{row.fy2024.toLocaleString()}</td>
-                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.fy2023.toLocaleString()}</td>
-                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.fy2022.toLocaleString()}</td>
-                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.fy2021.toLocaleString()}</td>
+                <td class="px-6 py-3 text-right font-mono font-semibold text-neutral-900">{row.fy2024.toLocaleString('en-US')}</td>
+                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.fy2023.toLocaleString('en-US')}</td>
+                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.fy2022.toLocaleString('en-US')}</td>
+                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.fy2021.toLocaleString('en-US')}</td>
               </tr>
             ))}
           </tbody>
@@ -106,7 +106,7 @@ const totalLatest = gcByCategory.reduce((s, r) => s + r.fy2024, 0);
             <div class="flex-1 bg-neutral-100 rounded-full h-3">
               <div class="bg-neutral-900 h-3 rounded-full" style={`width: ${Math.min(c.pct * 5, 100)}%`}></div>
             </div>
-            <span class="w-20 text-right text-sm font-mono text-neutral-600 flex-shrink-0">{c.fy2024.toLocaleString()}</span>
+            <span class="w-20 text-right text-sm font-mono text-neutral-600 flex-shrink-0">{c.fy2024.toLocaleString('en-US')}</span>
             <span class="w-10 text-right text-xs text-neutral-400 flex-shrink-0">{c.pct}%</span>
           </div>
         ))}

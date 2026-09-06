@@ -1,0 +1,30 @@
+{
+  "formType": "I-8811",
+  "formName": "App. for Susp. of Deport. or Spec. Rule Cancel. of Removal (Sect. 203 of Public Law 105-100 (NACARA))",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 15,
+  "approved": 0,
+  "denied": 0,
+  "completions": 1,
+  "pending": 850,
+  "processingTimeMonths": 0,
+  "approvalRate": 0,
+  "denialRate": 0,
+  "subtypes": [
+    {
+      "subtypeName": "App. for Susp. of Deport. or Spec. Rule Cancel. of Removal (Sect. 203 of Public Law 105-100 (NACARA))",
+      "receipts": 15,
+      "approved": 0,
+      "denied": 0,
+      "completions": 1,
+      "pending": 850,
+      "processingTimeMonths": 0
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.551Z"
+}

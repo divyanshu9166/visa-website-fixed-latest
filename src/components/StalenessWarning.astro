@@ -1,0 +1,67 @@
+---
+interface Props {
+  lastUpdated?: string | null;
+  staleSince?: string | null;
+  maxAgeDays?: number;
+  sourceName?: string;
+  sourceUrl?: string;
+}
+
+const {
+  lastUpdated,
+  staleSince,
+  maxAgeDays = 2,
+  sourceName = 'Official Government Source',
+  sourceUrl,
+} = Astro.props;
+
+let isStale = false;
+let verifiedDateStr = lastUpdated || '';
+
+if (staleSince) {
+  const staleTime = new Date(staleSince).getTime();
+  const daysDiff = (Date.now() - staleTime) / (1000 * 60 * 60 * 24);
+  if (daysDiff >= maxAgeDays) {
+    isStale = true;
+  }
+} else if (lastUpdated) {
+  const updatedTime = new Date(lastUpdated).getTime();
+  if (!isNaN(updatedTime)) {
+    // Upstream government releases (USCIS processing times, DOS Visa Bulletins) publish monthly (~30-45 days).
+    // If no upstream fetch outage occurred (staleSince is null), only flag if no publication in >60 days.
+    const daysDiff = (Date.now() - updatedTime) / (1000 * 60 * 60 * 24);
+    if (daysDiff >= Math.max(maxAgeDays, 60)) {
+      isStale = true;
+    }
+  }
+}
+
+if (verifiedDateStr) {
+  try {
+    const d = new Date(verifiedDateStr);
+    if (!isNaN(d.getTime())) {
+      verifiedDateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+  } catch {}
+}
+---
+
+{isStale && (
+  <div class="mb-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900 shadow-sm" role="alert">
+    <div class="flex items-start gap-3">
+      <span class="text-xl leading-none">⚠️</span>
+      <div class="text-sm">
+        <p class="font-bold text-amber-950">Data Verification Notice</p>
+        <p class="mt-0.5 text-amber-800">
+          Upstream updates from {sourceName} are currently experiencing delay. Displaying last confirmed official government records
+          {verifiedDateStr ? ` from ${verifiedDateStr}` : ''}.
+          {sourceUrl && (
+            <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="ml-1 underline font-medium hover:text-amber-950">
+              Verify directly on {sourceName} &rarr;
+            </a>
+          )}
+        </p>
+      </div>
+    </div>
+  </div>
+)}

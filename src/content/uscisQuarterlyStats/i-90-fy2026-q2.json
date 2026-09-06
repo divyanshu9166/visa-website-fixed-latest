@@ -1,0 +1,30 @@
+{
+  "formType": "I-90",
+  "formName": "Application to Replace Permanent Resident Card",
+  "category": "Permanent Residence",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 227316,
+  "approved": 183109,
+  "denied": 6913,
+  "completions": 190022,
+  "pending": 558086,
+  "processingTimeMonths": 9.3,
+  "approvalRate": 96.4,
+  "denialRate": 3.6,
+  "subtypes": [
+    {
+      "subtypeName": "Application to Replace Permanent Resident Card",
+      "receipts": 227316,
+      "approved": 183109,
+      "denied": 6913,
+      "completions": 190022,
+      "pending": 558086,
+      "processingTimeMonths": 9.3
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.553Z"
+}

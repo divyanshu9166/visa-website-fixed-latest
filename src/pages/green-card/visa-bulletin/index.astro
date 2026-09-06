@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import StalenessWarning from '../../../components/StalenessWarning.astro';
 import { BULLETIN_COUNTRIES } from '../../../../scripts/lib/formsConfig.mjs';
 
 const visaBulletinData = await getCollection('visaBulletin');
@@ -9,6 +10,8 @@ const visaBulletinData = await getCollection('visaBulletin');
 const months = [...new Set(visaBulletinData.map((d) => d.data.month))].sort().reverse();
 const currentMonth = months[0] || 'No data';
 const currentData = visaBulletinData.filter((d) => d.data.month === currentMonth);
+const staleSince = visaBulletinData.find((d) => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = currentMonth !== 'No data' ? `${currentMonth}-01` : undefined;
 
 const formattedMonth = currentMonth !== 'No data'
   ? new Date(`${currentMonth}-01T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
@@ -28,6 +31,14 @@ function bySlug(name: string) {
 <Layout title="Visa Bulletin Tracker — Priority Dates by Country [2026]" description="Track the latest Visa Bulletin movement, Final Action Dates, and Dates for Filing for Employment-based green cards by country.">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Visa Bulletin' }]} />
+
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
 
     <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-4">Visa Bulletin Tracker</h1>
     <p class="text-lg text-neutral-500 mb-8">Track priority dates and movement for Employment-Based green cards, by country of birth.</p>
@@ -57,7 +68,11 @@ function bySlug(name: string) {
             {eb2 && (
               <div class="flex items-center justify-between text-sm">
                 <span class="text-neutral-500">EB-2 Final Action Date</span>
-                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${eb2.data.finalActionDate === 'C' ? 'bg-green-100 text-green-800' : 'bg-neutral-100 text-neutral-800'}`}>
+                <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  eb2.data.finalActionDate === 'C' ? 'bg-green-100 text-green-800' :
+                  eb2.data.finalActionDate === 'Unavailable' || eb2.data.finalActionDate === 'U' ? 'bg-amber-100 text-amber-800' :
+                  'bg-neutral-100 text-neutral-800'
+                }`}>
                   {eb2.data.finalActionDate === 'C' ? 'Current' : eb2.data.finalActionDate}
                 </span>
               </div>

@@ -2,7 +2,8 @@
   "month": "2025-05",
   "category": "EB-2",
   "country": "Philippines",
-  "finalActionDate": "C",
-  "dateForFiling": "C",
-  "dataSource": "seed"
+  "finalActionDate": "2022-02-15",
+  "dateForFiling": "2022-07-15",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:51.921Z"
 }

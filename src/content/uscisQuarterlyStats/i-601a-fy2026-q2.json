@@ -1,0 +1,30 @@
+{
+  "formType": "I-601A",
+  "formName": "Application for Provisional Unlawful Presence Waiver",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 8545,
+  "approved": 8171,
+  "denied": 921,
+  "completions": 9092,
+  "pending": 71985,
+  "processingTimeMonths": 24,
+  "approvalRate": 89.9,
+  "denialRate": 10.1,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Provisional Unlawful Presence Waiver",
+      "receipts": 8545,
+      "approved": 8171,
+      "denied": 921,
+      "completions": 9092,
+      "pending": 71985,
+      "processingTimeMonths": 24
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.546Z"
+}

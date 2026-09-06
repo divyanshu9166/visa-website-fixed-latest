@@ -1,0 +1,30 @@
+{
+  "formType": "I-360",
+  "formName": "Petition for Amerasian, Widow(er), or Special Immigrant",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 62410,
+  "approved": 14731,
+  "denied": 1489,
+  "completions": 16220,
+  "pending": 297394,
+  "processingTimeMonths": 6.1,
+  "approvalRate": 90.8,
+  "denialRate": 9.2,
+  "subtypes": [
+    {
+      "subtypeName": "Petition for Amerasian, Widow(er), or Special Immigrant",
+      "receipts": 62410,
+      "approved": 14731,
+      "denied": 1489,
+      "completions": 16220,
+      "pending": 297394,
+      "processingTimeMonths": 6.1
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.554Z"
+}

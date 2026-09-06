@@ -4,5 +4,6 @@
   "country": "Philippines",
   "finalActionDate": "C",
   "dateForFiling": "C",
-  "dataSource": "seed"
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:52.092Z"
 }

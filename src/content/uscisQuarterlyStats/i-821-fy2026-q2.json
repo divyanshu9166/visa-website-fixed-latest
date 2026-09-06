@@ -1,0 +1,30 @@
+{
+  "formType": "I-821",
+  "formName": "Application for Temporary Protected Status",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 839,
+  "approved": 8071,
+  "denied": 1145,
+  "completions": 9216,
+  "pending": 574448,
+  "processingTimeMonths": 12.6,
+  "approvalRate": 87.6,
+  "denialRate": 12.4,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Temporary Protected Status",
+      "receipts": 839,
+      "approved": 8071,
+      "denied": 1145,
+      "completions": 9216,
+      "pending": 574448,
+      "processingTimeMonths": 12.6
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.550Z"
+}

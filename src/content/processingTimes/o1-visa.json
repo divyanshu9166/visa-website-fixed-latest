@@ -6,95 +6,50 @@
   "category": "work-visas",
   "seoTitle": "Current USCIS Processing Times for O-1 Visa [2026]",
   "seoDesc": "Check official USCIS processing times for O-1 Visa (Form I-129) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
-  "dataSource": "seed",
-  "sourceUrl": "https://egov.uscis.gov/processing-times/",
+  "lastUpdated": "2026-08-17",
+  "dataSource": "live",
+  "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
     {
-      "name": "California Service Center",
-      "slug": "california-service-center",
-      "code": "CSC",
+      "name": "Service Center Operations (All Centers)",
+      "slug": "service-center-operations-all-centers",
+      "code": "SCD",
       "cases": [
         {
-          "caseType": "O-1 - Extraordinary ability - New employment",
-          "minMonths": 2.4,
-          "maxMonths": 3.6,
-          "serviceRequestDate": "2026-02-19",
+          "caseType": "O - Extraordinary ability",
+          "minMonths": 14,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-09",
           "history": [
             {
-              "period": "2026-01",
-              "min": 2.6,
-              "max": 3.7
-            },
-            {
-              "period": "2026-02",
-              "min": 2.6,
-              "max": 3.7
-            },
-            {
-              "period": "2026-03",
-              "min": 2.5,
-              "max": 3.7
-            },
-            {
               "period": "2026-04",
-              "min": 2.5,
-              "max": 3.6
+              "min": 14,
+              "max": 17
             },
             {
               "period": "2026-05",
-              "min": 2.5,
-              "max": 3.6
+              "min": 14,
+              "max": 17
             },
             {
               "period": "2026-06",
-              "min": 2.4,
-              "max": 3.6
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Vermont Service Center",
-      "slug": "vermont-service-center",
-      "code": "VSC",
-      "cases": [
-        {
-          "caseType": "O-1 - Extraordinary ability - New employment",
-          "minMonths": 1.9,
-          "maxMonths": 3,
-          "serviceRequestDate": "2026-03-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 2.1,
-              "max": 3.2
+              "min": 14,
+              "max": 17
             },
             {
-              "period": "2026-02",
-              "min": 2,
-              "max": 3.1
+              "period": "2026-07",
+              "min": 14,
+              "max": 17
             },
             {
-              "period": "2026-03",
-              "min": 2,
-              "max": 3.1
+              "period": "2026-08",
+              "min": 14,
+              "max": 17
             },
             {
-              "period": "2026-04",
-              "min": 2,
-              "max": 3
-            },
-            {
-              "period": "2026-05",
-              "min": 1.9,
-              "max": 3
-            },
-            {
-              "period": "2026-06",
-              "min": 1.9,
-              "max": 3
+              "period": "2026-09",
+              "min": 14,
+              "max": 17
             }
           ]
         }
@@ -105,7 +60,7 @@
     "/uscis-processing-times/h1b-visa",
     "/uscis-processing-times/l1-visa"
   ],
-  "seoText": "USCIS processing times for O-1 Visa (Form I-129) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We recalculate this page from the official USCIS data on a daily basis so the ranges and trend charts below stay current.",
+  "seoText": "USCIS processing times for O-1 Visa (Form I-129) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We update this page directly from official USCIS published data so the ranges and trend charts below stay current.",
   "faqs": [
     {
       "q": "How long does o-1 visa processing take in 2026?",
@@ -116,8 +71,8 @@
       "a": "If your case was filed on or before the service request date shown for your case type, and you are still waiting outside the posted processing range, you can submit an e-Request directly to USCIS asking them to check on your case."
     },
     {
-      "q": "Why do processing times vary between service centers?",
-      "a": "Each USCIS service center has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
+      "q": "Why do processing times vary between service centers and field offices?",
+      "a": "Each USCIS center or regional field office has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
     },
     {
       "q": "Is the processing time the same as a guarantee?",
@@ -125,7 +80,7 @@
     },
     {
       "q": "How often is this page updated?",
-      "a": "This page is rebuilt from the official USCIS processing times data source on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
+      "a": "This page is rebuilt from official USCIS processing times publications on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
     }
   ]
 }

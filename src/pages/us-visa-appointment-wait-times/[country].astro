@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import WaitTimeTrendChart from '../../components/WaitTimeTrendChart.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 
 export async function getStaticPaths() {
   const countries = await getCollection('appointmentWaitTimes');
@@ -47,6 +48,14 @@ const faqs = [
       { label: c.country },
     ]} />
 
+    <StalenessWarning
+      lastUpdated={c.lastUpdated}
+      staleSince={c.staleSince}
+      maxAgeDays={45}
+      sourceName="U.S. Department of State Consular Affairs"
+      sourceUrl="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html"
+    />
+
     <div class="flex items-center gap-3 mb-2">
       <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900">{c.country}</h1>
     </div>
@@ -61,25 +70,29 @@ const faqs = [
               <h2 class="font-bold text-neutral-900">{co.name}</h2>
               <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${b.cls}`}>{b.label}</span>
             </div>
-            <div class="grid grid-cols-3 divide-x divide-neutral-100 border-b border-neutral-100">
-              <div class="p-5 text-center">
+            <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-100 border-b border-neutral-100">
+              <div class="p-4 text-center">
                 <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Visitor (B1/B2)</p>
-                <p class="text-2xl font-black text-neutral-900">{co.waitTimeB1B2 ?? '—'}<span class="text-sm font-medium text-neutral-500"> days</span></p>
+                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimeB1B2 ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
               </div>
-              <div class="p-5 text-center">
+              <div class="p-4 text-center">
                 <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Student (F/M/J)</p>
-                <p class="text-2xl font-black text-neutral-900">{co.waitTimeStudent ?? '—'}<span class="text-sm font-medium text-neutral-500"> days</span></p>
+                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimeStudent ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
               </div>
-              <div class="p-5 text-center">
-                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Other</p>
-                <p class="text-2xl font-black text-neutral-900">{co.waitTimeOther ?? '—'}<span class="text-sm font-medium text-neutral-500"> days</span></p>
+              <div class="p-4 text-center">
+                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Work (H/L/O/P)</p>
+                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimePetition ?? co.waitTimeOther ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
+              </div>
+              <div class="p-4 text-center">
+                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Crew / Transit</p>
+                <p class="text-xl sm:text-2xl font-black text-neutral-900">{co.waitTimeCrewTransit ?? co.waitTimeOther ?? '—'}<span class="text-xs sm:text-sm font-medium text-neutral-500"> days</span></p>
               </div>
             </div>
             {co.notes && (
               <div class="px-6 py-3 bg-amber-50 border-b border-amber-100 text-xs text-amber-900">{co.notes}</div>
             )}
             <div class="p-6">
-              <WaitTimeTrendChart history={co.history} title={`${co.name} — 12-month trend`} />
+              <WaitTimeTrendChart history={co.history} title={`${co.name} — Appointment Wait Trend`} />
             </div>
           </div>
         );

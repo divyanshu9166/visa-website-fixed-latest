@@ -1,0 +1,30 @@
+{
+  "formType": "I-526",
+  "formName": "Immigrant Petition by Standalone Investor",
+  "category": "Investment Based",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 73,
+  "approved": 11,
+  "denied": 12,
+  "completions": 23,
+  "pending": 776,
+  "processingTimeMonths": 23.7,
+  "approvalRate": 47.8,
+  "denialRate": 52.2,
+  "subtypes": [
+    {
+      "subtypeName": "Immigrant Petition by Standalone Investor",
+      "receipts": 73,
+      "approved": 11,
+      "denied": 12,
+      "completions": 23,
+      "pending": 776,
+      "processingTimeMonths": 23.7
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.548Z"
+}

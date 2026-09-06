@@ -2,7 +2,8 @@
   "month": "2026-07",
   "category": "EB-3",
   "country": "Mexico",
-  "finalActionDate": "2022-11-20",
-  "dateForFiling": "2022-12-20",
-  "dataSource": "seed"
+  "finalActionDate": "2022-12-01",
+  "dateForFiling": "2023-03-31",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:52.111Z"
 }

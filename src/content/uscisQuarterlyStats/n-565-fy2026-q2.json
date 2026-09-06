@@ -1,0 +1,30 @@
+{
+  "formType": "N-565",
+  "formName": "Application for Replacement Naturalization/Citizenship Document",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 10103,
+  "approved": 7651,
+  "denied": 711,
+  "completions": 8362,
+  "pending": 25339,
+  "processingTimeMonths": 6.9,
+  "approvalRate": 91.5,
+  "denialRate": 8.5,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Replacement Naturalization/Citizenship Document",
+      "receipts": 10103,
+      "approved": 7651,
+      "denied": 711,
+      "completions": 8362,
+      "pending": 25339,
+      "processingTimeMonths": 6.9
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.553Z"
+}

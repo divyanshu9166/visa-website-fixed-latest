@@ -1,10 +1,13 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import StalenessWarning from '../../../components/StalenessWarning.astro';
 import { getCollection } from 'astro:content';
 
 const allBulletin = await getCollection('visaBulletin');
 const latestMonth = [...new Set(allBulletin.map(d => d.data.month))].sort().reverse()[0];
+const staleSince = allBulletin.find(d => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 // Next expected month
@@ -20,6 +23,14 @@ const nextMonthLabel = fmtMonth(nextMonth);
 >
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Visa Bulletin', href: '/green-card/visa-bulletin' }, { label: 'Hidden Bulletin Checker' }]} />
+
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
 
     <div class="mt-8 mb-6">
       <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">Hidden Visa Bulletin Checker</h1>

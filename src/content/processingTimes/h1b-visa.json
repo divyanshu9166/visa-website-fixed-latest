@@ -6,489 +6,126 @@
   "category": "work-visas",
   "seoTitle": "Current USCIS Processing Times for H-1B Visa [2026]",
   "seoDesc": "Check official USCIS processing times for H-1B Visa (Form I-129) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
-  "dataSource": "seed",
-  "sourceUrl": "https://egov.uscis.gov/processing-times/",
+  "lastUpdated": "2026-08-17",
+  "dataSource": "live",
+  "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
     {
-      "name": "California Service Center",
-      "slug": "california-service-center",
-      "code": "CSC",
+      "name": "Service Center Operations (All Centers)",
+      "slug": "service-center-operations-all-centers",
+      "code": "SCD",
       "cases": [
         {
-          "caseType": "H-1B - Specialty occupation - Extension of stay in the U.S.",
-          "minMonths": 4.3,
-          "maxMonths": 5.4,
-          "serviceRequestDate": "2025-12-19",
+          "caseType": "H-1B - Specialty occupation - Visa to be issued abroad",
+          "minMonths": 10,
+          "maxMonths": 11.5,
+          "serviceRequestDate": "2025-10-04",
           "history": [
             {
-              "period": "2026-01",
-              "min": 4.5,
-              "max": 5.6
-            },
-            {
-              "period": "2026-02",
-              "min": 4.5,
-              "max": 5.5
-            },
-            {
-              "period": "2026-03",
-              "min": 4.5,
-              "max": 5.5
-            },
-            {
               "period": "2026-04",
-              "min": 4.4,
-              "max": 5.4
+              "min": 10,
+              "max": 11.5
             },
             {
               "period": "2026-05",
-              "min": 4.4,
-              "max": 5.4
+              "min": 10,
+              "max": 11.5
             },
             {
               "period": "2026-06",
-              "min": 4.3,
-              "max": 5.4
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 11.5
             }
           ]
         },
         {
-          "caseType": "H-1B - Specialty occupation - Change of employer",
-          "minMonths": 4.2,
-          "maxMonths": 5.3,
-          "serviceRequestDate": "2025-12-19",
+          "caseType": "H-1B - Specialty occupation - Change of status in the U.S.",
+          "minMonths": 10,
+          "maxMonths": 11.5,
+          "serviceRequestDate": "2025-10-01",
           "history": [
             {
-              "period": "2026-01",
-              "min": 4.4,
-              "max": 5.5
-            },
-            {
-              "period": "2026-02",
-              "min": 4.4,
-              "max": 5.4
-            },
-            {
-              "period": "2026-03",
-              "min": 4.4,
-              "max": 5.4
-            },
-            {
               "period": "2026-04",
-              "min": 4.3,
-              "max": 5.3
+              "min": 10,
+              "max": 11.5
             },
             {
               "period": "2026-05",
-              "min": 4.3,
-              "max": 5.3
+              "min": 10,
+              "max": 11.5
             },
             {
               "period": "2026-06",
-              "min": 4.2,
-              "max": 5.3
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 11.5
             }
           ]
         },
-        {
-          "caseType": "H-1B - Specialty occupation - New employment",
-          "minMonths": 6.2,
-          "maxMonths": 6.9,
-          "serviceRequestDate": "2025-11-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 6.4,
-              "max": 7.1
-            },
-            {
-              "period": "2026-02",
-              "min": 6.3,
-              "max": 7
-            },
-            {
-              "period": "2026-03",
-              "min": 6.3,
-              "max": 7
-            },
-            {
-              "period": "2026-04",
-              "min": 6.3,
-              "max": 7
-            },
-            {
-              "period": "2026-05",
-              "min": 6.2,
-              "max": 6.9
-            },
-            {
-              "period": "2026-06",
-              "min": 6.2,
-              "max": 6.9
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Nebraska Service Center",
-      "slug": "nebraska-service-center",
-      "code": "NSC",
-      "cases": [
         {
           "caseType": "H-1B - Specialty occupation - Extension of stay in the U.S.",
-          "minMonths": 4.3,
-          "maxMonths": 4.9,
-          "serviceRequestDate": "2026-01-19",
+          "minMonths": 11,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-19",
           "history": [
             {
-              "period": "2026-01",
-              "min": 4.5,
-              "max": 5.1
-            },
-            {
-              "period": "2026-02",
-              "min": 4.4,
-              "max": 5
-            },
-            {
-              "period": "2026-03",
-              "min": 4.4,
-              "max": 5
-            },
-            {
               "period": "2026-04",
-              "min": 4.4,
-              "max": 5
+              "min": 11,
+              "max": 12
             },
             {
               "period": "2026-05",
-              "min": 4.3,
-              "max": 4.9
+              "min": 11,
+              "max": 12
             },
             {
               "period": "2026-06",
-              "min": 4.3,
-              "max": 4.9
-            }
-          ]
-        },
-        {
-          "caseType": "H-1B - Specialty occupation - Change of employer",
-          "minMonths": 5,
-          "maxMonths": 6.3,
-          "serviceRequestDate": "2025-11-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 5.2,
-              "max": 6.5
+              "min": 11,
+              "max": 12
             },
             {
-              "period": "2026-02",
-              "min": 5.2,
-              "max": 6.4
+              "period": "2026-07",
+              "min": 11,
+              "max": 12
             },
             {
-              "period": "2026-03",
-              "min": 5.2,
-              "max": 6.4
+              "period": "2026-08",
+              "min": 11,
+              "max": 12
             },
             {
-              "period": "2026-04",
-              "min": 5.1,
-              "max": 6.4
-            },
-            {
-              "period": "2026-05",
-              "min": 5.1,
-              "max": 6.3
-            },
-            {
-              "period": "2026-06",
-              "min": 5,
-              "max": 6.3
-            }
-          ]
-        },
-        {
-          "caseType": "H-1B - Specialty occupation - New employment",
-          "minMonths": 5.4,
-          "maxMonths": 6.4,
-          "serviceRequestDate": "2025-11-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 5.6,
-              "max": 6.6
-            },
-            {
-              "period": "2026-02",
-              "min": 5.5,
-              "max": 6.5
-            },
-            {
-              "period": "2026-03",
-              "min": 5.5,
-              "max": 6.5
-            },
-            {
-              "period": "2026-04",
-              "min": 5.4,
-              "max": 6.4
-            },
-            {
-              "period": "2026-05",
-              "min": 5.4,
-              "max": 6.4
-            },
-            {
-              "period": "2026-06",
-              "min": 5.4,
-              "max": 6.4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Texas Service Center",
-      "slug": "texas-service-center",
-      "code": "TSC",
-      "cases": [
-        {
-          "caseType": "H-1B - Specialty occupation - Extension of stay in the U.S.",
-          "minMonths": 4.2,
-          "maxMonths": 5.1,
-          "serviceRequestDate": "2025-12-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 4.4,
-              "max": 5.3
-            },
-            {
-              "period": "2026-02",
-              "min": 4.4,
-              "max": 5.2
-            },
-            {
-              "period": "2026-03",
-              "min": 4.3,
-              "max": 5.2
-            },
-            {
-              "period": "2026-04",
-              "min": 4.3,
-              "max": 5.2
-            },
-            {
-              "period": "2026-05",
-              "min": 4.2,
-              "max": 5.1
-            },
-            {
-              "period": "2026-06",
-              "min": 4.2,
-              "max": 5.1
-            }
-          ]
-        },
-        {
-          "caseType": "H-1B - Specialty occupation - Change of employer",
-          "minMonths": 5.1,
-          "maxMonths": 5.6,
-          "serviceRequestDate": "2025-12-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 5.3,
-              "max": 5.8
-            },
-            {
-              "period": "2026-02",
-              "min": 5.2,
-              "max": 5.7
-            },
-            {
-              "period": "2026-03",
-              "min": 5.2,
-              "max": 5.7
-            },
-            {
-              "period": "2026-04",
-              "min": 5.2,
-              "max": 5.7
-            },
-            {
-              "period": "2026-05",
-              "min": 5.1,
-              "max": 5.6
-            },
-            {
-              "period": "2026-06",
-              "min": 5.1,
-              "max": 5.6
-            }
-          ]
-        },
-        {
-          "caseType": "H-1B - Specialty occupation - New employment",
-          "minMonths": 5.4,
-          "maxMonths": 6.4,
-          "serviceRequestDate": "2025-11-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 5.6,
-              "max": 6.6
-            },
-            {
-              "period": "2026-02",
-              "min": 5.6,
-              "max": 6.6
-            },
-            {
-              "period": "2026-03",
-              "min": 5.6,
-              "max": 6.6
-            },
-            {
-              "period": "2026-04",
-              "min": 5.5,
-              "max": 6.5
-            },
-            {
-              "period": "2026-05",
-              "min": 5.5,
-              "max": 6.5
-            },
-            {
-              "period": "2026-06",
-              "min": 5.4,
-              "max": 6.4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Vermont Service Center",
-      "slug": "vermont-service-center",
-      "code": "VSC",
-      "cases": [
-        {
-          "caseType": "H-1B - Specialty occupation - Extension of stay in the U.S.",
-          "minMonths": 4.5,
-          "maxMonths": 5.9,
-          "serviceRequestDate": "2025-12-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 4.7,
-              "max": 6.1
-            },
-            {
-              "period": "2026-02",
-              "min": 4.6,
-              "max": 6
-            },
-            {
-              "period": "2026-03",
-              "min": 4.6,
-              "max": 6
-            },
-            {
-              "period": "2026-04",
-              "min": 4.5,
-              "max": 5.9
-            },
-            {
-              "period": "2026-05",
-              "min": 4.5,
-              "max": 5.9
-            },
-            {
-              "period": "2026-06",
-              "min": 4.5,
-              "max": 5.9
-            }
-          ]
-        },
-        {
-          "caseType": "H-1B - Specialty occupation - Change of employer",
-          "minMonths": 4.3,
-          "maxMonths": 5.4,
-          "serviceRequestDate": "2025-12-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 4.5,
-              "max": 5.6
-            },
-            {
-              "period": "2026-02",
-              "min": 4.4,
-              "max": 5.6
-            },
-            {
-              "period": "2026-03",
-              "min": 4.4,
-              "max": 5.6
-            },
-            {
-              "period": "2026-04",
-              "min": 4.4,
-              "max": 5.5
-            },
-            {
-              "period": "2026-05",
-              "min": 4.3,
-              "max": 5.5
-            },
-            {
-              "period": "2026-06",
-              "min": 4.3,
-              "max": 5.4
-            }
-          ]
-        },
-        {
-          "caseType": "H-1B - Specialty occupation - New employment",
-          "minMonths": 5.8,
-          "maxMonths": 6.5,
-          "serviceRequestDate": "2025-11-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 6,
-              "max": 6.6
-            },
-            {
-              "period": "2026-02",
-              "min": 6,
-              "max": 6.6
-            },
-            {
-              "period": "2026-03",
-              "min": 5.9,
-              "max": 6.6
-            },
-            {
-              "period": "2026-04",
-              "min": 5.9,
-              "max": 6.5
-            },
-            {
-              "period": "2026-05",
-              "min": 5.8,
-              "max": 6.5
-            },
-            {
-              "period": "2026-06",
-              "min": 5.8,
-              "max": 6.5
+              "period": "2026-09",
+              "min": 11,
+              "max": 12
             }
           ]
         }
@@ -499,7 +136,7 @@
     "/uscis-processing-times/l1-visa",
     "/uscis-processing-times/o1-visa"
   ],
-  "seoText": "USCIS processing times for H-1B Visa (Form I-129) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We recalculate this page from the official USCIS data on a daily basis so the ranges and trend charts below stay current.",
+  "seoText": "USCIS processing times for H-1B Visa (Form I-129) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We update this page directly from official USCIS published data so the ranges and trend charts below stay current.",
   "faqs": [
     {
       "q": "How long does h-1b visa processing take in 2026?",
@@ -510,8 +147,8 @@
       "a": "If your case was filed on or before the service request date shown for your case type, and you are still waiting outside the posted processing range, you can submit an e-Request directly to USCIS asking them to check on your case."
     },
     {
-      "q": "Why do processing times vary between service centers?",
-      "a": "Each USCIS service center has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
+      "q": "Why do processing times vary between service centers and field offices?",
+      "a": "Each USCIS center or regional field office has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
     },
     {
       "q": "Is the processing time the same as a guarantee?",
@@ -519,7 +156,7 @@
     },
     {
       "q": "How often is this page updated?",
-      "a": "This page is rebuilt from the official USCIS processing times data source on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
+      "a": "This page is rebuilt from official USCIS processing times publications on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
     }
   ]
 }

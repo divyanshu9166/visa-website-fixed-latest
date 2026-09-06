@@ -63,8 +63,8 @@ const dataYear = "FY2024";
               <tr class="hover:bg-neutral-50">
                 <td class="px-6 py-3 font-bold font-mono text-neutral-900">{row.type}</td>
                 <td class="px-6 py-3 text-neutral-600">{row.name}</td>
-                <td class="px-6 py-3 text-right font-mono font-semibold text-neutral-900">{row.issued.toLocaleString()}</td>
-                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.refused.toLocaleString()}</td>
+                <td class="px-6 py-3 text-right font-mono font-semibold text-neutral-900">{row.issued.toLocaleString('en-US')}</td>
+                <td class="px-6 py-3 text-right font-mono text-neutral-500">{row.refused.toLocaleString('en-US')}</td>
                 <td class="px-6 py-3 text-right">
                   <span class={`font-bold text-xs px-2 py-0.5 rounded ${row.refusalRate >= 20 ? 'bg-red-100 text-red-700' : row.refusalRate >= 10 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}`}>
                     {row.refusalRate}%
@@ -91,7 +91,7 @@ const dataYear = "FY2024";
               <div class="flex-1 bg-neutral-100 rounded-full h-3">
                 <div class="bg-blue-500 h-3 rounded-full" style={`width: ${pct}%`}></div>
               </div>
-              <span class="w-20 text-right text-sm font-mono text-neutral-600 flex-shrink-0">{c.issued.toLocaleString()}</span>
+              <span class="w-20 text-right text-sm font-mono text-neutral-600 flex-shrink-0">{c.issued.toLocaleString('en-US')}</span>
               <span class={`w-14 text-right text-xs font-bold flex-shrink-0 ${c.change.startsWith('+') ? 'text-emerald-600' : 'text-red-600'}`}>{c.change}</span>
             </div>
           );

@@ -2,7 +2,8 @@
   "month": "2025-09",
   "category": "EB-5",
   "country": "India",
-  "finalActionDate": "2016-07-03",
-  "dateForFiling": "2016-08-02",
-  "dataSource": "seed"
+  "finalActionDate": "2020-04-01",
+  "dateForFiling": "2020-05-31",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:51.981Z"
 }

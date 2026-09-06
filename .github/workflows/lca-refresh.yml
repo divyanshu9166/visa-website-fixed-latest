@@ -1,16 +1,25 @@
-name: Quarterly DOL LCA Data Import
+name: Automated DOL LCA Quarterly Data Ingestion
 
 on:
   schedule:
-    # Run on the 5th of Jan, Apr, Jul, Oct 
-    - cron: '0 0 5 1,4,7,10 *'
-  workflow_dispatch: {}
+    - cron: '0 4 * * *' # Run daily at 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      force_import:
+        description: 'Force import even if quarter has already been imported'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: 'lca-refresh'
+  cancel-in-progress: false
 
 permissions:
   contents: write
 
 jobs:
-  import-lca:
+  lca-pipeline:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,46 +31,89 @@ jobs:
           node-version: 22
 
       - run: npm ci
-      
-      - name: Install parser requirements
-        run: npm install xlsx --no-save
 
-      - name: Fetch LCA URL & Download
+      - name: Check for New DOL Quarterly Release
+        id: check_dol
         run: |
           mkdir -p tmp
-          node scripts/fetch-lca.mjs > tmp/fetch-output.txt
-          cat tmp/fetch-output.txt
-          
-          # Grab the download URL
-          DOWNLOAD_URL=$(grep "Download URL:" tmp/fetch-output.txt | awk '{print $3}')
-          FILE_NAME=$(basename $DOWNLOAD_URL)
-          echo "DOWNLOAD_URL=$DOWNLOAD_URL" >> $GITHUB_ENV
-          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
-          
-          # Download the file
-          node scripts/download-lca.mjs $DOWNLOAD_URL
+          FORCE_FLAG=""
+          if [ "${{ inputs.force_import }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          node scripts/fetch-lca.mjs $FORCE_FLAG
 
-      - name: Parse and Cache 
-        # Parses the massive Excel file to memory and outputs a small JSON array.
-        # Halts before any production database interaction.
+      - name: Download New Quarterly XLSX
+        if: steps.check_dol.outputs.has_new_data == 'true'
         run: |
-          echo "Data downloaded to tmp/${FILE_NAME}"
-          node scripts/process-lca-cache.mjs ./tmp/${FILE_NAME}
+          echo "New quarterly data detected: ${{ steps.check_dol.outputs.file_name }}"
+          node scripts/download-lca.mjs "${{ steps.check_dol.outputs.download_url }}"
 
-      - name: Archive JSON Cache Artifact
+      - name: Process & Aggregate Employer Statistics
+        if: steps.check_dol.outputs.has_new_data == 'true'
+        run: |
+          node scripts/process-lca-cache.mjs "./tmp/${{ steps.check_dol.outputs.file_name }}"
+
+      - name: Validate Generated Aggregation Payload
+        if: steps.check_dol.outputs.has_new_data == 'true'
+        run: |
+          node -e "
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('./tmp/lca-aggregated-cache.json', 'utf-8'));
+          if (!Array.isArray(data) || data.length === 0) throw new Error('Aggregation payload is empty or invalid.');
+          const sample = data[0];
+          if (!sample.employerName || !sample.slug || typeof sample.totalLCAs !== 'number') {
+            throw new Error('Required employer fields missing from aggregated record.');
+          }
+          console.log('Payload validation passed: ' + data.length + ' valid employer records ready.');
+          "
+
+      - name: Ingest to Production PostgreSQL
+        if: steps.check_dol.outputs.has_new_data == 'true'
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          node scripts/import-lca.mjs ./tmp/lca-aggregated-cache.json
+
+      - name: Update State Manifest and Commit
+        if: steps.check_dol.outputs.has_new_data == 'true'
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = './src/content/lca-manifest.json';
+          const cache = JSON.parse(fs.readFileSync('./tmp/lca-aggregated-cache.json', 'utf-8'));
+          const manifest = {
+            latestImportedFiscalYear: parseInt(process.env.FY, 10),
+            latestImportedQuarter: parseInt(process.env.QUARTER, 10),
+            latestImportedFile: process.env.FILE_NAME,
+            recordCount: cache.length,
+            lastImportedAt: new Date().toISOString()
+          };
+          fs.writeFileSync(path, JSON.stringify(manifest, null, 2));
+          "
+          git config user.name "lca-refresh-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/content/lca-manifest.json
+          if git diff --cached --quiet; then
+            echo "Manifest unchanged — skipping commit."
+          else
+            git commit -m "chore: record DOL LCA FY${{ steps.check_dol.outputs.fy }}-Q${{ steps.check_dol.outputs.quarter }} import"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+        env:
+          FY: ${{ steps.check_dol.outputs.fy }}
+          QUARTER: ${{ steps.check_dol.outputs.quarter }}
+          FILE_NAME: ${{ steps.check_dol.outputs.file_name }}
+
+      - name: Trigger Cloudflare Pages deploy (optional backup)
+        if: steps.check_dol.outputs.has_new_data == 'true' && env.CF_DEPLOY_HOOK != ''
+        env:
+          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: curl -X POST "$CF_DEPLOY_HOOK"
+
+      - name: Archive Aggregation Cache Artifact
+        if: steps.check_dol.outputs.has_new_data == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: lca-aggregated-cache
           path: tmp/lca-aggregated-cache.json
           retention-days: 14
-
-      - name: Create Manual Import Reminder Issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: "Review and import latest quarterly DOL LCA Data",
-              body: "The Quarterly LCA fetch workflow has successfully processed `" + process.env.FILE_NAME + "`.\n\nTo update the production database:\n1. Download the `lca-aggregated-cache` JSON artifact from this workflow run.\n2. Run locally:\n   ```bash\n   node scripts/import-lca.mjs <path-to-downloaded-json>\n   ```"
-            })

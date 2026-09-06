@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 import { getCollection } from 'astro:content';
 
 const allBulletin = await getCollection('visaBulletin');
@@ -14,107 +15,170 @@ const eb2IndiaData = allBulletin
 type AccuracyRow = {
   month: string;
   predicted: string;
+  predictedDays: number;
   actual: string;
   actualDays: number;
+  errorDays: number;
   accurate: boolean;
 };
 
-const accuracyRows: AccuracyRow[] = [];
-for (let i = 1; i < eb2IndiaData.length; i++) {
-  const prev = eb2IndiaData[i - 1];
-  const curr = eb2IndiaData[i];
-  try {
-    const prevTs = new Date(prev.data.finalActionDate + 'T00:00:00Z').getTime();
-    const currTs = new Date(curr.data.finalActionDate + 'T00:00:00Z').getTime();
-    const daysMoved = Math.round((currTs - prevTs) / (1000 * 60 * 60 * 24));
-    const predicted = daysMoved > 30 ? 'Advance' : daysMoved > 0 ? 'Slight Advance' : daysMoved === 0 ? 'Hold' : 'Retrogression';
-    const accurate = true; // All historical = we show what actually happened
-    accuracyRows.push({
-      month: curr.data.month,
-      predicted,
-      actual: predicted,
-      actualDays: daysMoved,
-      accurate,
-    });
-  } catch {}
+function categorizeMovement(days: number): string {
+  if (days >= 30) return 'Rapid Advance';
+  if (days >= 1) return 'Steady Advance';
+  if (Math.abs(days) < 1) return 'Hold';
+  return 'Retrogression';
 }
+
+function parseFadTimestamp(fad: string | null | undefined): number | null {
+  if (!fad || fad === 'Current' || fad === 'Unavailable') return null;
+  const ts = new Date(fad + 'T00:00:00Z').getTime();
+  return isNaN(ts) ? null : ts;
+}
+
+const accuracyRows: AccuracyRow[] = [];
+const WARMUP_MONTHS = 6;
+
+// Rolling-origin out-of-sample evaluation:
+// To predict month i, use strictly data from months (i - WARMUP_MONTHS) to (i - 1).
+for (let i = WARMUP_MONTHS; i < eb2IndiaData.length; i++) {
+  const curr = eb2IndiaData[i];
+  const prev = eb2IndiaData[i - 1];
+  const windowStart = eb2IndiaData[i - WARMUP_MONTHS];
+
+  const currTs = parseFadTimestamp(curr.data.finalActionDate);
+  const prevTs = parseFadTimestamp(prev.data.finalActionDate);
+  const startTs = parseFadTimestamp(windowStart.data.finalActionDate);
+
+  if (currTs === null || prevTs === null || startTs === null) continue;
+
+  const actualDays = Math.round((currTs - prevTs) / (1000 * 60 * 60 * 24));
+  const actualCategory = categorizeMovement(actualDays);
+
+  // Trailing velocity computed strictly on prior out-of-sample data
+  const trailingDaysTotal = (prevTs - startTs) / (1000 * 60 * 60 * 24);
+  const trailingMonthlyDays = trailingDaysTotal / (WARMUP_MONTHS - 1);
+  const predictedCategory = categorizeMovement(trailingMonthlyDays);
+  const predictedDays = Math.round(trailingMonthlyDays);
+
+  // Directional accuracy match using epsilon band (|v| < 1 day for Hold)
+  const isDirectionalMatch =
+    (predictedDays >= 1 && actualDays >= 1) ||
+    (Math.abs(predictedDays) < 1 && Math.abs(actualDays) < 1) ||
+    (predictedDays <= -1 && actualDays <= -1);
+
+  const errorDays = Math.abs(predictedDays - actualDays);
+
+  accuracyRows.push({
+    month: curr.data.month,
+    predicted: predictedCategory,
+    predictedDays,
+    actual: actualCategory,
+    actualDays,
+    errorDays,
+    accurate: isDirectionalMatch,
+  });
+}
+
+const totalPredictions = accuracyRows.length;
+const correctPredictions = accuracyRows.filter(r => r.accurate).length;
+const directionalAccuracyPct = totalPredictions > 0 ? Math.round((correctPredictions / totalPredictions) * 100) : 0;
+const meanAbsoluteError = totalPredictions > 0
+  ? Math.round(accuracyRows.reduce((sum, r) => sum + r.errorDays, 0) / totalPredictions)
+  : 0;
+
+const latestMonth = months[0];
+const staleSince = allBulletin.find(d => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 
 const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 
-<Layout title="Visa Bulletin Prediction Accuracy — How Accurate Are Our Forecasts?" description="Track our prediction accuracy vs actual Visa Bulletin movement. Unique transparency tool: see how well our EB-2 India and EB-3 priority date forecasts matched reality.">
+<Layout title="Visa Bulletin Prediction Accuracy — Rolling-Origin Backtesting" description="Track our rolling-origin out-of-sample prediction accuracy vs actual Visa Bulletin movement for EB-2 India. Verified, transparent backtesting.">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Green Card', href: '/green-card/visa-bulletin' }, { label: 'Prediction Accuracy' }]} />
 
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
+
     <div class="mt-8 mb-6">
-      <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase px-2 py-1 rounded mb-3">Unique — No Competitor Publishes This</span>
+      <span class="inline-block bg-neutral-900 text-white text-xs font-bold uppercase px-2.5 py-1 rounded-md mb-3">Rolling-Origin Backtest</span>
       <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">Visa Bulletin Prediction Accuracy</h1>
-      <p class="text-lg text-neutral-500 max-w-2xl">We believe in transparency. Here's how our monthly priority date movement predictions matched the actual Visa Bulletin results. Full backtest, no cherry-picking.</p>
+      <p class="text-lg text-neutral-500 max-w-2xl">We believe in scientific transparency. Below is our rolling-origin out-of-sample backtest evaluating trailing velocity models against actual Visa Bulletin releases.</p>
     </div>
 
-    <!-- Stats -->
+    <!-- Stats Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-      <div class="bg-white border border-neutral-200 rounded-xl p-5 text-center">
-        <div class="text-3xl font-extrabold text-neutral-900 mb-1">{accuracyRows.length}</div>
-        <div class="text-xs text-neutral-500">Months Tracked</div>
+      <div class="bg-white border border-neutral-200 rounded-2xl p-5 text-center shadow-sm">
+        <div class="text-3xl font-black text-neutral-900 mb-1">{directionalAccuracyPct}%</div>
+        <div class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Directional Match</div>
       </div>
-      <div class="bg-white border border-neutral-200 rounded-xl p-5 text-center">
-        <div class="text-3xl font-extrabold text-emerald-600 mb-1">{accuracyRows.filter(r => r.actualDays > 0).length}</div>
-        <div class="text-xs text-neutral-500">Months Advancing</div>
+      <div class="bg-white border border-neutral-200 rounded-2xl p-5 text-center shadow-sm">
+        <div class="text-3xl font-black text-neutral-900 mb-1">{meanAbsoluteError}d</div>
+        <div class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Mean Absolute Error</div>
       </div>
-      <div class="bg-white border border-neutral-200 rounded-xl p-5 text-center">
-        <div class="text-3xl font-extrabold text-neutral-900 mb-1">{accuracyRows.filter(r => r.actualDays === 0).length}</div>
-        <div class="text-xs text-neutral-500">Months Held</div>
+      <div class="bg-white border border-neutral-200 rounded-2xl p-5 text-center shadow-sm">
+        <div class="text-3xl font-black text-emerald-600 mb-1">{correctPredictions} / {totalPredictions}</div>
+        <div class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Accurate Trends</div>
       </div>
-      <div class="bg-white border border-neutral-200 rounded-xl p-5 text-center">
-        <div class="text-3xl font-extrabold text-red-600 mb-1">{accuracyRows.filter(r => r.actualDays < 0).length}</div>
-        <div class="text-xs text-neutral-500">Retrogressions</div>
+      <div class="bg-white border border-neutral-200 rounded-2xl p-5 text-center shadow-sm">
+        <div class="text-3xl font-black text-neutral-900 mb-1">{totalPredictions}</div>
+        <div class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Evaluated Months</div>
       </div>
     </div>
 
     <!-- Methodology -->
-    <div class="bg-white border border-neutral-200 rounded-2xl p-6 mb-8">
-      <h2 class="text-base font-bold text-neutral-900 mb-3">How We Make Predictions</h2>
+    <div class="bg-white border border-neutral-200 rounded-2xl p-6 mb-8 shadow-sm">
+      <h2 class="text-base font-bold text-neutral-900 mb-3">Scientific Backtesting Methodology</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-        <div class="p-4 bg-neutral-50 rounded-xl">
-          <div class="font-bold text-neutral-800 mb-1">📊 Historical Rate Analysis</div>
-          <p class="text-neutral-600 text-xs">We calculate the average daily advancement rate for each category over rolling 6-month windows and project forward.</p>
+        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+          <div class="font-bold text-neutral-800 mb-1">⏱️ Rolling-Origin Window</div>
+          <p class="text-neutral-600 text-xs">Each month's prediction uses strictly prior 6-month trailing data, eliminating look-ahead bias and circular overfitting.</p>
         </div>
-        <div class="p-4 bg-neutral-50 rounded-xl">
-          <div class="font-bold text-neutral-800 mb-1">📅 Fiscal Year Patterns</div>
-          <p class="text-neutral-600 text-xs">October resets, mid-year demand spikes, and end-of-year acceleration patterns are built into our model.</p>
+        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+          <div class="font-bold text-neutral-800 mb-1">📈 Velocity Projection</div>
+          <p class="text-neutral-600 text-xs">Forecasts model linear trailing velocity and directional tendencies across EB categories prior to the official publication.</p>
         </div>
-        <div class="p-4 bg-neutral-50 rounded-xl">
-          <div class="font-bold text-neutral-800 mb-1">🔊 DOS Signals</div>
-          <p class="text-neutral-600 text-xs">Monthly DOS Visa Office commentary on demand levels and category health is incorporated as a directional signal.</p>
+        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+          <div class="font-bold text-neutral-800 mb-1">⚖️ Empirical Verification</div>
+          <p class="text-neutral-600 text-xs">Both directional consistency (Advancement vs. Hold vs. Retrogression) and absolute day error (MAE) are reported openly.</p>
         </div>
       </div>
     </div>
 
-    <!-- Movement history table (actual data) -->
+    <!-- Movement history table -->
     <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden mb-8">
       <div class="px-6 py-4 border-b border-neutral-100">
-        <h2 class="text-base font-bold text-neutral-900">EB-2 India — Month-by-Month Actual Movement History</h2>
-        <p class="text-xs text-neutral-400 mt-1">Actual Final Action Date movement from Visa Bulletin data. Use this to gauge the pace of forward movement for planning.</p>
+        <h2 class="text-base font-bold text-neutral-900">EB-2 India — Out-of-Sample Performance Log</h2>
+        <p class="text-xs text-neutral-400 mt-1">Comparing independent model predictions against actual Department of State Visa Bulletin releases.</p>
       </div>
       {accuracyRows.length === 0 ? (
-        <div class="p-8 text-center text-neutral-500 text-sm">Not enough historical data points yet. Accuracy tracking improves as we accumulate more months of bulletin data.</div>
+        <div class="p-8 text-center text-neutral-500 text-sm">Accumulating historical data points for rolling backtesting.</div>
       ) : (
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
               <tr class="bg-neutral-50 border-b border-neutral-100">
                 <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Bulletin Month</th>
-                <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Movement Type</th>
-                <th class="text-right px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Days Moved</th>
+                <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Model Forecast</th>
+                <th class="text-left px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Actual Outcome</th>
+                <th class="text-right px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Actual Delta</th>
+                <th class="text-center px-6 py-3 text-xs font-bold uppercase tracking-wide text-neutral-500">Result</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-neutral-100">
-              {accuracyRows.reverse().map(r => (
+              {accuracyRows.slice().reverse().map(r => (
                 <tr class="hover:bg-neutral-50">
                   <td class="px-6 py-3 font-medium text-neutral-900">{fmtMonth(r.month)}</td>
-                  <td class="px-6 py-3">
-                    <span class={`inline-block text-xs font-bold px-2 py-0.5 rounded ${r.actualDays > 30 ? 'bg-emerald-100 text-emerald-700' : r.actualDays > 0 ? 'bg-blue-100 text-blue-700' : r.actualDays === 0 ? 'bg-neutral-100 text-neutral-600' : 'bg-red-100 text-red-700'}`}>
+                  <td class="px-6 py-3 text-xs text-neutral-600">
+                    <span class="font-medium text-neutral-900">{r.predicted}</span> ({r.predictedDays > 0 ? `+${r.predictedDays}` : r.predictedDays}d)
+                  </td>
+                  <td class="px-6 py-3 text-xs">
+                    <span class={`inline-block font-semibold px-2 py-0.5 rounded ${r.actualDays > 30 ? 'bg-emerald-100 text-emerald-700' : r.actualDays > 0 ? 'bg-blue-100 text-blue-700' : r.actualDays === 0 ? 'bg-neutral-100 text-neutral-600' : 'bg-red-100 text-red-700'}`}>
                       {r.actual}
                     </span>
                   </td>
@@ -122,6 +186,13 @@ const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString
                     <span class={r.actualDays > 0 ? 'text-emerald-600' : r.actualDays === 0 ? 'text-neutral-500' : 'text-red-600'}>
                       {r.actualDays > 0 ? `+${r.actualDays}` : r.actualDays}d
                     </span>
+                  </td>
+                  <td class="px-6 py-3 text-center">
+                    {r.accurate ? (
+                      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Match</span>
+                    ) : (
+                      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-600">Miss</span>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -131,8 +202,8 @@ const fmtMonth = (m: string) => new Date(m + '-01T00:00:00Z').toLocaleDateString
       )}
     </div>
 
-    <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800">
-      <strong>Why we publish this:</strong> Immigration prediction tools often claim accuracy without proof. We believe publishing our full prediction history — wins and misses — makes us more trustworthy and useful. Historical movement also helps you understand the range of possible outcomes for your own timeline planning.
+    <div class="p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-xs text-neutral-600">
+      <strong>Verification Notice:</strong> Unlike simplistic marketing claims, genuine statistical forecasting acknowledges variance and non-linear Department of State visa allocations. Backtest evaluations are performed dynamically over full collection history without cherry-picking.
     </div>
   </div>
 </Layout>

@@ -1,0 +1,30 @@
+{
+  "formType": "I-9561",
+  "formName": "Application for Regional Center Designation",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 15,
+  "approved": 11,
+  "denied": 7,
+  "completions": 18,
+  "pending": 47,
+  "processingTimeMonths": 10.3,
+  "approvalRate": 61.1,
+  "denialRate": 38.9,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Regional Center Designation",
+      "receipts": 15,
+      "approved": 11,
+      "denied": 7,
+      "completions": 18,
+      "pending": 47,
+      "processingTimeMonths": 10.3
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.549Z"
+}

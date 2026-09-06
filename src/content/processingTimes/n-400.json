@@ -6,50 +6,4055 @@
   "category": "citizenship",
   "seoTitle": "Current USCIS Processing Times for N-400 Naturalization [2026]",
   "seoDesc": "Check official USCIS processing times for N-400 Naturalization (Form N-400) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
-  "dataSource": "seed",
-  "sourceUrl": "https://egov.uscis.gov/processing-times/",
+  "lastUpdated": "2026-08-17",
+  "dataSource": "live",
+  "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
     {
-      "name": "National Benefits Center",
-      "slug": "national-benefits-center",
-      "code": "NBC",
+      "name": "Albuquerque Field Office, NM",
+      "slug": "albuquerque-field-office-nm",
+      "code": "ABQ",
       "cases": [
         {
-          "caseType": "N-400 - Naturalization application (field office average)",
-          "minMonths": 5.7,
-          "maxMonths": 12.7,
-          "serviceRequestDate": "2025-05-19",
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-18",
           "history": [
             {
-              "period": "2026-01",
-              "min": 5.9,
-              "max": 12.9
-            },
-            {
-              "period": "2026-02",
-              "min": 5.8,
-              "max": 12.8
-            },
-            {
-              "period": "2026-03",
-              "min": 5.8,
-              "max": 12.8
-            },
-            {
               "period": "2026-04",
-              "min": 5.8,
-              "max": 12.8
+              "min": 13,
+              "max": 17
             },
             {
               "period": "2026-05",
-              "min": 5.7,
-              "max": 12.7
+              "min": 13,
+              "max": 17
             },
             {
               "period": "2026-06",
-              "min": 5.7,
-              "max": 12.7
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Agana Field Office, GU",
+      "slug": "agana-field-office-gu",
+      "code": "AGA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 18.5,
+          "serviceRequestDate": "2025-03-01",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 18.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 18.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 18.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 18.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 18.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 18.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Albany Field Office, NY",
+      "slug": "albany-field-office-ny",
+      "code": "ALB",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 11.5,
+          "serviceRequestDate": "2025-10-04",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 11.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Anchorage Field Office, AK",
+      "slug": "anchorage-field-office-ak",
+      "code": "ANC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-04-22",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atlanta Field Office, GA",
+      "slug": "atlanta-field-office-ga",
+      "code": "ATL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Baltimore Field Office, MD",
+      "slug": "baltimore-field-office-md",
+      "code": "BAL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 17.5,
+          "serviceRequestDate": "2025-03-30",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 17.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Brooklyn Field Office, NY",
+      "slug": "brooklyn-field-office-ny",
+      "code": "BNY",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-20",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Boise Field Office, ID",
+      "slug": "boise-field-office-id",
+      "code": "BOI",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 14.5,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-04-26",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 14.5,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Boston Field Office, MA",
+      "slug": "boston-field-office-ma",
+      "code": "BOS",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13.5,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-06-30",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13.5,
+              "max": 14.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Buffalo Field Office, NY",
+      "slug": "buffalo-field-office-ny",
+      "code": "BUF",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Charleston Field Office, SC",
+      "slug": "charleston-field-office-sc",
+      "code": "CHA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 8.5,
+          "maxMonths": 10,
+          "serviceRequestDate": "2025-11-13",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-05",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-06",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-07",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-08",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-09",
+              "min": 8.5,
+              "max": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chicago Field Office, IL",
+      "slug": "chicago-field-office-il",
+      "code": "CHI",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-04-25",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Charlotte Field Office, NC",
+      "slug": "charlotte-field-office-nc",
+      "code": "CHL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-17",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Christiansted Field Office, VI",
+      "slug": "christiansted-field-office-vi",
+      "code": "CHR",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 15.5,
+          "serviceRequestDate": "2025-05-31",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 15.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cincinnati Field Office, OH",
+      "slug": "cincinnati-field-office-oh",
+      "code": "CIN",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 8,
+          "maxMonths": 11.5,
+          "serviceRequestDate": "2025-09-28",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 8,
+              "max": 11.5
+            },
+            {
+              "period": "2026-05",
+              "min": 8,
+              "max": 11.5
+            },
+            {
+              "period": "2026-06",
+              "min": 8,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 8,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 8,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 8,
+              "max": 11.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cleveland Field Office, OH",
+      "slug": "cleveland-field-office-oh",
+      "code": "CLE",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-08",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Columbus Field Office, OH",
+      "slug": "columbus-field-office-oh",
+      "code": "CLM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9.5,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-08-23",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-05",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-06",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-07",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-08",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-09",
+              "min": 9.5,
+              "max": 12.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Charlotte Field Office, NC",
+      "slug": "charlotte-field-office-nc",
+      "code": "CLT",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-20",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dallas Field Office, TX",
+      "slug": "dallas-field-office-tx",
+      "code": "DAL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 16,
+          "serviceRequestDate": "2025-05-19",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Denver Field Office, CO",
+      "slug": "denver-field-office-co",
+      "code": "DEN",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-18",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Detroit Field Office, MI",
+      "slug": "detroit-field-office-mi",
+      "code": "DET",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Des Moines Field Office, IA",
+      "slug": "des-moines-field-office-ia",
+      "code": "DSM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-06",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "El Paso Field Office, TX",
+      "slug": "el-paso-field-office-tx",
+      "code": "ELP",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-17",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fresno Field Office, CA",
+      "slug": "fresno-field-office-ca",
+      "code": "FRE",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 14,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 14,
+              "max": 17
+            },
+            {
+              "period": "2026-05",
+              "min": 14,
+              "max": 17
+            },
+            {
+              "period": "2026-06",
+              "min": 14,
+              "max": 17
+            },
+            {
+              "period": "2026-07",
+              "min": 14,
+              "max": 17
+            },
+            {
+              "period": "2026-08",
+              "min": 14,
+              "max": 17
+            },
+            {
+              "period": "2026-09",
+              "min": 14,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fort Smith Field Office, AR",
+      "slug": "fort-smith-field-office-ar",
+      "code": "FSA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-20",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-05",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-06",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grand Rapids Field Office, MI",
+      "slug": "grand-rapids-field-office-mi",
+      "code": "GRR",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-13",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hartford Field Office, CT",
+      "slug": "hartford-field-office-ct",
+      "code": "HAR",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-08-31",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 12.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Helena Field Office, MT",
+      "slug": "helena-field-office-mt",
+      "code": "HEL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9.5,
+          "maxMonths": 11,
+          "serviceRequestDate": "2025-10-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9.5,
+              "max": 11
+            },
+            {
+              "period": "2026-05",
+              "min": 9.5,
+              "max": 11
+            },
+            {
+              "period": "2026-06",
+              "min": 9.5,
+              "max": 11
+            },
+            {
+              "period": "2026-07",
+              "min": 9.5,
+              "max": 11
+            },
+            {
+              "period": "2026-08",
+              "min": 9.5,
+              "max": 11
+            },
+            {
+              "period": "2026-09",
+              "min": 9.5,
+              "max": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Honolulu Field Office, HI",
+      "slug": "honolulu-field-office-hi",
+      "code": "HHW",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hialeah Field Office, FL",
+      "slug": "hialeah-field-office-fl",
+      "code": "HIA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 8,
+          "maxMonths": 10.5,
+          "serviceRequestDate": "2025-10-25",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 8,
+              "max": 10.5
+            },
+            {
+              "period": "2026-05",
+              "min": 8,
+              "max": 10.5
+            },
+            {
+              "period": "2026-06",
+              "min": 8,
+              "max": 10.5
+            },
+            {
+              "period": "2026-07",
+              "min": 8,
+              "max": 10.5
+            },
+            {
+              "period": "2026-08",
+              "min": 8,
+              "max": 10.5
+            },
+            {
+              "period": "2026-09",
+              "min": 8,
+              "max": 10.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harlingen Field Office, TX",
+      "slug": "harlingen-field-office-tx",
+      "code": "HLG",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 16,
+          "serviceRequestDate": "2025-05-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Houston Field Office, TX",
+      "slug": "houston-field-office-tx",
+      "code": "HOU",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-17",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Imperial Field Office, CA",
+      "slug": "imperial-field-office-ca",
+      "code": "IMP",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13.5,
+          "maxMonths": 16,
+          "serviceRequestDate": "2025-05-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13.5,
+              "max": 16
+            },
+            {
+              "period": "2026-05",
+              "min": 13.5,
+              "max": 16
+            },
+            {
+              "period": "2026-06",
+              "min": 13.5,
+              "max": 16
+            },
+            {
+              "period": "2026-07",
+              "min": 13.5,
+              "max": 16
+            },
+            {
+              "period": "2026-08",
+              "min": 13.5,
+              "max": 16
+            },
+            {
+              "period": "2026-09",
+              "min": 13.5,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Indianapolis Field Office, IN",
+      "slug": "indianapolis-field-office-in",
+      "code": "INP",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 15.5,
+          "serviceRequestDate": "2025-06-03",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 15.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jacksonville Field Office, FL",
+      "slug": "jacksonville-field-office-fl",
+      "code": "JAC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 14.5,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-04-28",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 14.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 14.5,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kansas City Field Office, MO",
+      "slug": "kansas-city-field-office-mo",
+      "code": "KAN",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 13.5,
+          "serviceRequestDate": "2025-07-25",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 13.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kendall Field Office, FL",
+      "slug": "kendall-field-office-fl",
+      "code": "KND",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-16",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Los Angeles County Field Office, CA",
+      "slug": "los-angeles-county-field-office-ca",
+      "code": "LAC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lawrence Field Office, MA",
+      "slug": "lawrence-field-office-ma",
+      "code": "LAW",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 17.5,
+          "maxMonths": 19.5,
+          "serviceRequestDate": "2025-01-21",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 17.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-05",
+              "min": 17.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-06",
+              "min": 17.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-07",
+              "min": 17.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-08",
+              "min": 17.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-09",
+              "min": 17.5,
+              "max": 19.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Long Island Field Office, NY",
+      "slug": "long-island-field-office-ny",
+      "code": "LNY",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 16,
+          "serviceRequestDate": "2025-05-18",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 16
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Los Angeles Field Office, CA",
+      "slug": "los-angeles-field-office-ca",
+      "code": "LOS",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9.5,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-19",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 9.5,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Louisville Field Office, KY",
+      "slug": "louisville-field-office-ky",
+      "code": "LOU",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-10",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Las Vegas Field Office, NV",
+      "slug": "las-vegas-field-office-nv",
+      "code": "LVG",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-08",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manchester Field Office, NH",
+      "slug": "manchester-field-office-nh",
+      "code": "MAN",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9.5,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 9.5,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Memphis Field Office, TN",
+      "slug": "memphis-field-office-tn",
+      "code": "MEM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-06-24",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 14.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Montgomery Field Office, AL",
+      "slug": "montgomery-field-office-al",
+      "code": "MGA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 11.5,
+          "serviceRequestDate": "2025-09-22",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 11.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Miami Field Office, FL",
+      "slug": "miami-field-office-fl",
+      "code": "MIA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 8,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-17",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 8,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 8,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 8,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 8,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 8,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 8,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Milwaukee Field Office, WI",
+      "slug": "milwaukee-field-office-wi",
+      "code": "MIL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 16,
+          "serviceRequestDate": "2025-05-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 16
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 16
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 16
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 16
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 16
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mount Laurel Field Office, NJ",
+      "slug": "mount-laurel-field-office-nj",
+      "code": "MTL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9.5,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9.5,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 9.5,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 9.5,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 9.5,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 9.5,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 9.5,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Newark Field Office, NJ",
+      "slug": "newark-field-office-nj",
+      "code": "NEW",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-07-05",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 14.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Jersey City Field Office, NJ",
+      "slug": "new-jersey-city-field-office-nj",
+      "code": "NJC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 11,
+          "serviceRequestDate": "2025-10-08",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 11
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 11
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 11
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 11
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 11
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Orleans Field Office, LA",
+      "slug": "new-orleans-field-office-la",
+      "code": "NOL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-04-26",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Norfolk Field Office, VA",
+      "slug": "norfolk-field-office-va",
+      "code": "NOR",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-05",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Northwest Arkansas Field Office, AR",
+      "slug": "northwest-arkansas-field-office-ar",
+      "code": "NTN",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New York City Field Office, NY",
+      "slug": "new-york-city-field-office-ny",
+      "code": "NYC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10,
+          "maxMonths": 12,
+          "serviceRequestDate": "2025-09-20",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-05",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-06",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 12
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oakland Park Field Office, FL",
+      "slug": "oakland-park-field-office-fl",
+      "code": "OFM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 17.5,
+          "serviceRequestDate": "2025-04-02",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 17.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oklahoma City Field Office, OK",
+      "slug": "oklahoma-city-field-office-ok",
+      "code": "OKC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 15.5,
+          "serviceRequestDate": "2025-06-05",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 15.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oakland Field Office, CA",
+      "slug": "oakland-field-office-ca",
+      "code": "OKL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 18.5,
+          "serviceRequestDate": "2025-03-04",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 18.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 18.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 18.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 18.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 18.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 18.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Omaha Field Office, NE",
+      "slug": "omaha-field-office-ne",
+      "code": "OMA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-19",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orlando Field Office, FL",
+      "slug": "orlando-field-office-fl",
+      "code": "ORL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-20",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 17
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 17
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 17
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 17
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 17
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Philadelphia Field Office, PA",
+      "slug": "philadelphia-field-office-pa",
+      "code": "PHI",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10.5,
+          "maxMonths": 13.5,
+          "serviceRequestDate": "2025-07-22",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-05",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-06",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 13.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Phoenix Field Office, AZ",
+      "slug": "phoenix-field-office-az",
+      "code": "PHO",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-08-22",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 12.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pittsburgh Field Office, PA",
+      "slug": "pittsburgh-field-office-pa",
+      "code": "PIT",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-06-29",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 14.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 14.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pomona Field Office, CA",
+      "slug": "pomona-field-office-ca",
+      "code": "POM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-14",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Portland Field Office, OR",
+      "slug": "portland-field-office-or",
+      "code": "POO",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13.5,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-05-02",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13.5,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Providence Field Office, RI",
+      "slug": "providence-field-office-ri",
+      "code": "PRO",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9.5,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-09-01",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-05",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-06",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-07",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-08",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-09",
+              "min": 9.5,
+              "max": 12.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Queens Field Office, NY",
+      "slug": "queens-field-office-ny",
+      "code": "QNS",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 9,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-14",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 9,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 9,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 9,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 9,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 9,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 9,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Raleigh-Durham Field Office, NC",
+      "slug": "raleigh-durham-field-office-nc",
+      "code": "RAL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 14,
+          "serviceRequestDate": "2025-07-12",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reno Field Office, NV",
+      "slug": "reno-field-office-nv",
+      "code": "REN",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 13.5,
+          "serviceRequestDate": "2025-07-24",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 13.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 13.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 13.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 13.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 13.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 13.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Santa Ana Field Office, CA",
+      "slug": "santa-ana-field-office-ca",
+      "code": "SAA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13.5,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-04-27",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13.5,
+              "max": 16.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sacramento Field Office, CA",
+      "slug": "sacramento-field-office-ca",
+      "code": "SAC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 15,
+          "maxMonths": 23.5,
+          "serviceRequestDate": "2024-09-23",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 15,
+              "max": 23.5
+            },
+            {
+              "period": "2026-05",
+              "min": 15,
+              "max": 23.5
+            },
+            {
+              "period": "2026-06",
+              "min": 15,
+              "max": 23.5
+            },
+            {
+              "period": "2026-07",
+              "min": 15,
+              "max": 23.5
+            },
+            {
+              "period": "2026-08",
+              "min": 15,
+              "max": 23.5
+            },
+            {
+              "period": "2026-09",
+              "min": 15,
+              "max": 23.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Jose Field Office, CA",
+      "slug": "san-jose-field-office-ca",
+      "code": "SAJ",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 8.5,
+          "maxMonths": 10,
+          "serviceRequestDate": "2025-11-16",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-05",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-06",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-07",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-08",
+              "min": 8.5,
+              "max": 10
+            },
+            {
+              "period": "2026-09",
+              "min": 8.5,
+              "max": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Bernardino Field Office, CA",
+      "slug": "san-bernardino-field-office-ca",
+      "code": "SBD",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 17,
+          "serviceRequestDate": "2025-04-15",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 17
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 17
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 17
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 17
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 17
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Seattle Field Office, WA",
+      "slug": "seattle-field-office-wa",
+      "code": "SEA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-09",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Francisco Field Office, CA",
+      "slug": "san-francisco-field-office-ca",
+      "code": "SFR",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13.5,
+          "maxMonths": 18,
+          "serviceRequestDate": "2025-03-10",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13.5,
+              "max": 18
+            },
+            {
+              "period": "2026-05",
+              "min": 13.5,
+              "max": 18
+            },
+            {
+              "period": "2026-06",
+              "min": 13.5,
+              "max": 18
+            },
+            {
+              "period": "2026-07",
+              "min": 13.5,
+              "max": 18
+            },
+            {
+              "period": "2026-08",
+              "min": 13.5,
+              "max": 18
+            },
+            {
+              "period": "2026-09",
+              "min": 13.5,
+              "max": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Fernando Valley Field Office, CA",
+      "slug": "san-fernando-valley-field-office-ca",
+      "code": "SFV",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-07-06",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 14.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 14.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 14.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 14.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 14.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 14.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Salt Lake City Field Office, UT",
+      "slug": "salt-lake-city-field-office-ut",
+      "code": "SLC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 16,
+          "serviceRequestDate": "2025-05-21",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Antonio Field Office, TX",
+      "slug": "san-antonio-field-office-tx",
+      "code": "SNA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11.5,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-16",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 11.5,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Diego Field Office, CA",
+      "slug": "san-diego-field-office-ca",
+      "code": "SND",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 15,
+          "maxMonths": 21.5,
+          "serviceRequestDate": "2024-11-26",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 15,
+              "max": 21.5
+            },
+            {
+              "period": "2026-05",
+              "min": 15,
+              "max": 21.5
+            },
+            {
+              "period": "2026-06",
+              "min": 15,
+              "max": 21.5
+            },
+            {
+              "period": "2026-07",
+              "min": 15,
+              "max": 21.5
+            },
+            {
+              "period": "2026-08",
+              "min": 15,
+              "max": 21.5
+            },
+            {
+              "period": "2026-09",
+              "min": 15,
+              "max": 21.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "San Juan Field Office, PR",
+      "slug": "san-juan-field-office-pr",
+      "code": "SNJ",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 14.5,
+          "maxMonths": 26,
+          "serviceRequestDate": "2024-07-18",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 14.5,
+              "max": 26
+            },
+            {
+              "period": "2026-05",
+              "min": 14.5,
+              "max": 26
+            },
+            {
+              "period": "2026-06",
+              "min": 14.5,
+              "max": 26
+            },
+            {
+              "period": "2026-07",
+              "min": 14.5,
+              "max": 26
+            },
+            {
+              "period": "2026-08",
+              "min": 14.5,
+              "max": 26
+            },
+            {
+              "period": "2026-09",
+              "min": 14.5,
+              "max": 26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Saint Paul Field Office, MN",
+      "slug": "saint-paul-field-office-mn",
+      "code": "SPM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 14.5,
+          "maxMonths": 20,
+          "serviceRequestDate": "2025-01-12",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 14.5,
+              "max": 20
+            },
+            {
+              "period": "2026-05",
+              "min": 14.5,
+              "max": 20
+            },
+            {
+              "period": "2026-06",
+              "min": 14.5,
+              "max": 20
+            },
+            {
+              "period": "2026-07",
+              "min": 14.5,
+              "max": 20
+            },
+            {
+              "period": "2026-08",
+              "min": 14.5,
+              "max": 20
+            },
+            {
+              "period": "2026-09",
+              "min": 14.5,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spokane Field Office, WA",
+      "slug": "spokane-field-office-wa",
+      "code": "SPO",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-08-26",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 12.5
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 12.5
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 12.5
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 12.5
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 12.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 12.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Saint Albans Field Office, VT",
+      "slug": "saint-albans-field-office-vt",
+      "code": "STA",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 10,
+          "maxMonths": 11.5,
+          "serviceRequestDate": "2025-09-27",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-05",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-06",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 11.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Saint Louis Field Office, MO",
+      "slug": "saint-louis-field-office-mo",
+      "code": "STL",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-11",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tampa Field Office, FL",
+      "slug": "tampa-field-office-fl",
+      "code": "TAM",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 13,
+          "maxMonths": 15.5,
+          "serviceRequestDate": "2025-05-27",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-05",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-06",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-07",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-08",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-09",
+              "min": 13,
+              "max": 15.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tucson Field Office, AZ",
+      "slug": "tucson-field-office-az",
+      "code": "TUC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 13.5,
+          "serviceRequestDate": "2025-07-30",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 13.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 13.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Washington Field Office, DC",
+      "slug": "washington-field-office-dc",
+      "code": "WAS",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 11,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-10",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-05",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-06",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-07",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-08",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wichita Field Office, KS",
+      "slug": "wichita-field-office-ks",
+      "code": "WIC",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12.5,
+          "maxMonths": 15.5,
+          "serviceRequestDate": "2025-05-24",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-05",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-06",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-07",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-08",
+              "min": 12.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-09",
+              "min": 12.5,
+              "max": 15.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "West Palm Beach Field Office, FL",
+      "slug": "west-palm-beach-field-office-fl",
+      "code": "WPB",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 8.5,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-07-01",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 8.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-05",
+              "min": 8.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-06",
+              "min": 8.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-07",
+              "min": 8.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-08",
+              "min": 8.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-09",
+              "min": 8.5,
+              "max": 14.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yakima Field Office, WA",
+      "slug": "yakima-field-office-wa",
+      "code": "YAK",
+      "cases": [
+        {
+          "caseType": "Application for Naturalization",
+          "minMonths": 12,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-06-18",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-05",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-06",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-07",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-08",
+              "min": 12,
+              "max": 15
+            },
+            {
+              "period": "2026-09",
+              "min": 12,
+              "max": 15
             }
           ]
         }
@@ -57,7 +4062,7 @@
     }
   ],
   "relatedPages": [],
-  "seoText": "USCIS processing times for N-400 Naturalization (Form N-400) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We recalculate this page from the official USCIS data on a daily basis so the ranges and trend charts below stay current.",
+  "seoText": "USCIS processing times for N-400 Naturalization (Form N-400) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We update this page directly from official USCIS published data so the ranges and trend charts below stay current.",
   "faqs": [
     {
       "q": "How long does n-400 naturalization processing take in 2026?",
@@ -68,8 +4073,8 @@
       "a": "If your case was filed on or before the service request date shown for your case type, and you are still waiting outside the posted processing range, you can submit an e-Request directly to USCIS asking them to check on your case."
     },
     {
-      "q": "Why do processing times vary between service centers?",
-      "a": "Each USCIS service center has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
+      "q": "Why do processing times vary between service centers and field offices?",
+      "a": "Each USCIS center or regional field office has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
     },
     {
       "q": "Is the processing time the same as a guarantee?",
@@ -77,7 +4082,7 @@
     },
     {
       "q": "How often is this page updated?",
-      "a": "This page is rebuilt from the official USCIS processing times data source on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
+      "a": "This page is rebuilt from official USCIS processing times publications on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
     }
   ]
 }

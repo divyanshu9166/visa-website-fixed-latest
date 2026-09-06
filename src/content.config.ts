@@ -6,14 +6,32 @@ const uscisQuarterlyStats = defineCollection({
   schema: z.object({
     formType: z.string(),        // e.g. "I-485"
     formName: z.string(),        // e.g. "Adjustment of Status"
+    category: z.string().optional(),
     fiscalYear: z.number(),
     quarter: z.number(),         // 1-4
     receipts: z.number().optional(),
+    approved: z.number().optional(),
+    denied: z.number().optional(),
     completions: z.number().optional(),
     pending: z.number().optional(),
+    processingTimeMonths: z.number().nullable().optional(),
+    approvalRate: z.number().nullable().optional(),
+    denialRate: z.number().nullable().optional(),
     rfeRate: z.number().optional(),   // % of cases issued a Request for Evidence
+    subtypes: z.array(z.object({
+      subtypeName: z.string(),
+      receipts: z.number().optional(),
+      approved: z.number().optional(),
+      denied: z.number().optional(),
+      completions: z.number().optional(),
+      pending: z.number().optional(),
+      processingTimeMonths: z.number().nullable().optional(),
+    })).optional(),
+    dataSource: z.string().optional(),
+    reportUrl: z.string().optional(),
     sourceUrl: z.string(),        // the exact USCIS XLSX this came from
     lastUpdated: z.string(),     // ISO date
+    staleSince: z.string().optional(),
   }),
 });
 
@@ -25,7 +43,8 @@ const visaBulletin = defineCollection({
     country: z.string(),
     finalActionDate: z.string().nullable(),
     dateForFiling: z.string().nullable(),
-    dataSource: z.enum(['live', 'seed']).default('seed'),
+    dataSource: z.string().default('seed'),
+    staleSince: z.string().optional(),
   }),
 });
 
@@ -60,8 +79,9 @@ const processingTimes = defineCollection({
     seoTitle: z.string(),
     seoDesc: z.string(),
     lastUpdated: z.string(),
-    dataSource: z.enum(['live', 'seed']).default('seed'),
-    sourceUrl: z.string(),
+    dataSource: z.string().default('seed'),
+    staleSince: z.string().optional(),
+    sourceUrl: z.string().optional(),
     servicecenters: z.array(serviceCenterSchema),
     relatedPages: z.array(z.string()).default([]),
     seoText: z.string().default(''),
@@ -77,12 +97,16 @@ const appointmentWaitTimes = defineCollection({
     slug: z.string(),
     countryCode: z.string(),
     lastUpdated: z.string(),
-    dataSource: z.enum(['live', 'seed']).default('seed'),
+    dataSource: z.string().default('seed'),
+    staleSince: z.string().optional(),
+    sourceUrl: z.string().optional(),
     consulates: z.array(z.object({
       name: z.string(),
       waitTimeB1B2: z.number().nullable(),
       waitTimeStudent: z.number().nullable(),
       waitTimeOther: z.number().nullable(),
+      waitTimePetition: z.number().nullable().optional(),
+      waitTimeCrewTransit: z.number().nullable().optional(),
       hasEmergencyAppointments: z.boolean().default(false),
       notes: z.string().default(''),
       history: z.array(z.object({

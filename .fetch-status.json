@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-09-06T07:43:52.359Z",
+  "seedOnly": false,
+  "processingTimes": {
+    "liveCount": 16,
+    "staleCount": 0,
+    "seedCount": 0,
+    "lastError": null
+  },
+  "visaBulletin": {
+    "liveCount": 0,
+    "staleCount": 720,
+    "totalCount": 720,
+    "lastError": "HTTP 403 (WAF/RateLimit)"
+  },
+  "waitTimes": {
+    "liveCount": 0,
+    "staleCount": 30,
+    "seedCount": 0,
+    "lastError": "HTTP 403 (WAF/RateLimit)"
+  },
+  "uscisQuarterlyStats": {
+    "liveCount": 46,
+    "staleCount": 0,
+    "seedCount": 0,
+    "lastError": null
+  }
+}

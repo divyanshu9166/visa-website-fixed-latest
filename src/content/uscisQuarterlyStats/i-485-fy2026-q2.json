@@ -1,12 +1,75 @@
 {
   "formType": "I-485",
-  "formName": "Adjustment of Status",
+  "formName": "Application to Register Permanent Residence or Adjust Status",
+  "category": "Adjustment of Status",
   "fiscalYear": 2026,
   "quarter": 2,
-  "receipts": 158594,
-  "completions": 160468,
-  "pending": 324000,
-  "rfeRate": 15,
+  "receipts": 237191,
+  "approved": 117828,
+  "denied": 15443,
+  "completions": 133271,
+  "pending": 1437210,
+  "processingTimeMonths": 20.7,
+  "approvalRate": 88.4,
+  "denialRate": 11.6,
+  "subtypes": [
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Family)",
+      "receipts": 127189,
+      "approved": 71514,
+      "denied": 11689,
+      "completions": 83203,
+      "pending": 579684,
+      "processingTimeMonths": 5.9
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Employment)",
+      "receipts": 47514,
+      "approved": 41979,
+      "denied": 2717,
+      "completions": 44696,
+      "pending": 215177,
+      "processingTimeMonths": 4.9
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Asylum)",
+      "receipts": 12195,
+      "approved": 1465,
+      "denied": 197,
+      "completions": 1662,
+      "pending": 113567,
+      "processingTimeMonths": 22
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Refugee)",
+      "receipts": 23448,
+      "approved": 80,
+      "denied": 41,
+      "completions": 121,
+      "pending": 132538,
+      "processingTimeMonths": 14.6
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Cuban)",
+      "receipts": 15312,
+      "approved": 50,
+      "denied": 45,
+      "completions": 95,
+      "pending": 341232,
+      "processingTimeMonths": 19.5
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Other)",
+      "receipts": 11533,
+      "approved": 2740,
+      "denied": 754,
+      "completions": 3494,
+      "pending": 55012,
+      "processingTimeMonths": 20.7
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
   "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
-  "lastUpdated": "2026-09-05T08:35:49.019Z"
+  "lastUpdated": "2026-09-06T07:41:05.552Z"
 }

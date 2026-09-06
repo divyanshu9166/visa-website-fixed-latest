@@ -1,0 +1,30 @@
+{
+  "formType": "I-539",
+  "formName": "Application To Extend/Change Nonimmigrant Status",
+  "category": "Nonimmigrant",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 62388,
+  "approved": 40770,
+  "denied": 6716,
+  "completions": 47486,
+  "pending": 109156,
+  "processingTimeMonths": 3.4,
+  "approvalRate": 85.9,
+  "denialRate": 14.1,
+  "subtypes": [
+    {
+      "subtypeName": "Application To Extend/Change Nonimmigrant Status",
+      "receipts": 62388,
+      "approved": 40770,
+      "denied": 6716,
+      "completions": 47486,
+      "pending": 109156,
+      "processingTimeMonths": 3.4
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.555Z"
+}

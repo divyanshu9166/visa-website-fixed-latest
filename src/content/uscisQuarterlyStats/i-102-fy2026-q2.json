@@ -1,0 +1,30 @@
+{
+  "formType": "I-102",
+  "formName": "Application for Replacement/Initial Nonimmigrant Arrival-Departure Document",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 720,
+  "approved": 501,
+  "denied": 127,
+  "completions": 628,
+  "pending": 4447,
+  "processingTimeMonths": 6.6,
+  "approvalRate": 79.8,
+  "denialRate": 20.2,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Replacement/Initial Nonimmigrant Arrival-Departure Document",
+      "receipts": 720,
+      "approved": 501,
+      "denied": 127,
+      "completions": 628,
+      "pending": 4447,
+      "processingTimeMonths": 6.6
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.554Z"
+}

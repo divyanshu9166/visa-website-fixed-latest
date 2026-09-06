@@ -6,95 +6,88 @@
   "category": "dependent",
   "seoTitle": "Current USCIS Processing Times for H-4 EAD (Work Permit) [2026]",
   "seoDesc": "Check official USCIS processing times for H-4 EAD (Work Permit) (Form I-765) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
-  "dataSource": "seed",
-  "sourceUrl": "https://egov.uscis.gov/processing-times/",
+  "lastUpdated": "2026-08-17",
+  "dataSource": "live",
+  "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
     {
-      "name": "Nebraska Service Center",
-      "slug": "nebraska-service-center",
-      "code": "NSC",
+      "name": "Service Center Operations (All Centers)",
+      "slug": "service-center-operations-all-centers",
+      "code": "SCD",
       "cases": [
         {
-          "caseType": "c(26) - H-4 spouse work authorization",
-          "minMonths": 2.6,
-          "maxMonths": 5.3,
-          "serviceRequestDate": "2025-12-19",
+          "caseType": "Based on being an H-4 spouse of an H-1B nonimmigrant (filed with I-539 H4) [(c)(26)]",
+          "minMonths": 6.5,
+          "maxMonths": 10,
+          "serviceRequestDate": "2025-11-14",
           "history": [
             {
-              "period": "2026-01",
-              "min": 2.8,
-              "max": 5.5
-            },
-            {
-              "period": "2026-02",
-              "min": 2.8,
-              "max": 5.5
-            },
-            {
-              "period": "2026-03",
-              "min": 2.7,
-              "max": 5.4
-            },
-            {
               "period": "2026-04",
-              "min": 2.7,
-              "max": 5.4
+              "min": 6.5,
+              "max": 10
             },
             {
               "period": "2026-05",
-              "min": 2.7,
-              "max": 5.4
+              "min": 6.5,
+              "max": 10
             },
             {
               "period": "2026-06",
-              "min": 2.6,
-              "max": 5.3
+              "min": 6.5,
+              "max": 10
+            },
+            {
+              "period": "2026-07",
+              "min": 6.5,
+              "max": 10
+            },
+            {
+              "period": "2026-08",
+              "min": 6.5,
+              "max": 10
+            },
+            {
+              "period": "2026-09",
+              "min": 6.5,
+              "max": 10
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Texas Service Center",
-      "slug": "texas-service-center",
-      "code": "TSC",
-      "cases": [
+        },
         {
-          "caseType": "c(26) - H-4 spouse work authorization",
-          "minMonths": 2.4,
-          "maxMonths": 4.6,
-          "serviceRequestDate": "2026-01-19",
+          "caseType": "Based on being an H-4 spouse of an H-1B nonimmigrant (Standalone; not filed with I-539 H4) [(c)(26)]",
+          "minMonths": 17,
+          "maxMonths": 18.5,
+          "serviceRequestDate": "2025-02-27",
           "history": [
             {
-              "period": "2026-01",
-              "min": 2.6,
-              "max": 4.8
-            },
-            {
-              "period": "2026-02",
-              "min": 2.6,
-              "max": 4.8
-            },
-            {
-              "period": "2026-03",
-              "min": 2.5,
-              "max": 4.8
-            },
-            {
               "period": "2026-04",
-              "min": 2.5,
-              "max": 4.7
+              "min": 17,
+              "max": 18.5
             },
             {
               "period": "2026-05",
-              "min": 2.5,
-              "max": 4.7
+              "min": 17,
+              "max": 18.5
             },
             {
               "period": "2026-06",
-              "min": 2.4,
-              "max": 4.6
+              "min": 17,
+              "max": 18.5
+            },
+            {
+              "period": "2026-07",
+              "min": 17,
+              "max": 18.5
+            },
+            {
+              "period": "2026-08",
+              "min": 17,
+              "max": 18.5
+            },
+            {
+              "period": "2026-09",
+              "min": 17,
+              "max": 18.5
             }
           ]
         }
@@ -105,7 +98,7 @@
     "/uscis-processing-times/h4-visa",
     "/uscis-processing-times/l2-visa"
   ],
-  "seoText": "USCIS processing times for H-4 EAD (Work Permit) (Form I-765) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We recalculate this page from the official USCIS data on a daily basis so the ranges and trend charts below stay current.",
+  "seoText": "USCIS processing times for H-4 EAD (Work Permit) (Form I-765) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We update this page directly from official USCIS published data so the ranges and trend charts below stay current.",
   "faqs": [
     {
       "q": "How long does h-4 ead (work permit) processing take in 2026?",
@@ -116,8 +109,8 @@
       "a": "If your case was filed on or before the service request date shown for your case type, and you are still waiting outside the posted processing range, you can submit an e-Request directly to USCIS asking them to check on your case."
     },
     {
-      "q": "Why do processing times vary between service centers?",
-      "a": "Each USCIS service center has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
+      "q": "Why do processing times vary between service centers and field offices?",
+      "a": "Each USCIS center or regional field office has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
     },
     {
       "q": "Is the processing time the same as a guarantee?",
@@ -125,7 +118,7 @@
     },
     {
       "q": "How often is this page updated?",
-      "a": "This page is rebuilt from the official USCIS processing times data source on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
+      "a": "This page is rebuilt from official USCIS processing times publications on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
     }
   ]
 }

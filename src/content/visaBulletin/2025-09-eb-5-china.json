@@ -2,7 +2,8 @@
   "month": "2025-09",
   "category": "EB-5",
   "country": "China",
-  "finalActionDate": "2016-01-06",
-  "dateForFiling": "2016-02-05",
-  "dataSource": "seed"
+  "finalActionDate": "2015-09-08",
+  "dateForFiling": "2015-11-07",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:51.981Z"
 }

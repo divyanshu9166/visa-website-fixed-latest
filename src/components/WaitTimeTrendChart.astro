@@ -3,7 +3,7 @@ interface Props {
   history: { period: string; waitTimeB1B2: number | null }[];
   title?: string;
 }
-const { history, title = "12-Month Wait Time Trend" } = Astro.props;
+const { history, title = "Appointment Wait Time Trend" } = Astro.props;
 
 const chartData = {
   labels: history.map((h) => new Date(h.period + '-01T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: '2-digit', timeZone: 'UTC' })),
@@ -12,7 +12,12 @@ const chartData = {
 ---
 
 <div class="bg-white p-6 rounded-2xl shadow-sm border border-neutral-200">
-  <h3 class="text-base font-bold text-neutral-900 mb-4">{title}</h3>
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-base font-bold text-neutral-900">{title}</h3>
+    {history.length === 1 && (
+      <span class="text-xs text-neutral-400">Baseline established ({chartData.labels[0]})</span>
+    )}
+  </div>
   <div class="relative h-56 w-full">
     <canvas class="wt-chart" data-chart={JSON.stringify(chartData)}></canvas>
   </div>
@@ -38,13 +43,32 @@ const chartData = {
             backgroundColor: 'rgba(23,23,23,0.06)',
             fill: true,
             tension: 0.3,
+            pointRadius: d.values.length === 1 ? 6 : 3,
+            pointHoverRadius: 7,
+            pointBackgroundColor: '#171717',
           }],
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { y: { beginAtZero: true, title: { display: true, text: 'Days' } } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.parsed.y !== null ? ctx.parsed.y + ' days' : 'No data'}`,
+              },
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Calendar Days' },
+              grid: { color: 'rgba(0,0,0,0.04)' },
+            },
+            x: {
+              grid: { display: false },
+            },
+          },
         },
       });
     });

@@ -6,185 +6,164 @@
   "category": "dependent",
   "seoTitle": "Current USCIS Processing Times for H-4 Dependent Visa [2026]",
   "seoDesc": "Check official USCIS processing times for H-4 Dependent Visa (Form I-539) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
-  "dataSource": "seed",
-  "sourceUrl": "https://egov.uscis.gov/processing-times/",
+  "lastUpdated": "2026-08-17",
+  "dataSource": "live",
+  "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
     {
-      "name": "California Service Center",
-      "slug": "california-service-center",
-      "code": "CSC",
+      "name": "Service Center Operations (All Centers)",
+      "slug": "service-center-operations-all-centers",
+      "code": "SCD",
       "cases": [
         {
-          "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
-          "minMonths": 4.7,
-          "maxMonths": 8.7,
-          "serviceRequestDate": "2025-09-19",
+          "caseType": "Change of status to H4 dependents",
+          "minMonths": 10.5,
+          "maxMonths": 13.5,
+          "serviceRequestDate": "2025-08-02",
           "history": [
             {
-              "period": "2026-01",
-              "min": 4.9,
-              "max": 8.9
-            },
-            {
-              "period": "2026-02",
-              "min": 4.9,
-              "max": 8.8
-            },
-            {
-              "period": "2026-03",
-              "min": 4.8,
-              "max": 8.8
-            },
-            {
               "period": "2026-04",
-              "min": 4.8,
-              "max": 8.8
+              "min": 10.5,
+              "max": 13.5
             },
             {
               "period": "2026-05",
-              "min": 4.8,
-              "max": 8.7
+              "min": 10.5,
+              "max": 13.5
             },
             {
               "period": "2026-06",
-              "min": 4.7,
-              "max": 8.7
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10.5,
+              "max": 13.5
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Nebraska Service Center",
-      "slug": "nebraska-service-center",
-      "code": "NSC",
-      "cases": [
+        },
         {
-          "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
-          "minMonths": 4.1,
-          "maxMonths": 8.3,
-          "serviceRequestDate": "2025-09-19",
+          "caseType": "Change of status to H4 dependent with I-765",
+          "minMonths": 7,
+          "maxMonths": 9,
+          "serviceRequestDate": "2025-12-09",
           "history": [
             {
-              "period": "2026-01",
-              "min": 4.3,
+              "period": "2026-04",
+              "min": 7,
+              "max": 9
+            },
+            {
+              "period": "2026-05",
+              "min": 7,
+              "max": 9
+            },
+            {
+              "period": "2026-06",
+              "min": 7,
+              "max": 9
+            },
+            {
+              "period": "2026-07",
+              "min": 7,
+              "max": 9
+            },
+            {
+              "period": "2026-08",
+              "min": 7,
+              "max": 9
+            },
+            {
+              "period": "2026-09",
+              "min": 7,
+              "max": 9
+            }
+          ]
+        },
+        {
+          "caseType": "Extension of stay for H4 dependents",
+          "minMonths": 10,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-08-26",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10,
+              "max": 12.5
+            },
+            {
+              "period": "2026-05",
+              "min": 10,
+              "max": 12.5
+            },
+            {
+              "period": "2026-06",
+              "min": 10,
+              "max": 12.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 12.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 12.5
+            },
+            {
+              "period": "2026-09",
+              "min": 10,
+              "max": 12.5
+            }
+          ]
+        },
+        {
+          "caseType": "Extension of stay for H4 dependents with I-765",
+          "minMonths": 4.5,
+          "maxMonths": 8.5,
+          "serviceRequestDate": "2025-12-26",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 4.5,
               "max": 8.5
             },
             {
-              "period": "2026-02",
-              "min": 4.3,
+              "period": "2026-05",
+              "min": 4.5,
               "max": 8.5
             },
             {
-              "period": "2026-03",
-              "min": 4.3,
-              "max": 8.4
-            },
-            {
-              "period": "2026-04",
-              "min": 4.2,
-              "max": 8.4
-            },
-            {
-              "period": "2026-05",
-              "min": 4.2,
-              "max": 8.3
-            },
-            {
               "period": "2026-06",
-              "min": 4.1,
-              "max": 8.3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Texas Service Center",
-      "slug": "texas-service-center",
-      "code": "TSC",
-      "cases": [
-        {
-          "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
-          "minMonths": 4.9,
-          "maxMonths": 8.3,
-          "serviceRequestDate": "2025-09-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 5.1,
+              "min": 4.5,
               "max": 8.5
             },
             {
-              "period": "2026-02",
-              "min": 5,
-              "max": 8.4
+              "period": "2026-07",
+              "min": 4.5,
+              "max": 8.5
             },
             {
-              "period": "2026-03",
-              "min": 5,
-              "max": 8.4
+              "period": "2026-08",
+              "min": 4.5,
+              "max": 8.5
             },
             {
-              "period": "2026-04",
-              "min": 5,
-              "max": 8.3
-            },
-            {
-              "period": "2026-05",
-              "min": 4.9,
-              "max": 8.3
-            },
-            {
-              "period": "2026-06",
-              "min": 4.9,
-              "max": 8.3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Vermont Service Center",
-      "slug": "vermont-service-center",
-      "code": "VSC",
-      "cases": [
-        {
-          "caseType": "H-4 - Spouse or child of H-1B - Extension of stay",
-          "minMonths": 5.5,
-          "maxMonths": 9.4,
-          "serviceRequestDate": "2025-08-19",
-          "history": [
-            {
-              "period": "2026-01",
-              "min": 5.7,
-              "max": 9.6
-            },
-            {
-              "period": "2026-02",
-              "min": 5.7,
-              "max": 9.6
-            },
-            {
-              "period": "2026-03",
-              "min": 5.6,
-              "max": 9.6
-            },
-            {
-              "period": "2026-04",
-              "min": 5.6,
-              "max": 9.5
-            },
-            {
-              "period": "2026-05",
-              "min": 5.5,
-              "max": 9.5
-            },
-            {
-              "period": "2026-06",
-              "min": 5.5,
-              "max": 9.4
+              "period": "2026-09",
+              "min": 4.5,
+              "max": 8.5
             }
           ]
         }
@@ -195,7 +174,7 @@
     "/uscis-processing-times/l2-visa",
     "/uscis-processing-times/h4-ead"
   ],
-  "seoText": "USCIS processing times for H-4 Dependent Visa (Form I-539) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We recalculate this page from the official USCIS data on a daily basis so the ranges and trend charts below stay current.",
+  "seoText": "USCIS processing times for H-4 Dependent Visa (Form I-539) vary by service center and case type. The figures on this page reflect the published \"case processing times\" range, which estimates how long it took USCIS to complete 80% of adjudicated cases over the trailing six months. Processing times are not a guarantee — actual adjudication depends on case complexity, whether a Request for Evidence (RFE) is issued, background and security checks, and current service center workload. If your case has been pending longer than the posted maximum range, USCIS allows you to submit an e-Request asking for a status update, provided your case was filed before the \"service request date\" shown above for that category. We update this page directly from official USCIS published data so the ranges and trend charts below stay current.",
   "faqs": [
     {
       "q": "How long does h-4 dependent visa processing take in 2026?",
@@ -206,8 +185,8 @@
       "a": "If your case was filed on or before the service request date shown for your case type, and you are still waiting outside the posted processing range, you can submit an e-Request directly to USCIS asking them to check on your case."
     },
     {
-      "q": "Why do processing times vary between service centers?",
-      "a": "Each USCIS service center has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
+      "q": "Why do processing times vary between service centers and field offices?",
+      "a": "Each USCIS center or regional field office has a different caseload, staffing level, and regional filing volume. USCIS occasionally transfers cases between centers to balance workload, which can also affect timelines mid-case."
     },
     {
       "q": "Is the processing time the same as a guarantee?",
@@ -215,7 +194,7 @@
     },
     {
       "q": "How often is this page updated?",
-      "a": "This page is rebuilt from the official USCIS processing times data source on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
+      "a": "This page is rebuilt from official USCIS processing times publications on a daily schedule, so the ranges, service request dates, and trend chart reflect the latest published figures."
     }
   ]
 }

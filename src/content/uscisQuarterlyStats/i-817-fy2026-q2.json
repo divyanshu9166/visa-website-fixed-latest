@@ -1,0 +1,30 @@
+{
+  "formType": "I-817",
+  "formName": "Application for Family Unity Benefits",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 54,
+  "approved": 58,
+  "denied": 5,
+  "completions": 63,
+  "pending": 75,
+  "processingTimeMonths": 3.1,
+  "approvalRate": 92.1,
+  "denialRate": 7.9,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Family Unity Benefits",
+      "receipts": 54,
+      "approved": 58,
+      "denied": 5,
+      "completions": 63,
+      "pending": 75,
+      "processingTimeMonths": 3.1
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.550Z"
+}

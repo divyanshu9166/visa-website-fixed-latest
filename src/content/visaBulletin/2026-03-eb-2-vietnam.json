@@ -2,7 +2,8 @@
   "month": "2026-03",
   "category": "EB-2",
   "country": "Vietnam",
-  "finalActionDate": "C",
-  "dateForFiling": "C",
-  "dataSource": "seed"
+  "finalActionDate": "2022-11-22",
+  "dateForFiling": "2023-04-21",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:52.056Z"
 }

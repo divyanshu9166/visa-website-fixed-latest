@@ -1,0 +1,30 @@
+{
+  "formType": "I-6007",
+  "formName": "Petition to Classify Orphan as an Immediate Relative",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 108,
+  "approved": 57,
+  "denied": 32,
+  "completions": 89,
+  "pending": 605,
+  "processingTimeMonths": 5.8,
+  "approvalRate": 64,
+  "denialRate": 36,
+  "subtypes": [
+    {
+      "subtypeName": "Petition to Classify Orphan as an Immediate Relative",
+      "receipts": 108,
+      "approved": 57,
+      "denied": 32,
+      "completions": 89,
+      "pending": 605,
+      "processingTimeMonths": 5.8
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.546Z"
+}

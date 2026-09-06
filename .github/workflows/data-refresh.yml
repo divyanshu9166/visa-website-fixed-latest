@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   refresh:
@@ -22,14 +23,27 @@ jobs:
 
       - run: npm ci
 
-      - name: Fetch latest USCIS / State Dept data
-        run: npm run data:fetch
+      - name: Install system dependencies & Chrome for Playwright
+        run: |
+          sudo apt-get update && sudo apt-get install -y xvfb
+          npx playwright install --with-deps chrome
+
+      - name: Fetch latest USCIS / State Dept data (Tier 3 Real Browser)
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: xvfb-run --auto-servernum npm run data:fetch
+        continue-on-error: true
+
+      - name: Check fetch health & alert on 3+ consecutive failures
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/check-fetch-health.mjs
 
       - name: Commit updated data if changed
         run: |
           git config user.name "data-refresh-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add src/content
+          git add src/content .fetch-health.json
           if git diff --cached --quiet; then
             echo "No data changes — skipping commit."
           else

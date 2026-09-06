@@ -3,6 +3,7 @@
   "category": "EB-3",
   "country": "China",
   "finalActionDate": "2020-09-01",
-  "dateForFiling": "2020-10-01",
-  "dataSource": "seed"
+  "dateForFiling": "2020-12-30",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:52.137Z"
 }

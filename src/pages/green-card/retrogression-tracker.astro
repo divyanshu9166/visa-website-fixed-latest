@@ -1,12 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 import { getCollection } from 'astro:content';
 
 const allBulletin = await getCollection('visaBulletin');
 
 // Get all months sorted
 const months = [...new Set(allBulletin.map(d => d.data.month))].sort();
+const latestMonth = months[months.length - 1];
+const staleSince = allBulletin.find(d => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 
 // Find retrogression events: month where cutoff went BACK vs prior month
 // For each country+category combo, compare consecutive months
@@ -76,6 +80,14 @@ const fmtDate = (d: string) => {
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Green Card', href: '/green-card/visa-bulletin' }, { label: 'Retrogression Tracker' }]} />
 
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
+
     <div class="mt-8 mb-6">
       <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-3">Priority Date Retrogression Tracker</h1>
       <p class="text-lg text-neutral-500 max-w-2xl">Every month where the State Department moved a priority date <strong>backward</strong> (retrogression), breaking the typical forward movement pattern.</p>
@@ -139,7 +151,7 @@ const fmtDate = (d: string) => {
                   <td class="px-6 py-3 text-neutral-600">{r.country}</td>
                   <td class="px-6 py-3 text-neutral-500 font-mono text-xs">{fmtDate(r.from)}</td>
                   <td class="px-6 py-3 text-red-600 font-mono text-xs font-bold">↓ {fmtDate(r.to)}</td>
-                  <td class="px-6 py-3 text-right"><span class="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-0.5 rounded">−{r.daysMoved.toLocaleString()} days</span></td>
+                  <td class="px-6 py-3 text-right"><span class="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-0.5 rounded">−{r.daysMoved.toLocaleString('en-US')} days</span></td>
                 </tr>
               ))}
             </tbody>

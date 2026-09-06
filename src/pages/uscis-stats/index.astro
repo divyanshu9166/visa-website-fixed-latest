@@ -46,7 +46,7 @@ const latestStats = Array.from(latestStatsMap.values()).sort((a, b) => a.data.fo
             <div class="grid grid-cols-2 gap-4 border-t border-neutral-100 pt-6">
               <div>
                 <p class="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-1">Pending Cases</p>
-                <p class="text-xl font-bold text-neutral-900">{pending?.toLocaleString() || 'N/A'}</p>
+                <p class="text-xl font-bold text-neutral-900">{pending?.toLocaleString('en-US') || 'N/A'}</p>
               </div>
               <div>
                 <p class="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-1">RFE Rate</p>

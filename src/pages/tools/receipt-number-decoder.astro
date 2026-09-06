@@ -225,7 +225,7 @@ const centers = [
     const daysInFY = (new Date(Date.UTC(fy, 8, 30)).getTime() - new Date(Date.UTC(fyStartYear, 9, 1)).getTime()) / (1000*60*60*24) + 1;
     document.getElementById('resultDay')!.textContent = `Day ${day} of ${daysInFY}`;
     document.getElementById('resultCalDate')!.textContent = `≈ ${fiscalYearDayToDate(fy, day)}`;
-    document.getElementById('resultSeq')!.textContent = `#${parseInt(seq).toLocaleString()} at this center on that day`;
+    document.getElementById('resultSeq')!.textContent = `#${parseInt(seq).toLocaleString('en-US')} at this center on that day`;
     document.getElementById('resultHandles')!.innerHTML = `<strong>${centerCode} commonly processes:</strong> ${center.handles.join(' · ')}`;
 
     resEl.classList.remove('hidden');

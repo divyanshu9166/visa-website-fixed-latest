@@ -1,0 +1,30 @@
+{
+  "formType": "I-730",
+  "formName": "Refugee/Asylee Relative Petition",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 2805,
+  "approved": 1934,
+  "denied": 250,
+  "completions": 2184,
+  "pending": 37779,
+  "processingTimeMonths": null,
+  "approvalRate": 88.6,
+  "denialRate": 11.4,
+  "subtypes": [
+    {
+      "subtypeName": "Refugee/Asylee Relative Petition",
+      "receipts": 2805,
+      "approved": 1934,
+      "denied": 250,
+      "completions": 2184,
+      "pending": 37779,
+      "processingTimeMonths": null
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.550Z"
+}

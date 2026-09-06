@@ -1,12 +1,39 @@
 {
   "formType": "N-400",
   "formName": "Application for Naturalization",
+  "category": "Naturalization",
   "fiscalYear": 2026,
   "quarter": 2,
-  "receipts": 267984,
-  "completions": 277029,
-  "pending": 540000,
-  "rfeRate": 15,
+  "receipts": 140767,
+  "approved": 83459,
+  "denied": 15022,
+  "completions": 98481,
+  "pending": 660692,
+  "processingTimeMonths": 7.4,
+  "approvalRate": 84.7,
+  "denialRate": 15.3,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Naturalization (Military)",
+      "receipts": 5181,
+      "approved": 2312,
+      "denied": 185,
+      "completions": 2497,
+      "pending": 12109,
+      "processingTimeMonths": 3.7
+    },
+    {
+      "subtypeName": "Application for Naturalization",
+      "receipts": 135586,
+      "approved": 81147,
+      "denied": 14837,
+      "completions": 95984,
+      "pending": 648583,
+      "processingTimeMonths": 7.4
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
   "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
-  "lastUpdated": "2026-09-05T08:35:49.020Z"
+  "lastUpdated": "2026-09-06T07:41:05.552Z"
 }

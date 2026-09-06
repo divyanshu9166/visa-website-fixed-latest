@@ -1,0 +1,39 @@
+{
+  "formType": "I-130",
+  "formName": "Petition for Alien Relative",
+  "category": "Family Based",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 164474,
+  "approved": 146362,
+  "denied": 27425,
+  "completions": 173787,
+  "pending": 2359470,
+  "processingTimeMonths": 39.4,
+  "approvalRate": 84.2,
+  "denialRate": 15.8,
+  "subtypes": [
+    {
+      "subtypeName": "Petition for Alien Relative (Immediate Relative)",
+      "receipts": 126666,
+      "approved": 132960,
+      "denied": 17243,
+      "completions": 150203,
+      "pending": 761638,
+      "processingTimeMonths": 12.5
+    },
+    {
+      "subtypeName": "Petition for Alien Relative (All Other Relative)",
+      "receipts": 37808,
+      "approved": 13402,
+      "denied": 10182,
+      "completions": 23584,
+      "pending": 1597832,
+      "processingTimeMonths": 39.4
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.546Z"
+}

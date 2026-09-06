@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 import { getCollection } from 'astro:content';
 
 // USCIS I-485 Pending Inventory (published quarterly — last updated Q2 FY2025)
@@ -22,13 +23,16 @@ const annualCaps = {
 const perCountryCap = 9940;
 
 const allBulletin = await getCollection('visaBulletin');
-const latestMonth = [...new Set(allBulletin.map(d => d.data.month))].sort().reverse()[0];
+const latestMonth = [...new Set(allBulletin.map(d => d.data.month))].sort().reverse()[0] || '2026-08';
 const latestData = allBulletin.filter(d => d.data.month === latestMonth);
+const staleSince = allBulletin.find((d) => d.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 
-function getCurrentPD(category: string, country: string): string {
-  const match = latestData.find(d => d.data.category === category && d.data.country === country);
-  return match?.data.finalActionDate || 'Unknown';
-}
+const fadMap: Record<string, Record<string, string>> = {};
+latestData.forEach(d => {
+  if (!fadMap[d.data.category]) fadMap[d.data.category] = {};
+  fadMap[d.data.category][d.data.country] = d.data.finalActionDate || 'Current';
+});
 ---
 
 <Layout
@@ -37,6 +41,14 @@ function getCurrentPD(category: string, country: string): string {
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Green Card', href: '/green-card/visa-bulletin' }, { label: 'Queue Calculator' }]} />
+
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin & USCIS Inventory"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
 
     <div class="mt-8 mb-6">
       <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold uppercase px-2 py-1 rounded mb-3">Based on USCIS Inventory Data</span>
@@ -131,9 +143,9 @@ function getCurrentPD(category: string, country: string): string {
               return (
                 <tr class="hover:bg-neutral-50">
                   <td class="px-6 py-3 font-bold text-neutral-900">{cat}</td>
-                  <td class="px-6 py-3 text-right font-mono">{data.India.toLocaleString()}</td>
-                  <td class="px-6 py-3 text-right font-mono">{data.China.toLocaleString()}</td>
-                  <td class="px-6 py-3 text-right font-mono">{data['Rest of World'].toLocaleString()}</td>
+                  <td class="px-6 py-3 text-right font-mono">{data.India.toLocaleString('en-US')}</td>
+                  <td class="px-6 py-3 text-right font-mono">{data.China.toLocaleString('en-US')}</td>
+                  <td class="px-6 py-3 text-right font-mono">{data['Rest of World'].toLocaleString('en-US')}</td>
                   <td class="px-6 py-3 text-right">
                     <span class={`font-bold text-xs px-2 py-0.5 rounded ${indiaYears > 50 ? 'bg-red-100 text-red-700' : indiaYears > 10 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}`}>
                       ~{indiaYears > 100 ? '100+' : indiaYears} yrs
@@ -148,13 +160,13 @@ function getCurrentPD(category: string, country: string): string {
     </div>
 
     <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200 text-xs text-neutral-500">
-      <strong>Methodology:</strong> Estimated wait = (people with earlier PD than yours in same category+country) ÷ (annual approvals). Annual approvals = per-country cap × rate assumption. This is a simplified model. Actual wait depends on visa number spillover, policy changes, USCIS interview capacity, future filing volumes, and congressional action. Not legal advice.
+      <strong>FIFO Queue Methodology & Statutory Estimation:</strong> First-In-First-Out (FIFO) queue processing positions applicants chronologically based on their priority dates. When your priority date is older than or equal to the current Visa Bulletin Final Action Date, your visa is current. For queued dates, position is estimated proportionally along the active backlog window from the current cutoff to today. Backlog counts are baseline estimates based on USCIS I-485 quarterly inventory reports. The baseline ~9,940 annual cap reflects the statutory 7% per-country limitation under INA §202(a)(2) applied to the 140,000 worldwide employment-based limit under INA §201(d); actual Department of State annual allocations fluctuate based on family-preference spillovers and worldwide demand. Not legal advice.
     </div>
   </div>
 </Layout>
 
-<script>
-  const INVENTORY: Record<string, Record<string, number>> = {
+<script define:vars={{ fadMap, latestMonth }}>
+  const INVENTORY = {
     'EB-1': { India: 8200, China: 5100, 'Rest of World': 12400 },
     'EB-2': { India: 372000, China: 28000, 'Rest of World': 38000 },
     'EB-3': { India: 198000, China: 12000, 'Rest of World': 25000 },
@@ -164,10 +176,10 @@ function getCurrentPD(category: string, country: string): string {
   const PER_COUNTRY_CAP = 9940;
 
   document.getElementById('calcQueue')?.addEventListener('click', () => {
-    const country = (document.getElementById('qCountry') as HTMLSelectElement).value;
-    const cat = (document.getElementById('qCategory') as HTMLSelectElement).value;
-    const pdVal = (document.getElementById('qPD') as HTMLInputElement).value;
-    const rate = parseFloat((document.getElementById('qRate') as HTMLSelectElement).value);
+    const country = document.getElementById('qCountry').value;
+    const cat = document.getElementById('qCategory').value;
+    const pdVal = document.getElementById('qPD').value;
+    const rate = parseFloat(document.getElementById('qRate').value);
 
     if (!pdVal) return alert('Please enter your priority date.');
 
@@ -175,32 +187,63 @@ function getCurrentPD(category: string, country: string): string {
     const totalInCat = INVENTORY[cat]?.[inventoryKey] || 0;
     const annualApprovals = Math.round(PER_COUNTRY_CAP * rate);
 
-    // Rough estimate of people ahead: if PD is older than current bulletin, queue = totalInCat
-    // Simplified: all pending are ahead (conservative)
+    const currentFADRaw = fadMap[cat]?.[country] || fadMap[cat]?.['Rest of World'] || 'Current';
     const pd = new Date(pdVal + 'T00:00:00Z');
-    const yearsAgo = (Date.now() - pd.getTime()) / (1000 * 60 * 60 * 24 * 365);
-    
-    // People ahead = rough fraction of inventory with earlier PDs  
-    // Conservative: assume uniform distribution from earliest PD to today
-    // actual queue = totalInCat * fraction
-    const peopleAhead = Math.round(totalInCat * Math.min(yearsAgo / 30, 1.0));
+    const now = new Date();
 
-    const yearsWait = annualApprovals > 0 ? (peopleAhead / annualApprovals) : 999;
-    const approxYear = new Date().getFullYear() + Math.round(yearsWait);
+    let isCurrent = false;
+    let peopleAhead = 0;
+    let yearsWait = 0;
 
-    document.getElementById('resYears')!.textContent = yearsWait > 100 ? '100+' : `~${Math.round(yearsWait)}`;
-    document.getElementById('resAhead')!.textContent = peopleAhead.toLocaleString();
-    document.getElementById('resAnnual')!.textContent = annualApprovals.toLocaleString();
-    document.getElementById('resCurrent')!.textContent = cat + ' · ' + country;
+    if (currentFADRaw === 'Current') {
+      isCurrent = true;
+      peopleAhead = 0;
+      yearsWait = 0;
+    } else if (currentFADRaw === 'Unavailable') {
+      peopleAhead = totalInCat;
+      yearsWait = annualApprovals > 0 ? (peopleAhead / annualApprovals) : 999;
+    } else {
+      const fadDate = new Date(currentFADRaw + 'T00:00:00Z');
+      if (pd <= fadDate) {
+        isCurrent = true;
+        peopleAhead = 0;
+        yearsWait = 0;
+      } else {
+        // True FIFO queue calculation:
+        // Line starts from current FAD date and extends to today (now).
+        // Total queue timespan in ms:
+        const queueTimeSpanMs = Math.max(now.getTime() - fadDate.getTime(), 1000 * 60 * 60 * 24 * 30);
+        // Distance in time that this applicant is behind the current cutoff:
+        const timeSinceCutoffMs = Math.max(0, pd.getTime() - fadDate.getTime());
+        // In FIFO, an applicant with a PD closer to FAD has FEWER people ahead.
+        const fractionAhead = Math.min(timeSinceCutoffMs / queueTimeSpanMs, 1.0);
+        peopleAhead = Math.round(totalInCat * fractionAhead);
+        yearsWait = annualApprovals > 0 ? (peopleAhead / annualApprovals) : 999;
+      }
+    }
 
-    document.getElementById('queueSummary')!.innerHTML = 
-      yearsWait > 50
-        ? `⚠️ <strong>Very long queue.</strong> At current cap rates, an estimated <strong>${peopleAhead.toLocaleString()}</strong> applicants are ahead of you in ${cat} · ${country}. Without legislative relief expanding the per-country cap, wait may exceed a lifetime.`
-        : yearsWait > 10
-        ? `📊 <strong>Long but finite queue.</strong> Estimated ~${Math.round(yearsWait)} years (around ${approxYear}). New filings, spillover visas from other categories, and policy changes can shift this significantly.`
-        : `✅ <strong>Relatively short queue.</strong> Estimated ~${Math.round(yearsWait)} year${yearsWait > 1 ? 's' : ''}. Monitor the Visa Bulletin monthly — your PD may become current sooner.`;
+    const approxYear = now.getFullYear() + Math.round(yearsWait);
 
-    document.getElementById('queueResult')!.classList.remove('hidden');
-    document.getElementById('queueResult')!.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    document.getElementById('resYears').textContent = isCurrent ? 'Current' : yearsWait > 100 ? '100+' : `~${Math.max(1, Math.round(yearsWait))}`;
+    document.getElementById('resAhead').textContent = isCurrent ? '0 (Current)' : peopleAhead.toLocaleString('en-US');
+    document.getElementById('resAnnual').textContent = annualApprovals.toLocaleString('en-US');
+    document.getElementById('resCurrent').textContent = `${currentFADRaw} (${latestMonth})`;
+
+    if (isCurrent) {
+      document.getElementById('queueSummary').innerHTML =
+        `🎉 <strong>Your Priority Date is Current!</strong> Under the ${latestMonth} Visa Bulletin (${cat} · ${country}: ${currentFADRaw}), your priority date is eligible for final action/interview scheduling.`;
+    } else if (yearsWait > 50) {
+      document.getElementById('queueSummary').innerHTML =
+        `⚠️ <strong>Severe Backlog.</strong> At estimated statutory cap rates (~${annualApprovals.toLocaleString('en-US')}/yr under INA §201(d) & §202(a)(2)), an estimated <strong>${peopleAhead.toLocaleString('en-US')}</strong> applicants are ahead of you in the FIFO queue for ${cat} · ${country}. Significant statutory or legislative relief is necessary to compress this backlog.`;
+    } else if (yearsWait > 10) {
+      document.getElementById('queueSummary').innerHTML =
+        `📊 <strong>Extended Queue.</strong> Estimated ~${Math.round(yearsWait)} years (projected ~${approxYear}) with <strong>${peopleAhead.toLocaleString('en-US')}</strong> applicants ahead of you in the queue. Spillover visas and annual usage shifts will impact actual movement.`;
+    } else {
+      document.getElementById('queueSummary').innerHTML =
+        `✅ <strong>Moderate Queue.</strong> Estimated ~${Math.max(1, Math.round(yearsWait))} year${yearsWait > 1 ? 's' : ''} (projected ~${approxYear}) with approximately <strong>${peopleAhead.toLocaleString('en-US')}</strong> applicants ahead of you in line. Monitor monthly Visa Bulletin releases.`;
+    }
+
+    document.getElementById('queueResult').classList.remove('hidden');
+    document.getElementById('queueResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 </script>

@@ -8,6 +8,7 @@ import ReceiptDatePredictor from '../../components/ReceiptDatePredictor.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import DisqusComments from '../../components/DisqusComments.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 
 export async function getStaticPaths() {
   const forms = await getCollection('processingTimes');
@@ -69,6 +70,14 @@ const jsonLd = [
       { label: 'USCIS Processing Times', href: '/uscis-processing-times' },
       { label: f.visaLabel },
     ]} />
+
+    <StalenessWarning
+      lastUpdated={f.lastUpdated}
+      staleSince={f.staleSince}
+      maxAgeDays={2}
+      sourceName="USCIS Case Processing Times"
+      sourceUrl={f.sourceUrl || 'https://egov.uscis.gov/processing-times/'}
+    />
 
     <div class="mb-10">
       <div class="flex flex-wrap items-center gap-3 mb-5">
@@ -142,8 +151,8 @@ const jsonLd = [
 
     <div class="prose prose-neutral max-w-none text-neutral-600 bg-neutral-50 p-8 rounded-2xl border border-neutral-200 mb-4">
       <p class="text-sm leading-relaxed">{f.seoText}</p>
-      <p class="text-xs mt-4 mb-0">
-        Source: <a href={f.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">USCIS Processing Times</a>
+      <p class="text-xs mt-4 mb-0 text-neutral-500">
+        Data provenance: Processing times sourced from <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">USCIS Case Processing Times</a>, aggregated and licensed via <a href="https://immigrationtimes.org/data/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">ImmigrationTimes.org</a> under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-medium hover:underline">CC BY 4.0</a>.
       </p>
     </div>
 

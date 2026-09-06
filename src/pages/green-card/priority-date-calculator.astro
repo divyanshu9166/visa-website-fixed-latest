@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import StalenessWarning from '../../components/StalenessWarning.astro';
 
 // Fetch the static visa bulletin data
 const bulletinData = await getCollection('visaBulletin');
@@ -8,6 +9,10 @@ const bulletinData = await getCollection('visaBulletin');
 // Process data for the client
 // Sort by month ascending so the latest is last
 bulletinData.sort((a, b) => a.data.month.localeCompare(b.data.month));
+
+const latestMonth = bulletinData[bulletinData.length - 1]?.data.month;
+const staleSince = bulletinData.find((b) => b.data.staleSince)?.data.staleSince;
+const lastUpdatedDate = latestMonth ? `${latestMonth}-01` : undefined;
 
 // Get unique categories and countries for the dropdowns
 const categories = [...new Set(bulletinData.map(b => b.data.category))].sort();
@@ -25,6 +30,14 @@ const historicalData = bulletinData.map(b => ({
 
 <Layout title="Priority Date Calculator & Estimator" description="Estimate when your US Green Card priority date may become current based on historical Visa Bulletin movement.">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <StalenessWarning
+      lastUpdated={lastUpdatedDate}
+      staleSince={staleSince}
+      maxAgeDays={35}
+      sourceName="U.S. Department of State Visa Bulletin"
+      sourceUrl="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+    />
+
     <div class="mb-10 text-center">
       <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 mb-4">Priority Date Estimator</h1>
       <p class="text-lg text-neutral-500">Calculate an estimated wait time for your green card based on the latest Visa Bulletin movement trends.</p>
@@ -216,7 +229,7 @@ const historicalData = bulletinData.map(b => ({
 
       if (velocity <= 0) {
         // Retrogression or stagnant over the trailing window
-        showError("Cutoff dates are stagnant or retrogressing over the trailing 12 months. Cannot estimate a reliable timeline right now.");
+        showError("Cutoff dates for this category have stalled or retrogressed over the trailing window. Linear extrapolation cannot produce a forward projection during retrogression.", true);
         return;
       }
 
@@ -277,15 +290,36 @@ const historicalData = bulletinData.map(b => ({
     }
   }
   
-  function showError(msg: string) {
+  function showError(msg: string, isRetrogression: boolean = false) {
     if (waitTimeEl) {
-      waitTimeEl.textContent = "Unpredictable";
-      waitTimeEl.className = "text-4xl font-black tracking-tighter mb-4 text-amber-400";
+      waitTimeEl.textContent = isRetrogression ? "Stagnant / Retrogression" : "Unpredictable";
+      waitTimeEl.className = isRetrogression
+        ? "text-3xl font-black tracking-tight mb-4 text-amber-400"
+        : "text-4xl font-black tracking-tighter mb-4 text-amber-400";
     }
     if (targetDateEl) {
-      targetDateEl.innerHTML = msg;
+      if (isRetrogression) {
+        targetDateEl.innerHTML = `
+          <div class="text-left bg-neutral-800/80 rounded-xl p-4 mt-2 border border-neutral-700 text-sm text-neutral-300 space-y-2">
+            <div class="font-semibold text-amber-300 flex items-center gap-1.5">
+              <span>⚠️</span> Linear Extrapolation Stalled
+            </div>
+            <p>${msg}</p>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              <strong>Statutory Dynamics (INA §201(d) & §202(a)(2)):</strong> Cutoff dates are governed by the annual 140,000 statutory employment-based cap under INA §201(d) and the 7% per-country limitation under INA §202(a)(2). Heavy demand surges or annual visa exhaustion late in the fiscal year cause Department of State cutoffs to stall or retrogress before resetting with fresh annual visa allocations at the October fiscal year rollover.
+            </p>
+            <div class="pt-2">
+              <a href="/green-card/queue-calculator" class="inline-flex items-center text-xs font-semibold text-emerald-400 hover:text-emerald-300 underline">
+                View Queue Calculator (USCIS I-485 Inventory Based) →
+              </a>
+            </div>
+          </div>
+        `;
+      } else {
+        targetDateEl.innerHTML = msg;
+      }
     }
-    
+
     if (resultsSection) {
       resultsSection.classList.remove('hidden');
       setTimeout(() => {

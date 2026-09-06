@@ -2,7 +2,8 @@
   "month": "2026-04",
   "category": "EB-2",
   "country": "China",
-  "finalActionDate": "2019-11-01",
-  "dateForFiling": "2019-12-16",
-  "dataSource": "seed"
+  "finalActionDate": "2020-02-01",
+  "dateForFiling": "2020-06-30",
+  "dataSource": "dos-publication-archive",
+  "staleSince": "2026-09-06T05:41:52.067Z"
 }

@@ -187,7 +187,7 @@ const jsonLd = {
 
     document.getElementById('n400Earliest')!.textContent = fmt(earliestDate);
     document.getElementById('n400Eligible')!.textContent = fmt(eligDate);
-    document.getElementById('n400Days')!.textContent = daysUntil <= 0 ? '✅ You can file now!' : `${daysUntil.toLocaleString()} days`;
+    document.getElementById('n400Days')!.textContent = daysUntil <= 0 ? '✅ You can file now!' : `${daysUntil.toLocaleString('en-US')} days`;
 
     document.getElementById('n400Result')!.classList.remove('hidden');
     document.getElementById('n400Notes')!.classList.remove('hidden');

@@ -1,0 +1,30 @@
+{
+  "formType": "I-5269",
+  "formName": "Immigrant Petition by Alien Investor (Legacy)",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 2,
+  "receipts": 0,
+  "approved": 15,
+  "denied": 57,
+  "completions": 72,
+  "pending": 1030,
+  "processingTimeMonths": 94.1,
+  "approvalRate": 20.8,
+  "denialRate": 79.2,
+  "subtypes": [
+    {
+      "subtypeName": "Immigrant Petition by Alien Investor (Legacy)",
+      "receipts": 0,
+      "approved": 15,
+      "denied": 57,
+      "completions": 72,
+      "pending": 1030,
+      "processingTimeMonths": 94.1
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q2",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-06T07:41:05.547Z"
+}

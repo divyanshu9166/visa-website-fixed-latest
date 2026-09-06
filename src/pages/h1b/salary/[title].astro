@@ -75,7 +75,7 @@ const totalLCAs = matches.reduce((s, m) => s + m.count, 0);
         <div class="text-xs text-neutral-500">Lowest Employer Avg</div>
       </div>
       <div class="bg-white border border-neutral-200 rounded-xl p-4 text-center">
-        <div class="text-2xl font-extrabold text-neutral-900">{totalLCAs.toLocaleString()}</div>
+        <div class="text-2xl font-extrabold text-neutral-900">{totalLCAs.toLocaleString('en-US')}</div>
         <div class="text-xs text-neutral-500">Total LCAs</div>
       </div>
     </div>
@@ -102,7 +102,7 @@ const totalLCAs = matches.reduce((s, m) => s + m.count, 0);
                 return (
                   <tr class="hover:bg-neutral-50">
                     <td class="px-6 py-3 font-semibold text-neutral-900">{m.employer}</td>
-                    <td class="px-6 py-3 text-right font-mono text-neutral-600">{m.count.toLocaleString()}</td>
+                    <td class="px-6 py-3 text-right font-mono text-neutral-600">{m.count.toLocaleString('en-US')}</td>
                     <td class="px-6 py-3 text-right font-mono font-bold text-neutral-900">${(m.avgWage/1000).toFixed(0)}K</td>
                     <td class="px-6 py-3 w-32">
                       <div class="bg-neutral-100 rounded-full h-2">
