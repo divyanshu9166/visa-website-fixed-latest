@@ -3,10 +3,19 @@
   "formName": "Petition for a Nonimmigrant Worker",
   "fiscalYear": 2024,
   "quarter": 1,
+<<<<<<< HEAD
   "receipts": 88354,
   "completions": 76163,
   "pending": 264000,
   "rfeRate": 16,
   "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
   "lastUpdated": "2026-09-05T08:35:49.016Z"
+=======
+  "receipts": 89620,
+  "completions": 75213,
+  "pending": 264000,
+  "rfeRate": 29,
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-05T13:04:56.706Z"
+>>>>>>> divyanshu/master
 }

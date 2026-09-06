@@ -4,6 +4,7 @@
   "category": "Adjustment of Status",
   "fiscalYear": 2026,
   "quarter": 2,
+<<<<<<< HEAD
   "receipts": 237191,
   "approved": 117828,
   "denied": 15443,
@@ -72,4 +73,12 @@
   "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q2_v1.xlsx",
   "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
   "lastUpdated": "2026-09-06T07:41:05.552Z"
+=======
+  "receipts": 170047,
+  "completions": 135228,
+  "pending": 324000,
+  "rfeRate": 26,
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-05T13:04:56.706Z"
+>>>>>>> divyanshu/master
 }

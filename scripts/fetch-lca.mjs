@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+<<<<<<< HEAD
 import * as cheerio from 'cheerio';
 
 const DOL_URL = 'https://www.dol.gov/agencies/eta/foreign-labor/performance';
@@ -11,12 +12,29 @@ async function main() {
   const res = await fetch(DOL_URL, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+=======
+import { spawn } from 'child_process';
+import * as cheerio from 'cheerio';
+
+const DOL_URL = 'https://www.dol.gov/agencies/eta/foreign-labor/performance';
+const DOWNLOAD_DIR = path.join(process.cwd(), 'tmp');
+
+async function main() {
+  console.log(`Fetching DOL Performance Page: ${DOL_URL}...`);
+  const res = await fetch(DOL_URL, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+>>>>>>> divyanshu/master
       'Accept': 'text/html,application/xhtml+xml,application/xml;'
     }
   });
 
   if (!res.ok) {
+<<<<<<< HEAD
     console.error(`Failed to load DOL page: HTTP ${res.status} ${res.statusText}`);
+=======
+    console.error(`Failed to load DOL page: ${res.statusText}`);
+>>>>>>> divyanshu/master
     process.exit(1);
   }
 
@@ -27,6 +45,7 @@ async function main() {
   $('a[href]').each((_, el) => {
     const href = $(el).attr('href');
     if (!href) return;
+<<<<<<< HEAD
 
     // Matches patterns like:
     // LCA_Disclosure_Data_FY2026_Q3.xlsx
@@ -38,11 +57,23 @@ async function main() {
       const quarter = fileMatch[2] ? parseInt(fileMatch[2], 10) : 4; // annual defaults to Q4 weight
       const ext = fileMatch[3].toLowerCase();
 
+=======
+    
+    // Match LCA Disclosure Data specifically.
+    // Handles typos like "LCA_Dislclosure_Data" that we saw in the test script.
+    const fileMatch = href.match(/LCA_Dis[a-z]*_Data_FY(\d{4})_Q(\d)\.(xlsx|csv)/i);
+    if (fileMatch) {
+      const fy = parseInt(fileMatch[1], 10);
+      const quarter = parseInt(fileMatch[2], 10);
+      const ext = fileMatch[3].toLowerCase();
+      
+>>>>>>> divyanshu/master
       let url = href;
       if (url.startsWith('/')) {
         url = `https://www.dol.gov${url.replace(/^\/+/, '/')}`;
       }
       url = url.replace('https://www.dol.gov//', 'https://www.dol.gov/');
+<<<<<<< HEAD
 
       const filename = href.split('/').pop().split('?')[0];
       matches.push({ fy, quarter, ext, url, filename });
@@ -60,10 +91,22 @@ async function main() {
 
   if (matches.length === 0) {
     console.error('Could not find any LCA disclosure files on the DOL performance page.');
+=======
+      
+      matches.push({ fy, quarter, ext, url, filename: href.split('/').pop() });
+    }
+  });
+
+  matches.sort((a, b) => b.fy - a.fy || b.quarter - a.quarter);
+  
+  if (matches.length === 0) {
+    console.error('Could not find any LCA disclosure files on the page.');
+>>>>>>> divyanshu/master
     process.exit(1);
   }
 
   const latest = matches[0];
+<<<<<<< HEAD
   console.log(`Discovered latest DOL file: FY${latest.fy} Q${latest.quarter} (${latest.filename})`);
   console.log(`Download URL: ${latest.url}`);
 
@@ -97,3 +140,15 @@ main().catch(err => {
   console.error('Discovery error:', err.message || err);
   process.exit(1);
 });
+=======
+  console.log(`Found latest disclosure file: FY${latest.fy} Q${latest.quarter} - ${latest.filename}`);
+  console.log(`Download URL: ${latest.url}`);
+  
+  // Set output path in next step.
+  console.log(`\nTo run the import:`);
+  console.log(`1. node scripts/download.mjs ${latest.url}`);
+  console.log(`2. node scripts/parse-lca.mjs ./tmp/${latest.filename}`);
+}
+
+main().catch(console.error);
+>>>>>>> divyanshu/master
