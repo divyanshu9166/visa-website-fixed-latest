@@ -3,32 +3,34 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-09-06T14:42:54.369Z"
+    "lastSuccess": "2026-09-06T15:42:22.996Z"
   },
   "visaBulletin": {
-    "consecutiveFailures": 1,
+    "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
-    "lastError": "HTTP 403 (Forbidden) via DirectFetch"
+    "lastError": null,
+    "lastSuccess": "2026-09-06T15:42:22.996Z"
   },
   "waitTimes": {
-    "consecutiveFailures": 1,
-    "lastFailed": "2026-09-06T14:42:54.369Z",
-    "lastError": "HTTP 403 (Forbidden) via DirectFetch"
+    "consecutiveFailures": 2,
+    "lastFailed": "2026-09-06T15:42:22.996Z",
+    "lastError": "HTTP 403 (Forbidden)"
   },
   "uscisQuarterlyStats": {
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-09-06T14:42:54.369Z"
+    "lastSuccess": "2026-09-06T15:42:22.996Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 1,
+    "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
-    "lastError": "DOS browser refresh exited with code 1"
+    "lastError": null,
+    "lastSuccess": "2026-09-06T15:42:22.996Z"
   },
   "dolLca": {
-    "consecutiveFailures": 1,
-    "lastFailed": "2026-09-06T14:42:54.369Z",
+    "consecutiveFailures": 2,
+    "lastFailed": "2026-09-06T15:42:22.996Z",
     "lastError": "Quarterly LCA workflow is separate from the daily refresh."
   }
 }
