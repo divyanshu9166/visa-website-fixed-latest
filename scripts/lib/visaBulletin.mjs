@@ -129,7 +129,7 @@ function buildSeedBulletin() {
   return records;
 }
 
-export async function fetchVisaBulletin({ seedOnly = false } = {}) {
+export async function fetchVisaBulletin({ seedOnly = false, strictLive = false } = {}) {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
   let liveRecords = null;
@@ -182,6 +182,7 @@ export async function fetchVisaBulletin({ seedOnly = false } = {}) {
       }
       console.log(`[visaBulletin] live scrape succeeded — ${liveRecords.length} records for ${currentPeriod}.`);
     } catch (err) {
+      if (strictLive) throw new Error(`visaBulletin unavailable: ${err.message}`);
       console.warn(`  [visaBulletin] live fetch failed (${err.message}); using seed data.`);
       liveRecords = null;
     }

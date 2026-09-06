@@ -197,7 +197,7 @@ async function buildLiveFormRecord(form, previousRecord) {
   };
 }
 
-export async function fetchProcessingTimes({ seedOnly = false } = {}) {
+export async function fetchProcessingTimes({ seedOnly = false, strictLive = false } = {}) {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
   let liveCount = 0;
   let seedCount = 0;
@@ -212,6 +212,7 @@ export async function fetchProcessingTimes({ seedOnly = false } = {}) {
         record = await buildLiveFormRecord(form, previousRecord);
         liveCount++;
       } catch (err) {
+        if (strictLive) throw new Error(`processingTimes unavailable for ${form.visaSlug}: ${err.message}`);
         console.warn(`  [processingTimes] live fetch failed for ${form.visaSlug} (${err.message}); using seed data.`);
       }
     }

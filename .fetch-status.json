@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 2,
+  "timestamp": "2026-09-06T11:35:20.407Z",
+  "mode": "strict-live",
+  "sources": {
+    "processingTimes": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "processingTimes unavailable for h1b-visa: USCIS API 403 for I-129/california-service-center"
+    },
+    "visaBulletin": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": null
+    },
+    "waitTimes": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": null
+    },
+    "uscisQuarterlyStats": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "No live USCIS quarterly adapter is enabled; existing snapshot preserved."
+    },
+    "dosWaitTimes": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "DOS browser refresh exited with code 1"
+    },
+    "dolLca": {
+      "status": "UNAVAILABLE",
+      "liveCount": 0,
+      "lastError": "Quarterly LCA workflow is separate from the daily refresh."
+    }
+  },
+  "error": "processingTimes unavailable for h1b-visa: USCIS API 403 for I-129/california-service-center",
+  "publication": "PRESERVED_LAST_VALIDATED_SNAPSHOT",
+  "rollback": {
+    "performed": true,
+    "backupId": "2026-09-06T11-35-15-127Z"
+  }
+}

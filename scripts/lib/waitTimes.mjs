@@ -123,7 +123,7 @@ function normalizeName(name) {
     .replace(/\s+/g, ' ');
 }
 
-export async function fetchWaitTimes({ seedOnly = false } = {}) {
+export async function fetchWaitTimes({ seedOnly = false, strictLive = false } = {}) {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
   let livePosts = null;
@@ -132,6 +132,7 @@ export async function fetchWaitTimes({ seedOnly = false } = {}) {
       livePosts = await fetchLiveXml();
       console.log(`[waitTimes] live XML fetched — ${livePosts.length} consular posts parsed.`);
     } catch (err) {
+      if (strictLive) throw new Error(`waitTimes unavailable: ${err.message}`);
       console.warn(`  [waitTimes] live fetch failed (${err.message}); using seed data.`);
     }
   }

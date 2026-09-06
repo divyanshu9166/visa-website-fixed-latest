@@ -1,147 +1,62 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const CONTENT_DIRS = {
-  appointmentWaitTimes: {
-    path: path.join(process.cwd(), 'src', 'content', 'appointmentWaitTimes'),
-    name: 'DOS Consular Appointment Wait Times',
-    warningThresholdDays: 35,
-    criticalThresholdDays: 45,
-    sourceUrl: 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html',
-    refreshScript: 'node scripts/import-dos-wait-times.mjs <snapshot.json>',
-  },
-  visaBulletin: {
-    path: path.join(process.cwd(), 'src', 'content', 'visaBulletin'),
-    name: 'DOS Visa Bulletin Cutoffs',
-    warningThresholdDays: 30,
-    criticalThresholdDays: 35,
-    sourceUrl: 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html',
-    refreshScript: 'node scripts/fetch-data.mjs',
-  },
-  processingTimes: {
-    path: path.join(process.cwd(), 'src', 'content', 'processingTimes'),
-    name: 'USCIS Case Processing Times',
-    warningThresholdDays: 30,
-    criticalThresholdDays: 45,
-    sourceUrl: 'https://egov.uscis.gov/processing-times/',
-    refreshScript: 'node scripts/fetch-data.mjs',
-  },
-  uscisQuarterlyStats: {
-    path: path.join(process.cwd(), 'src', 'content', 'uscisQuarterlyStats'),
-    name: 'USCIS Quarterly Workload Statistics',
-    warningThresholdDays: 90,
-    criticalThresholdDays: 120,
-    sourceUrl: 'https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data',
-    refreshScript: 'node scripts/fetch-data.mjs',
-  },
+const ROOT = process.cwd();
+const STATUS_FILE = path.join(ROOT, '.fetch-status.json');
+const HEALTH = {
+  processingTimes: ['USCIS Case Processing Times', 45],
+  visaBulletin: ['DOS Visa Bulletin Cutoffs', 35],
+  waitTimes: ['DOS Consular Appointment Wait Times', 45],
+  uscisQuarterlyStats: ['USCIS Quarterly Workload Statistics', 120],
+  dosWaitTimes: ['DOS Consular Appointment Wait Times (browser adapter)', 45],
+  dolLca: ['DOL OFLC LCA Disclosure Data', 120],
 };
 
+function loadStatus() {
+  try { return JSON.parse(fs.readFileSync(STATUS_FILE, 'utf8')); }
+  catch { return null; }
+}
+function daysSince(value) {
+  if (!value) return null;
+  const time = Date.parse(value);
+  return Number.isFinite(time) ? Math.floor((Date.now() - time) / 86400000) : null;
+}
+
 export function checkStaleness() {
-  console.log('=== DATASET STALENESS & HEALTH MONITOR ===\n');
-  const now = Date.now();
-  let hasWarnings = false;
-  let hasCritical = false;
+  console.log('=== LIVE DATASET EVIDENCE & STALENESS MONITOR ===\n');
+  const status = loadStatus();
+  if (!status?.sources) {
+    console.error('❌ No .fetch-status.json evidence manifest exists. Live freshness is unproven.');
+    return { exitCode: 2, report: [] };
+  }
+
+  let exitCode = 0;
   const report = [];
-
-  for (const [key, cfg] of Object.entries(CONTENT_DIRS)) {
-    if (!fs.existsSync(cfg.path)) {
-      console.warn(`[WARN] Directory not found: ${cfg.path}`);
+  for (const [key, [name, criticalDays]] of Object.entries(HEALTH)) {
+    const source = status.sources[key];
+    if (!source) {
+      console.log(`❌ ${name}\n   Status:       UNKNOWN (no evidence record)\n`);
+      exitCode = Math.max(exitCode, 2);
+      report.push({ key, name, status: 'UNKNOWN' });
       continue;
     }
-
-    const files = fs.readdirSync(cfg.path).filter(f => f.endsWith('.json'));
-    if (files.length === 0) {
-      console.warn(`[WARN] No JSON files in ${cfg.path}`);
-      continue;
-    }
-
-    // Find the latest update date across all files in this collection
-    let latestDate = null;
-    let staleCount = 0;
-
-    for (const file of files) {
-      try {
-        const data = JSON.parse(fs.readFileSync(path.join(cfg.path, file), 'utf-8'));
-        const dateStr = data.lastUpdated || data.month || (data._meta && data._meta.source_updated);
-        if (dateStr) {
-          const d = new Date(dateStr.length === 7 ? `${dateStr}-01` : dateStr);
-          if (!isNaN(d.getTime())) {
-            if (!latestDate || d > latestDate) {
-              latestDate = d;
-            }
-          }
-        }
-        if (data.staleSince) {
-          staleCount++;
-        }
-      } catch (err) {
-        // ignore parse error
-      }
-    }
-
-    if (!latestDate) {
-      report.push({
-        key,
-        name: cfg.name,
-        status: 'UNKNOWN',
-        daysAgo: null,
-        message: 'Could not determine last updated date from files.',
-      });
-      continue;
-    }
-
-    const daysAgo = Math.floor((now - latestDate.getTime()) / (1000 * 60 * 60 * 24));
-    let status = 'HEALTHY';
-
-    if (daysAgo >= cfg.criticalThresholdDays) {
-      status = 'CRITICAL (STALE)';
-      hasCritical = true;
-    } else if (daysAgo >= cfg.warningThresholdDays) {
-      status = 'WARNING (NEARING EXPIRATION)';
-      hasWarnings = true;
-    }
-
-    report.push({
-      key,
-      name: cfg.name,
-      fileCount: files.length,
-      latestDate: latestDate.toISOString().slice(0, 10),
-      daysAgo,
-      warningDays: cfg.warningThresholdDays,
-      criticalDays: cfg.criticalThresholdDays,
-      status,
-      refreshScript: cfg.refreshScript,
-      sourceUrl: cfg.sourceUrl,
-    });
+    const liveSuccess = source.lastLiveSuccess || (source.status === 'LIVE_VALIDATED' ? status.timestamp : null);
+    const age = daysSince(liveSuccess);
+    const live = source.status === 'LIVE_VALIDATED' && age !== null && age <= criticalDays;
+    if (!live) exitCode = Math.max(exitCode, source.status === 'UNAVAILABLE' ? 2 : 1);
+    const icon = live ? '✅' : '🚨';
+    console.log(`${icon} ${name}`);
+    console.log(`   Status:       ${source.status}`);
+    console.log(`   Last live success: ${liveSuccess || 'NEVER'}`);
+    console.log(`   Last attempt:     ${status.timestamp || 'UNKNOWN'}`);
+    console.log(`   Error:        ${source.lastError || 'none'}`);
+    console.log(`   Freshness:    ${live ? 'PROVEN LIVE' : 'NOT PROVEN LIVE'}\n`);
+    report.push({ key, name, source, age, live });
   }
 
-  // Print formatted report table
-  for (const r of report) {
-    const icon = r.status.startsWith('HEALTHY') ? '✅' : r.status.startsWith('WARNING') ? '⚠️' : '🚨';
-    console.log(`${icon} ${r.name}`);
-    console.log(`   Latest Date:  ${r.latestDate} (${r.daysAgo} days ago)`);
-    console.log(`   Status:       ${r.status}`);
-    console.log(`   Thresholds:   Warn at ${r.warningDays}d | User Banner at ${r.criticalDays}d`);
-    if (r.status !== 'HEALTHY') {
-      console.log(`   Action:       Run \`${r.refreshScript}\``);
-      console.log(`   Source:       ${r.sourceUrl}`);
-    }
-    console.log('');
-  }
-
-  if (hasCritical) {
-    console.log('🚨 SUMMARY: Critical staleness detected. Public user warning banners are active.');
-    return { exitCode: 2, report };
-  } else if (hasWarnings) {
-    console.log('⚠️  SUMMARY: Datasets nearing staleness. Action recommended within the next 5-10 days.');
-    return { exitCode: 1, report };
-  } else {
-    console.log('✅ SUMMARY: All datasets are fresh and well within operational thresholds.');
-    return { exitCode: 0, report };
-  }
+  if (exitCode === 0) console.log('✅ SUMMARY: every tracked source has a recent LIVE_VALIDATED result.');
+  else console.error('🚨 SUMMARY: one or more sources are unavailable, stale, or lack live proof.');
+  return { exitCode, report };
 }
 
-if (process.argv[1]?.endsWith('check-staleness.mjs')) {
-  const { exitCode } = checkStaleness();
-  process.exit(exitCode);
-}
+if (process.argv[1]?.endsWith('check-staleness.mjs')) process.exit(checkStaleness().exitCode);
