@@ -47,7 +47,7 @@ export async function fetchWithBypass(targetUrl, options = {}) {
     isJson = false,
     renderJs = true,
     headers = {},
-    timeout = 35000,
+    timeout = 90000,
     validateBody = null,
     detailedTelemetry = false
   } = options;
@@ -73,7 +73,7 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (zenrowsKey) {
     const encoded = encodeURIComponent(targetUrl);
-    let url = `https://api.zenrows.com/v1/?apikey=${zenrowsKey}&url=${encoded}&js_render=${renderJs}&antibot=true&premium_proxy=true`;
+    let url = `https://api.zenrows.com/v1/?apikey=${zenrowsKey}&url=${encoded}&js_render=${renderJs}&premium_proxy=true&wait=3000`;
     if (isJson) url += '&json_response=true';
     providers.push({ name: 'ZenRows', url, headers: proxyHeaders });
   }
@@ -86,7 +86,7 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (scraperApiKey) {
     const encoded = encodeURIComponent(targetUrl);
-    const url = `http://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&premium=true&country_code=us`;
+    const url = `http://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&premium=true&country_code=us&connection_timeout=70`;
     providers.push({ name: 'ScraperAPI', url, headers: proxyHeaders });
   }
 

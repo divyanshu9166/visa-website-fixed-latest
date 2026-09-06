@@ -9,9 +9,6 @@ const OUT_DIR = path.join(process.cwd(), 'src', 'content', 'appointmentWaitTimes
 // Live HTML table URL (active DOS global wait times resource)
 const WAIT_TIMES_HTML_URL = 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html';
 
-// Legacy XML feed (kept as secondary fallback if ever restored)
-const WAIT_TIMES_XML_URL = 'https://travel.state.gov/content/dam/visas/Statistics/machinereadable/Wait_Times_Summary.xml';
-
 const BROWSER_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -39,11 +36,6 @@ function normalizeName(name) {
     .replace(/['']/g, "'")
     .replace(/^u\.?s\.?\s*(embassy|consulate|mission|consulate\s+general)\s*/i, '')
     .replace(/\s+/g, ' ');
-}
-
-function xmlTag(block, tag) {
-  const m = block.match(new RegExp(`<${tag}>([^<]*)</${tag}>`, 'i'));
-  return m ? m[1].trim() : null;
 }
 
 // Master CID mapping from travel.state.gov getVisaWaitTimes backend
@@ -103,7 +95,7 @@ export async function fetchPostFromDatabase(postName, cid) {
   const body = await fetchWithBypass(url, {
     headers: BROWSER_HEADERS,
     renderJs: false,
-    timeout: 25000,
+    timeout: 90000,
     validateBody: (b) => {
       const v = validateDatabasePayload(b);
       return v.valid ? true : { valid: false, error: v.error };
@@ -199,7 +191,7 @@ async function fetchLiveHtmlWithRetry(maxRetries = 3) {
       const html = await fetchWithBypass(WAIT_TIMES_HTML_URL, {
         headers: BROWSER_HEADERS,
         renderJs: true,
-        timeout: 25000,
+        timeout: 90000,
       });
       const $ = cheerio.load(html);
 
@@ -258,37 +250,6 @@ async function fetchLiveHtmlWithRetry(maxRetries = 3) {
         throw err;
       }
       const delay = Math.pow(2, attempt) * 1000 + Math.random() * 500;
-      await new Promise(resolve => setTimeout(resolve, delay));
-    }
-  }
-}
-
-// Fallback XML fetcher
-async function fetchLiveXmlWithRetry(maxRetries = 2) {
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
-      const xml = await fetchWithBypass(WAIT_TIMES_XML_URL, {
-        headers: BROWSER_HEADERS,
-        renderJs: false,
-        timeout: 25000,
-      });
-
-      const postBlocks = xml.split(/<\/(?:Post|post|MissionPost)>/).filter((b) => b.includes('<'));
-      const posts = postBlocks.map((block) => ({
-        post: xmlTag(block, 'Post_Name') || xmlTag(block, 'post_name') || xmlTag(block, 'Mission'),
-        country: xmlTag(block, 'Country') || xmlTag(block, 'country'),
-        waitTimeB1B2: parseWaitDays(xmlTag(block, 'Visitor_Visa_Wait_Time') || xmlTag(block, 'B1_B2_Wait')),
-        waitTimeStudent: parseWaitDays(xmlTag(block, 'Student_Visa_Wait_Time') || xmlTag(block, 'F_Wait')),
-        waitTimeWorker: parseWaitDays(xmlTag(block, 'Petition_Wait_Time') || xmlTag(block, 'Work_Wait')),
-      })).filter((p) => p.post);
-
-      if (!posts.length) throw new Error('Parsed 0 posts from wait times XML');
-      return posts;
-    } catch (err) {
-      if (attempt === maxRetries) {
-        throw err;
-      }
-      const delay = Math.pow(2, attempt) * 1000;
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
@@ -378,15 +339,9 @@ export async function fetchWaitTimes({ seedOnly = false, strictLive = false } = 
         livePosts = await fetchLiveHtmlWithRetry();
         console.log(`[waitTimes] live HTML table fetched — ${livePosts.length} consular posts parsed.`);
       } catch (htmlErr) {
-        // Try secondary XML if HTML failed
-        try {
-          livePosts = await fetchLiveXmlWithRetry();
-          console.log(`[waitTimes] live XML fallback fetched — ${livePosts.length} consular posts parsed.`);
-        } catch (xmlErr) {
-          lastError = dbErr.message || htmlErr.message || String(htmlErr);
-          if (strictLive) throw new Error(`waitTimes unavailable: ${lastError}`);
-          console.warn(`  [waitTimes] live fetch failed (${lastError}). Preserving existing data.`);
-        }
+        lastError = dbErr.message || htmlErr.message || String(htmlErr);
+        if (strictLive) throw new Error(`waitTimes unavailable: ${lastError}`);
+        console.warn(`  [waitTimes] live fetch failed (${lastError}). Preserving existing data.`);
       }
     }
   }
