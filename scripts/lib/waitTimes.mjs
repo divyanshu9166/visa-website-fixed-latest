@@ -214,6 +214,7 @@ async function fetchLiveHtmlWithRetry(maxRetries = 3) {
         const b1b2Col = headers.findIndex(h => (h.includes('visitor') || h.includes('b1') || h.includes('b-1') || h.includes('b1/b2')) && !h.includes('waiver'));
         const studentCol = headers.findIndex(h => (h.includes('student') || h.includes('f-1') || h.includes('f, m, j') || h.includes('fmj')) && !h.includes('waiver'));
         const workerCol = headers.findIndex(h => (h.includes('petition') || h.includes('worker') || h.includes('h, l, o') || h.includes('temporary worker')) && !h.includes('waiver'));
+        const crewCol = headers.findIndex(h => (h.includes('crew') || h.includes('transit') || h.includes('c-1') || h.includes('c1/d') || h.includes('c, d')) && !h.includes('waiver'));
 
         $table.find('tr').slice(1).each((_, row) => {
           const cells = $(row).find('th, td');
@@ -225,16 +226,21 @@ async function fetchLiveHtmlWithRetry(maxRetries = 3) {
           const b1b2Raw = b1b2Col !== -1 ? $(cells[b1b2Col]).text().trim() : $(cells[1]).text().trim();
           const studentRaw = studentCol !== -1 ? $(cells[studentCol]).text().trim() : $(cells[2]).text().trim();
           const workerRaw = workerCol !== -1 ? $(cells[workerCol]).text().trim() : $(cells[3]).text().trim();
+          const crewRaw = crewCol !== -1 ? $(cells[crewCol]).text().trim() : null;
 
           const b1b2Days = parseWaitDays(b1b2Raw);
           const studentDays = parseWaitDays(studentRaw);
           const workerDays = parseWaitDays(workerRaw);
+          const crewDays = parseWaitDays(crewRaw);
 
           posts.push({
             post: postNameRaw,
             waitTimeB1B2: b1b2Days,
             waitTimeStudent: studentDays,
             waitTimeWorker: workerDays,
+            waitTimePetition: workerDays,
+            waitTimeCrewTransit: crewDays,
+            waitTimeOther: workerDays ?? crewDays,
           });
         });
       });
@@ -332,16 +338,18 @@ export async function fetchWaitTimes({ seedOnly = false, strictLive = false } = 
 
   if (!seedOnly) {
     try {
-      livePosts = await fetchLiveDatabaseWithRetry();
-      console.log(`[waitTimes] live database endpoint fetched — ${livePosts.length} consular posts parsed.`);
-    } catch (dbErr) {
+      console.log(`[waitTimes] Attempting primary live official source: HTML table from travel.state.gov...`);
+      livePosts = await fetchLiveHtmlWithRetry();
+      console.log(`[waitTimes] Live HTML table fetched successfully — ${livePosts.length} consular posts parsed.`);
+    } catch (htmlErr) {
+      console.warn(`[waitTimes] Primary HTML table fetch failed (${htmlErr.message}). Attempting experimental database endpoint...`);
       try {
-        livePosts = await fetchLiveHtmlWithRetry();
-        console.log(`[waitTimes] live HTML table fetched — ${livePosts.length} consular posts parsed.`);
-      } catch (htmlErr) {
-        lastError = dbErr.message || htmlErr.message || String(htmlErr);
+        livePosts = await fetchLiveDatabaseWithRetry();
+        console.log(`[waitTimes] Experimental database endpoint fetched — ${livePosts.length} consular posts parsed.`);
+      } catch (dbErr) {
+        lastError = `HTML table error: ${htmlErr.message} | Database error: ${dbErr.message}`;
         if (strictLive) throw new Error(`waitTimes unavailable: ${lastError}`);
-        console.warn(`  [waitTimes] live fetch failed (${lastError}). Preserving existing data.`);
+        console.warn(`  [waitTimes] Live fetch failed (${lastError}). Preserving existing data.`);
       }
     }
   }
@@ -399,11 +407,20 @@ export async function fetchWaitTimes({ seedOnly = false, strictLive = false } = 
           }
           while (history.length > 24) history.shift();
 
+          const waitPetition = (live.waitTimePetition !== null && live.waitTimePetition !== undefined && !isNaN(live.waitTimePetition))
+            ? live.waitTimePetition
+            : (prevConsulate?.waitTimePetition ?? null);
+          const waitCrew = (live.waitTimeCrewTransit !== null && live.waitTimeCrewTransit !== undefined && !isNaN(live.waitTimeCrewTransit))
+            ? live.waitTimeCrewTransit
+            : (prevConsulate?.waitTimeCrewTransit ?? null);
+
           consulates.push({
             name: consulateName,
             waitTimeB1B2: waitB1B2,
             waitTimeStudent: waitStudent,
             waitTimeOther: Math.max(5, Math.round(waitB1B2 * 0.55)),
+            waitTimePetition: waitPetition,
+            waitTimeCrewTransit: waitCrew,
             hasEmergencyAppointments: waitB1B2 > 120,
             notes: waitB1B2 > 200
               ? 'High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.'

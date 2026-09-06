@@ -26,7 +26,17 @@ if (typeof process.loadEnvFile === 'function') {
  * 4. Direct Browser Impersonation (Default fallback)
  */
 
+export function sanitizeLog(text) {
+  if (typeof text !== 'string') return text;
+  return text
+    .replace(/(?:apikey|api_key|SCRAPER_API_KEY|SCRAPINGBEE_API_KEY|ZENROWS_API_KEY|SCRAPERAPI_KEY)[=:]\s*([a-zA-Z0-9_-]{6,})/gi, (m, key) => m.replace(key, '***REDACTED***'))
+    .replace(/([?&](?:apikey|api_key|key)=)[^&]+/gi, '$1***REDACTED***');
+}
+
 export function classifyFetchError(status, message, bodySample = '') {
+  if (status === 400 || message?.includes('400')) {
+    return 'PROVIDER_BAD_REQUEST_OR_CONFIG (Provider rejected request parameters or configuration)';
+  }
   if (status === 401 || message?.includes('401')) {
     return 'AUTH_OR_QUOTA_EXHAUSTED (Provider rejected authentication or plan quota exceeded)';
   }
@@ -35,6 +45,9 @@ export function classifyFetchError(status, message, bodySample = '') {
   }
   if (status === 408 || message?.includes('timeout') || message?.includes('AbortError')) {
     return 'TIMEOUT_LATENCY_EXCEEDED (Upstream challenge or gateway timeout)';
+  }
+  if (status === 500 || status === 502 || status === 503 || status === 504 || message?.includes('500') || message?.includes('502') || message?.includes('503')) {
+    return 'PROVIDER_UPSTREAM_FAILURE (Provider upstream proxy or challenge resolution failed)';
   }
   if (bodySample && (bodySample.includes('<html') || bodySample.includes('Turnstile') || bodySample.includes('challenge-platform') || bodySample.includes('Attention Required'))) {
     return 'CHALLENGE_PAGE_RETURNED_AS_200 (WAF returned captcha/challenge HTML instead of machine payload)';
@@ -86,7 +99,7 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (scraperApiKey) {
     const encoded = encodeURIComponent(targetUrl);
-    const url = `http://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&premium=true&country_code=us&connection_timeout=70`;
+    const url = `https://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&premium=true&country_code=us&connection_timeout=70`;
     providers.push({ name: 'ScraperAPI', url, headers: proxyHeaders });
   }
 
@@ -101,7 +114,7 @@ export async function fetchWithBypass(targetUrl, options = {}) {
     const startTime = Date.now();
 
     try {
-      console.log(`[fetchClient] Attempting via ${provider.name} -> Target: ${targetUrl.slice(0, 70)}...`);
+      console.log(`[fetchClient] Attempting via ${provider.name} -> Target: ${sanitizeLog(targetUrl).slice(0, 80)}...`);
       const res = await fetch(provider.url, {
         headers: provider.headers,
         signal: controller.signal
@@ -111,12 +124,18 @@ export async function fetchWithBypass(targetUrl, options = {}) {
       const contentType = res.headers.get('content-type') || 'unknown';
 
       if (!res.ok) {
-        const errorClass = classifyFetchError(res.status, res.statusText);
-        throw new Error(`HTTP ${res.status} (${res.statusText}) - ${errorClass}`);
+        let errBody = '';
+        try {
+          errBody = await res.text();
+        } catch {}
+        const sanitizedBody = sanitizeLog(errBody).trim();
+        const bodyPreview = sanitizedBody ? ` | Response Body: ${sanitizedBody.slice(0, 200).replace(/\s+/g, ' ')}` : '';
+        const errorClass = classifyFetchError(res.status, res.statusText, sanitizedBody);
+        throw new Error(`HTTP ${res.status} (${res.statusText}) - ${errorClass}${bodyPreview}`);
       }
 
       let payload = isJson ? await res.json() : await res.text();
-      const preview = typeof payload === 'string' ? payload.slice(0, 150).replace(/\s+/g, ' ') : JSON.stringify(payload).slice(0, 150);
+      const preview = typeof payload === 'string' ? sanitizeLog(payload).slice(0, 150).replace(/\s+/g, ' ') : JSON.stringify(payload).slice(0, 150);
 
       // Body validation to reject HTTP 200 captcha / challenges
       if (typeof payload === 'string') {
@@ -144,8 +163,9 @@ export async function fetchWithBypass(targetUrl, options = {}) {
     } catch (err) {
       clearTimeout(timer);
       const elapsedMs = Date.now() - startTime;
-      console.warn(`  [fetchClient] ${provider.name} failed after ${elapsedMs}ms: ${err.message}`);
-      lastError = err;
+      const sanitizedErr = sanitizeLog(err.message);
+      console.warn(`  [fetchClient] ${provider.name} failed after ${elapsedMs}ms: ${sanitizedErr}`);
+      lastError = new Error(sanitizedErr);
       if (providers.indexOf(provider) < providers.length - 1) {
         continue;
       }
