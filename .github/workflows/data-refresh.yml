@@ -16,42 +16,67 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+
       - name: Refresh USCIS, Visa Bulletin, and USCIS statistics
         id: government-fetch
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run data:fetch
         continue-on-error: true
+
       - name: Refresh DOS appointment wait times
         id: dos-fetch
         run: npm run data:dos
         continue-on-error: true
+
       - name: Check dataset health and open persistent-failure issue
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: node scripts/check-fetch-health.mjs
+
       - name: Check staleness
         if: always()
         run: npm run check:staleness
         continue-on-error: true
+
       - name: Commit confirmed data changes
         if: always()
         run: |
-          git config user.name data-refresh-bot
-          git config user.email actions@users.noreply.github.com
-          git add src/content .fetch-status.json .fetch-health.json data/dos_global_wait_times.json
-          if git diff --cached --quiet; then echo 'No confirmed data changes'; else git commit -m "chore: daily data refresh $(date -u +%F)" && git push origin HEAD:${GITHUB_REF_NAME}; fi
+          git config user.name "data-refresh-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add src/content
+
+          # These files and directories may not exist on the first run.
+          git add data 2>/dev/null || true
+          git add .fetch-status.json .fetch-health.json 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "No confirmed data changes."
+          else
+            git commit -m "chore: daily data refresh $(date -u +%Y-%m-%d)"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
+
       - name: Fail workflow if an upstream job failed
         if: steps.government-fetch.outcome == 'failure' || steps.dos-fetch.outcome == 'failure'
         run: exit 1
