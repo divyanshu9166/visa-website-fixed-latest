@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
+import { fetchWithBypass } from './lib/fetchClient.mjs';
 
 const DOL_URL = 'https://www.dol.gov/agencies/eta/foreign-labor/performance';
 const MANIFEST_PATH = path.join(process.cwd(), 'src', 'content', 'lca-manifest.json');
@@ -8,19 +9,13 @@ const MANIFEST_PATH = path.join(process.cwd(), 'src', 'content', 'lca-manifest.j
 async function main() {
   const isForce = process.argv.includes('--force');
   console.log(`Fetching DOL Performance Page: ${DOL_URL}...`);
-  const res = await fetch(DOL_URL, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;'
-    }
-  });
-
-  if (!res.ok) {
-    console.error(`Failed to load DOL page: HTTP ${res.status} ${res.statusText}`);
+  let html;
+  try {
+    html = await fetchWithBypass(DOL_URL, { renderJs: true });
+  } catch (err) {
+    console.error(`Failed to load DOL page: ${err.message}`);
     process.exit(1);
   }
-
-  const html = await res.text();
   const $ = cheerio.load(html);
   const matches = [];
 
@@ -32,7 +27,7 @@ async function main() {
     // LCA_Disclosure_Data_FY2026_Q3.xlsx
     // LCA_Dislclosure_Data_FY2024_Q1.xlsx (typo handling)
     // LCA_Programs_FY2024_Q4.xlsx
-    const fileMatch = href.match(/LCA_(?:Dis[a-z]*_Data|Programs)_FY(\d{4})(?:_Q(\d))?\.(xlsx|csv)/i);
+    const fileMatch = href.match(/LCA_(?:Dis[a-z]*_Data|Programs)_FY(\d{4})(?:[_-]Q(\d))?\.(xlsx|csv)(?:\?[^#]*)?$/i);
     if (fileMatch) {
       const fy = parseInt(fileMatch[1], 10);
       const quarter = fileMatch[2] ? parseInt(fileMatch[2], 10) : 4; // annual defaults to Q4 weight

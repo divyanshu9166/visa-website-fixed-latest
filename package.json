@@ -14,6 +14,7 @@
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name easy-visa-check",
     "data:fetch": "node scripts/fetch-data.mjs",
     "data:dos": "node scripts/automated-dos-wait-times.mjs",
+    "data:refresh": "node scripts/refresh-live.mjs",
     "check:staleness": "node scripts/check-staleness.mjs",
     "lca:fetch": "node scripts/fetch-lca.mjs",
     "lca:process": "node scripts/process-lca-cache.mjs",

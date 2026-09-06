@@ -1,28 +1,31 @@
 {
-  "timestamp": "2026-09-06T13:38:52.878Z",
+  "schemaVersion": 2,
+  "timestamp": "2026-09-06T14:00:00.000Z",
   "seedOnly": false,
-  "processingTimes": {
-    "liveCount": 16,
-    "staleCount": 0,
-    "seedCount": 0,
-    "lastError": null
-  },
-  "visaBulletin": {
-    "liveCount": 0,
-    "staleCount": 720,
-    "totalCount": 720,
-    "lastError": "HTTP 403 (Forbidden)"
-  },
-  "waitTimes": {
-    "liveCount": 0,
-    "staleCount": 30,
-    "seedCount": 0,
-    "lastError": "HTTP 403 (Forbidden)"
-  },
-  "uscisQuarterlyStats": {
-    "liveCount": 46,
-    "staleCount": 0,
-    "seedCount": 0,
-    "lastError": null
+  "sources": {
+    "processingTimes": {
+      "status": "LIVE_VALIDATED",
+      "liveCount": 16,
+      "staleCount": 0,
+      "lastError": null
+    },
+    "visaBulletin": {
+      "status": "PRESERVED",
+      "liveCount": 0,
+      "staleCount": 720,
+      "lastError": "HTTP 403 (Forbidden)"
+    },
+    "waitTimes": {
+      "status": "PRESERVED",
+      "liveCount": 0,
+      "staleCount": 30,
+      "lastError": "HTTP 403 (Forbidden)"
+    },
+    "uscisQuarterlyStats": {
+      "status": "LIVE_VALIDATED",
+      "liveCount": 46,
+      "staleCount": 0,
+      "lastError": null
+    }
   }
 }

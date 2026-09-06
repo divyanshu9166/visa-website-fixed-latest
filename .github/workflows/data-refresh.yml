@@ -2,61 +2,80 @@ name: Daily data refresh
 
 on:
   schedule:
-    - cron: '0 10 * * *'   # 10:00 UTC daily
-  workflow_dispatch: {}      # lets you trigger it manually from the Actions tab
+    - cron: "0 6 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
   issues: write
 
+concurrency:
+  group: daily-data-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Install system dependencies & Chrome for Playwright
+      - name: Install Playwright & Chrome dependencies
         run: |
           sudo apt-get update && sudo apt-get install -y xvfb
-          npx playwright install --with-deps chrome
+          npx playwright install --with-deps chromium
 
-      - name: Fetch latest USCIS / State Dept data (Tier 3 Real Browser & Scraping Proxy)
+      - name: Fetch latest USCIS / State Dept data (Proxy & Browser Engine)
+        id: live-refresh
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
           ZENROWS_API_KEY: ${{ secrets.ZENROWS_API_KEY }}
           SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
           SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
         run: xvfb-run --auto-servernum npm run data:fetch
         continue-on-error: true
 
-      - name: Check fetch health & alert on 3+ consecutive failures
+      - name: Check dataset health and alert on persistent failures
+        if: always()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: node scripts/check-fetch-health.mjs
 
-      - name: Commit updated data if changed
+      - name: Check live evidence and staleness
+        id: staleness
+        if: always()
+        run: npm run check:staleness
+        continue-on-error: true
+
+      - name: Commit evidence and confirmed data
+        if: always()
         run: |
+          set -e
+
           git config user.name "data-refresh-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add src/content .fetch-health.json
-          if git diff --cached --quiet; then
-            echo "No data changes — skipping commit."
-          else
-            git commit -m "chore: daily data refresh $(date -u +%Y-%m-%d)"
-            git push origin HEAD:${{ github.ref_name }}
-          fi
 
-      - name: Trigger Cloudflare Pages deploy (optional backup)
-        if: ${{ env.CF_DEPLOY_HOOK != '' }}
-        env:
-          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
-        run: curl -X POST "$CF_DEPLOY_HOOK"
+          git add .fetch-status.json 2>/dev/null || true
+          git add .fetch-health.json 2>/dev/null || true
+          git add src/content 2>/dev/null || true
+          git add data 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "No data or evidence changes to commit."
+          else
+            git commit -m "chore: record data refresh evidence $(date -u +%Y-%m-%d)"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi

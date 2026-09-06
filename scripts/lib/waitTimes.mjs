@@ -298,7 +298,7 @@ function buildBootstrapWaitTimes(country) {
   };
 }
 
-export async function fetchWaitTimes({ seedOnly = false } = {}) {
+export async function fetchWaitTimes({ seedOnly = false, strictLive = false } = {}) {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
   let livePosts = null;
@@ -319,6 +319,7 @@ export async function fetchWaitTimes({ seedOnly = false } = {}) {
           console.log(`[waitTimes] live XML fallback fetched — ${livePosts.length} consular posts parsed.`);
         } catch (xmlErr) {
           lastError = dbErr.message || htmlErr.message || String(htmlErr);
+          if (strictLive) throw new Error(`waitTimes unavailable: ${lastError}`);
           console.warn(`  [waitTimes] live fetch failed (${lastError}). Preserving existing data.`);
         }
       }

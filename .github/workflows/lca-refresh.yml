@@ -2,7 +2,7 @@ name: Automated DOL LCA Quarterly Data Ingestion
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Run daily at 04:00 UTC
+    - cron: '0 4 * * *' # Run daily at 04:00 UTC to detect new DOL quarterly disclosure releases
   workflow_dispatch:
     inputs:
       force_import:
@@ -11,12 +11,12 @@ on:
         type: boolean
         default: false
 
-concurrency:
-  group: 'lca-refresh'
-  cancel-in-progress: false
-
 permissions:
   contents: write
+
+concurrency:
+  group: lca-refresh
+  cancel-in-progress: false
 
 jobs:
   lca-pipeline:
@@ -29,6 +29,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - run: npm ci
 
@@ -76,6 +77,10 @@ jobs:
 
       - name: Update State Manifest and Commit
         if: steps.check_dol.outputs.has_new_data == 'true'
+        env:
+          FY: ${{ steps.check_dol.outputs.fy }}
+          QUARTER: ${{ steps.check_dol.outputs.quarter }}
+          FILE_NAME: ${{ steps.check_dol.outputs.file_name }}
         run: |
           node -e "
           const fs = require('fs');
@@ -96,24 +101,15 @@ jobs:
           if git diff --cached --quiet; then
             echo "Manifest unchanged — skipping commit."
           else
-            git commit -m "chore: record DOL LCA FY${{ steps.check_dol.outputs.fy }}-Q${{ steps.check_dol.outputs.quarter }} import"
-            git push origin HEAD:${{ github.ref_name }}
+            git commit -m "chore: record DOL LCA FY${FY}-Q${QUARTER} import"
+            git push origin HEAD:${GITHUB_REF_NAME}
           fi
-        env:
-          FY: ${{ steps.check_dol.outputs.fy }}
-          QUARTER: ${{ steps.check_dol.outputs.quarter }}
-          FILE_NAME: ${{ steps.check_dol.outputs.file_name }}
-
-      - name: Trigger Cloudflare Pages deploy (optional backup)
-        if: steps.check_dol.outputs.has_new_data == 'true' && env.CF_DEPLOY_HOOK != ''
-        env:
-          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
-        run: curl -X POST "$CF_DEPLOY_HOOK"
 
       - name: Archive Aggregation Cache Artifact
-        if: steps.check_dol.outputs.has_new_data == 'true'
+        if: always() && steps.check_dol.outputs.has_new_data == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: lca-aggregated-cache
           path: tmp/lca-aggregated-cache.json
+          if-no-files-found: ignore
           retention-days: 14

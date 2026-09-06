@@ -9,7 +9,7 @@ const OUT_DIR = path.join(process.cwd(), 'src', 'content', 'visaBulletin');
 const MONTH_NAMES = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
 const BROWSER_HEADERS = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
   'Accept-Language': 'en-US,en;q=0.9',
   'Referer': 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html',
@@ -249,7 +249,7 @@ function buildBootstrapBulletin(monthsBack = 24) {
   return records;
 }
 
-export async function fetchVisaBulletin({ seedOnly = false, forceBootstrap = false } = {}) {
+export async function fetchVisaBulletin({ seedOnly = false, forceBootstrap = false, strictLive = false } = {}) {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
   let liveRecords = null;
@@ -303,6 +303,7 @@ export async function fetchVisaBulletin({ seedOnly = false, forceBootstrap = fal
       console.log(`[visaBulletin] live scrape succeeded — ${liveRecords.length} records for ${currentPeriod}.`);
     } catch (err) {
       lastError = err.message || String(err);
+      if (strictLive) throw new Error(`visaBulletin unavailable: ${err.message}`);
       console.warn(`  [visaBulletin] live fetch failed (${err.message}). Preserving existing data.`);
       liveRecords = null;
     }

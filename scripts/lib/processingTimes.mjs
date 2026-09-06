@@ -247,7 +247,7 @@ function safeWriteFileSync(filePath, content, retries = 5) {
   }
 }
 
-export async function fetchProcessingTimes({ seedOnly = false } = {}) {
+export async function fetchProcessingTimes({ seedOnly = false, strictLive = false } = {}) {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
   let liveCount = 0;
   let staleCount = 0;
@@ -273,6 +273,7 @@ export async function fetchProcessingTimes({ seedOnly = false } = {}) {
         liveCount++;
       } catch (err) {
         lastError = err.message || String(err);
+        if (strictLive) throw new Error(`processingTimes unavailable for ${form.visaSlug}: ${err.message}`);
         console.warn(`  [processingTimes] live fetch failed for ${form.visaSlug} (${err.message}). Preserving existing data.`);
       }
     }

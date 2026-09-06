@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { fetchProcessingTimes } from './lib/processingTimes.mjs';
 import { fetchVisaBulletin } from './lib/visaBulletin.mjs';
 import { fetchWaitTimes } from './lib/waitTimes.mjs';
@@ -22,8 +22,9 @@ if (!process.env.DATABASE_URL && typeof process.loadEnvFile === 'function') {
   } catch {}
 }
 
-// Define paths
-const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
+const ROOT = process.cwd();
+const CONTENT_DIR = path.join(ROOT, 'src', 'content');
+const STATUS_FILE = path.join(ROOT, '.fetch-status.json');
 const USCIS_STATS_DIR = path.join(CONTENT_DIR, 'uscisQuarterlyStats');
 
 [USCIS_STATS_DIR].forEach((dir) => {
@@ -195,39 +196,65 @@ async function archiveHistoricalSnapshots() {
   }
 }
 
-// `--seed-only` (or env SEED_ONLY=1) skips all live network calls and writes
-// deterministic placeholder data. Useful in sandboxed/CI-less environments or for
-// local development where you don't want to hammer government endpoints.
 const SEED_ONLY = process.argv.includes('--seed-only') || process.env.SEED_ONLY === '1';
 
 async function main() {
-  console.log(`Starting data refresh${SEED_ONLY ? ' (seed-only mode)' : ''}...\n`);
+  console.log(`Starting data refresh (${SEED_ONLY ? 'seed-only mode' : 'live mode with proxy fallback'})...`);
 
   const ptResult = await fetchProcessingTimes({ seedOnly: SEED_ONLY });
   const vbResult = await fetchVisaBulletin({ seedOnly: SEED_ONLY });
   const wtResult = await fetchWaitTimes({ seedOnly: SEED_ONLY });
   const uqResult = await fetchUSCISQuarterlyStats({ seedOnly: SEED_ONLY });
+
   await archiveHistoricalSnapshots();
 
   const statusReport = {
+    schemaVersion: 2,
     timestamp: new Date().toISOString(),
     seedOnly: SEED_ONLY,
-    processingTimes: ptResult,
-    visaBulletin: vbResult,
-    waitTimes: wtResult,
-    uscisQuarterlyStats: uqResult,
+    sources: {
+      processingTimes: {
+        status: ptResult?.liveCount > 0 ? 'LIVE_VALIDATED' : 'PRESERVED',
+        liveCount: ptResult?.liveCount || 0,
+        staleCount: ptResult?.staleCount || 0,
+        lastError: ptResult?.lastError || null,
+      },
+      visaBulletin: {
+        status: vbResult?.liveCount > 0 ? 'LIVE_VALIDATED' : 'PRESERVED',
+        liveCount: vbResult?.liveCount || 0,
+        staleCount: vbResult?.staleCount || 0,
+        lastError: vbResult?.lastError || null,
+      },
+      waitTimes: {
+        status: wtResult?.liveCount > 0 ? 'LIVE_VALIDATED' : 'PRESERVED',
+        liveCount: wtResult?.liveCount || 0,
+        staleCount: wtResult?.staleCount || 0,
+        lastError: wtResult?.lastError || null,
+      },
+      uscisQuarterlyStats: {
+        status: uqResult?.liveCount > 0 ? 'LIVE_VALIDATED' : 'PRESERVED',
+        liveCount: uqResult?.liveCount || 0,
+        staleCount: uqResult?.staleCount || 0,
+        lastError: uqResult?.lastError || null,
+      },
+    },
   };
 
-  fs.writeFileSync(path.join(process.cwd(), '.fetch-status.json'), JSON.stringify(statusReport, null, 2));
-
-  console.log('\nData refresh complete!');
-  if (SEED_ONLY) {
-    console.log('NOTE: ran in --seed-only mode. Re-run without that flag on a machine with normal');
-    console.log('internet access (your laptop, or GitHub Actions) to pull live USCIS/State Dept data.');
-  }
+  fs.writeFileSync(STATUS_FILE, JSON.stringify(statusReport, null, 2) + '\n');
+  console.log('Data refresh complete. Fetch status written to .fetch-status.json');
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  const errReport = {
+    schemaVersion: 2,
+    timestamp: new Date().toISOString(),
+    seedOnly: SEED_ONLY,
+    error: error instanceof Error ? error.message : String(error),
+    sources: {},
+  };
+  try {
+    fs.writeFileSync(STATUS_FILE, JSON.stringify(errReport, null, 2) + '\n');
+  } catch {}
+  console.error('Fatal fetch error:', error);
   process.exit(1);
 });

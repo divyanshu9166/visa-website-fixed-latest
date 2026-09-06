@@ -17,113 +17,118 @@ if (!process.env.DATABASE_URL && typeof process.loadEnvFile === 'function') {
 }
 
 const inputFile = process.argv[2];
-
 if (!inputFile || !fs.existsSync(inputFile)) {
   console.error(`File not found: ${inputFile}. Provide the aggregated JSON file.`);
   console.error('Usage: node scripts/import-lca.mjs <path-to-lca-aggregated-cache.json>');
   process.exit(1);
 }
 
+if (!process.env.DATABASE_URL) {
+  console.error('DATABASE_URL is required for LCA import');
+  process.exit(1);
+}
+
+const data = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
+if (!Array.isArray(data) || data.length === 0) {
+  console.error('Invalid or empty LCA aggregation cache');
+  process.exit(1);
+}
+
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log(`Loading pre-aggregated LCA data from ${inputFile}...`);
-  const data = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
-
-  if (!Array.isArray(data) || data.length === 0) {
-    console.error('Invalid or empty JSON data array.');
-    process.exit(1);
-  }
-
-  console.log(`Found ${data.length} employer records. Starting Prisma upsert import...`);
+  console.log(`Found ${data.length} employer records in ${inputFile}. Starting Prisma upsert import...`);
 
   const chunkSize = 100;
   const totalChunks = Math.ceil(data.length / chunkSize);
 
-  for (let i = 0; i < data.length; i += chunkSize) {
-    const chunk = data.slice(i, i + chunkSize);
-    const chunkIndex = Math.floor(i / chunkSize) + 1;
+  try {
+    for (let i = 0; i < data.length; i += chunkSize) {
+      const chunk = data.slice(i, i + chunkSize);
+      const chunkIndex = Math.floor(i / chunkSize) + 1;
 
-    await prisma.$transaction([
-      ...chunk.map(record =>
-        prisma.lcaEmployer.upsert({
-          where: { employerName: record.employerName },
-          create: {
-            employerName: record.employerName,
-            slug: record.slug,
-            totalLCAs: record.totalLCAs,
-            approvalRate: record.approvalRate,
-            avgWage: record.avgWage,
-            medianWage: record.medianWage,
-            topTitles: record.topTitles,
-            topStates: record.topStates,
-            wageLevelDist: record.wageLevelDist,
-            fiscalYear: record.fiscalYear,
-            grade: record.grade,
-            lastUpdated: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
-          },
-          update: {
-            slug: record.slug,
-            totalLCAs: record.totalLCAs,
-            approvalRate: record.approvalRate,
-            avgWage: record.avgWage,
-            medianWage: record.medianWage,
-            topTitles: record.topTitles,
-            topStates: record.topStates,
-            wageLevelDist: record.wageLevelDist,
-            fiscalYear: record.fiscalYear,
-            grade: record.grade,
-            lastUpdated: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
-          }
-        })
-      ),
-      ...chunk.map(record =>
-        prisma.lcaEmployerQuarterly.upsert({
-          where: {
-            slug_fiscalYear_quarter: {
+      await prisma.$transaction([
+        ...chunk.map(record =>
+          prisma.lcaEmployer.upsert({
+            where: { employerName: record.employerName },
+            create: {
+              employerName: record.employerName,
               slug: record.slug,
+              totalLCAs: record.totalLCAs,
+              approvalRate: record.approvalRate,
+              avgWage: record.avgWage,
+              medianWage: record.medianWage,
+              topTitles: record.topTitles,
+              topStates: record.topStates,
+              wageLevelDist: record.wageLevelDist,
               fiscalYear: record.fiscalYear,
-              quarter: record.quarter || 4
+              grade: record.grade,
+              lastUpdated: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
+            },
+            update: {
+              slug: record.slug,
+              totalLCAs: record.totalLCAs,
+              approvalRate: record.approvalRate,
+              avgWage: record.avgWage,
+              medianWage: record.medianWage,
+              topTitles: record.topTitles,
+              topStates: record.topStates,
+              wageLevelDist: record.wageLevelDist,
+              fiscalYear: record.fiscalYear,
+              grade: record.grade,
+              lastUpdated: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
             }
-          },
-          create: {
-            slug: record.slug,
-            employerName: record.employerName,
-            fiscalYear: record.fiscalYear,
-            quarter: record.quarter || 4,
-            totalLCAs: record.totalLCAs,
-            approvalRate: record.approvalRate,
-            avgWage: record.avgWage,
-            medianWage: record.medianWage,
-            topTitles: record.topTitles,
-            topStates: record.topStates,
-            wageLevelDist: record.wageLevelDist,
-            grade: record.grade,
-            importedAt: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
-          },
-          update: {
-            employerName: record.employerName,
-            totalLCAs: record.totalLCAs,
-            approvalRate: record.approvalRate,
-            avgWage: record.avgWage,
-            medianWage: record.medianWage,
-            topTitles: record.topTitles,
-            topStates: record.topStates,
-            wageLevelDist: record.wageLevelDist,
-            grade: record.grade,
-            importedAt: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
-          }
-        })
-      )
-    ]);
+          })
+        ),
+        ...chunk.map(record =>
+          prisma.lcaEmployerQuarterly.upsert({
+            where: {
+              slug_fiscalYear_quarter: {
+                slug: record.slug,
+                fiscalYear: record.fiscalYear,
+                quarter: record.quarter || 4
+              }
+            },
+            create: {
+              slug: record.slug,
+              employerName: record.employerName,
+              fiscalYear: record.fiscalYear,
+              quarter: record.quarter || 4,
+              totalLCAs: record.totalLCAs,
+              approvalRate: record.approvalRate,
+              avgWage: record.avgWage,
+              medianWage: record.medianWage,
+              topTitles: record.topTitles,
+              topStates: record.topStates,
+              wageLevelDist: record.wageLevelDist,
+              grade: record.grade,
+              importedAt: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
+            },
+            update: {
+              employerName: record.employerName,
+              totalLCAs: record.totalLCAs,
+              approvalRate: record.approvalRate,
+              avgWage: record.avgWage,
+              medianWage: record.medianWage,
+              topTitles: record.topTitles,
+              topStates: record.topStates,
+              wageLevelDist: record.wageLevelDist,
+              grade: record.grade,
+              importedAt: record.lastUpdated ? new Date(record.lastUpdated) : new Date()
+            }
+          })
+        )
+      ]);
 
-    if (chunkIndex % 10 === 0 || chunkIndex === totalChunks) {
-      console.log(`Processed chunk ${chunkIndex} of ${totalChunks} (${Math.min(i + chunkSize, data.length)} / ${data.length} employers)`);
+      if (chunkIndex % 10 === 0 || chunkIndex === totalChunks) {
+        console.log(`Processed chunk ${chunkIndex} of ${totalChunks} (${Math.min(i + chunkSize, data.length)} / ${data.length} employers)`);
+      }
     }
-  }
 
-  console.log('Production database import complete! All records upserted successfully.');
-  await prisma.$disconnect();
+    console.log('Production database import complete! All records upserted successfully.');
+  } finally {
+    await prisma.$disconnect();
+  }
 }
 
 main().catch(async (e) => {

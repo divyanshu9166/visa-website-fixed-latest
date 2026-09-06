@@ -12,6 +12,27 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
+function normalizePost(post) {
+  return {
+    post_name: post.post_name || post.name || post.city || post.post || '',
+    city: post.city || post.post_name || post.name || '',
+    country: post.country || post.country_name || '',
+    b1_b2_next_available: post.b1_b2_next_available ?? post.waitTimeB1B2 ?? post.b1b2,
+    student_next_available: post.student_next_available ?? post.waitTimeStudent ?? post.student,
+    petition_next_available: post.petition_next_available ?? post.waitTimePetition ?? post.petition,
+    crew_transit_next_available: post.crew_transit_next_available ?? post.waitTimeCrewTransit ?? post.crewTransit ?? post.crew,
+  };
+}
+
+function flatten(value) {
+  if (Array.isArray(value)) return value;
+  if (!value || typeof value !== 'object') return [];
+  for (const key of ['posts', 'data', 'results', 'locations', 'consulates', 'waitTimes']) {
+    if (Array.isArray(value[key])) return value[key];
+  }
+  return [];
+}
+
 export async function scrapeDosWaitTimesWithBrowser() {
   console.log('[automated-dos-wait-times] Launching headless browser for unattended DOS scrape...');
 
@@ -45,7 +66,7 @@ export async function scrapeDosWaitTimesWithBrowser() {
     const page = await context.newPage();
     console.log(`[automated-dos-wait-times] Navigating to ${DOS_GLOBAL_URL}...`);
 
-    let interceptedData = null;
+    const payloads = [];
 
     // Listen for any JSON data responses on the page
     page.on('response', async (response) => {
@@ -53,86 +74,71 @@ export async function scrapeDosWaitTimesWithBrowser() {
       if (url.includes('wait') && (url.endsWith('.json') || response.headers()['content-type']?.includes('json'))) {
         try {
           const json = await response.json();
-          if (Array.isArray(json) || json.posts || json.data) {
-            interceptedData = json;
-          }
+          payloads.push(json);
         } catch {}
       }
     });
 
     const response = await page.goto(DOS_GLOBAL_URL, {
-      waitUntil: 'networkidle',
-      timeout: 60000,
+      waitUntil: 'domcontentloaded',
+      timeout: 90000,
     });
 
     console.log(`[automated-dos-wait-times] Page loaded with HTTP status: ${response?.status()}`);
 
-    // Wait 3 seconds for client-side scripts to populate tables
+    await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => {});
     await page.waitForTimeout(3000);
 
     // Extract posts from DOM table if rendered
-    const extractedPosts = await page.evaluate(() => {
-      const posts = [];
+    const domRows = await page.evaluate(() => {
       const tables = Array.from(document.querySelectorAll('table'));
-
+      const rows = [];
       for (const table of tables) {
-        const rows = Array.from(table.querySelectorAll('tbody tr, tr')).slice(1);
-        for (const row of rows) {
-          const cells = Array.from(row.querySelectorAll('td, th')).map(c => c.textContent?.trim() || '');
+        const trs = Array.from(table.querySelectorAll('tbody tr, tr')).slice(1);
+        for (const tr of trs) {
+          const cells = Array.from(tr.querySelectorAll('td, th')).map(c => c.textContent?.trim() || '');
           if (cells.length >= 4) {
-            const postName = cells[0];
-            const b1b2 = cells[1];
-            const student = cells[2];
-            const petition = cells[3];
-            const crew = cells[4] || cells[3];
-
-            if (postName && !postName.toLowerCase().includes('embassy') && !postName.toLowerCase().includes('consulate') && !postName.toLowerCase().includes('city')) {
-              posts.push({
-                post_name: postName,
-                city: postName,
-                b1_b2_next_available: b1b2,
-                student_next_available: student,
-                petition_next_available: petition,
-                crew_transit_next_available: crew,
-              });
-            } else if (postName && postName.length > 2) {
-              posts.push({
-                post_name: postName,
-                city: postName,
-                b1_b2_next_available: b1b2,
-                student_next_available: student,
-                petition_next_available: petition,
-                crew_transit_next_available: crew,
-              });
-            }
+            rows.push(cells);
           }
         }
       }
-      return posts;
+      return rows;
     });
 
-    const finalPosts = (interceptedData && (Array.isArray(interceptedData) ? interceptedData : (interceptedData.posts || interceptedData.data))) || extractedPosts;
+    let posts = payloads.flatMap(flatten).map(normalizePost).filter(p => p.post_name);
+    if (!posts.length && domRows.length > 0) {
+      posts = domRows.map(cells => normalizePost({
+        post_name: cells[0],
+        city: cells[0],
+        b1_b2_next_available: cells[1],
+        student_next_available: cells[2],
+        petition_next_available: cells[3],
+        crew_transit_next_available: cells[4] || cells[3],
+      }));
+    }
 
-    if (!finalPosts || finalPosts.length === 0) {
+    const unique = [...new Map(posts.filter(p => p.post_name && Object.values(p).some(v => v !== undefined && v !== '')).map(p => [p.post_name.toLowerCase(), p])).values()];
+
+    if (unique.length === 0) {
       console.warn('[automated-dos-wait-times] No posts could be extracted from page DOM. Checking if snapshot already exists...');
       if (fs.existsSync(SNAPSHOT_OUTPUT_PATH)) {
         console.log(`[automated-dos-wait-times] Using existing snapshot at ${SNAPSHOT_OUTPUT_PATH}`);
-        await importDosSnapshot(SNAPSHOT_OUTPUT_PATH);
-        return { success: true, source: 'cached-snapshot' };
+        const result = await importDosSnapshot(SNAPSHOT_OUTPUT_PATH);
+        return { success: true, source: 'cached-snapshot', ...result };
       }
       throw new Error('Automated browser scrape returned 0 consular records.');
     }
 
-    console.log(`[automated-dos-wait-times] Successfully extracted ${finalPosts.length} posts via browser!`);
+    console.log(`[automated-dos-wait-times] Successfully extracted ${unique.length} posts via browser!`);
 
     const snapshotPayload = {
       _meta: {
         source_updated: new Date().toISOString().slice(0, 10),
         extracted_at: new Date().toISOString(),
-        total_posts: finalPosts.length,
+        total_posts: unique.length,
         source: DOS_GLOBAL_URL,
       },
-      posts: finalPosts,
+      posts: unique,
     };
 
     fs.writeFileSync(SNAPSHOT_OUTPUT_PATH, JSON.stringify(snapshotPayload, null, 2));
@@ -145,11 +151,10 @@ export async function scrapeDosWaitTimesWithBrowser() {
     return { success: true, matchedCountries, totalConsulates };
   } catch (err) {
     console.error('[automated-dos-wait-times] Browser scrape failed:', err.message);
-    // Fallback: If snapshot exists on disk, import it
     if (fs.existsSync(SNAPSHOT_OUTPUT_PATH)) {
       console.log(`[automated-dos-wait-times] Falling back to existing snapshot at ${SNAPSHOT_OUTPUT_PATH}...`);
-      await importDosSnapshot(SNAPSHOT_OUTPUT_PATH);
-      return { success: true, fallback: true };
+      const result = await importDosSnapshot(SNAPSHOT_OUTPUT_PATH);
+      return { success: true, fallback: true, ...result };
     }
     throw err;
   } finally {

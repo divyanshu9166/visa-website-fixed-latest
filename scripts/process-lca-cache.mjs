@@ -1,23 +1,26 @@
-import fs from 'fs';
-import path from 'path';
-import { execSync } from 'child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync, execSync } from 'node:child_process';
 
 const inputFile = process.argv[2];
-
 if (!inputFile || !fs.existsSync(inputFile)) {
   console.error(`File not found: ${inputFile}. Provide a valid LCA XLSX or CSV file.`);
   console.error('Usage: node scripts/process-lca-cache.mjs <path-to-xlsx-or-csv>');
   process.exit(1);
 }
 
-function unescapeXml(s) {
-  if (!s) return '';
-  return s
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'");
+const TMP_DIR = path.join(process.cwd(), 'tmp');
+const XLSX_DIR = path.join(TMP_DIR, `lca-xlsx-${process.pid}`);
+const OUTPUT = path.join(TMP_DIR, 'lca-aggregated-cache.json');
+const XML_ESCAPES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" };
+
+function decodeXml(value = '') {
+  return String(value).replace(/&(#x?[0-9a-f]+|amp|lt|gt|quot|apos);/gi, (_, key) => {
+    const lower = key.toLowerCase();
+    if (lower.startsWith('#x')) return String.fromCodePoint(parseInt(lower.slice(2), 16));
+    if (lower.startsWith('#')) return String.fromCodePoint(parseInt(lower.slice(1), 10));
+    return XML_ESCAPES[lower] ?? _;
+  });
 }
 
 function createSlugGenerator() {
@@ -42,7 +45,146 @@ function createSlugGenerator() {
   };
 }
 
-async function extractXlsx(xlsxPath, targetDir) {
+function parseNumber(value) {
+  const n = Number.parseFloat(String(value ?? '').replace(/[^0-9.-]/g, ''));
+  return Number.isFinite(n) ? n : null;
+}
+
+function annualizeWage(value, unit) {
+  const n = parseNumber(value);
+  if (n === null || n <= 0) return null;
+  const u = String(unit ?? '').toUpperCase();
+  if (u.includes('HOUR') || u === 'HR' || (n < 500 && !u.includes('YEAR') && !u.includes('YR'))) return n * 2080;
+  if (u.includes('MONTH') || u === 'MTH') return n * 12;
+  if (u.includes('WEEK') || u === 'WK') return n * 52;
+  return n;
+}
+
+function levelKey(value) {
+  const u = String(value ?? '').toUpperCase();
+  if (/\b(IV|4)\b/.test(u) || u.includes('LEVEL IV')) return 'L4';
+  if (/\b(III|3)\b/.test(u) || u.includes('LEVEL III')) return 'L3';
+  if (/\b(II|2)\b/.test(u) || u.includes('LEVEL II')) return 'L2';
+  if (/\b(I|1)\b/.test(u) || u.includes('LEVEL I')) return 'L1';
+  return null;
+}
+
+function createStats(name) {
+  return {
+    originalName: name,
+    totalLCAs: 0,
+    approvedLCAs: 0,
+    wages: [],
+    titles: new Map(),
+    states: new Map(),
+    wageLevels: { L1: 0, L2: 0, L3: 0, L4: 0 },
+  };
+}
+
+function addCount(map, value, limit = 100) {
+  const key = String(value ?? '').trim();
+  if (!key) return;
+  map.set(key, (map.get(key) || 0) + 1);
+  if (map.size > limit * 2) {
+    const keep = [...map.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit);
+    map.clear();
+    for (const [k, v] of keep) map.set(k, v);
+  }
+}
+
+function consumeRow(row, employers) {
+  const employer = row.EMPLOYER_NAME || row.EMPLOYER_BUSINESS_NAME || row.EMPLOYER_LEGAL_BUSINESS_NAME;
+  const name = String(employer ?? '').trim();
+  if (!name) return;
+  const key = name.toUpperCase();
+  if (!employers.has(key)) employers.set(key, createStats(name));
+  const stats = employers.get(key);
+  stats.totalLCAs++;
+
+  const status = String(row.CASE_STATUS ?? '').toUpperCase();
+  if (status.includes('CERTIFIED')) {
+    stats.approvedLCAs++;
+  }
+
+  const wage = annualizeWage(row.WAGE_RATE_OF_PAY_FROM, row.WAGE_UNIT_OF_PAY_FROM || row.WAGE_UNIT_OF_PAY || row.WAGE_RATE_OF_PAY_UNIT);
+  if (wage && wage >= 20_000 && wage <= 2_000_000) {
+    stats.wages.push(wage);
+  }
+
+  addCount(stats.titles, row.SOC_TITLE || row.SOC_NAME || row.JOB_TITLE, 100);
+  addCount(stats.states, String(row.WORKSITE_STATE || row.EMPLOYER_STATE || '').toUpperCase(), 50);
+
+  const level = levelKey(row.PW_WAGE_LEVEL);
+  if (level) stats.wageLevels[level]++;
+}
+
+function parseCsvLine(line) {
+  const cells = [];
+  let cell = '';
+  let quoted = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"' && line[i + 1] === '"') {
+      cell += '"';
+      i++;
+    } else if (c === '"') {
+      quoted = !quoted;
+    } else if (c === ',' && !quoted) {
+      cells.push(cell);
+      cell = '';
+    } else {
+      cell += c;
+    }
+  }
+  cells.push(cell);
+  return cells;
+}
+
+async function streamCsv(file, consume) {
+  let buffer = '';
+  let headers = null;
+  let rows = 0;
+  for await (const chunk of fs.createReadStream(file, { encoding: 'utf8' })) {
+    buffer += chunk;
+    const lines = buffer.split(/\r?\n/);
+    buffer = lines.pop() || '';
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      const values = parseCsvLine(line);
+      if (!headers) {
+        headers = values.map((v) => v.trim().toUpperCase());
+      } else {
+        const row = {};
+        headers.forEach((h, i) => {
+          row[h] = values[i] ?? '';
+        });
+        consume(row);
+        rows++;
+      }
+    }
+  }
+  if (buffer.trim() && headers) {
+    const values = parseCsvLine(buffer);
+    const row = {};
+    headers.forEach((h, i) => {
+      row[h] = values[i] ?? '';
+    });
+    consume(row);
+    rows++;
+  }
+  return rows;
+}
+
+function loadSharedStrings(dir) {
+  const file = path.join(dir, 'xl', 'sharedStrings.xml');
+  if (!fs.existsSync(file)) return [];
+  const xml = fs.readFileSync(file, 'utf8');
+  return [...xml.matchAll(/<si>([\s\S]*?)<\/si>/g)].map((m) =>
+    [...m[1].matchAll(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/g)].map((x) => decodeXml(x[1])).join('')
+  );
+}
+
+function extractXlsx(xlsxPath, targetDir) {
   if (fs.existsSync(targetDir)) {
     fs.rmSync(targetDir, { recursive: true, force: true });
   }
@@ -51,352 +193,146 @@ async function extractXlsx(xlsxPath, targetDir) {
   const resolvedXlsx = path.resolve(xlsxPath);
   const resolvedTarget = path.resolve(targetDir);
 
-  console.log(`Extracting ${resolvedXlsx} to ${resolvedTarget}...`);
   try {
-    // Try tar.exe with forward slashes (standard on Windows 10/11)
-    const normXlsx = resolvedXlsx.replace(/\\/g, '/');
-    const normTarget = resolvedTarget.replace(/\\/g, '/');
-    execSync(`tar.exe -xf "${normXlsx}" -C "${normTarget}"`, { stdio: 'pipe' });
-  } catch (err) {
-    // PowerShell .NET extraction
     if (process.platform === 'win32') {
+      const normXlsx = resolvedXlsx.replace(/\\/g, '/');
+      const normTarget = resolvedTarget.replace(/\\/g, '/');
+      try {
+        execSync(`tar.exe -xf "${normXlsx}" -C "${normTarget}"`, { stdio: 'pipe' });
+        return;
+      } catch {}
       const psCmd = `Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory('${resolvedXlsx.replace(/'/g, "''")}', '${resolvedTarget.replace(/'/g, "''")}')`;
-      execSync(`powershell -NoProfile -NonInteractive -Command "${psCmd}"`, { stdio: 'inherit' });
+      execSync(`powershell -NoProfile -NonInteractive -Command "${psCmd}"`, { stdio: 'pipe' });
     } else {
-      throw err;
+      try {
+        execFileSync('unzip', ['-oq', resolvedXlsx, '-d', resolvedTarget]);
+      } catch {
+        execSync(`tar -xf "${resolvedXlsx}" -C "${resolvedTarget}"`, { stdio: 'pipe' });
+      }
     }
+  } catch (err) {
+    throw new Error(`Failed to extract XLSX: ${err.message}`);
   }
 }
 
-async function parseSharedStrings(ssPath) {
-  console.log('Loading shared strings index...');
-  if (!fs.existsSync(ssPath)) {
-    console.log('No sharedStrings.xml found (inline strings used).');
-    return [];
-  }
-  const ssContent = fs.readFileSync(ssPath, 'utf8');
-  const strings = [];
-  const siRegex = /<si>([\s\S]*?)<\/si>/g;
-  let match;
-  while ((match = siRegex.exec(ssContent)) !== null) {
-    const si = match[1];
-    const tMatches = si.match(/<t(?:\s+[^>]*)?>([\s\S]*?)<\/t>/g);
-    if (tMatches) {
-      const text = tMatches.map(t => {
-        const inner = t.replace(/^<t(?:\s+[^>]*)?>/, '').replace(/<\/t>$/, '');
-        return unescapeXml(inner);
-      }).join('');
-      strings.push(text);
-    } else {
-      strings.push('');
-    }
-  }
-  console.log(`Loaded ${strings.length} shared strings.`);
-  return strings;
-}
-
-async function processXlsxStream(extractedDir, onRow) {
-  const ssPath = path.join(extractedDir, 'xl', 'sharedStrings.xml');
-  const sheetPath = path.join(extractedDir, 'xl', 'worksheets', 'sheet1.xml');
-
-  if (!fs.existsSync(sheetPath)) {
-    throw new Error(`sheet1.xml not found in ${extractedDir}`);
-  }
-
-  const strings = await parseSharedStrings(ssPath);
-  console.log(`Streaming rows from ${sheetPath}...`);
-
-  const readStream = fs.createReadStream(sheetPath, {
-    encoding: 'utf8',
-    highWaterMark: 128 * 1024
-  });
+async function streamXlsx(file, consume) {
+  extractXlsx(file, XLSX_DIR);
+  const strings = loadSharedStrings(XLSX_DIR);
+  const sheet = path.join(XLSX_DIR, 'xl', 'worksheets', 'sheet1.xml');
+  if (!fs.existsSync(sheet)) throw new Error('First worksheet not found in XLSX');
 
   let buffer = '';
-  let rowCount = 0;
-  let headerMap = {};
-
-  for await (const chunk of readStream) {
+  let headers = null;
+  let rows = 0;
+  for await (const chunk of fs.createReadStream(sheet, { encoding: 'utf8', highWaterMark: 128 * 1024 })) {
     buffer += chunk;
-    let rowStart = buffer.indexOf('<row ');
-    while (rowStart !== -1) {
-      const rowEnd = buffer.indexOf('</row>', rowStart);
-      if (rowEnd === -1) {
-        buffer = buffer.substring(rowStart);
+    while (true) {
+      const start = buffer.indexOf('<row');
+      const end = buffer.indexOf('</row>', start);
+      if (start < 0 || end < 0) {
+        if (start > 0) buffer = buffer.slice(start);
         break;
       }
-
-      const rowXml = buffer.substring(rowStart, rowEnd + 6);
-      buffer = buffer.substring(rowEnd + 6);
-      rowCount++;
-
-      const cellMatches = rowXml.match(/<c\s+r="([A-Z]+)\d+"(?:[^>]*\st="([a-z]+)")?[^>]*>(?:<v>([\s\S]*?)<\/v>)?<\/c>/g);
-      if (cellMatches) {
-        const cells = {};
-        for (const c of cellMatches) {
-          const colMatch = c.match(/r="([A-Z]+)\d+"/);
-          const typeMatch = c.match(/t="([a-z]+)"/);
-          const valMatch = c.match(/<v>([\s\S]*?)<\/v>/);
-
-          if (!colMatch) continue;
-          const col = colMatch[1];
-          const type = typeMatch ? typeMatch[1] : null;
-          let val = valMatch ? valMatch[1] : '';
-
-          if (type === 's') {
-            const idx = parseInt(val, 10);
-            val = strings[idx] !== undefined ? strings[idx] : '';
-          } else if (val) {
-            val = unescapeXml(val);
-          }
-          cells[col] = val;
-        }
-
-        if (rowCount === 1) {
-          headerMap = {};
-          for (const [col, val] of Object.entries(cells)) {
-            headerMap[col] = String(val || '').trim().toUpperCase();
-          }
-          console.log(`Identified ${Object.keys(headerMap).length} columns in header row.`);
-        } else {
-          const rowObj = {};
-          for (const [col, val] of Object.entries(cells)) {
-            const headerName = headerMap[col];
-            if (headerName) rowObj[headerName] = val;
-          }
-          onRow(rowObj, rowCount - 1);
-        }
+      const rowXml = buffer.slice(start, end + 6);
+      buffer = buffer.slice(end + 6);
+      const row = {};
+      for (const cell of rowXml.matchAll(/<c\s+([^>]*?r="([A-Z]+)\d+"[^>]*)>([\s\S]*?)<\/c>/g)) {
+        const attrs = cell[1];
+        const col = cell[2];
+        const body = cell[3];
+        const type = attrs.match(/\bt="([^"]+)"/)?.[1];
+        const raw = body.match(/<v>([\s\S]*?)<\/v>/)?.[1] ?? body.match(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/)?.[1] ?? '';
+        row[col] = decodeXml(type === 's' ? strings[Number(raw)] ?? '' : raw);
       }
-
-      if (rowCount % 100000 === 0) {
-        console.log(`Processed ${rowCount} rows...`);
+      if (!headers) {
+        headers = Object.fromEntries(Object.entries(row).map(([col, value]) => [col, String(value).trim().toUpperCase()]));
+      } else {
+        const normalized = {};
+        for (const [col, value] of Object.entries(row)) {
+          if (headers[col]) normalized[headers[col]] = value;
+        }
+        consume(normalized);
+        rows++;
       }
-
-      rowStart = buffer.indexOf('<row ');
     }
   }
-
-  console.log(`Completed parsing all ${rowCount - 1} data rows.`);
+  fs.rmSync(XLSX_DIR, { recursive: true, force: true });
+  return rows;
 }
 
-async function processCsvStream(csvPath, onRow) {
-  console.log(`Streaming CSV from ${csvPath}...`);
-  const data = fs.readFileSync(csvPath, 'utf-8');
-  const lines = data.split(/\r?\n/);
-  if (lines.length === 0) return;
-
-  const parseLine = (line) => {
-    const result = [];
-    let current = '';
-    let inQuotes = false;
-    for (let i = 0; i < line.length; i++) {
-      const char = line[i];
-      if (char === '"' && line[i + 1] === '"') {
-        current += '"';
-        i++;
-      } else if (char === '"') {
-        inQuotes = !inQuotes;
-      } else if (char === ',' && !inQuotes) {
-        result.push(current);
-        current = '';
-      } else {
-        current += char;
-      }
-    }
-    result.push(current);
-    return result;
-  };
-
-  const headers = parseLine(lines[0]).map(h => String(h || '').trim().toUpperCase());
-  for (let i = 1; i < lines.length; i++) {
-    if (!lines[i].trim()) continue;
-    const values = parseLine(lines[i]);
-    const rowObj = {};
-    headers.forEach((h, idx) => { rowObj[h] = values[idx] || ''; });
-    onRow(rowObj, i);
-    if (i % 100000 === 0) {
-      console.log(`Processed ${i} rows...`);
-    }
-  }
-}
-
-async function main() {
-  console.log(`=== Processing LCA Dataset: ${inputFile} ===`);
-
-  const employers = new Map();
-  let lineCount = 0;
-
-  const handleRow = (row) => {
-    lineCount++;
-    const employerName = row['EMPLOYER_NAME'] || row['EMPLOYER_BUSINESS_NAME'] || row['EMPLOYER_LEGAL_BUSINESS_NAME'];
-    const caseStatus = row['CASE_STATUS'];
-    const wageStr = row['WAGE_RATE_OF_PAY_FROM'];
-    const wageUnit = row['WAGE_UNIT_OF_PAY_FROM'] || row['WAGE_UNIT_OF_PAY'] || row['WAGE_RATE_OF_PAY_UNIT'];
-    const socTitle = row['SOC_TITLE'] || row['SOC_NAME'] || row['JOB_TITLE'];
-    const state = row['WORKSITE_STATE'] || row['EMPLOYER_STATE'];
-    const wageLevel = row['PW_WAGE_LEVEL'];
-
-    if (!employerName) return;
-    const trimmedName = String(employerName).trim();
-    if (!trimmedName) return;
-
-    const empNameUpper = trimmedName.toUpperCase();
-    if (!employers.has(empNameUpper)) {
-      employers.set(empNameUpper, {
-        originalName: trimmedName,
-        totalLCAs: 0,
-        approvedLCAs: 0,
-        wages: [],
-        titles: {},
-        states: {},
-        wageLevels: { L1: 0, L2: 0, L3: 0, L4: 0 }
-      });
-    }
-
-    const emp = employers.get(empNameUpper);
-    emp.totalLCAs++;
-
-    if (caseStatus && String(caseStatus).toUpperCase().includes('CERTIFIED')) {
-      emp.approvedLCAs++;
-    }
-
-    if (wageStr !== undefined && wageStr !== null && wageStr !== '') {
-      let wage = 0;
-      if (typeof wageStr === 'number') {
-        wage = wageStr;
-      } else {
-        wage = parseFloat(String(wageStr).replace(/[^0-9.]/g, ''));
-      }
-
-      if (!isNaN(wage) && wage > 0) {
-        const unit = String(wageUnit || '').trim().toUpperCase();
-        if (unit.includes('HR') || unit.includes('HOUR') || (wage < 500 && !unit.includes('YR') && !unit.includes('YEAR'))) {
-          wage = wage * 2080;
-        } else if (unit.includes('MTH') || unit.includes('MONTH')) {
-          wage = wage * 12;
-        } else if (unit.includes('WK') || unit.includes('WEEK')) {
-          wage = wage * 52;
-        }
-
-        if (wage >= 20000 && wage <= 2000000) {
-          emp.wages.push(wage);
-        }
-      }
-    }
-
-    if (socTitle) {
-      const s = String(socTitle).trim();
-      if (s) {
-        emp.titles[s] = (emp.titles[s] || 0) + 1;
-      }
-    }
-
-    if (state) {
-      const s = String(state).trim().toUpperCase();
-      if (s && s.length === 2) {
-        emp.states[s] = (emp.states[s] || 0) + 1;
-      }
-    }
-
-    if (wageLevel) {
-      const l = String(wageLevel).trim().toUpperCase();
-      if (l.includes('IV') || l === 'LEVEL IV' || l === '4') emp.wageLevels.L4++;
-      else if (l.includes('III') || l === 'LEVEL III' || l === '3') emp.wageLevels.L3++;
-      else if (l.includes('II') || l === 'LEVEL II' || l === '2') emp.wageLevels.L2++;
-      else if (l.includes('I') || l === 'LEVEL I' || l === '1') emp.wageLevels.L1++;
-    }
-  };
-
-  const extractedDir = path.join(process.cwd(), 'tmp', 'lca_extracted_worker');
-
-  if (inputFile.endsWith('.csv')) {
-    await processCsvStream(inputFile, handleRow);
-  } else {
-    await extractXlsx(inputFile, extractedDir);
-    await processXlsxStream(extractedDir, handleRow);
-    // Cleanup temporary extracted directory
-    try {
-      fs.rmSync(extractedDir, { recursive: true, force: true });
-    } catch (_) {}
-  }
-
-  console.log(`Aggregation complete: ${lineCount} rows processed across ${employers.size} unique employers.`);
-
-  // Extract Fiscal Year and Quarter from filename (e.g. FY2026_Q3)
-  const fyMatch = inputFile.match(/FY(\d{4})/i);
-  const fiscalYear = fyMatch ? parseInt(fyMatch[1], 10) : new Date().getFullYear();
-  const qMatch = inputFile.match(/_Q(\d)/i) || inputFile.match(/Q(\d)/i);
+function buildOutput(employers, file) {
+  const fyMatch = file.match(/FY(\d{4})/i);
+  const fiscalYear = fyMatch ? parseInt(fyMatch[1], 10) : new Date().getUTCFullYear();
+  const qMatch = file.match(/(?:_|-)Q(\d)/i) || file.match(/Q(\d)/i);
   const quarter = qMatch ? parseInt(qMatch[1], 10) : 4;
 
-  console.log(`Targeting Fiscal Year: ${fiscalYear}, Quarter: Q${quarter}`);
-
-  // Deterministic slug generator
-  const sortedKeys = Array.from(employers.keys()).sort();
   const generateSlug = createSlugGenerator();
+  const sortedStats = [...employers.values()].sort((a, b) => b.totalLCAs - a.totalLCAs);
 
-  const dataToInsert = [];
-  for (const key of sortedKeys) {
-    const emp = employers.get(key);
-    emp.wages.sort((a, b) => a - b);
+  const records = sortedStats.map((stats) => {
+    const slug = generateSlug(stats.originalName);
+    const approvalRate = stats.totalLCAs ? Number(((stats.approvedLCAs / stats.totalLCAs) * 100).toFixed(2)) : 0;
+
     let avgWage = 0;
     let medianWage = 0;
-    if (emp.wages.length > 0) {
-      avgWage = emp.wages.reduce((a, b) => a + b, 0) / emp.wages.length;
-      medianWage = emp.wages[Math.floor(emp.wages.length / 2)];
+    if (stats.wages.length > 0) {
+      stats.wages.sort((a, b) => a - b);
+      avgWage = Math.round(stats.wages.reduce((a, b) => a + b, 0) / stats.wages.length);
+      medianWage = Math.round(stats.wages[Math.floor(stats.wages.length / 2)]);
     }
 
-    const topTitles = Object.entries(emp.titles)
+    let grade = 'C';
+    if (stats.totalLCAs >= 50 && approvalRate >= 95) grade = 'A';
+    else if (stats.totalLCAs >= 20 && approvalRate >= 85) grade = 'B';
+    else if (approvalRate >= 80) grade = 'B';
+
+    const topTitles = [...stats.titles.entries()]
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10)
       .map(([title, count]) => ({ title, count, avgWage: 0, socCode: '' }));
 
-    const topStates = Object.entries(emp.states)
+    const topStates = [...stats.states.entries()]
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
       .map(([state, count]) => ({ state, count }));
 
-    const approvalRate = emp.totalLCAs > 0
-      ? parseFloat(((emp.approvedLCAs / emp.totalLCAs) * 100).toFixed(2))
-      : 0;
-
-    let grade = 'C';
-    if (emp.totalLCAs >= 50 && approvalRate >= 95) grade = 'A';
-    else if (emp.totalLCAs >= 20 && approvalRate >= 85) grade = 'B';
-    else if (approvalRate >= 80) grade = 'B';
-
-    dataToInsert.push({
-      employerName: emp.originalName,
-      slug: generateSlug(emp.originalName),
-      totalLCAs: emp.totalLCAs,
+    return {
+      employerName: stats.originalName,
+      slug,
+      totalLCAs: stats.totalLCAs,
       approvalRate,
-      avgWage: Math.round(avgWage),
-      medianWage: Math.round(medianWage),
+      avgWage,
+      medianWage,
       topTitles,
       topStates,
-      wageLevelDist: emp.wageLevels,
+      wageLevelDist: stats.wageLevels,
       fiscalYear,
       quarter,
       grade,
-      lastUpdated: new Date().toISOString()
-    });
-  }
-
-  // Sort final cache by totalLCAs descending
-  dataToInsert.sort((a, b) => b.totalLCAs - a.totalLCAs);
-
-  const outDir = path.join(process.cwd(), 'tmp');
-  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-
-  const outFile = path.join(outDir, 'lca-aggregated-cache.json');
-  fs.writeFileSync(outFile, JSON.stringify(dataToInsert, null, 2));
-
-  console.log(`\nSuccess! Wrote ${dataToInsert.length} employer records to ${outFile}`);
-  console.log(`Top 5 Employers in FY${fiscalYear} Q${quarter}:`);
-  dataToInsert.slice(0, 5).forEach((e, idx) => {
-    console.log(`  ${idx + 1}. ${e.employerName}: ${e.totalLCAs.toLocaleString()} LCAs (${e.approvalRate}% approved, Median: $${e.medianWage.toLocaleString()})`);
+      lastUpdated: new Date().toISOString(),
+    };
   });
+
+  fs.mkdirSync(TMP_DIR, { recursive: true });
+  fs.writeFileSync(OUTPUT, JSON.stringify(records, null, 2));
+  console.log(`Wrote ${records.length} employer records to ${OUTPUT}`);
 }
 
-main().catch(err => {
-  console.error('Process error:', err);
+async function main() {
+  const employers = new Map();
+  const rows = inputFile.toLowerCase().endsWith('.csv')
+    ? await streamCsv(inputFile, (row) => consumeRow(row, employers))
+    : await streamXlsx(inputFile, (row) => consumeRow(row, employers));
+
+  if (!rows || !employers.size) throw new Error('No valid LCA rows found');
+  console.log(`Processed ${rows} rows across ${employers.size} employers`);
+  buildOutput(employers, inputFile);
+}
+
+main().catch((error) => {
+  try {
+    fs.rmSync(XLSX_DIR, { recursive: true, force: true });
+  } catch {}
+  console.error(`LCA processing failed: ${error.message}`);
   process.exit(1);
 });

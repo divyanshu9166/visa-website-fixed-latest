@@ -1,17 +1,22 @@
 {
   "processingTimes": {
-    "consecutiveFailures": 5,
-    "lastFailed": "2026-09-05T18:46:44.341Z",
-    "lastError": "Cloudflare escalated to an interactive Turnstile challenge — refusing to attempt to solve it. Falling back to preserved data."
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
   },
   "visaBulletin": {
-    "consecutiveFailures": 5,
-    "lastFailed": "2026-09-05T18:46:44.341Z",
-    "lastError": "HTTP 403 (WAF/RateLimit)"
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
   },
   "waitTimes": {
-    "consecutiveFailures": 5,
-    "lastFailed": "2026-09-05T18:46:44.341Z",
-    "lastError": "HTTP 403 (WAF/RateLimit)"
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
+  },
+  "uscisQuarterlyStats": {
+    "consecutiveFailures": 0,
+    "lastFailed": null,
+    "lastError": null
   }
 }
