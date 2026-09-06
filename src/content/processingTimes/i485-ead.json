@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for EAD for Pending I-485 (c(9)) [2026]",
   "seoDesc": "Check official USCIS processing times for EAD for Pending I-485 (c(9)) (Form I-765) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
+  "lastUpdated": "2026-09-06",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [

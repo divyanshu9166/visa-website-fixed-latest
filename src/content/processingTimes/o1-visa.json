@@ -6,7 +6,7 @@
   "category": "work-visas",
   "seoTitle": "Current USCIS Processing Times for O-1 Visa [2026]",
   "seoDesc": "Check official USCIS processing times for O-1 Visa (Form I-129) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-05",
+  "lastUpdated": "2026-09-06",
   "dataSource": "seed",
   "sourceUrl": "https://egov.uscis.gov/processing-times/",
   "servicecenters": [
