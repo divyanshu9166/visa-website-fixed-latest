@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-09-06T16:22:43.606Z",
+  "timestamp": "2026-09-06T17:01:17.374Z",
   "seedOnly": false,
   "sources": {
     "processingTimes": {
@@ -28,8 +28,8 @@
       "lastError": null
     },
     "dosWaitTimes": {
-      "status": "LIVE_VALIDATED",
-      "liveCount": 1,
+      "status": "PRESERVED",
+      "liveCount": 0,
       "lastError": null
     },
     "dolLca": {
@@ -38,7 +38,7 @@
       "lastError": "Quarterly LCA workflow is separate from the daily refresh."
     }
   },
-  "publication": "LIVE_VALIDATED",
+  "publication": "PRESERVED_LAST_VALIDATED_SNAPSHOT",
   "rollback": {
     "performed": false
   }
