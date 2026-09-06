@@ -104,8 +104,10 @@ export async function fetchWithBypass(targetUrl, options = {}) {
 
   if (scraperApiKey) {
     const encoded = encodeURIComponent(targetUrl);
-    const url = `https://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&premium=true&country_code=us&connection_timeout=70`;
-    providers.push({ name: 'ScraperAPI', url, headers: proxyHeaders });
+    const premiumUrl = `https://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&premium=true&country_code=us&connection_timeout=70`;
+    providers.push({ name: 'ScraperAPI (Premium)', url: premiumUrl, headers: proxyHeaders });
+    const ultraUrl = `https://api.scraperapi.com?api_key=${scraperApiKey}&url=${encoded}&render=${renderJs}&ultra_premium=true&country_code=us&connection_timeout=70`;
+    providers.push({ name: 'ScraperAPI (UltraPremium)', url: ultraUrl, headers: proxyHeaders });
   }
 
   // Direct fetch fallback
