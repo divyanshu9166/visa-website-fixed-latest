@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { PrismaClient } from '@prisma/client';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const titleSlugMap: Record<string, string> = {
@@ -20,11 +21,18 @@ export async function getStaticPaths() {
 const { title } = Astro.params;
 const { titleLabel } = Astro.props;
 
-const prisma = new PrismaClient();
-const employers = await prisma.lcaEmployer.findMany({
-  orderBy: { totalLCAs: 'desc' },
-  take: 1000
-});
+let employers: any[] = [];
+try {
+  const prisma = new PrismaClient();
+  employers = await prisma.lcaEmployer.findMany({
+    orderBy: { totalLCAs: 'desc' },
+    take: 1000
+  });
+} catch {
+  // Graceful fallback to committed static collection during SSG build
+  const lcaEntries = await getCollection('lca');
+  employers = lcaEntries.map(e => e.data);
+}
 
 // Aggregate salary data for this title across all employers
 type TitleMatch = { employer: string; slug: string; count: number; avgWage: number; };

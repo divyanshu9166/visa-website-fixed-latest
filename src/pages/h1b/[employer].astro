@@ -3,14 +3,24 @@ import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DisqusComments from '../../components/DisqusComments.astro';
 import { PrismaClient } from '@prisma/client';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const prisma = new PrismaClient();
-  const employers = await prisma.lcaEmployer.findMany({
-    orderBy: { totalLCAs: 'desc' },
-    take: 500
-  });
-  return employers.map(e => ({ params: { employer: e.slug }, props: { employer: e } }));
+  try {
+    const prisma = new PrismaClient();
+    const employers = await prisma.lcaEmployer.findMany({
+      orderBy: { totalLCAs: 'desc' },
+      take: 500
+    });
+    if (employers && employers.length > 0) {
+      return employers.map(e => ({ params: { employer: e.slug }, props: { employer: e } }));
+    }
+  } catch {
+    // Fallback to committed static collection if database is unreachable at SSG build time
+  }
+
+  const lcaEntries = await getCollection('lca');
+  return lcaEntries.map(e => ({ params: { employer: e.data.slug }, props: { employer: e.data } }));
 }
 
 const { employer } = Astro.props;

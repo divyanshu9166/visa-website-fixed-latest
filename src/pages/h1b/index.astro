@@ -2,20 +2,33 @@
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { PrismaClient } from '@prisma/client';
+import { getCollection } from 'astro:content';
 
-const prisma = new PrismaClient();
+let employers: any[] = [];
+let totalLCAs = 0;
+let totalEmployers = 0;
 
-const employers = await prisma.lcaEmployer.findMany({
-  orderBy: { totalLCAs: 'desc' },
-  take: 500
-});
+try {
+  const prisma = new PrismaClient();
+  employers = await prisma.lcaEmployer.findMany({
+    orderBy: { totalLCAs: 'desc' },
+    take: 500
+  });
 
-const stats = await prisma.lcaEmployer.aggregate({
-  _sum: { totalLCAs: true },
-  _count: { _all: true }
-});
-const totalLCAs = stats._sum.totalLCAs || 0;
-const totalEmployers = stats._count._all || 0;
+  const stats = await prisma.lcaEmployer.aggregate({
+    _sum: { totalLCAs: true },
+    _count: { _all: true }
+  });
+  totalLCAs = stats._sum.totalLCAs || 0;
+  totalEmployers = stats._count._all || 0;
+} catch {
+  // Graceful fallback to verified static content collection during SSG build
+  const lcaEntries = await getCollection('lca');
+  employers = lcaEntries.map(e => e.data).sort((a, b) => b.totalLCAs - a.totalLCAs);
+  totalLCAs = employers.reduce((sum, e) => sum + (e.totalLCAs || 0), 0);
+  totalEmployers = employers.length;
+}
+
 const gradeColor: Record<string, string> = {
   A: 'bg-emerald-100 text-emerald-700',
   B: 'bg-blue-100 text-blue-700',
