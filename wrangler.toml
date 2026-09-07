@@ -3,6 +3,7 @@
 #   - `npx wrangler pages dev dist`      (local full-stack dev, see README)
 #   - `npx wrangler pages deploy dist`   (manual/CI deploy, see package.json "deploy")
 name = "visa-website"
+pages_build_output_dir = "dist"
 compatibility_date = "2026-06-01"
 
 # Prisma's generated client checks a couple of Node globals (e.g. `process`)

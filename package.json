@@ -37,7 +37,6 @@
     "chart.js": "^4.5.1",
     "cheerio": "^1.2.0",
     "impers": "^0.1.2",
-    "playwright": "^1.63.0",
     "sitemap": "^9.0.1",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3",
@@ -46,6 +45,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260621.1",
+    "playwright": "^1.63.0",
     "prisma": "^6.4.1",
     "wrangler": "^4.103.0"
   }
