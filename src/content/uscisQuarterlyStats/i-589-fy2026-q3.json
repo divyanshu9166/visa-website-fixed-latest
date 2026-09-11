@@ -1,0 +1,30 @@
+{
+  "formType": "I-589",
+  "formName": "I-589",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 0,
+  "approved": 0,
+  "denied": 0,
+  "completions": 0,
+  "pending": 0,
+  "processingTimeMonths": null,
+  "approvalRate": null,
+  "denialRate": null,
+  "subtypes": [
+    {
+      "subtypeName": "I-589",
+      "receipts": 0,
+      "approved": 0,
+      "denied": 0,
+      "completions": 0,
+      "pending": 0,
+      "processingTimeMonths": null
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

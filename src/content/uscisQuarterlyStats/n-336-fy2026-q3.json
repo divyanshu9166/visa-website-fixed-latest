@@ -1,0 +1,30 @@
+{
+  "formType": "N-336",
+  "formName": "Req. for a Hearing on a Decision in Natz. Proceedings (Under Sect. 336 of the INA)",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 1072,
+  "approved": 243,
+  "denied": 418,
+  "completions": 661,
+  "pending": 3975,
+  "processingTimeMonths": 4.9,
+  "approvalRate": 36.8,
+  "denialRate": 63.2,
+  "subtypes": [
+    {
+      "subtypeName": "Req. for a Hearing on a Decision in Natz. Proceedings (Under Sect. 336 of the INA)",
+      "receipts": 1072,
+      "approved": 243,
+      "denied": 418,
+      "completions": 661,
+      "pending": 3975,
+      "processingTimeMonths": 4.9
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

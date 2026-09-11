@@ -1,0 +1,30 @@
+{
+  "formType": "N-6001",
+  "formName": "Application for Certificate of Citizenship",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 12660,
+  "approved": 9199,
+  "denied": 831,
+  "completions": 10030,
+  "pending": 58165,
+  "processingTimeMonths": 6.9,
+  "approvalRate": 91.7,
+  "denialRate": 8.3,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Certificate of Citizenship",
+      "receipts": 12660,
+      "approved": 9199,
+      "denied": 831,
+      "completions": 10030,
+      "pending": 58165,
+      "processingTimeMonths": 6.9
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

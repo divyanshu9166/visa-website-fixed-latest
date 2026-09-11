@@ -1,0 +1,48 @@
+{
+  "formType": "I-131",
+  "formName": "Application for Travel Documents, Parole Documents, and Arrival/Departure Records",
+  "category": "Travel/Parole",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 140883,
+  "approved": 58187,
+  "denied": 19990,
+  "completions": 78177,
+  "pending": 575301,
+  "processingTimeMonths": 14.6,
+  "approvalRate": 74.4,
+  "denialRate": 25.6,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Travel Documents, Parole Documents, and Arrival/Departure Records",
+      "receipts": 21904,
+      "approved": 13551,
+      "denied": 1255,
+      "completions": 14806,
+      "pending": 120768,
+      "processingTimeMonths": 14.4
+    },
+    {
+      "subtypeName": "Application for Advance Parole Document for Aliens Inside the United States",
+      "receipts": 113627,
+      "approved": 43791,
+      "denied": 18200,
+      "completions": 61991,
+      "pending": 425511,
+      "processingTimeMonths": 5.8
+    },
+    {
+      "subtypeName": "Application for Travel Document, Parole Documents, and Arrival/Departure Records (Parole in Place)",
+      "receipts": 5352,
+      "approved": 845,
+      "denied": 535,
+      "completions": 1380,
+      "pending": 29022,
+      "processingTimeMonths": 14.6
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

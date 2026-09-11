@@ -1,0 +1,30 @@
+{
+  "formType": "I-824",
+  "formName": "Application for Action on an Approved Application or Petition",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 4469,
+  "approved": 2222,
+  "denied": 336,
+  "completions": 2558,
+  "pending": 17141,
+  "processingTimeMonths": 5.6,
+  "approvalRate": 86.9,
+  "denialRate": 13.1,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Action on an Approved Application or Petition",
+      "receipts": 4469,
+      "approved": 2222,
+      "denied": 336,
+      "completions": 2558,
+      "pending": 17141,
+      "processingTimeMonths": 5.6
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

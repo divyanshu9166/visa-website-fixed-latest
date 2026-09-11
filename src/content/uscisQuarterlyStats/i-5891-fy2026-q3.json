@@ -1,0 +1,30 @@
+{
+  "formType": "I-5891",
+  "formName": "Application for Asylum and for Withholding of Removal",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 20159,
+  "approved": 1620,
+  "denied": 18779,
+  "completions": 47654,
+  "pending": 1392782,
+  "processingTimeMonths": 0,
+  "approvalRate": 3.4,
+  "denialRate": 39.4,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Asylum and for Withholding of Removal",
+      "receipts": 20159,
+      "approved": 1620,
+      "denied": 18779,
+      "completions": 47654,
+      "pending": 1392782,
+      "processingTimeMonths": 0
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.623Z"
+}

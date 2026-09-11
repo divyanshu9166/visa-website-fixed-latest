@@ -19,7 +19,7 @@
           "caseType": "Re-entry permit or refugee travel document",
           "minMonths": 16,
           "maxMonths": 21,
-          "serviceRequestDate": "2024-12-17",
+          "serviceRequestDate": "2024-12-22",
           "history": [
             {
               "period": "2026-04",
@@ -57,7 +57,7 @@
           "caseType": "Advance parole",
           "minMonths": 24,
           "maxMonths": 29.5,
-          "serviceRequestDate": "2024-04-05",
+          "serviceRequestDate": "2024-04-10",
           "history": [
             {
               "period": "2026-04",

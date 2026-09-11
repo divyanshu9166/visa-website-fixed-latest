@@ -1,0 +1,30 @@
+{
+  "formType": "I-140",
+  "formName": "Immigrant Petition for Alien Worker",
+  "category": "Employment Based",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 62932,
+  "approved": 37975,
+  "denied": 7069,
+  "completions": 45044,
+  "pending": 203204,
+  "processingTimeMonths": 3.9,
+  "approvalRate": 84.3,
+  "denialRate": 15.7,
+  "subtypes": [
+    {
+      "subtypeName": "Immigrant Petition for Alien Workers",
+      "receipts": 62932,
+      "approved": 37975,
+      "denied": 7069,
+      "completions": 45044,
+      "pending": 203204,
+      "processingTimeMonths": 3.9
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.622Z"
+}

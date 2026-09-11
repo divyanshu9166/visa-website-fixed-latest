@@ -1,0 +1,30 @@
+{
+  "formType": "I-821D",
+  "formName": "Consideration of Deferred Action for Childhood Arrivals",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 81975,
+  "approved": 76158,
+  "denied": 471,
+  "completions": 76629,
+  "pending": 228969,
+  "processingTimeMonths": 4.1,
+  "approvalRate": 99.4,
+  "denialRate": 0.6,
+  "subtypes": [
+    {
+      "subtypeName": "Consideration of Deferred Action for Childhood Arrivals",
+      "receipts": 81975,
+      "approved": 76158,
+      "denied": 471,
+      "completions": 76629,
+      "pending": 228969,
+      "processingTimeMonths": 4.1
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.623Z"
+}

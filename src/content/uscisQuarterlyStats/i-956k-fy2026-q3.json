@@ -1,0 +1,30 @@
+{
+  "formType": "I-956K",
+  "formName": "Registration for Direct and Third-Party Promoters",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 300,
+  "approved": 51,
+  "denied": 27,
+  "completions": 78,
+  "pending": 746,
+  "processingTimeMonths": 0,
+  "approvalRate": 65.4,
+  "denialRate": 34.6,
+  "subtypes": [
+    {
+      "subtypeName": "Registration for Direct and Third-Party Promoters",
+      "receipts": 300,
+      "approved": 51,
+      "denied": 27,
+      "completions": 78,
+      "pending": 746,
+      "processingTimeMonths": 0
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.623Z"
+}

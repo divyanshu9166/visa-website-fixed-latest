@@ -1,0 +1,30 @@
+{
+  "formType": "I-956F",
+  "formName": "Application for Approval of Investment in a Commercial Enterprise",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 77,
+  "approved": 60,
+  "denied": 22,
+  "completions": 82,
+  "pending": 177,
+  "processingTimeMonths": 5.4,
+  "approvalRate": 73.2,
+  "denialRate": 26.8,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Approval of Investment in a Commercial Enterprise",
+      "receipts": 77,
+      "approved": 60,
+      "denied": 22,
+      "completions": 82,
+      "pending": 177,
+      "processingTimeMonths": 5.4
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.623Z"
+}

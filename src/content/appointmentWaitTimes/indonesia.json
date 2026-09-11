@@ -2,8 +2,8 @@
   "country": "Indonesia",
   "slug": "indonesia",
   "countryCode": "ID",
-  "lastUpdated": "2026-09-01",
-  "dataSource": "dos-attended-snapshot",
+  "lastUpdated": "2026-09-11",
+  "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {

@@ -1,0 +1,75 @@
+{
+  "formType": "I-485",
+  "formName": "Application to Register Permanent Residence or Adjust Status",
+  "category": "Adjustment of Status",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 242989,
+  "approved": 101568,
+  "denied": 16798,
+  "completions": 118366,
+  "pending": 1560290,
+  "processingTimeMonths": 21,
+  "approvalRate": 85.8,
+  "denialRate": 14.2,
+  "subtypes": [
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Family)",
+      "receipts": 95175,
+      "approved": 54678,
+      "denied": 12240,
+      "completions": 66918,
+      "pending": 611067,
+      "processingTimeMonths": 7
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Employment)",
+      "receipts": 97501,
+      "approved": 42076,
+      "denied": 3160,
+      "completions": 45236,
+      "pending": 268408,
+      "processingTimeMonths": 6
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Asylum)",
+      "receipts": 15141,
+      "approved": 2350,
+      "denied": 292,
+      "completions": 2642,
+      "pending": 126267,
+      "processingTimeMonths": 25.6
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Refugee)",
+      "receipts": 16819,
+      "approved": 103,
+      "denied": 45,
+      "completions": 148,
+      "pending": 149470,
+      "processingTimeMonths": 17.6
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Cuban)",
+      "receipts": 6279,
+      "approved": 139,
+      "denied": 447,
+      "completions": 586,
+      "pending": 342360,
+      "processingTimeMonths": 16.3
+    },
+    {
+      "subtypeName": "Application to Register Permanent Residence or Adjust Status (Other)",
+      "receipts": 12074,
+      "approved": 2222,
+      "denied": 614,
+      "completions": 2836,
+      "pending": 62718,
+      "processingTimeMonths": 21
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

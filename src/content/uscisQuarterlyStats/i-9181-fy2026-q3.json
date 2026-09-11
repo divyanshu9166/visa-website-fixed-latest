@@ -1,0 +1,30 @@
+{
+  "formType": "I-9181",
+  "formName": "Petition for U Nonimmigrant Status",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 15170,
+  "approved": 4476,
+  "denied": 2039,
+  "completions": 6515,
+  "pending": 480114,
+  "processingTimeMonths": 15.2,
+  "approvalRate": 68.7,
+  "denialRate": 31.3,
+  "subtypes": [
+    {
+      "subtypeName": "Petition for U Nonimmigrant Status",
+      "receipts": 15170,
+      "approved": 4476,
+      "denied": 2039,
+      "completions": 6515,
+      "pending": 480114,
+      "processingTimeMonths": 15.2
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

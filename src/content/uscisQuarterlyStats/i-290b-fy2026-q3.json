@@ -1,0 +1,30 @@
+{
+  "formType": "I-290B",
+  "formName": "Notice of Appeal or Motion",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 10144,
+  "approved": 2967,
+  "denied": 4922,
+  "completions": 7889,
+  "pending": 28258,
+  "processingTimeMonths": 2.9,
+  "approvalRate": 37.6,
+  "denialRate": 62.4,
+  "subtypes": [
+    {
+      "subtypeName": "Notice of Appeal or Motion",
+      "receipts": 10144,
+      "approved": 2967,
+      "denied": 4922,
+      "completions": 7889,
+      "pending": 28258,
+      "processingTimeMonths": 2.9
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

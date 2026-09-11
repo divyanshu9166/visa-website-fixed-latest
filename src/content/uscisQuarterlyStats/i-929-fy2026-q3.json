@@ -1,0 +1,30 @@
+{
+  "formType": "I-929",
+  "formName": "Petition for Qualifying Family Member of a U-1 Nonimmigrant",
+  "category": "General",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 414,
+  "approved": 117,
+  "denied": 36,
+  "completions": 153,
+  "pending": 2265,
+  "processingTimeMonths": 26,
+  "approvalRate": 76.5,
+  "denialRate": 23.5,
+  "subtypes": [
+    {
+      "subtypeName": "Petition for Qualifying Family Member of a U-1 Nonimmigrant",
+      "receipts": 414,
+      "approved": 117,
+      "denied": 36,
+      "completions": 153,
+      "pending": 2265,
+      "processingTimeMonths": 26
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.624Z"
+}

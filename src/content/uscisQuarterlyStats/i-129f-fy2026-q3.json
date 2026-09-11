@@ -1,0 +1,30 @@
+{
+  "formType": "I-129F",
+  "formName": "Petition for Alien Fiancé(e)",
+  "category": "Family Based",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 9737,
+  "approved": 6966,
+  "denied": 2307,
+  "completions": 9273,
+  "pending": 35871,
+  "processingTimeMonths": 9,
+  "approvalRate": 75.1,
+  "denialRate": 24.9,
+  "subtypes": [
+    {
+      "subtypeName": "Petition for Alien Fiancé(e)",
+      "receipts": 9737,
+      "approved": 6966,
+      "denied": 2307,
+      "completions": 9273,
+      "pending": 35871,
+      "processingTimeMonths": 9
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.622Z"
+}

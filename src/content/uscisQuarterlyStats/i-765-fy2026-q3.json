@@ -1,0 +1,57 @@
+{
+  "formType": "I-765",
+  "formName": "Application for Employment Authorization",
+  "category": "Employment",
+  "fiscalYear": 2026,
+  "quarter": 3,
+  "receipts": 572947,
+  "approved": 366079,
+  "denied": 67022,
+  "completions": 433101,
+  "pending": 2110712,
+  "processingTimeMonths": 3.3,
+  "approvalRate": 84.5,
+  "denialRate": 15.5,
+  "subtypes": [
+    {
+      "subtypeName": "Application for Employment Authorization (Asylum)",
+      "receipts": 125663,
+      "approved": 117965,
+      "denied": 10986,
+      "completions": 128951,
+      "pending": 108565,
+      "processingTimeMonths": 0.8
+    },
+    {
+      "subtypeName": "Application for Employment Authorization (Adjustment Of Status)",
+      "receipts": 153039,
+      "approved": 46405,
+      "denied": 35767,
+      "completions": 82172,
+      "pending": 671362,
+      "processingTimeMonths": 6.4
+    },
+    {
+      "subtypeName": "Application for Employment Authorization (DACA)",
+      "receipts": 81835,
+      "approved": 76053,
+      "denied": 482,
+      "completions": 76535,
+      "pending": 231872,
+      "processingTimeMonths": 4.1
+    },
+    {
+      "subtypeName": "Application for Employment Authorization (All Other)",
+      "receipts": 212410,
+      "approved": 125656,
+      "denied": 19787,
+      "completions": 145443,
+      "pending": 1098913,
+      "processingTimeMonths": 3.3
+    }
+  ],
+  "dataSource": "official-uscis-quarterly-report-fy2026-q3",
+  "reportUrl": "https://www.uscis.gov/sites/default/files/document/data/quarterly_all_forms_fy2026_q3_v1.xlsx",
+  "sourceUrl": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+  "lastUpdated": "2026-09-11T10:16:13.623Z"
+}
