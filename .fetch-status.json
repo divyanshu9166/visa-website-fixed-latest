@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-09-11T10:20:20.889Z",
+  "timestamp": "2026-09-12T09:59:18.919Z",
   "seedOnly": false,
   "sources": {
     "processingTimes": {
@@ -16,10 +16,10 @@
       "lastError": null
     },
     "waitTimes": {
-      "status": "LIVE_VALIDATED",
-      "liveCount": 30,
-      "staleCount": 0,
-      "lastError": null
+      "status": "PRESERVED",
+      "liveCount": 0,
+      "staleCount": 30,
+      "lastError": "HTML table error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no- | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-"
     },
     "uscisQuarterlyStats": {
       "status": "LIVE_VALIDATED",
@@ -28,8 +28,8 @@
       "lastError": null
     },
     "dosWaitTimes": {
-      "status": "LIVE_VALIDATED",
-      "liveCount": 30,
+      "status": "PRESERVED",
+      "liveCount": 0,
       "lastError": null
     },
     "dolLca": {
@@ -38,7 +38,7 @@
       "lastError": "Quarterly LCA workflow is separate from the daily refresh."
     }
   },
-  "publication": "LIVE_VALIDATED",
+  "publication": "PRESERVED_LAST_VALIDATED_SNAPSHOT",
   "rollback": {
     "performed": false
   }
