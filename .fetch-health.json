@@ -3,31 +3,31 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-09-16T10:35:45.301Z"
+    "lastSuccess": "2026-09-17T10:42:49.799Z"
   },
   "visaBulletin": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
     "lastError": null,
-    "lastSuccess": "2026-09-16T10:35:45.301Z"
+    "lastSuccess": "2026-09-17T10:42:49.799Z"
   },
   "waitTimes": {
-    "consecutiveFailures": 1,
+    "consecutiveFailures": 0,
     "lastFailed": "2026-09-16T10:35:45.301Z",
-    "lastError": "HTML table error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no- | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-",
-    "lastSuccess": "2026-09-15T10:46:09.775Z"
+    "lastError": null,
+    "lastSuccess": "2026-09-17T10:42:49.799Z"
   },
   "uscisQuarterlyStats": {
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-09-16T10:35:45.301Z"
+    "lastSuccess": "2026-09-17T10:42:49.799Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 1,
+    "consecutiveFailures": 0,
     "lastFailed": "2026-09-16T10:35:45.301Z",
-    "lastError": "Source status is PRESERVED (preservation fallback active)",
-    "lastSuccess": "2026-09-15T10:46:09.775Z"
+    "lastError": null,
+    "lastSuccess": "2026-09-17T10:42:49.799Z"
   },
   "dolLca": {
     "consecutiveFailures": 0,

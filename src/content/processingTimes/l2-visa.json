@@ -19,7 +19,7 @@
           "caseType": "Change of status to L dependent",
           "minMonths": 14.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-05-31",
+          "serviceRequestDate": "2025-06-02",
           "history": [
             {
               "period": "2026-04",
@@ -57,7 +57,7 @@
           "caseType": "Extension of stay for L dependents",
           "minMonths": 8,
           "maxMonths": 11.5,
-          "serviceRequestDate": "2025-10-07",
+          "serviceRequestDate": "2025-10-09",
           "history": [
             {
               "period": "2026-04",
