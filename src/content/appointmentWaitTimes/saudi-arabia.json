@@ -2,7 +2,7 @@
   "country": "Saudi Arabia",
   "slug": "saudi-arabia",
   "countryCode": "SA",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -69,9 +69,9 @@
     {
       "name": "Jeddah",
       "waitTimeB1B2": 71,
-      "waitTimeStudent": 1,
+      "waitTimeStudent": 0,
       "waitTimeOther": 39,
-      "waitTimePetition": 1,
+      "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",

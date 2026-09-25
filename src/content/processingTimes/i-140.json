@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-140 Immigrant Petition [2026]",
   "seoDesc": "Check official USCIS processing times for I-140 Immigrant Petition (Form I-140) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-09-17",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,9 +17,9 @@
       "cases": [
         {
           "caseType": "Extraordinary ability (E11)",
-          "minMonths": 31,
-          "maxMonths": 34.5,
-          "serviceRequestDate": "2023-11-13",
+          "minMonths": 32.5,
+          "maxMonths": 35.5,
+          "serviceRequestDate": "2023-10-19",
           "history": [
             {
               "period": "2026-04",
@@ -48,16 +48,16 @@
             },
             {
               "period": "2026-09",
-              "min": 31,
-              "max": 34.5
+              "min": 32.5,
+              "max": 35.5
             }
           ]
         },
         {
           "caseType": "Outstanding professor or researcher (E12)",
-          "minMonths": 15.5,
-          "maxMonths": 19,
-          "serviceRequestDate": "2025-02-22",
+          "minMonths": 15,
+          "maxMonths": 18.5,
+          "serviceRequestDate": "2025-03-22",
           "history": [
             {
               "period": "2026-04",
@@ -86,16 +86,16 @@
             },
             {
               "period": "2026-09",
-              "min": 15.5,
-              "max": 19
+              "min": 15,
+              "max": 18.5
             }
           ]
         },
         {
           "caseType": "Multinational executive or manager (E13)",
-          "minMonths": 27,
-          "maxMonths": 29,
-          "serviceRequestDate": "2024-04-23",
+          "minMonths": 27.5,
+          "maxMonths": 29.5,
+          "serviceRequestDate": "2024-04-13",
           "history": [
             {
               "period": "2026-04",
@@ -124,16 +124,16 @@
             },
             {
               "period": "2026-09",
-              "min": 27,
-              "max": 29
+              "min": 27.5,
+              "max": 29.5
             }
           ]
         },
         {
           "caseType": "Advanced degree or exceptional ability (E21)",
-          "minMonths": 2.5,
-          "maxMonths": 7.5,
-          "serviceRequestDate": "2026-02-10",
+          "minMonths": 3,
+          "maxMonths": 6.5,
+          "serviceRequestDate": "2026-03-13",
           "history": [
             {
               "period": "2026-04",
@@ -162,16 +162,16 @@
             },
             {
               "period": "2026-09",
-              "min": 2.5,
-              "max": 7.5
+              "min": 3,
+              "max": 6.5
             }
           ]
         },
         {
           "caseType": "Skilled worker or professional (E31; E32)",
           "minMonths": 4,
-          "maxMonths": 8.5,
-          "serviceRequestDate": "2026-01-11",
+          "maxMonths": 8,
+          "serviceRequestDate": "2026-02-03",
           "history": [
             {
               "period": "2026-04",
@@ -201,15 +201,15 @@
             {
               "period": "2026-09",
               "min": 4,
-              "max": 8.5
+              "max": 8
             }
           ]
         },
         {
           "caseType": "Unskilled worker (EW3)",
-          "minMonths": 7.5,
-          "maxMonths": 12.5,
-          "serviceRequestDate": "2025-09-13",
+          "minMonths": 9,
+          "maxMonths": 15,
+          "serviceRequestDate": "2025-07-02",
           "history": [
             {
               "period": "2026-04",
@@ -238,16 +238,16 @@
             },
             {
               "period": "2026-09",
-              "min": 7.5,
-              "max": 12.5
+              "min": 9,
+              "max": 15
             }
           ]
         },
         {
           "caseType": "Advanced degree or exceptional ability requesting a National Interest Waiver (NIW)",
-          "minMonths": 29,
-          "maxMonths": 32,
-          "serviceRequestDate": "2024-01-18",
+          "minMonths": 30,
+          "maxMonths": 33,
+          "serviceRequestDate": "2024-01-02",
           "history": [
             {
               "period": "2026-04",
@@ -276,16 +276,16 @@
             },
             {
               "period": "2026-09",
-              "min": 29,
-              "max": 32
+              "min": 30,
+              "max": 33
             }
           ]
         },
         {
           "caseType": "Schedule A Nurses",
-          "minMonths": 24.5,
-          "maxMonths": 26,
-          "serviceRequestDate": "2024-07-24",
+          "minMonths": 25.5,
+          "maxMonths": 26.5,
+          "serviceRequestDate": "2024-07-13",
           "history": [
             {
               "period": "2026-04",
@@ -314,8 +314,8 @@
             },
             {
               "period": "2026-09",
-              "min": 24.5,
-              "max": 26
+              "min": 25.5,
+              "max": 26.5
             }
           ]
         }

@@ -2,7 +2,7 @@
   "country": "Germany",
   "slug": "germany",
   "countryCode": "DE",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -69,9 +69,9 @@
     {
       "name": "Berlin",
       "waitTimeB1B2": 37,
-      "waitTimeStudent": 0,
+      "waitTimeStudent": 1,
       "waitTimeOther": 20,
-      "waitTimePetition": 0,
+      "waitTimePetition": 1,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",

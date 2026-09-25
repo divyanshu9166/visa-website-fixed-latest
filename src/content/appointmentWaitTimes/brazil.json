@@ -2,7 +2,7 @@
   "country": "Brazil",
   "slug": "brazil",
   "countryCode": "BR",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -69,7 +69,7 @@
     {
       "name": "Rio de Janeiro",
       "waitTimeB1B2": 154,
-      "waitTimeStudent": 1,
+      "waitTimeStudent": 0,
       "waitTimeOther": 85,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,

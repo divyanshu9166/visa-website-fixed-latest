@@ -6,7 +6,7 @@
   "category": "work-visas",
   "seoTitle": "Current USCIS Processing Times for H-1B Visa [2026]",
   "seoDesc": "Check official USCIS processing times for H-1B Visa (Form I-129) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-09-17",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,6 +17,44 @@
       "cases": [
         {
           "caseType": "H-1B - Specialty occupation - Visa to be issued abroad",
+          "minMonths": 11,
+          "maxMonths": 13,
+          "serviceRequestDate": "2025-08-28",
+          "history": [
+            {
+              "period": "2026-04",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-05",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-06",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-07",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-08",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-09",
+              "min": 11,
+              "max": 13
+            }
+          ]
+        },
+        {
+          "caseType": "H-1B - Specialty occupation - Change of status in the U.S.",
           "minMonths": 10,
           "maxMonths": 11.5,
           "serviceRequestDate": "2025-10-15",
@@ -54,48 +92,10 @@
           ]
         },
         {
-          "caseType": "H-1B - Specialty occupation - Change of status in the U.S.",
-          "minMonths": 10,
-          "maxMonths": 11.5,
-          "serviceRequestDate": "2025-10-12",
-          "history": [
-            {
-              "period": "2026-04",
-              "min": 10,
-              "max": 11.5
-            },
-            {
-              "period": "2026-05",
-              "min": 10,
-              "max": 11.5
-            },
-            {
-              "period": "2026-06",
-              "min": 10,
-              "max": 11.5
-            },
-            {
-              "period": "2026-07",
-              "min": 10,
-              "max": 11.5
-            },
-            {
-              "period": "2026-08",
-              "min": 10,
-              "max": 11.5
-            },
-            {
-              "period": "2026-09",
-              "min": 10,
-              "max": 11.5
-            }
-          ]
-        },
-        {
           "caseType": "H-1B - Specialty occupation - Extension of stay in the U.S.",
-          "minMonths": 11,
-          "maxMonths": 12,
-          "serviceRequestDate": "2025-09-30",
+          "minMonths": 11.5,
+          "maxMonths": 12.5,
+          "serviceRequestDate": "2025-09-22",
           "history": [
             {
               "period": "2026-04",
@@ -124,8 +124,8 @@
             },
             {
               "period": "2026-09",
-              "min": 11,
-              "max": 12
+              "min": 11.5,
+              "max": 12.5
             }
           ]
         }

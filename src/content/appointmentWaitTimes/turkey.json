@@ -2,7 +2,7 @@
   "country": "Turkey",
   "slug": "turkey",
   "countryCode": "TR",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -68,10 +68,10 @@
     },
     {
       "name": "Ankara",
-      "waitTimeB1B2": 7,
+      "waitTimeB1B2": 2,
       "waitTimeStudent": 4,
       "waitTimeOther": 5,
-      "waitTimePetition": 1,
+      "waitTimePetition": 0,
       "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": false,
       "notes": "",
@@ -122,7 +122,7 @@
         },
         {
           "period": "2026-09",
-          "waitTimeB1B2": 7
+          "waitTimeB1B2": 2
         }
       ]
     }

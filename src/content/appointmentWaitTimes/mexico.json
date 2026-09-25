@@ -2,14 +2,14 @@
   "country": "Mexico",
   "slug": "mexico",
   "countryCode": "MX",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Mexico City",
       "waitTimeB1B2": 6,
-      "waitTimeStudent": 4,
+      "waitTimeStudent": 5,
       "waitTimeOther": 5,
       "waitTimePetition": 1,
       "waitTimeCrewTransit": 1,
@@ -129,7 +129,7 @@
     {
       "name": "Tijuana",
       "waitTimeB1B2": 248,
-      "waitTimeStudent": 2,
+      "waitTimeStudent": 1,
       "waitTimeOther": 136,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
@@ -191,8 +191,8 @@
       "waitTimeB1B2": 5,
       "waitTimeStudent": 4,
       "waitTimeOther": 5,
-      "waitTimePetition": 0,
-      "waitTimeCrewTransit": 0,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

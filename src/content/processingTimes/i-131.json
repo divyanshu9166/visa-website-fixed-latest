@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-131 Advance Parole / Travel Document [2026]",
   "seoDesc": "Check official USCIS processing times for I-131 Advance Parole / Travel Document (Form I-131) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-09-17",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,9 +17,9 @@
       "cases": [
         {
           "caseType": "Re-entry permit or refugee travel document",
-          "minMonths": 16,
-          "maxMonths": 21,
-          "serviceRequestDate": "2024-12-28",
+          "minMonths": 16.5,
+          "maxMonths": 21.5,
+          "serviceRequestDate": "2024-12-20",
           "history": [
             {
               "period": "2026-04",
@@ -48,16 +48,16 @@
             },
             {
               "period": "2026-09",
-              "min": 16,
-              "max": 21
+              "min": 16.5,
+              "max": 21.5
             }
           ]
         },
         {
           "caseType": "Advance parole",
-          "minMonths": 24,
-          "maxMonths": 29.5,
-          "serviceRequestDate": "2024-04-16",
+          "minMonths": 26.5,
+          "maxMonths": 34,
+          "serviceRequestDate": "2023-12-06",
           "history": [
             {
               "period": "2026-04",
@@ -86,8 +86,8 @@
             },
             {
               "period": "2026-09",
-              "min": 24,
-              "max": 29.5
+              "min": 26.5,
+              "max": 34
             }
           ]
         }

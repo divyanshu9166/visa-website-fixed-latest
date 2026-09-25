@@ -2,17 +2,17 @@
   "country": "Israel",
   "slug": "israel",
   "countryCode": "IL",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Jerusalem",
       "waitTimeB1B2": 4,
-      "waitTimeStudent": 6,
+      "waitTimeStudent": 5,
       "waitTimeOther": 5,
-      "waitTimePetition": 1,
-      "waitTimeCrewTransit": 6,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 5,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -69,9 +69,9 @@
     {
       "name": "Tel Aviv",
       "waitTimeB1B2": 25,
-      "waitTimeStudent": 2,
+      "waitTimeStudent": 3,
       "waitTimeOther": 14,
-      "waitTimePetition": 0,
+      "waitTimePetition": 1,
       "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",

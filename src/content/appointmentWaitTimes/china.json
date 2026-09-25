@@ -2,7 +2,7 @@
   "country": "China",
   "slug": "china",
   "countryCode": "CN",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -11,8 +11,8 @@
       "waitTimeB1B2": 58,
       "waitTimeStudent": 4,
       "waitTimeOther": 32,
-      "waitTimePetition": 5,
-      "waitTimeCrewTransit": 1,
+      "waitTimePetition": 6,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -69,7 +69,7 @@
     {
       "name": "Shanghai",
       "waitTimeB1B2": 57,
-      "waitTimeStudent": 0,
+      "waitTimeStudent": 3,
       "waitTimeOther": 31,
       "waitTimePetition": 3,
       "waitTimeCrewTransit": 2,
@@ -129,7 +129,7 @@
     {
       "name": "Guangzhou",
       "waitTimeB1B2": 1,
-      "waitTimeStudent": 1,
+      "waitTimeStudent": 2,
       "waitTimeOther": 5,
       "waitTimePetition": 2,
       "waitTimeCrewTransit": 2,

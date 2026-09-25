@@ -2,7 +2,7 @@
   "country": "United Arab Emirates",
   "slug": "united-arab-emirates",
   "countryCode": "AE",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -69,10 +69,10 @@
     {
       "name": "Abu Dhabi",
       "waitTimeB1B2": 34,
-      "waitTimeStudent": 6,
+      "waitTimeStudent": 12,
       "waitTimeOther": 19,
-      "waitTimePetition": 6,
-      "waitTimeCrewTransit": 6,
+      "waitTimePetition": 0,
+      "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

@@ -2,17 +2,17 @@
   "country": "Egypt",
   "slug": "egypt",
   "countryCode": "EG",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-25",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Cairo",
       "waitTimeB1B2": 143,
-      "waitTimeStudent": 2,
+      "waitTimeStudent": 1,
       "waitTimeOther": 79,
-      "waitTimePetition": 2,
-      "waitTimeCrewTransit": 2,
+      "waitTimePetition": 1,
+      "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": true,
       "notes": "",
       "history": [
