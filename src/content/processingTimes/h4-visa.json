@@ -19,7 +19,7 @@
           "caseType": "Change of status to H4 dependents",
           "minMonths": 10.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-08-06",
+          "serviceRequestDate": "2025-08-09",
           "history": [
             {
               "period": "2026-04",
@@ -57,7 +57,7 @@
           "caseType": "Change of status to H4 dependent with I-765",
           "minMonths": 7.5,
           "maxMonths": 9.5,
-          "serviceRequestDate": "2025-12-17",
+          "serviceRequestDate": "2025-12-20",
           "history": [
             {
               "period": "2026-04",
@@ -95,7 +95,7 @@
           "caseType": "Extension of stay for H4 dependents",
           "minMonths": 10.5,
           "maxMonths": 13.5,
-          "serviceRequestDate": "2025-08-19",
+          "serviceRequestDate": "2025-08-22",
           "history": [
             {
               "period": "2026-04",
@@ -133,7 +133,7 @@
           "caseType": "Extension of stay for H4 dependents with I-765",
           "minMonths": 5,
           "maxMonths": 9,
-          "serviceRequestDate": "2026-01-02",
+          "serviceRequestDate": "2026-01-05",
           "history": [
             {
               "period": "2026-04",

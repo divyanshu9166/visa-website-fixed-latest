@@ -19,7 +19,7 @@
           "caseType": "Extraordinary ability (E11)",
           "minMonths": 32.5,
           "maxMonths": 35.5,
-          "serviceRequestDate": "2023-10-19",
+          "serviceRequestDate": "2023-10-22",
           "history": [
             {
               "period": "2026-04",
@@ -57,7 +57,7 @@
           "caseType": "Outstanding professor or researcher (E12)",
           "minMonths": 15,
           "maxMonths": 18.5,
-          "serviceRequestDate": "2025-03-22",
+          "serviceRequestDate": "2025-03-25",
           "history": [
             {
               "period": "2026-04",
@@ -95,7 +95,7 @@
           "caseType": "Multinational executive or manager (E13)",
           "minMonths": 27.5,
           "maxMonths": 29.5,
-          "serviceRequestDate": "2024-04-13",
+          "serviceRequestDate": "2024-04-16",
           "history": [
             {
               "period": "2026-04",
@@ -133,7 +133,7 @@
           "caseType": "Advanced degree or exceptional ability (E21)",
           "minMonths": 3,
           "maxMonths": 6.5,
-          "serviceRequestDate": "2026-03-13",
+          "serviceRequestDate": "2026-03-16",
           "history": [
             {
               "period": "2026-04",
@@ -171,7 +171,7 @@
           "caseType": "Skilled worker or professional (E31; E32)",
           "minMonths": 4,
           "maxMonths": 8,
-          "serviceRequestDate": "2026-02-03",
+          "serviceRequestDate": "2026-02-06",
           "history": [
             {
               "period": "2026-04",
@@ -209,7 +209,7 @@
           "caseType": "Unskilled worker (EW3)",
           "minMonths": 9,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-07-02",
+          "serviceRequestDate": "2025-07-05",
           "history": [
             {
               "period": "2026-04",
@@ -247,7 +247,7 @@
           "caseType": "Advanced degree or exceptional ability requesting a National Interest Waiver (NIW)",
           "minMonths": 30,
           "maxMonths": 33,
-          "serviceRequestDate": "2024-01-02",
+          "serviceRequestDate": "2024-01-05",
           "history": [
             {
               "period": "2026-04",
@@ -285,7 +285,7 @@
           "caseType": "Schedule A Nurses",
           "minMonths": 25.5,
           "maxMonths": 26.5,
-          "serviceRequestDate": "2024-07-13",
+          "serviceRequestDate": "2024-07-16",
           "history": [
             {
               "period": "2026-04",
