@@ -3,17 +3,17 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-10-04T11:35:53.587Z"
+    "lastSuccess": "2026-10-05T13:20:57.751Z"
   },
   "visaBulletin": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
     "lastError": null,
-    "lastSuccess": "2026-10-04T11:35:53.587Z"
+    "lastSuccess": "2026-10-05T13:20:57.751Z"
   },
   "waitTimes": {
-    "consecutiveFailures": 6,
-    "lastFailed": "2026-10-04T11:35:53.587Z",
+    "consecutiveFailures": 7,
+    "lastFailed": "2026-10-05T13:20:57.751Z",
     "lastError": "HTML table error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no- | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-",
     "lastSuccess": "2026-09-28T12:27:16.977Z"
   },
@@ -21,11 +21,11 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-10-04T11:35:53.587Z"
+    "lastSuccess": "2026-10-05T13:20:57.751Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 6,
-    "lastFailed": "2026-10-04T11:35:53.587Z",
+    "consecutiveFailures": 7,
+    "lastFailed": "2026-10-05T13:20:57.751Z",
     "lastError": "Source status is PRESERVED (preservation fallback active)",
     "lastSuccess": "2026-09-28T12:27:16.977Z"
   },
