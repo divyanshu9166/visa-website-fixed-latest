@@ -19,7 +19,7 @@
           "caseType": "Immigrant Petition by Standalone Investor",
           "minMonths": 36.5,
           "maxMonths": 40.5,
-          "serviceRequestDate": "2023-05-27",
+          "serviceRequestDate": "2023-06-05",
           "history": [
             {
               "period": "2026-04",
@@ -48,6 +48,11 @@
             },
             {
               "period": "2026-09",
+              "min": 36.5,
+              "max": 40.5
+            },
+            {
+              "period": "2026-10",
               "min": 36.5,
               "max": 40.5
             }

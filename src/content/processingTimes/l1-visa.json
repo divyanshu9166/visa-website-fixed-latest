@@ -19,7 +19,7 @@
           "caseType": "Intracompany transferees and blanket L",
           "minMonths": 6.5,
           "maxMonths": 10.5,
-          "serviceRequestDate": "2025-11-14",
+          "serviceRequestDate": "2025-11-23",
           "history": [
             {
               "period": "2026-04",
@@ -48,6 +48,11 @@
             },
             {
               "period": "2026-09",
+              "min": 6.5,
+              "max": 10.5
+            },
+            {
+              "period": "2026-10",
               "min": 6.5,
               "max": 10.5
             }

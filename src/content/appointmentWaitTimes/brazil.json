@@ -2,7 +2,7 @@
   "country": "Brazil",
   "slug": "brazil",
   "countryCode": "BR",
-  "lastUpdated": "2026-09-28",
+  "lastUpdated": "2026-10-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -62,6 +62,10 @@
         },
         {
           "period": "2026-09",
+          "waitTimeB1B2": 115
+        },
+        {
+          "period": "2026-10",
           "waitTimeB1B2": 115
         }
       ]
@@ -123,6 +127,10 @@
         {
           "period": "2026-09",
           "waitTimeB1B2": 154
+        },
+        {
+          "period": "2026-10",
+          "waitTimeB1B2": 154
         }
       ]
     },
@@ -182,6 +190,10 @@
         },
         {
           "period": "2026-09",
+          "waitTimeB1B2": 118
+        },
+        {
+          "period": "2026-10",
           "waitTimeB1B2": 118
         }
       ]

@@ -2,7 +2,7 @@
   "country": "Canada",
   "slug": "canada",
   "countryCode": "CA",
-  "lastUpdated": "2026-09-28",
+  "lastUpdated": "2026-10-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -62,6 +62,10 @@
         },
         {
           "period": "2026-09",
+          "waitTimeB1B2": 20
+        },
+        {
+          "period": "2026-10",
           "waitTimeB1B2": 20
         }
       ]
@@ -123,6 +127,10 @@
         {
           "period": "2026-09",
           "waitTimeB1B2": 17
+        },
+        {
+          "period": "2026-10",
+          "waitTimeB1B2": 17
         }
       ]
     },
@@ -182,6 +190,10 @@
         },
         {
           "period": "2026-09",
+          "waitTimeB1B2": 33
+        },
+        {
+          "period": "2026-10",
           "waitTimeB1B2": 33
         }
       ]

@@ -19,7 +19,7 @@
           "caseType": "Based on being an H-4 spouse of an H-1B nonimmigrant (filed with I-539 H4) [(c)(26)]",
           "minMonths": 6.5,
           "maxMonths": 10,
-          "serviceRequestDate": "2025-12-06",
+          "serviceRequestDate": "2025-12-15",
           "history": [
             {
               "period": "2026-04",
@@ -48,6 +48,11 @@
             },
             {
               "period": "2026-09",
+              "min": 6.5,
+              "max": 10
+            },
+            {
+              "period": "2026-10",
               "min": 6.5,
               "max": 10
             }
@@ -57,7 +62,7 @@
           "caseType": "Based on being an H-4 spouse of an H-1B nonimmigrant (Standalone; not filed with I-539 H4) [(c)(26)]",
           "minMonths": 17.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-03-02",
+          "serviceRequestDate": "2025-03-11",
           "history": [
             {
               "period": "2026-04",
@@ -86,6 +91,11 @@
             },
             {
               "period": "2026-09",
+              "min": 17.5,
+              "max": 19
+            },
+            {
+              "period": "2026-10",
               "min": 17.5,
               "max": 19
             }

@@ -19,7 +19,7 @@
           "caseType": "Removal of lawful permanent resident conditions (immigrant investors)",
           "minMonths": 25.5,
           "maxMonths": 74,
-          "serviceRequestDate": "2020-08-02",
+          "serviceRequestDate": "2020-08-11",
           "history": [
             {
               "period": "2026-04",
@@ -48,6 +48,11 @@
             },
             {
               "period": "2026-09",
+              "min": 25.5,
+              "max": 74
+            },
+            {
+              "period": "2026-10",
               "min": 25.5,
               "max": 74
             }

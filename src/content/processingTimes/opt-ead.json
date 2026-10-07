@@ -19,7 +19,7 @@
           "caseType": "Based on a request by a qualified F-1 academic student [(c)(3)]",
           "minMonths": 5,
           "maxMonths": 6.5,
-          "serviceRequestDate": "2026-03-25",
+          "serviceRequestDate": "2026-04-03",
           "history": [
             {
               "period": "2026-04",
@@ -48,6 +48,11 @@
             },
             {
               "period": "2026-09",
+              "min": 5,
+              "max": 6.5
+            },
+            {
+              "period": "2026-10",
               "min": 5,
               "max": 6.5
             }

@@ -19,7 +19,7 @@
           "caseType": "H-1B - Specialty occupation - Visa to be issued abroad",
           "minMonths": 11,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-08-31",
+          "serviceRequestDate": "2025-09-09",
           "history": [
             {
               "period": "2026-04",
@@ -50,6 +50,11 @@
               "period": "2026-09",
               "min": 11,
               "max": 13
+            },
+            {
+              "period": "2026-10",
+              "min": 11,
+              "max": 13
             }
           ]
         },
@@ -57,7 +62,7 @@
           "caseType": "H-1B - Specialty occupation - Change of status in the U.S.",
           "minMonths": 10,
           "maxMonths": 11.5,
-          "serviceRequestDate": "2025-10-18",
+          "serviceRequestDate": "2025-10-27",
           "history": [
             {
               "period": "2026-04",
@@ -86,6 +91,11 @@
             },
             {
               "period": "2026-09",
+              "min": 10,
+              "max": 11.5
+            },
+            {
+              "period": "2026-10",
               "min": 10,
               "max": 11.5
             }
@@ -95,7 +105,7 @@
           "caseType": "H-1B - Specialty occupation - Extension of stay in the U.S.",
           "minMonths": 11.5,
           "maxMonths": 12.5,
-          "serviceRequestDate": "2025-09-25",
+          "serviceRequestDate": "2025-10-04",
           "history": [
             {
               "period": "2026-04",
@@ -124,6 +134,11 @@
             },
             {
               "period": "2026-09",
+              "min": 11.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-10",
               "min": 11.5,
               "max": 12.5
             }
