@@ -3,31 +3,31 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-10-12T14:00:03.066Z"
+    "lastSuccess": "2026-10-13T13:18:21.718Z"
   },
   "visaBulletin": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
     "lastError": null,
-    "lastSuccess": "2026-10-12T14:00:03.066Z"
+    "lastSuccess": "2026-10-13T13:18:21.718Z"
   },
   "waitTimes": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-10-10T11:46:44.800Z",
     "lastError": null,
-    "lastSuccess": "2026-10-12T14:00:03.066Z"
+    "lastSuccess": "2026-10-13T13:18:21.718Z"
   },
   "uscisQuarterlyStats": {
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-10-12T14:00:03.066Z"
+    "lastSuccess": "2026-10-13T13:18:21.718Z"
   },
   "dosWaitTimes": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-10-10T11:46:44.800Z",
     "lastError": null,
-    "lastSuccess": "2026-10-12T14:00:03.066Z"
+    "lastSuccess": "2026-10-13T13:18:21.718Z"
   },
   "dolLca": {
     "consecutiveFailures": 0,

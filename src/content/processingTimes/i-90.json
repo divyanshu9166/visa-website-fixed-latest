@@ -19,7 +19,7 @@
           "caseType": "Initial issuance or replacement",
           "minMonths": 6,
           "maxMonths": 9.5,
-          "serviceRequestDate": "2026-01-09",
+          "serviceRequestDate": "2026-01-10",
           "history": [
             {
               "period": "2026-04",
@@ -62,7 +62,7 @@
           "caseType": "10-year renewal",
           "minMonths": 10.5,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-09-22",
+          "serviceRequestDate": "2025-09-23",
           "history": [
             {
               "period": "2026-04",
