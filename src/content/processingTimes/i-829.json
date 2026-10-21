@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-829 Removal of Conditions (EB-5) [2026]",
   "seoDesc": "Check official USCIS processing times for I-829 Removal of Conditions (EB-5) (Form I-829) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-10-19",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Removal of lawful permanent resident conditions (immigrant investors)",
           "minMonths": 25.5,
           "maxMonths": 74,
-          "serviceRequestDate": "2020-08-21",
+          "serviceRequestDate": "2020-08-25",
           "history": [
             {
               "period": "2026-04",

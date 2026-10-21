@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for EAD for Pending I-485 (c(9)) [2026]",
   "seoDesc": "Check official USCIS processing times for EAD for Pending I-485 (c(9)) (Form I-765) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-10-19",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Based on a pending I-485 adjustment application [(c)(9)]",
           "minMonths": 12,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-14",
+          "serviceRequestDate": "2025-06-18",
           "history": [
             {
               "period": "2026-04",
@@ -69,7 +69,7 @@
           "caseType": "Based on a pending I-485 adjustment application [(c)(9)]",
           "minMonths": 12.5,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-06-25",
+          "serviceRequestDate": "2025-06-29",
           "history": [
             {
               "period": "2026-04",

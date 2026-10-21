@@ -6,7 +6,7 @@
   "category": "dependent",
   "seoTitle": "Current USCIS Processing Times for L-2 Dependent Visa [2026]",
   "seoDesc": "Check official USCIS processing times for L-2 Dependent Visa (Form I-539) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-10-19",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Change of status to L dependent",
           "minMonths": 14.5,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-06-26",
+          "serviceRequestDate": "2025-06-30",
           "history": [
             {
               "period": "2026-04",
@@ -62,7 +62,7 @@
           "caseType": "Extension of stay for L dependents",
           "minMonths": 8.5,
           "maxMonths": 12,
-          "serviceRequestDate": "2025-10-21",
+          "serviceRequestDate": "2025-10-25",
           "history": [
             {
               "period": "2026-04",

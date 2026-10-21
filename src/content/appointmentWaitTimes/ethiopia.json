@@ -2,7 +2,7 @@
   "country": "Ethiopia",
   "slug": "ethiopia",
   "countryCode": "ET",
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-21",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -12,7 +12,7 @@
       "waitTimeStudent": 3,
       "waitTimeOther": 5,
       "waitTimePetition": 2,
-      "waitTimeCrewTransit": 1,
+      "waitTimeCrewTransit": 2,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [

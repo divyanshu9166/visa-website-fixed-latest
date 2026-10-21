@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-526 EB-5 Investor Petition [2026]",
   "seoDesc": "Check official USCIS processing times for I-526 EB-5 Investor Petition (Form I-526) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-10-19",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Immigrant Petition by Standalone Investor",
           "minMonths": 36.5,
           "maxMonths": 40.5,
-          "serviceRequestDate": "2023-06-15",
+          "serviceRequestDate": "2023-06-19",
           "history": [
             {
               "period": "2026-04",

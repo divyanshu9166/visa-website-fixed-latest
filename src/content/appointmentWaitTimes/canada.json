@@ -2,16 +2,16 @@
   "country": "Canada",
   "slug": "canada",
   "countryCode": "CA",
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-21",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Toronto",
-      "waitTimeB1B2": 20,
-      "waitTimeStudent": 20,
-      "waitTimeOther": 11,
-      "waitTimePetition": 1,
+      "waitTimeB1B2": 17,
+      "waitTimeStudent": 18,
+      "waitTimeOther": 9,
+      "waitTimePetition": 2,
       "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
@@ -66,16 +66,16 @@
         },
         {
           "period": "2026-10",
-          "waitTimeB1B2": 20
+          "waitTimeB1B2": 17
         }
       ]
     },
     {
       "name": "Vancouver",
-      "waitTimeB1B2": 17,
+      "waitTimeB1B2": 19,
       "waitTimeStudent": 18,
-      "waitTimeOther": 9,
-      "waitTimePetition": 5,
+      "waitTimeOther": 10,
+      "waitTimePetition": 7,
       "waitTimeCrewTransit": 3,
       "hasEmergencyAppointments": false,
       "notes": "",
@@ -130,7 +130,7 @@
         },
         {
           "period": "2026-10",
-          "waitTimeB1B2": 17
+          "waitTimeB1B2": 19
         }
       ]
     },

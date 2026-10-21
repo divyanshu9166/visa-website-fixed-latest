@@ -2,14 +2,14 @@
   "country": "Brazil",
   "slug": "brazil",
   "countryCode": "BR",
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-21",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Sao Paulo",
       "waitTimeB1B2": 115,
-      "waitTimeStudent": 1,
+      "waitTimeStudent": 2,
       "waitTimeOther": 63,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
@@ -73,7 +73,7 @@
     {
       "name": "Rio de Janeiro",
       "waitTimeB1B2": 154,
-      "waitTimeStudent": 0,
+      "waitTimeStudent": 1,
       "waitTimeOther": 85,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
@@ -137,7 +137,7 @@
     {
       "name": "Brasilia",
       "waitTimeB1B2": 118,
-      "waitTimeStudent": 1,
+      "waitTimeStudent": 2,
       "waitTimeOther": 65,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,

@@ -2,17 +2,17 @@
   "country": "India",
   "slug": "india",
   "countryCode": "IN",
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-21",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "New Delhi",
       "waitTimeB1B2": 7,
-      "waitTimeStudent": 10,
+      "waitTimeStudent": 11,
       "waitTimeOther": 5,
       "waitTimePetition": 3,
-      "waitTimeCrewTransit": 2,
+      "waitTimeCrewTransit": 3,
       "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
@@ -72,10 +72,10 @@
     },
     {
       "name": "Mumbai",
-      "waitTimeB1B2": 11,
-      "waitTimeStudent": 11,
-      "waitTimeOther": 6,
-      "waitTimePetition": 1,
+      "waitTimeB1B2": 12,
+      "waitTimeStudent": 12,
+      "waitTimeOther": 7,
+      "waitTimePetition": 2,
       "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
       "notes": "",
@@ -130,7 +130,7 @@
         },
         {
           "period": "2026-10",
-          "waitTimeB1B2": 11
+          "waitTimeB1B2": 12
         }
       ]
     },
@@ -139,7 +139,7 @@
       "waitTimeB1B2": 7,
       "waitTimeStudent": 7,
       "waitTimeOther": 5,
-      "waitTimePetition": 1,
+      "waitTimePetition": 2,
       "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": false,
       "notes": "",
@@ -200,10 +200,10 @@
     },
     {
       "name": "Hyderabad",
-      "waitTimeB1B2": 11,
-      "waitTimeStudent": 12,
+      "waitTimeB1B2": 10,
+      "waitTimeStudent": 10,
       "waitTimeOther": 6,
-      "waitTimePetition": 5,
+      "waitTimePetition": 6,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",
@@ -258,14 +258,14 @@
         },
         {
           "period": "2026-10",
-          "waitTimeB1B2": 11
+          "waitTimeB1B2": 10
         }
       ]
     },
     {
       "name": "Kolkata",
-      "waitTimeB1B2": 6,
-      "waitTimeStudent": 6,
+      "waitTimeB1B2": 8,
+      "waitTimeStudent": 8,
       "waitTimeOther": 5,
       "waitTimePetition": 1,
       "waitTimeCrewTransit": null,
@@ -322,7 +322,7 @@
         },
         {
           "period": "2026-10",
-          "waitTimeB1B2": 6
+          "waitTimeB1B2": 8
         }
       ]
     }

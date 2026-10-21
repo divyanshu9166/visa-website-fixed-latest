@@ -2,14 +2,14 @@
   "country": "Dominican Republic",
   "slug": "dominican-republic",
   "countryCode": "DO",
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-21",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Santo Domingo",
-      "waitTimeB1B2": 5,
-      "waitTimeStudent": 9,
+      "waitTimeB1B2": 4,
+      "waitTimeStudent": 1,
       "waitTimeOther": 5,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
@@ -66,7 +66,7 @@
         },
         {
           "period": "2026-10",
-          "waitTimeB1B2": 5
+          "waitTimeB1B2": 4
         }
       ]
     }

@@ -2,7 +2,7 @@
   "country": "South Africa",
   "slug": "south-africa",
   "countryCode": "ZA",
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-21",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -73,9 +73,9 @@
     {
       "name": "Cape Town",
       "waitTimeB1B2": 70,
-      "waitTimeStudent": 1,
+      "waitTimeStudent": 3,
       "waitTimeOther": 39,
-      "waitTimePetition": 0,
+      "waitTimePetition": 4,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
       "notes": "",

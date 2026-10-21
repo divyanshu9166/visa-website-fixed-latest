@@ -6,7 +6,7 @@
   "category": "student",
   "seoTitle": "Current USCIS Processing Times for OPT / STEM OPT EAD [2026]",
   "seoDesc": "Check official USCIS processing times for OPT / STEM OPT EAD (Form I-765) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-10-19",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Based on a request by a qualified F-1 academic student [(c)(3)]",
           "minMonths": 5,
           "maxMonths": 6.5,
-          "serviceRequestDate": "2026-04-13",
+          "serviceRequestDate": "2026-04-17",
           "history": [
             {
               "period": "2026-04",

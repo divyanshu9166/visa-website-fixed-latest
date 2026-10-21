@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-485 Adjustment of Status (Employment-Based) [2026]",
   "seoDesc": "Check official USCIS processing times for I-485 Adjustment of Status (Employment-Based) (Form I-485) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-10-19",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Employment-Based adjustment applications",
           "minMonths": 9.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-03-28",
+          "serviceRequestDate": "2025-04-01",
           "history": [
             {
               "period": "2026-04",
@@ -69,7 +69,7 @@
           "caseType": "Employment-Based adjustment applications",
           "minMonths": 42.5,
           "maxMonths": 48.5,
-          "serviceRequestDate": "2022-10-04",
+          "serviceRequestDate": "2022-10-08",
           "history": [
             {
               "period": "2026-04",
