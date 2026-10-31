@@ -3,17 +3,17 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-10-30T11:59:43.536Z"
+    "lastSuccess": "2026-10-31T11:32:51.373Z"
   },
   "visaBulletin": {
     "consecutiveFailures": 0,
     "lastFailed": "2026-09-06T14:42:54.369Z",
     "lastError": null,
-    "lastSuccess": "2026-10-30T11:59:43.536Z"
+    "lastSuccess": "2026-10-31T11:32:51.373Z"
   },
   "waitTimes": {
-    "consecutiveFailures": 7,
-    "lastFailed": "2026-10-30T11:59:43.536Z",
+    "consecutiveFailures": 8,
+    "lastFailed": "2026-10-31T11:32:51.373Z",
     "lastError": "HTML table error: No tables found on DOS wait times page | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-",
     "lastSuccess": "2026-10-23T10:48:54.013Z"
   },
@@ -21,11 +21,11 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-10-30T11:59:43.536Z"
+    "lastSuccess": "2026-10-31T11:32:51.373Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 7,
-    "lastFailed": "2026-10-30T11:59:43.536Z",
+    "consecutiveFailures": 8,
+    "lastFailed": "2026-10-31T11:32:51.373Z",
     "lastError": "Source status is PRESERVED (preservation fallback active)",
     "lastSuccess": "2026-10-23T10:48:54.013Z"
   },
