@@ -3,29 +3,29 @@
     "consecutiveFailures": 0,
     "lastFailed": null,
     "lastError": null,
-    "lastSuccess": "2026-11-04T13:32:50.818Z"
+    "lastSuccess": "2026-11-05T13:52:25.692Z"
   },
   "visaBulletin": {
-    "consecutiveFailures": 0,
-    "lastFailed": "2026-09-06T14:42:54.369Z",
-    "lastError": null,
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-11-05T13:52:25.692Z",
+    "lastError": "DOS scrape failed (HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-) and USCIS mirror failed (HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <HTML><HEAD> <TITLE>Access Denied</TITLE> </HEAD><BODY> <H1>Access Denied</H1> You don't have permission to access \"http&#58;&#47;&#47;www&#46;uscis&#46;gov&#47;green&#45;card&#47;green&#45;card&#45)",
     "lastSuccess": "2026-11-04T13:32:50.818Z"
   },
   "waitTimes": {
-    "consecutiveFailures": 12,
-    "lastFailed": "2026-11-04T13:32:50.818Z",
+    "consecutiveFailures": 13,
+    "lastFailed": "2026-11-05T13:52:25.692Z",
     "lastError": "HTML table error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no- | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-",
     "lastSuccess": "2026-10-23T10:48:54.013Z"
   },
   "uscisQuarterlyStats": {
-    "consecutiveFailures": 0,
-    "lastFailed": null,
-    "lastError": null,
+    "consecutiveFailures": 1,
+    "lastFailed": "2026-11-05T13:52:25.692Z",
+    "lastError": "HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <HTML><HEAD> <TITLE>Access Denied</TITLE> </HEAD><BODY> <H1>Access Denied</H1> You don't have permission to access \"http&#58;&#47;&#47;www&#46;uscis&#46;gov&#47;tools&#47;reports&#45;and&#45;studies",
     "lastSuccess": "2026-11-04T13:32:50.818Z"
   },
   "dosWaitTimes": {
-    "consecutiveFailures": 12,
-    "lastFailed": "2026-11-04T13:32:50.818Z",
+    "consecutiveFailures": 13,
+    "lastFailed": "2026-11-05T13:52:25.692Z",
     "lastError": "Source status is PRESERVED (preservation fallback active)",
     "lastSuccess": "2026-10-23T10:48:54.013Z"
   },

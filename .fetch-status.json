@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-11-04T13:32:50.818Z",
+  "timestamp": "2026-11-05T13:52:25.692Z",
   "seedOnly": false,
   "sources": {
     "processingTimes": {
@@ -10,10 +10,10 @@
       "lastError": null
     },
     "visaBulletin": {
-      "status": "LIVE_VALIDATED",
-      "liveCount": 25,
-      "staleCount": 0,
-      "lastError": null
+      "status": "PRESERVED",
+      "liveCount": 0,
+      "staleCount": 740,
+      "lastError": "DOS scrape failed (HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-) and USCIS mirror failed (HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <HTML><HEAD> <TITLE>Access Denied</TITLE> </HEAD><BODY> <H1>Access Denied</H1> You don't have permission to access \"http&#58;&#47;&#47;www&#46;uscis&#46;gov&#47;green&#45;card&#47;green&#45;card&#45)"
     },
     "waitTimes": {
       "status": "PRESERVED",
@@ -22,10 +22,10 @@
       "lastError": "HTML table error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no- | Database error: HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-"
     },
     "uscisQuarterlyStats": {
-      "status": "LIVE_VALIDATED",
-      "liveCount": 46,
-      "staleCount": 0,
-      "lastError": null
+      "status": "PRESERVED",
+      "liveCount": 0,
+      "staleCount": 128,
+      "lastError": "HTTP 403 (Forbidden) - WAF_BOT_PROTECTION_BLOCKED (Akamai Bot Manager / Cloudflare WAF block) | Response Body: <HTML><HEAD> <TITLE>Access Denied</TITLE> </HEAD><BODY> <H1>Access Denied</H1> You don't have permission to access \"http&#58;&#47;&#47;www&#46;uscis&#46;gov&#47;tools&#47;reports&#45;and&#45;studies"
     },
     "dosWaitTimes": {
       "status": "PRESERVED",
