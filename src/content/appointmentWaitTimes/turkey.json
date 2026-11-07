@@ -2,15 +2,15 @@
   "country": "Turkey",
   "slug": "turkey",
   "countryCode": "TR",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Istanbul",
-      "waitTimeB1B2": 57,
-      "waitTimeStudent": 6,
-      "waitTimeOther": 31,
+      "waitTimeB1B2": 64,
+      "waitTimeStudent": 21,
+      "waitTimeOther": 35,
       "waitTimePetition": 2,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
@@ -67,6 +67,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 57
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 64
         }
       ]
     },

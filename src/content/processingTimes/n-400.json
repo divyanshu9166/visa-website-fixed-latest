@@ -19,7 +19,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-22",
+          "serviceRequestDate": "2025-06-02",
           "history": [
             {
               "period": "2026-04",
@@ -53,6 +53,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 17.5
             }
@@ -69,7 +74,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 18.5,
-          "serviceRequestDate": "2025-04-17",
+          "serviceRequestDate": "2025-04-28",
           "history": [
             {
               "period": "2026-04",
@@ -103,6 +108,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 18.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 18.5
             }
@@ -119,7 +129,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-10-06",
+          "serviceRequestDate": "2025-10-17",
           "history": [
             {
               "period": "2026-04",
@@ -153,6 +163,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 13
             }
@@ -169,7 +184,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-04-07",
+          "serviceRequestDate": "2025-04-18",
           "history": [
             {
               "period": "2026-04",
@@ -203,6 +218,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 19
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 19
             }
@@ -219,7 +239,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 17,
-          "serviceRequestDate": "2025-05-29",
+          "serviceRequestDate": "2025-06-09",
           "history": [
             {
               "period": "2026-04",
@@ -253,6 +273,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 17
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 17
             }
@@ -269,7 +294,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 15,
           "maxMonths": 20.5,
-          "serviceRequestDate": "2025-02-14",
+          "serviceRequestDate": "2025-02-25",
           "history": [
             {
               "period": "2026-04",
@@ -303,6 +328,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15,
+              "max": 20.5
+            },
+            {
+              "period": "2026-11",
               "min": 15,
               "max": 20.5
             }
@@ -319,7 +349,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-08-03",
+          "serviceRequestDate": "2025-08-14",
           "history": [
             {
               "period": "2026-04",
@@ -353,6 +383,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 11,
               "max": 15
             }
@@ -369,7 +404,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 15,
           "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-15",
+          "serviceRequestDate": "2025-05-26",
           "history": [
             {
               "period": "2026-04",
@@ -403,6 +438,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15,
+              "max": 17.5
+            },
+            {
+              "period": "2026-11",
               "min": 15,
               "max": 17.5
             }
@@ -419,7 +459,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-22",
+          "serviceRequestDate": "2025-08-02",
           "history": [
             {
               "period": "2026-04",
@@ -453,6 +493,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 15.5
             }
@@ -469,7 +514,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14.5,
           "maxMonths": 17,
-          "serviceRequestDate": "2025-05-23",
+          "serviceRequestDate": "2025-06-03",
           "history": [
             {
               "period": "2026-04",
@@ -503,6 +548,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 17
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 17
             }
@@ -519,7 +569,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-08-05",
+          "serviceRequestDate": "2025-08-16",
           "history": [
             {
               "period": "2026-04",
@@ -553,6 +603,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 15
             }
@@ -569,7 +624,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 19.5,
-          "serviceRequestDate": "2025-03-20",
+          "serviceRequestDate": "2025-03-31",
           "history": [
             {
               "period": "2026-04",
@@ -603,6 +658,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 19.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 19.5
             }
@@ -619,7 +679,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-07-30",
+          "serviceRequestDate": "2025-08-10",
           "history": [
             {
               "period": "2026-04",
@@ -653,6 +713,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 15
             }
@@ -669,7 +734,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-17",
+          "serviceRequestDate": "2025-07-28",
           "history": [
             {
               "period": "2026-04",
@@ -703,6 +768,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 15.5
             }
@@ -719,7 +789,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 9.5,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-09-27",
+          "serviceRequestDate": "2025-10-08",
           "history": [
             {
               "period": "2026-04",
@@ -753,6 +823,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9.5,
+              "max": 13
+            },
+            {
+              "period": "2026-11",
               "min": 9.5,
               "max": 13
             }
@@ -769,7 +844,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-11",
+          "serviceRequestDate": "2025-08-22",
           "history": [
             {
               "period": "2026-04",
@@ -803,6 +878,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 14.5
             }
@@ -819,7 +899,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-09-01",
+          "serviceRequestDate": "2025-09-12",
           "history": [
             {
               "period": "2026-04",
@@ -853,6 +933,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 14
             }
@@ -869,7 +954,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-13",
+          "serviceRequestDate": "2025-08-24",
           "history": [
             {
               "period": "2026-04",
@@ -903,6 +988,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 11,
               "max": 14.5
             }
@@ -919,7 +1009,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-20",
+          "serviceRequestDate": "2025-07-01",
           "history": [
             {
               "period": "2026-04",
@@ -953,6 +1043,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 16.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 16.5
             }
@@ -969,7 +1064,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14,
           "maxMonths": 18,
-          "serviceRequestDate": "2025-05-01",
+          "serviceRequestDate": "2025-05-12",
           "history": [
             {
               "period": "2026-04",
@@ -1003,6 +1098,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14,
+              "max": 18
+            },
+            {
+              "period": "2026-11",
               "min": 14,
               "max": 18
             }
@@ -1019,7 +1119,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-13",
+          "serviceRequestDate": "2025-06-24",
           "history": [
             {
               "period": "2026-04",
@@ -1053,6 +1153,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 16.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 16.5
             }
@@ -1069,7 +1174,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-12",
+          "serviceRequestDate": "2025-06-23",
           "history": [
             {
               "period": "2026-04",
@@ -1103,6 +1208,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 16.5
             }
@@ -1119,7 +1229,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-07-24",
+          "serviceRequestDate": "2025-08-04",
           "history": [
             {
               "period": "2026-04",
@@ -1153,6 +1263,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 15
             }
@@ -1169,7 +1284,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 15.5,
           "maxMonths": 19.5,
-          "serviceRequestDate": "2025-03-16",
+          "serviceRequestDate": "2025-03-27",
           "history": [
             {
               "period": "2026-04",
@@ -1203,6 +1318,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-11",
               "min": 15.5,
               "max": 19.5
             }
@@ -1219,7 +1339,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-09-24",
+          "serviceRequestDate": "2025-10-05",
           "history": [
             {
               "period": "2026-04",
@@ -1253,6 +1373,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11,
+              "max": 13
+            },
+            {
+              "period": "2026-11",
               "min": 11,
               "max": 13
             }
@@ -1269,7 +1394,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 13.5,
-          "serviceRequestDate": "2025-09-19",
+          "serviceRequestDate": "2025-09-30",
           "history": [
             {
               "period": "2026-04",
@@ -1303,6 +1428,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 13.5
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 13.5
             }
@@ -1319,7 +1449,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-08-27",
+          "serviceRequestDate": "2025-09-07",
           "history": [
             {
               "period": "2026-04",
@@ -1353,6 +1483,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 14
             }
@@ -1369,7 +1504,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 9.5,
           "maxMonths": 11.5,
-          "serviceRequestDate": "2025-11-15",
+          "serviceRequestDate": "2025-11-26",
           "history": [
             {
               "period": "2026-04",
@@ -1403,6 +1538,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9.5,
+              "max": 11.5
+            },
+            {
+              "period": "2026-11",
               "min": 9.5,
               "max": 11.5
             }
@@ -1419,7 +1559,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-21",
+          "serviceRequestDate": "2025-07-02",
           "history": [
             {
               "period": "2026-04",
@@ -1453,6 +1593,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 16.5
             }
@@ -1469,7 +1614,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 9.5,
           "maxMonths": 12.5,
-          "serviceRequestDate": "2025-10-15",
+          "serviceRequestDate": "2025-10-26",
           "history": [
             {
               "period": "2026-04",
@@ -1503,6 +1648,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9.5,
+              "max": 12.5
+            },
+            {
+              "period": "2026-11",
               "min": 9.5,
               "max": 12.5
             }
@@ -1519,7 +1669,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-07-01",
+          "serviceRequestDate": "2025-07-12",
           "history": [
             {
               "period": "2026-04",
@@ -1553,6 +1703,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 16
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 16
             }
@@ -1569,7 +1724,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-09-04",
+          "serviceRequestDate": "2025-09-15",
           "history": [
             {
               "period": "2026-04",
@@ -1603,6 +1758,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 12,
               "max": 14
             }
@@ -1619,7 +1779,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14.5,
           "maxMonths": 18,
-          "serviceRequestDate": "2025-05-03",
+          "serviceRequestDate": "2025-05-14",
           "history": [
             {
               "period": "2026-04",
@@ -1653,6 +1813,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 18
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 18
             }
@@ -1669,7 +1834,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-15",
+          "serviceRequestDate": "2025-06-26",
           "history": [
             {
               "period": "2026-04",
@@ -1703,6 +1868,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14,
+              "max": 16.5
+            },
+            {
+              "period": "2026-11",
               "min": 14,
               "max": 16.5
             }
@@ -1719,7 +1889,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 15,
           "maxMonths": 18,
-          "serviceRequestDate": "2025-04-26",
+          "serviceRequestDate": "2025-05-07",
           "history": [
             {
               "period": "2026-04",
@@ -1753,6 +1923,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15,
+              "max": 18
+            },
+            {
+              "period": "2026-11",
               "min": 15,
               "max": 18
             }
@@ -1769,7 +1944,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-07-23",
+          "serviceRequestDate": "2025-08-03",
           "history": [
             {
               "period": "2026-04",
@@ -1803,6 +1978,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 15
             }
@@ -1819,7 +1999,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 13.5,
-          "serviceRequestDate": "2025-09-17",
+          "serviceRequestDate": "2025-09-28",
           "history": [
             {
               "period": "2026-04",
@@ -1853,6 +2033,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 13.5
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 13.5
             }
@@ -1869,7 +2054,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-08-25",
+          "serviceRequestDate": "2025-09-05",
           "history": [
             {
               "period": "2026-04",
@@ -1903,6 +2088,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 14
             }
@@ -1919,7 +2109,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 18,
           "maxMonths": 20,
-          "serviceRequestDate": "2025-03-01",
+          "serviceRequestDate": "2025-03-12",
           "history": [
             {
               "period": "2026-04",
@@ -1953,6 +2143,11 @@
             },
             {
               "period": "2026-10",
+              "min": 18,
+              "max": 20
+            },
+            {
+              "period": "2026-11",
               "min": 18,
               "max": 20
             }
@@ -1969,7 +2164,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12,
           "maxMonths": 17,
-          "serviceRequestDate": "2025-05-23",
+          "serviceRequestDate": "2025-06-03",
           "history": [
             {
               "period": "2026-04",
@@ -2003,6 +2198,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12,
+              "max": 17
+            },
+            {
+              "period": "2026-11",
               "min": 12,
               "max": 17
             }
@@ -2019,7 +2219,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-08-23",
+          "serviceRequestDate": "2025-09-03",
           "history": [
             {
               "period": "2026-04",
@@ -2053,6 +2253,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 14
             }
@@ -2069,7 +2274,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-07",
+          "serviceRequestDate": "2025-08-18",
           "history": [
             {
               "period": "2026-04",
@@ -2103,6 +2308,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 14.5
             }
@@ -2119,7 +2329,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-07-04",
+          "serviceRequestDate": "2025-07-15",
           "history": [
             {
               "period": "2026-04",
@@ -2153,6 +2363,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 16
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 16
             }
@@ -2169,7 +2384,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 13.5,
-          "serviceRequestDate": "2025-09-18",
+          "serviceRequestDate": "2025-09-29",
           "history": [
             {
               "period": "2026-04",
@@ -2203,6 +2418,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 13.5
             }
@@ -2219,7 +2439,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-07-05",
+          "serviceRequestDate": "2025-07-16",
           "history": [
             {
               "period": "2026-04",
@@ -2253,6 +2473,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-11",
               "min": 12,
               "max": 16
             }
@@ -2269,7 +2494,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 9.5,
           "maxMonths": 12,
-          "serviceRequestDate": "2025-10-29",
+          "serviceRequestDate": "2025-11-09",
           "history": [
             {
               "period": "2026-04",
@@ -2303,6 +2528,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9.5,
+              "max": 12
+            },
+            {
+              "period": "2026-11",
               "min": 9.5,
               "max": 12
             }
@@ -2319,7 +2549,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-08-04",
+          "serviceRequestDate": "2025-08-15",
           "history": [
             {
               "period": "2026-04",
@@ -2353,6 +2583,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 15
             }
@@ -2369,7 +2604,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14,
           "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-22",
+          "serviceRequestDate": "2025-06-02",
           "history": [
             {
               "period": "2026-04",
@@ -2403,6 +2638,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14,
+              "max": 17.5
+            },
+            {
+              "period": "2026-11",
               "min": 14,
               "max": 17.5
             }
@@ -2419,7 +2659,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-18",
+          "serviceRequestDate": "2025-08-29",
           "history": [
             {
               "period": "2026-04",
@@ -2453,6 +2693,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 14.5
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 14.5
             }
@@ -2469,7 +2714,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-16",
+          "serviceRequestDate": "2025-07-27",
           "history": [
             {
               "period": "2026-04",
@@ -2503,6 +2748,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 15.5
             }
@@ -2519,7 +2769,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 9,
           "maxMonths": 12,
-          "serviceRequestDate": "2025-10-28",
+          "serviceRequestDate": "2025-11-08",
           "history": [
             {
               "period": "2026-04",
@@ -2553,6 +2803,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9,
+              "max": 12
+            },
+            {
+              "period": "2026-11",
               "min": 9,
               "max": 12
             }
@@ -2569,7 +2824,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 17,
-          "serviceRequestDate": "2025-06-04",
+          "serviceRequestDate": "2025-06-15",
           "history": [
             {
               "period": "2026-04",
@@ -2603,6 +2858,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 17
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 17
             }
@@ -2619,7 +2879,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 13.5,
-          "serviceRequestDate": "2025-09-10",
+          "serviceRequestDate": "2025-09-21",
           "history": [
             {
               "period": "2026-04",
@@ -2653,6 +2913,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 13.5
             }
@@ -2669,7 +2934,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 17,
-          "serviceRequestDate": "2025-05-29",
+          "serviceRequestDate": "2025-06-09",
           "history": [
             {
               "period": "2026-04",
@@ -2703,6 +2968,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 17
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 17
             }
@@ -2719,7 +2989,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 12.5,
-          "serviceRequestDate": "2025-10-08",
+          "serviceRequestDate": "2025-10-19",
           "history": [
             {
               "period": "2026-04",
@@ -2753,6 +3023,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 12.5
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 12.5
             }
@@ -2769,7 +3044,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 15.5,
           "maxMonths": 19.5,
-          "serviceRequestDate": "2025-03-21",
+          "serviceRequestDate": "2025-04-01",
           "history": [
             {
               "period": "2026-04",
@@ -2803,6 +3078,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15.5,
+              "max": 19.5
+            },
+            {
+              "period": "2026-11",
               "min": 15.5,
               "max": 19.5
             }
@@ -2819,7 +3099,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-14",
+          "serviceRequestDate": "2025-07-25",
           "history": [
             {
               "period": "2026-04",
@@ -2853,6 +3133,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 15.5
             }
@@ -2869,7 +3154,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-04-07",
+          "serviceRequestDate": "2025-04-18",
           "history": [
             {
               "period": "2026-04",
@@ -2903,6 +3188,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 19
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 19
             }
@@ -2919,7 +3209,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-17",
+          "serviceRequestDate": "2025-08-28",
           "history": [
             {
               "period": "2026-04",
@@ -2953,6 +3243,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 14.5
             }
@@ -2969,7 +3264,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-04-07",
+          "serviceRequestDate": "2025-04-18",
           "history": [
             {
               "period": "2026-04",
@@ -3003,6 +3298,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 19
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 19
             }
@@ -3019,7 +3319,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-08-01",
+          "serviceRequestDate": "2025-08-12",
           "history": [
             {
               "period": "2026-04",
@@ -3053,6 +3353,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 15
             }
@@ -3069,7 +3374,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-09-22",
+          "serviceRequestDate": "2025-10-03",
           "history": [
             {
               "period": "2026-04",
@@ -3103,6 +3408,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12,
+              "max": 13
+            },
+            {
+              "period": "2026-11",
               "min": 12,
               "max": 13
             }
@@ -3119,7 +3429,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-07",
+          "serviceRequestDate": "2025-08-18",
           "history": [
             {
               "period": "2026-04",
@@ -3153,6 +3463,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 14.5
             }
@@ -3169,7 +3484,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-03-28",
+          "serviceRequestDate": "2025-04-08",
           "history": [
             {
               "period": "2026-04",
@@ -3203,6 +3518,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 19
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 19
             }
@@ -3219,7 +3539,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14.5,
           "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-16",
+          "serviceRequestDate": "2025-05-27",
           "history": [
             {
               "period": "2026-04",
@@ -3253,6 +3573,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 17.5
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 17.5
             }
@@ -3269,7 +3594,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-09-22",
+          "serviceRequestDate": "2025-10-03",
           "history": [
             {
               "period": "2026-04",
@@ -3303,6 +3628,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10,
+              "max": 13
+            },
+            {
+              "period": "2026-11",
               "min": 10,
               "max": 13
             }
@@ -3319,7 +3649,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-09",
+          "serviceRequestDate": "2025-07-20",
           "history": [
             {
               "period": "2026-04",
@@ -3353,6 +3683,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 15.5
             }
@@ -3369,7 +3704,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-07-07",
+          "serviceRequestDate": "2025-07-18",
           "history": [
             {
               "period": "2026-04",
@@ -3403,6 +3738,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12,
+              "max": 16
+            },
+            {
+              "period": "2026-11",
               "min": 12,
               "max": 16
             }
@@ -3419,7 +3759,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-08-05",
+          "serviceRequestDate": "2025-08-16",
           "history": [
             {
               "period": "2026-04",
@@ -3453,6 +3793,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 15
             }
@@ -3469,7 +3814,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14,
           "maxMonths": 17,
-          "serviceRequestDate": "2025-06-03",
+          "serviceRequestDate": "2025-06-14",
           "history": [
             {
               "period": "2026-04",
@@ -3503,6 +3848,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14,
+              "max": 17
+            },
+            {
+              "period": "2026-11",
               "min": 14,
               "max": 17
             }
@@ -3519,7 +3869,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 16,
           "maxMonths": 24,
-          "serviceRequestDate": "2024-10-28",
+          "serviceRequestDate": "2024-11-08",
           "history": [
             {
               "period": "2026-04",
@@ -3553,6 +3903,11 @@
             },
             {
               "period": "2026-10",
+              "min": 16,
+              "max": 24
+            },
+            {
+              "period": "2026-11",
               "min": 16,
               "max": 24
             }
@@ -3569,7 +3924,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 9.5,
           "maxMonths": 11,
-          "serviceRequestDate": "2025-11-28",
+          "serviceRequestDate": "2025-12-09",
           "history": [
             {
               "period": "2026-04",
@@ -3603,6 +3958,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9.5,
+              "max": 11
+            },
+            {
+              "period": "2026-11",
               "min": 9.5,
               "max": 11
             }
@@ -3619,7 +3979,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-22",
+          "serviceRequestDate": "2025-06-02",
           "history": [
             {
               "period": "2026-04",
@@ -3653,6 +4013,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 17.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 17.5
             }
@@ -3669,7 +4034,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-14",
+          "serviceRequestDate": "2025-07-25",
           "history": [
             {
               "period": "2026-04",
@@ -3703,6 +4068,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 15.5
             }
@@ -3719,7 +4089,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14.5,
           "maxMonths": 22.5,
-          "serviceRequestDate": "2024-12-14",
+          "serviceRequestDate": "2024-12-25",
           "history": [
             {
               "period": "2026-04",
@@ -3753,6 +4123,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 22.5
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 22.5
             }
@@ -3769,7 +4144,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-10",
+          "serviceRequestDate": "2025-07-21",
           "history": [
             {
               "period": "2026-04",
@@ -3803,6 +4178,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 15.5
             }
@@ -3819,7 +4199,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-06-23",
+          "serviceRequestDate": "2025-07-04",
           "history": [
             {
               "period": "2026-04",
@@ -3853,6 +4233,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 16
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 16
             }
@@ -3869,7 +4254,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 13.5,
-          "serviceRequestDate": "2025-09-19",
+          "serviceRequestDate": "2025-09-30",
           "history": [
             {
               "period": "2026-04",
@@ -3903,6 +4288,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 13.5
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 13.5
             }
@@ -3919,7 +4309,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 15.5,
           "maxMonths": 23,
-          "serviceRequestDate": "2024-11-25",
+          "serviceRequestDate": "2024-12-06",
           "history": [
             {
               "period": "2026-04",
@@ -3953,6 +4343,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15.5,
+              "max": 23
+            },
+            {
+              "period": "2026-11",
               "min": 15.5,
               "max": 23
             }
@@ -3969,7 +4364,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 16,
           "maxMonths": 31.5,
-          "serviceRequestDate": "2024-03-10",
+          "serviceRequestDate": "2024-03-21",
           "history": [
             {
               "period": "2026-04",
@@ -4003,6 +4398,11 @@
             },
             {
               "period": "2026-10",
+              "min": 16,
+              "max": 31.5
+            },
+            {
+              "period": "2026-11",
               "min": 16,
               "max": 31.5
             }
@@ -4019,7 +4419,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 14.5,
           "maxMonths": 20,
-          "serviceRequestDate": "2025-03-06",
+          "serviceRequestDate": "2025-03-17",
           "history": [
             {
               "period": "2026-04",
@@ -4053,6 +4453,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 20
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 20
             }
@@ -4069,7 +4474,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-10-04",
+          "serviceRequestDate": "2025-10-15",
           "history": [
             {
               "period": "2026-04",
@@ -4103,6 +4508,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 13
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 13
             }
@@ -4119,7 +4529,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10.5,
           "maxMonths": 12,
-          "serviceRequestDate": "2025-10-26",
+          "serviceRequestDate": "2025-11-06",
           "history": [
             {
               "period": "2026-04",
@@ -4153,6 +4563,11 @@
             },
             {
               "period": "2026-10",
+              "min": 10.5,
+              "max": 12
+            },
+            {
+              "period": "2026-11",
               "min": 10.5,
               "max": 12
             }
@@ -4169,7 +4584,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-09-03",
+          "serviceRequestDate": "2025-09-14",
           "history": [
             {
               "period": "2026-04",
@@ -4203,6 +4618,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 14
             }
@@ -4219,7 +4639,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-10",
+          "serviceRequestDate": "2025-06-21",
           "history": [
             {
               "period": "2026-04",
@@ -4253,6 +4673,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 16.5
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 16.5
             }
@@ -4269,7 +4694,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 12,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-09-01",
+          "serviceRequestDate": "2025-09-12",
           "history": [
             {
               "period": "2026-04",
@@ -4303,6 +4728,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12,
+              "max": 14
+            },
+            {
+              "period": "2026-11",
               "min": 12,
               "max": 14
             }
@@ -4319,7 +4749,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 11.5,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-22",
+          "serviceRequestDate": "2025-09-02",
           "history": [
             {
               "period": "2026-04",
@@ -4353,6 +4783,11 @@
             },
             {
               "period": "2026-10",
+              "min": 11.5,
+              "max": 14.5
+            },
+            {
+              "period": "2026-11",
               "min": 11.5,
               "max": 14.5
             }
@@ -4369,7 +4804,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13,
           "maxMonths": 18,
-          "serviceRequestDate": "2025-05-03",
+          "serviceRequestDate": "2025-05-14",
           "history": [
             {
               "period": "2026-04",
@@ -4403,6 +4838,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13,
+              "max": 18
+            },
+            {
+              "period": "2026-11",
               "min": 13,
               "max": 18
             }
@@ -4419,7 +4859,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 10,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-15",
+          "serviceRequestDate": "2025-06-26",
           "history": [
             {
               "period": "2026-04",
@@ -4455,6 +4895,11 @@
               "period": "2026-10",
               "min": 10,
               "max": 16.5
+            },
+            {
+              "period": "2026-11",
+              "min": 10,
+              "max": 16.5
             }
           ]
         }
@@ -4469,7 +4914,7 @@
           "caseType": "Application for Naturalization",
           "minMonths": 13.5,
           "maxMonths": 15.5,
-          "serviceRequestDate": "2025-07-22",
+          "serviceRequestDate": "2025-08-02",
           "history": [
             {
               "period": "2026-04",
@@ -4503,6 +4948,11 @@
             },
             {
               "period": "2026-10",
+              "min": 13.5,
+              "max": 15.5
+            },
+            {
+              "period": "2026-11",
               "min": 13.5,
               "max": 15.5
             }

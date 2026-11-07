@@ -2,19 +2,19 @@
   "country": "India",
   "slug": "india",
   "countryCode": "IN",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "New Delhi",
-      "waitTimeB1B2": 7,
-      "waitTimeStudent": 11,
-      "waitTimeOther": 5,
+      "waitTimeB1B2": 270,
+      "waitTimeStudent": 27,
+      "waitTimeOther": 149,
       "waitTimePetition": 3,
       "waitTimeCrewTransit": 3,
-      "hasEmergencyAppointments": false,
-      "notes": "",
+      "hasEmergencyAppointments": true,
+      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
         {
           "period": "2025-10",
@@ -67,18 +67,22 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 7
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 270
         }
       ]
     },
     {
       "name": "Mumbai",
-      "waitTimeB1B2": 12,
-      "waitTimeStudent": 12,
-      "waitTimeOther": 7,
+      "waitTimeB1B2": 215,
+      "waitTimeStudent": 25,
+      "waitTimeOther": 118,
       "waitTimePetition": 2,
       "waitTimeCrewTransit": 1,
-      "hasEmergencyAppointments": false,
-      "notes": "",
+      "hasEmergencyAppointments": true,
+      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
         {
           "period": "2025-10",
@@ -131,18 +135,22 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 12
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 215
         }
       ]
     },
     {
       "name": "Chennai",
-      "waitTimeB1B2": 7,
-      "waitTimeStudent": 7,
-      "waitTimeOther": 5,
+      "waitTimeB1B2": 216,
+      "waitTimeStudent": 68,
+      "waitTimeOther": 119,
       "waitTimePetition": 2,
       "waitTimeCrewTransit": null,
-      "hasEmergencyAppointments": false,
-      "notes": "",
+      "hasEmergencyAppointments": true,
+      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
         {
           "period": "2025-10",
@@ -195,14 +203,18 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 7
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 216
         }
       ]
     },
     {
       "name": "Hyderabad",
-      "waitTimeB1B2": 10,
-      "waitTimeStudent": 10,
-      "waitTimeOther": 6,
+      "waitTimeB1B2": 117,
+      "waitTimeStudent": 80,
+      "waitTimeOther": 64,
       "waitTimePetition": 6,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
@@ -259,14 +271,18 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 10
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 117
         }
       ]
     },
     {
       "name": "Kolkata",
-      "waitTimeB1B2": 8,
-      "waitTimeStudent": 8,
-      "waitTimeOther": 5,
+      "waitTimeB1B2": 71,
+      "waitTimeStudent": 56,
+      "waitTimeOther": 39,
       "waitTimePetition": 1,
       "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": false,
@@ -323,6 +339,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 8
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 71
         }
       ]
     }

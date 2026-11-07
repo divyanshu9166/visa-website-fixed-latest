@@ -2,15 +2,15 @@
   "country": "Colombia",
   "slug": "colombia",
   "countryCode": "CO",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Bogota",
-      "waitTimeB1B2": 5,
-      "waitTimeStudent": 6,
-      "waitTimeOther": 5,
+      "waitTimeB1B2": 14,
+      "waitTimeStudent": 14,
+      "waitTimeOther": 8,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": false,
@@ -67,6 +67,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 5
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 14
         }
       ]
     }

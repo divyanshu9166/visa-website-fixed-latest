@@ -2,14 +2,14 @@
   "country": "Bangladesh",
   "slug": "bangladesh",
   "countryCode": "BD",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Dhaka",
-      "waitTimeB1B2": 8,
-      "waitTimeStudent": 1,
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 7,
       "waitTimeOther": 5,
       "waitTimePetition": 1,
       "waitTimeCrewTransit": 1,
@@ -67,6 +67,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 8
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 7
         }
       ]
     }

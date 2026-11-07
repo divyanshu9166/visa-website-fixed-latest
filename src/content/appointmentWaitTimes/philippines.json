@@ -2,18 +2,18 @@
   "country": "Philippines",
   "slug": "philippines",
   "countryCode": "PH",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Manila",
-      "waitTimeB1B2": 154,
-      "waitTimeStudent": 0,
-      "waitTimeOther": 85,
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 7,
+      "waitTimeOther": 5,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
-      "hasEmergencyAppointments": true,
+      "hasEmergencyAppointments": false,
       "notes": "",
       "history": [
         {
@@ -67,6 +67,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 154
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 7
         }
       ]
     }

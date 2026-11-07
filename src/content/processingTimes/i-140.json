@@ -19,7 +19,7 @@
           "caseType": "Extraordinary ability (E11)",
           "minMonths": 32.5,
           "maxMonths": 35.5,
-          "serviceRequestDate": "2023-11-16",
+          "serviceRequestDate": "2023-11-27",
           "history": [
             {
               "period": "2026-04",
@@ -53,6 +53,11 @@
             },
             {
               "period": "2026-10",
+              "min": 32.5,
+              "max": 35.5
+            },
+            {
+              "period": "2026-11",
               "min": 32.5,
               "max": 35.5
             }
@@ -62,7 +67,7 @@
           "caseType": "Outstanding professor or researcher (E12)",
           "minMonths": 15,
           "maxMonths": 18.5,
-          "serviceRequestDate": "2025-04-19",
+          "serviceRequestDate": "2025-04-30",
           "history": [
             {
               "period": "2026-04",
@@ -96,6 +101,11 @@
             },
             {
               "period": "2026-10",
+              "min": 15,
+              "max": 18.5
+            },
+            {
+              "period": "2026-11",
               "min": 15,
               "max": 18.5
             }
@@ -105,7 +115,7 @@
           "caseType": "Multinational executive or manager (E13)",
           "minMonths": 27.5,
           "maxMonths": 29.5,
-          "serviceRequestDate": "2024-05-11",
+          "serviceRequestDate": "2024-05-22",
           "history": [
             {
               "period": "2026-04",
@@ -139,6 +149,11 @@
             },
             {
               "period": "2026-10",
+              "min": 27.5,
+              "max": 29.5
+            },
+            {
+              "period": "2026-11",
               "min": 27.5,
               "max": 29.5
             }
@@ -148,7 +163,7 @@
           "caseType": "Advanced degree or exceptional ability (E21)",
           "minMonths": 3,
           "maxMonths": 6.5,
-          "serviceRequestDate": "2026-04-10",
+          "serviceRequestDate": "2026-04-21",
           "history": [
             {
               "period": "2026-04",
@@ -182,6 +197,11 @@
             },
             {
               "period": "2026-10",
+              "min": 3,
+              "max": 6.5
+            },
+            {
+              "period": "2026-11",
               "min": 3,
               "max": 6.5
             }
@@ -191,7 +211,7 @@
           "caseType": "Skilled worker or professional (E31; E32)",
           "minMonths": 4,
           "maxMonths": 8,
-          "serviceRequestDate": "2026-03-03",
+          "serviceRequestDate": "2026-03-14",
           "history": [
             {
               "period": "2026-04",
@@ -225,6 +245,11 @@
             },
             {
               "period": "2026-10",
+              "min": 4,
+              "max": 8
+            },
+            {
+              "period": "2026-11",
               "min": 4,
               "max": 8
             }
@@ -234,7 +259,7 @@
           "caseType": "Unskilled worker (EW3)",
           "minMonths": 9,
           "maxMonths": 15,
-          "serviceRequestDate": "2025-07-30",
+          "serviceRequestDate": "2025-08-10",
           "history": [
             {
               "period": "2026-04",
@@ -268,6 +293,11 @@
             },
             {
               "period": "2026-10",
+              "min": 9,
+              "max": 15
+            },
+            {
+              "period": "2026-11",
               "min": 9,
               "max": 15
             }
@@ -277,7 +307,7 @@
           "caseType": "Advanced degree or exceptional ability requesting a National Interest Waiver (NIW)",
           "minMonths": 30,
           "maxMonths": 33,
-          "serviceRequestDate": "2024-01-30",
+          "serviceRequestDate": "2024-02-10",
           "history": [
             {
               "period": "2026-04",
@@ -313,6 +343,11 @@
               "period": "2026-10",
               "min": 30,
               "max": 33
+            },
+            {
+              "period": "2026-11",
+              "min": 30,
+              "max": 33
             }
           ]
         },
@@ -320,7 +355,7 @@
           "caseType": "Schedule A Nurses",
           "minMonths": 25.5,
           "maxMonths": 26.5,
-          "serviceRequestDate": "2024-08-10",
+          "serviceRequestDate": "2024-08-21",
           "history": [
             {
               "period": "2026-04",
@@ -354,6 +389,11 @@
             },
             {
               "period": "2026-10",
+              "min": 25.5,
+              "max": 26.5
+            },
+            {
+              "period": "2026-11",
               "min": 25.5,
               "max": 26.5
             }

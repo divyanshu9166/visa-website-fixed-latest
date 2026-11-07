@@ -19,7 +19,7 @@
           "caseType": "O - Extraordinary ability",
           "minMonths": 14.5,
           "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-13",
+          "serviceRequestDate": "2025-05-24",
           "history": [
             {
               "period": "2026-04",
@@ -53,6 +53,11 @@
             },
             {
               "period": "2026-10",
+              "min": 14.5,
+              "max": 17.5
+            },
+            {
+              "period": "2026-11",
               "min": 14.5,
               "max": 17.5
             }

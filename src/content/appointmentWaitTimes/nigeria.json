@@ -2,15 +2,15 @@
   "country": "Nigeria",
   "slug": "nigeria",
   "countryCode": "NG",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Lagos",
-      "waitTimeB1B2": 402,
-      "waitTimeStudent": 0,
-      "waitTimeOther": 221,
+      "waitTimeB1B2": 245,
+      "waitTimeStudent": 5,
+      "waitTimeOther": 135,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
       "hasEmergencyAppointments": true,
@@ -67,14 +67,18 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 402
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 245
         }
       ]
     },
     {
       "name": "Abuja",
-      "waitTimeB1B2": 369,
-      "waitTimeStudent": 129,
-      "waitTimeOther": 203,
+      "waitTimeB1B2": 499,
+      "waitTimeStudent": 7,
+      "waitTimeOther": 274,
       "waitTimePetition": null,
       "waitTimeCrewTransit": null,
       "hasEmergencyAppointments": true,
@@ -131,6 +135,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 369
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 499
         }
       ]
     }

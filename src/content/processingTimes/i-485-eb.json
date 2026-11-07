@@ -19,7 +19,7 @@
           "caseType": "Employment-Based adjustment applications",
           "minMonths": 9.5,
           "maxMonths": 19,
-          "serviceRequestDate": "2025-04-03",
+          "serviceRequestDate": "2025-04-14",
           "history": [
             {
               "period": "2026-04",
@@ -55,6 +55,11 @@
               "period": "2026-10",
               "min": 9.5,
               "max": 19
+            },
+            {
+              "period": "2026-11",
+              "min": 9.5,
+              "max": 19
             }
           ]
         }
@@ -69,7 +74,7 @@
           "caseType": "Employment-Based adjustment applications",
           "minMonths": 42.5,
           "maxMonths": 48.5,
-          "serviceRequestDate": "2022-10-10",
+          "serviceRequestDate": "2022-10-21",
           "history": [
             {
               "period": "2026-04",
@@ -103,6 +108,11 @@
             },
             {
               "period": "2026-10",
+              "min": 42.5,
+              "max": 48.5
+            },
+            {
+              "period": "2026-11",
               "min": 42.5,
               "max": 48.5
             }

@@ -2,15 +2,15 @@
   "country": "China",
   "slug": "china",
   "countryCode": "CN",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Beijing",
-      "waitTimeB1B2": 58,
-      "waitTimeStudent": 2,
-      "waitTimeOther": 32,
+      "waitTimeB1B2": 28,
+      "waitTimeStudent": 37,
+      "waitTimeOther": 15,
       "waitTimePetition": 5,
       "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
@@ -67,14 +67,18 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 58
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 28
         }
       ]
     },
     {
       "name": "Shanghai",
-      "waitTimeB1B2": 57,
-      "waitTimeStudent": 3,
-      "waitTimeOther": 31,
+      "waitTimeB1B2": 36,
+      "waitTimeStudent": 99,
+      "waitTimeOther": 20,
       "waitTimePetition": 3,
       "waitTimeCrewTransit": 3,
       "hasEmergencyAppointments": false,
@@ -131,14 +135,18 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 57
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 36
         }
       ]
     },
     {
       "name": "Guangzhou",
-      "waitTimeB1B2": 2,
-      "waitTimeStudent": 2,
-      "waitTimeOther": 5,
+      "waitTimeB1B2": 34,
+      "waitTimeStudent": 35,
+      "waitTimeOther": 19,
       "waitTimePetition": 3,
       "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
@@ -195,6 +203,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 2
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 34
         }
       ]
     }

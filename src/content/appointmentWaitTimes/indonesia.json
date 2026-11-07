@@ -2,19 +2,19 @@
   "country": "Indonesia",
   "slug": "indonesia",
   "countryCode": "ID",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-07",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Jakarta",
-      "waitTimeB1B2": 76,
-      "waitTimeStudent": 1,
-      "waitTimeOther": 42,
+      "waitTimeB1B2": 219,
+      "waitTimeStudent": 22,
+      "waitTimeOther": 120,
       "waitTimePetition": 1,
       "waitTimeCrewTransit": 0,
-      "hasEmergencyAppointments": false,
-      "notes": "",
+      "hasEmergencyAppointments": true,
+      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
       "history": [
         {
           "period": "2025-10",
@@ -67,14 +67,18 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 76
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 219
         }
       ]
     },
     {
       "name": "Surabaya",
-      "waitTimeB1B2": 116,
-      "waitTimeStudent": 0,
-      "waitTimeOther": 64,
+      "waitTimeB1B2": 16,
+      "waitTimeStudent": 24,
+      "waitTimeOther": 9,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 1,
       "hasEmergencyAppointments": false,
@@ -131,6 +135,10 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 116
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 16
         }
       ]
     }

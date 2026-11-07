@@ -19,7 +19,7 @@
           "caseType": "Based on a pending I-485 adjustment application [(c)(9)]",
           "minMonths": 12,
           "maxMonths": 16.5,
-          "serviceRequestDate": "2025-06-20",
+          "serviceRequestDate": "2025-07-01",
           "history": [
             {
               "period": "2026-04",
@@ -55,6 +55,11 @@
               "period": "2026-10",
               "min": 12,
               "max": 16.5
+            },
+            {
+              "period": "2026-11",
+              "min": 12,
+              "max": 16.5
             }
           ]
         }
@@ -69,7 +74,7 @@
           "caseType": "Based on a pending I-485 adjustment application [(c)(9)]",
           "minMonths": 12.5,
           "maxMonths": 16,
-          "serviceRequestDate": "2025-07-01",
+          "serviceRequestDate": "2025-07-12",
           "history": [
             {
               "period": "2026-04",
@@ -103,6 +108,11 @@
             },
             {
               "period": "2026-10",
+              "min": 12.5,
+              "max": 16
+            },
+            {
+              "period": "2026-11",
               "min": 12.5,
               "max": 16
             }
