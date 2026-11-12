@@ -2,7 +2,7 @@
   "country": "Germany",
   "slug": "germany",
   "countryCode": "DE",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -66,6 +66,10 @@
         },
         {
           "period": "2026-10",
+          "waitTimeB1B2": 33
+        },
+        {
+          "period": "2026-11",
           "waitTimeB1B2": 33
         }
       ]
@@ -131,9 +135,12 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 37
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 37
         }
       ]
     }
-  ],
-  "staleSince": "2026-11-07T12:22:18.359Z"
+  ]
 }

@@ -2,7 +2,7 @@
   "country": "France",
   "slug": "france",
   "countryCode": "FR",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -67,9 +67,12 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 32
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 32
         }
       ]
     }
-  ],
-  "staleSince": "2026-11-07T12:22:18.359Z"
+  ]
 }

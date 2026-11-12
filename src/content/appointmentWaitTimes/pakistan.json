@@ -2,7 +2,7 @@
   "country": "Pakistan",
   "slug": "pakistan",
   "countryCode": "PK",
-  "lastUpdated": "2026-11-07",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -67,13 +67,17 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 7
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 7
         }
       ]
     },
     {
       "name": "Karachi",
       "waitTimeB1B2": 7,
-      "waitTimeStudent": 3,
+      "waitTimeStudent": 7,
       "waitTimeOther": 5,
       "waitTimePetition": 1,
       "waitTimeCrewTransit": 0,
@@ -141,7 +145,7 @@
     {
       "name": "Lahore",
       "waitTimeB1B2": 5,
-      "waitTimeStudent": 36,
+      "waitTimeStudent": 3,
       "waitTimeOther": 5,
       "waitTimePetition": null,
       "waitTimeCrewTransit": null,

@@ -2,14 +2,14 @@
   "country": "Vietnam",
   "slug": "vietnam",
   "countryCode": "VN",
-  "lastUpdated": "2026-11-07",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Ho Chi Minh City",
       "waitTimeB1B2": 5,
-      "waitTimeStudent": 6,
+      "waitTimeStudent": 0,
       "waitTimeOther": 5,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
@@ -77,7 +77,7 @@
     {
       "name": "Hanoi",
       "waitTimeB1B2": 77,
-      "waitTimeStudent": 27,
+      "waitTimeStudent": 0,
       "waitTimeOther": 42,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,

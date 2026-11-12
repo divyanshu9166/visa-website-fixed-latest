@@ -2,14 +2,14 @@
   "country": "United Kingdom",
   "slug": "united-kingdom",
   "countryCode": "GB",
-  "lastUpdated": "2026-11-07",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "London",
       "waitTimeB1B2": 14,
-      "waitTimeStudent": 14,
+      "waitTimeStudent": 0,
       "waitTimeOther": 8,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,

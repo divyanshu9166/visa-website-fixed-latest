@@ -2,19 +2,19 @@
   "country": "Mexico",
   "slug": "mexico",
   "countryCode": "MX",
-  "lastUpdated": "2026-11-07",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Mexico City",
-      "waitTimeB1B2": 303,
-      "waitTimeStudent": 36,
-      "waitTimeOther": 167,
+      "waitTimeB1B2": 6,
+      "waitTimeStudent": 4,
+      "waitTimeOther": 5,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -70,19 +70,19 @@
         },
         {
           "period": "2026-11",
-          "waitTimeB1B2": 303
+          "waitTimeB1B2": 6
         }
       ]
     },
     {
       "name": "Guadalajara",
-      "waitTimeB1B2": 352,
-      "waitTimeStudent": 2,
-      "waitTimeOther": 194,
+      "waitTimeB1B2": 7,
+      "waitTimeStudent": 6,
+      "waitTimeOther": 5,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -138,14 +138,14 @@
         },
         {
           "period": "2026-11",
-          "waitTimeB1B2": 352
+          "waitTimeB1B2": 7
         }
       ]
     },
     {
       "name": "Tijuana",
       "waitTimeB1B2": 94,
-      "waitTimeStudent": 7,
+      "waitTimeStudent": 2,
       "waitTimeOther": 52,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
@@ -212,13 +212,13 @@
     },
     {
       "name": "Ciudad Juarez",
-      "waitTimeB1B2": 466,
-      "waitTimeStudent": 14,
-      "waitTimeOther": 256,
+      "waitTimeB1B2": 5,
+      "waitTimeStudent": 0,
+      "waitTimeOther": 5,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,
-      "hasEmergencyAppointments": true,
-      "notes": "High demand post — emergency/expedite appointment requests are common; check the embassy site for current criteria.",
+      "hasEmergencyAppointments": false,
+      "notes": "",
       "history": [
         {
           "period": "2025-10",
@@ -274,7 +274,7 @@
         },
         {
           "period": "2026-11",
-          "waitTimeB1B2": 466
+          "waitTimeB1B2": 5
         }
       ]
     }

@@ -2,14 +2,14 @@
   "country": "Nepal",
   "slug": "nepal",
   "countryCode": "NP",
-  "lastUpdated": "2026-11-07",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
     {
       "name": "Kathmandu",
       "waitTimeB1B2": 30,
-      "waitTimeStudent": 30,
+      "waitTimeStudent": 0,
       "waitTimeOther": 17,
       "waitTimePetition": 0,
       "waitTimeCrewTransit": 0,

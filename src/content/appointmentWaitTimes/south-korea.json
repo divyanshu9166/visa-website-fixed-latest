@@ -2,7 +2,7 @@
   "country": "South Korea",
   "slug": "south-korea",
   "countryCode": "KR",
-  "lastUpdated": "2026-10-23",
+  "lastUpdated": "2026-11-12",
   "dataSource": "live",
   "sourceUrl": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
   "consulates": [
@@ -67,9 +67,12 @@
         {
           "period": "2026-10",
           "waitTimeB1B2": 38
+        },
+        {
+          "period": "2026-11",
+          "waitTimeB1B2": 38
         }
       ]
     }
-  ],
-  "staleSince": "2026-11-07T12:22:18.356Z"
+  ]
 }
