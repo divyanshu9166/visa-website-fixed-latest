@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-90 Green Card Renewal/Replacement [2026]",
   "seoDesc": "Check official USCIS processing times for I-90 Green Card Renewal/Replacement (Form I-90) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-11-20",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,8 +17,8 @@
       "cases": [
         {
           "caseType": "Initial issuance or replacement",
-          "minMonths": 6,
-          "maxMonths": 9.5,
+          "minMonths": 6.5,
+          "maxMonths": 10,
           "serviceRequestDate": "2026-01-31",
           "history": [
             {
@@ -58,16 +58,16 @@
             },
             {
               "period": "2026-11",
-              "min": 6,
-              "max": 9.5
+              "min": 6.5,
+              "max": 10
             }
           ]
         },
         {
           "caseType": "10-year renewal",
-          "minMonths": 10.5,
+          "minMonths": 10,
           "maxMonths": 13,
-          "serviceRequestDate": "2025-10-14",
+          "serviceRequestDate": "2025-11-05",
           "history": [
             {
               "period": "2026-04",
@@ -106,7 +106,7 @@
             },
             {
               "period": "2026-11",
-              "min": 10.5,
+              "min": 10,
               "max": 13
             }
           ]

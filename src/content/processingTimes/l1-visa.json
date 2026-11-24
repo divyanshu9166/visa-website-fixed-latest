@@ -6,7 +6,7 @@
   "category": "work-visas",
   "seoTitle": "Current USCIS Processing Times for L-1 Visa [2026]",
   "seoDesc": "Check official USCIS processing times for L-1 Visa (Form I-129) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-11-20",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,9 +17,9 @@
       "cases": [
         {
           "caseType": "Intracompany transferees and blanket L",
-          "minMonths": 6.5,
-          "maxMonths": 10.5,
-          "serviceRequestDate": "2025-12-20",
+          "minMonths": 5.5,
+          "maxMonths": 11,
+          "serviceRequestDate": "2026-01-06",
           "history": [
             {
               "period": "2026-04",
@@ -58,8 +58,8 @@
             },
             {
               "period": "2026-11",
-              "min": 6.5,
-              "max": 10.5
+              "min": 5.5,
+              "max": 11
             }
           ]
         }

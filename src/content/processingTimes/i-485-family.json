@@ -6,7 +6,7 @@
   "category": "green-card",
   "seoTitle": "Current USCIS Processing Times for I-485 Adjustment of Status (Family-Based) [2026]",
   "seoDesc": "Check official USCIS processing times for I-485 Adjustment of Status (Family-Based) (Form I-485) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-11-20",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,9 +17,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 28,
-          "serviceRequestDate": "2024-07-05",
+          "minMonths": 14,
+          "maxMonths": 31,
+          "serviceRequestDate": "2024-05-07",
           "history": [
             {
               "period": "2026-04",
@@ -58,8 +58,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 28
+              "min": 14,
+              "max": 31
             }
           ]
         }
@@ -72,9 +72,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 21.5,
-          "maxMonths": 38,
-          "serviceRequestDate": "2023-09-07",
+          "minMonths": 14.5,
+          "maxMonths": 34.5,
+          "serviceRequestDate": "2024-01-20",
           "history": [
             {
               "period": "2026-04",
@@ -113,8 +113,8 @@
             },
             {
               "period": "2026-11",
-              "min": 21.5,
-              "max": 38
+              "min": 14.5,
+              "max": 34.5
             }
           ]
         }
@@ -128,8 +128,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 15,
-          "maxMonths": 26.5,
-          "serviceRequestDate": "2024-08-19",
+          "maxMonths": 28,
+          "serviceRequestDate": "2024-08-05",
           "history": [
             {
               "period": "2026-04",
@@ -169,7 +169,7 @@
             {
               "period": "2026-11",
               "min": 15,
-              "max": 26.5
+              "max": 28
             }
           ]
         }
@@ -182,9 +182,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 9.5,
-          "maxMonths": 29.5,
-          "serviceRequestDate": "2024-05-27",
+          "minMonths": 19.5,
+          "maxMonths": 33.5,
+          "serviceRequestDate": "2024-02-17",
           "history": [
             {
               "period": "2026-04",
@@ -223,8 +223,8 @@
             },
             {
               "period": "2026-11",
-              "min": 9.5,
-              "max": 29.5
+              "min": 19.5,
+              "max": 33.5
             }
           ]
         }
@@ -237,9 +237,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 16.5,
+          "minMonths": 17.5,
           "maxMonths": 31,
-          "serviceRequestDate": "2024-04-11",
+          "serviceRequestDate": "2024-05-03",
           "history": [
             {
               "period": "2026-04",
@@ -278,7 +278,7 @@
             },
             {
               "period": "2026-11",
-              "min": 16.5,
+              "min": 17.5,
               "max": 31
             }
           ]
@@ -292,9 +292,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 19,
-          "maxMonths": 32.5,
-          "serviceRequestDate": "2024-02-18",
+          "minMonths": 19.5,
+          "maxMonths": 31,
+          "serviceRequestDate": "2024-05-09",
           "history": [
             {
               "period": "2026-04",
@@ -333,8 +333,8 @@
             },
             {
               "period": "2026-11",
-              "min": 19,
-              "max": 32.5
+              "min": 19.5,
+              "max": 31
             }
           ]
         }
@@ -347,9 +347,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 19,
-          "maxMonths": 40,
-          "serviceRequestDate": "2023-07-11",
+          "minMonths": 19.5,
+          "maxMonths": 40.5,
+          "serviceRequestDate": "2023-07-25",
           "history": [
             {
               "period": "2026-04",
@@ -388,8 +388,8 @@
             },
             {
               "period": "2026-11",
-              "min": 19,
-              "max": 40
+              "min": 19.5,
+              "max": 40.5
             }
           ]
         }
@@ -402,9 +402,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18,
+          "minMonths": 19,
           "maxMonths": 37.5,
-          "serviceRequestDate": "2023-09-20",
+          "serviceRequestDate": "2023-10-11",
           "history": [
             {
               "period": "2026-04",
@@ -443,7 +443,7 @@
             },
             {
               "period": "2026-11",
-              "min": 18,
+              "min": 19,
               "max": 37.5
             }
           ]
@@ -457,9 +457,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 28.5,
-          "serviceRequestDate": "2024-07-03",
+          "minMonths": 15.5,
+          "maxMonths": 28,
+          "serviceRequestDate": "2024-07-28",
           "history": [
             {
               "period": "2026-04",
@@ -498,8 +498,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 28.5
+              "min": 15.5,
+              "max": 28
             }
           ]
         }
@@ -512,9 +512,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 10,
-          "maxMonths": 17.5,
-          "serviceRequestDate": "2025-05-26",
+          "minMonths": 11.5,
+          "maxMonths": 19.5,
+          "serviceRequestDate": "2025-04-16",
           "history": [
             {
               "period": "2026-04",
@@ -553,8 +553,8 @@
             },
             {
               "period": "2026-11",
-              "min": 10,
-              "max": 17.5
+              "min": 11.5,
+              "max": 19.5
             }
           ]
         }
@@ -567,9 +567,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 41.5,
-          "serviceRequestDate": "2023-05-22",
+          "minMonths": 14.5,
+          "maxMonths": 20.5,
+          "serviceRequestDate": "2025-03-10",
           "history": [
             {
               "period": "2026-04",
@@ -608,8 +608,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 41.5
+              "min": 14.5,
+              "max": 20.5
             }
           ]
         }
@@ -622,9 +622,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18.5,
-          "maxMonths": 40.5,
-          "serviceRequestDate": "2023-07-01",
+          "minMonths": 22,
+          "maxMonths": 46.5,
+          "serviceRequestDate": "2023-01-19",
           "history": [
             {
               "period": "2026-04",
@@ -663,8 +663,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18.5,
-              "max": 40.5
+              "min": 22,
+              "max": 46.5
             }
           ]
         }
@@ -677,9 +677,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 21.5,
-          "serviceRequestDate": "2025-01-17",
+          "minMonths": 14,
+          "maxMonths": 22.5,
+          "serviceRequestDate": "2025-01-14",
           "history": [
             {
               "period": "2026-04",
@@ -718,8 +718,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 21.5
+              "min": 14,
+              "max": 22.5
             }
           ]
         }
@@ -733,8 +733,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 18,
-          "maxMonths": 37.5,
-          "serviceRequestDate": "2023-09-27",
+          "maxMonths": 36,
+          "serviceRequestDate": "2023-11-25",
           "history": [
             {
               "period": "2026-04",
@@ -774,7 +774,7 @@
             {
               "period": "2026-11",
               "min": 18,
-              "max": 37.5
+              "max": 36
             }
           ]
         }
@@ -788,8 +788,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 14,
-          "maxMonths": 25,
-          "serviceRequestDate": "2024-10-11",
+          "maxMonths": 22.5,
+          "serviceRequestDate": "2025-01-16",
           "history": [
             {
               "period": "2026-04",
@@ -829,7 +829,7 @@
             {
               "period": "2026-11",
               "min": 14,
-              "max": 25
+              "max": 22.5
             }
           ]
         }
@@ -842,9 +842,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 15.5,
-          "maxMonths": 30.5,
-          "serviceRequestDate": "2024-04-24",
+          "minMonths": 17.5,
+          "maxMonths": 29,
+          "serviceRequestDate": "2024-07-08",
           "history": [
             {
               "period": "2026-04",
@@ -883,8 +883,8 @@
             },
             {
               "period": "2026-11",
-              "min": 15.5,
-              "max": 30.5
+              "min": 17.5,
+              "max": 29
             }
           ]
         }
@@ -897,9 +897,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14,
-          "maxMonths": 35.5,
-          "serviceRequestDate": "2023-12-03",
+          "minMonths": 16,
+          "maxMonths": 31,
+          "serviceRequestDate": "2024-04-25",
           "history": [
             {
               "period": "2026-04",
@@ -938,8 +938,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14,
-              "max": 35.5
+              "min": 16,
+              "max": 31
             }
           ]
         }
@@ -952,9 +952,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18,
-          "maxMonths": 31,
-          "serviceRequestDate": "2024-04-05",
+          "minMonths": 17,
+          "maxMonths": 27,
+          "serviceRequestDate": "2024-08-27",
           "history": [
             {
               "period": "2026-04",
@@ -993,8 +993,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18,
-              "max": 31
+              "min": 17,
+              "max": 27
             }
           ]
         }
@@ -1007,9 +1007,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 29,
-          "serviceRequestDate": "2024-06-12",
+          "minMonths": 14.5,
+          "maxMonths": 29.5,
+          "serviceRequestDate": "2024-06-09",
           "history": [
             {
               "period": "2026-04",
@@ -1048,8 +1048,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 29
+              "min": 14.5,
+              "max": 29.5
             }
           ]
         }
@@ -1062,9 +1062,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 22.5,
+          "minMonths": 23.5,
           "maxMonths": 39.5,
-          "serviceRequestDate": "2023-07-26",
+          "serviceRequestDate": "2023-08-14",
           "history": [
             {
               "period": "2026-04",
@@ -1103,7 +1103,7 @@
             },
             {
               "period": "2026-11",
-              "min": 22.5,
+              "min": 23.5,
               "max": 39.5
             }
           ]
@@ -1117,9 +1117,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14.5,
-          "maxMonths": 34.5,
-          "serviceRequestDate": "2023-12-28",
+          "minMonths": 15,
+          "maxMonths": 33.5,
+          "serviceRequestDate": "2024-02-12",
           "history": [
             {
               "period": "2026-04",
@@ -1158,8 +1158,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14.5,
-              "max": 34.5
+              "min": 15,
+              "max": 33.5
             }
           ]
         }
@@ -1172,9 +1172,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14.5,
-          "maxMonths": 22.5,
-          "serviceRequestDate": "2024-12-31",
+          "minMonths": 15,
+          "maxMonths": 22,
+          "serviceRequestDate": "2025-01-23",
           "history": [
             {
               "period": "2026-04",
@@ -1213,8 +1213,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14.5,
-              "max": 22.5
+              "min": 15,
+              "max": 22
             }
           ]
         }
@@ -1227,9 +1227,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 12.5,
+          "minMonths": 13.5,
           "maxMonths": 22.5,
-          "serviceRequestDate": "2024-12-25",
+          "serviceRequestDate": "2025-01-09",
           "history": [
             {
               "period": "2026-04",
@@ -1268,7 +1268,7 @@
             },
             {
               "period": "2026-11",
-              "min": 12.5,
+              "min": 13.5,
               "max": 22.5
             }
           ]
@@ -1282,9 +1282,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 16,
-          "maxMonths": 37.5,
-          "serviceRequestDate": "2023-09-26",
+          "minMonths": 19,
+          "maxMonths": 39,
+          "serviceRequestDate": "2023-08-30",
           "history": [
             {
               "period": "2026-04",
@@ -1323,8 +1323,8 @@
             },
             {
               "period": "2026-11",
-              "min": 16,
-              "max": 37.5
+              "min": 19,
+              "max": 39
             }
           ]
         }
@@ -1337,9 +1337,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 15,
-          "maxMonths": 21,
-          "serviceRequestDate": "2025-02-05",
+          "minMonths": 14.5,
+          "maxMonths": 20,
+          "serviceRequestDate": "2025-03-27",
           "history": [
             {
               "period": "2026-04",
@@ -1378,8 +1378,8 @@
             },
             {
               "period": "2026-11",
-              "min": 15,
-              "max": 21
+              "min": 14.5,
+              "max": 20
             }
           ]
         }
@@ -1392,9 +1392,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 15,
-          "maxMonths": 20.5,
-          "serviceRequestDate": "2025-02-23",
+          "minMonths": 16,
+          "maxMonths": 22,
+          "serviceRequestDate": "2025-02-03",
           "history": [
             {
               "period": "2026-04",
@@ -1433,8 +1433,8 @@
             },
             {
               "period": "2026-11",
-              "min": 15,
-              "max": 20.5
+              "min": 16,
+              "max": 22
             }
           ]
         }
@@ -1447,9 +1447,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14.5,
-          "maxMonths": 31.5,
-          "serviceRequestDate": "2024-03-21",
+          "minMonths": 18,
+          "maxMonths": 36,
+          "serviceRequestDate": "2023-12-02",
           "history": [
             {
               "period": "2026-04",
@@ -1488,8 +1488,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14.5,
-              "max": 31.5
+              "min": 18,
+              "max": 36
             }
           ]
         }
@@ -1504,7 +1504,7 @@
           "caseType": "Family-Based adjustment applications",
           "minMonths": 9.5,
           "maxMonths": 14.5,
-          "serviceRequestDate": "2025-08-18",
+          "serviceRequestDate": "2025-09-08",
           "history": [
             {
               "period": "2026-04",
@@ -1557,9 +1557,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18.5,
-          "maxMonths": 37.5,
-          "serviceRequestDate": "2023-09-25",
+          "minMonths": 24,
+          "maxMonths": 41.5,
+          "serviceRequestDate": "2023-06-20",
           "history": [
             {
               "period": "2026-04",
@@ -1598,8 +1598,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18.5,
-              "max": 37.5
+              "min": 24,
+              "max": 41.5
             }
           ]
         }
@@ -1612,9 +1612,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14,
-          "maxMonths": 27.5,
-          "serviceRequestDate": "2024-07-23",
+          "minMonths": 13.5,
+          "maxMonths": 22.5,
+          "serviceRequestDate": "2025-01-10",
           "history": [
             {
               "period": "2026-04",
@@ -1653,8 +1653,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14,
-              "max": 27.5
+              "min": 13.5,
+              "max": 22.5
             }
           ]
         }
@@ -1667,9 +1667,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 11,
-          "maxMonths": 23,
-          "serviceRequestDate": "2024-12-03",
+          "minMonths": 12.5,
+          "maxMonths": 21,
+          "serviceRequestDate": "2025-02-27",
           "history": [
             {
               "period": "2026-04",
@@ -1708,8 +1708,8 @@
             },
             {
               "period": "2026-11",
-              "min": 11,
-              "max": 23
+              "min": 12.5,
+              "max": 21
             }
           ]
         }
@@ -1722,9 +1722,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18,
-          "maxMonths": 36,
-          "serviceRequestDate": "2023-11-16",
+          "minMonths": 20.5,
+          "maxMonths": 37,
+          "serviceRequestDate": "2023-10-30",
           "history": [
             {
               "period": "2026-04",
@@ -1763,8 +1763,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18,
-              "max": 36
+              "min": 20.5,
+              "max": 37
             }
           ]
         }
@@ -1778,8 +1778,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 12.5,
-          "maxMonths": 33,
-          "serviceRequestDate": "2024-02-03",
+          "maxMonths": 26.5,
+          "serviceRequestDate": "2024-09-17",
           "history": [
             {
               "period": "2026-04",
@@ -1819,7 +1819,7 @@
             {
               "period": "2026-11",
               "min": 12.5,
-              "max": 33
+              "max": 26.5
             }
           ]
         }
@@ -1832,9 +1832,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 22,
-          "maxMonths": 35,
-          "serviceRequestDate": "2023-12-10",
+          "minMonths": 24.5,
+          "maxMonths": 39.5,
+          "serviceRequestDate": "2023-08-17",
           "history": [
             {
               "period": "2026-04",
@@ -1873,8 +1873,8 @@
             },
             {
               "period": "2026-11",
-              "min": 22,
-              "max": 35
+              "min": 24.5,
+              "max": 39.5
             }
           ]
         }
@@ -1887,9 +1887,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 17,
-          "maxMonths": 32.5,
-          "serviceRequestDate": "2024-02-26",
+          "minMonths": 20.5,
+          "maxMonths": 34.5,
+          "serviceRequestDate": "2024-01-12",
           "history": [
             {
               "period": "2026-04",
@@ -1928,8 +1928,8 @@
             },
             {
               "period": "2026-11",
-              "min": 17,
-              "max": 32.5
+              "min": 20.5,
+              "max": 34.5
             }
           ]
         }
@@ -1942,9 +1942,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14,
-          "maxMonths": 27,
-          "serviceRequestDate": "2024-08-17",
+          "minMonths": 16.5,
+          "maxMonths": 29.5,
+          "serviceRequestDate": "2024-06-15",
           "history": [
             {
               "period": "2026-04",
@@ -1983,8 +1983,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14,
-              "max": 27
+              "min": 16.5,
+              "max": 29.5
             }
           ]
         }
@@ -1997,9 +1997,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14.5,
-          "maxMonths": 29,
-          "serviceRequestDate": "2024-06-15",
+          "minMonths": 16,
+          "maxMonths": 26.5,
+          "serviceRequestDate": "2024-09-21",
           "history": [
             {
               "period": "2026-04",
@@ -2038,8 +2038,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14.5,
-              "max": 29
+              "min": 16,
+              "max": 26.5
             }
           ]
         }
@@ -2052,9 +2052,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 17.5,
-          "maxMonths": 38.5,
-          "serviceRequestDate": "2023-08-23",
+          "minMonths": 14,
+          "maxMonths": 33.5,
+          "serviceRequestDate": "2024-02-18",
           "history": [
             {
               "period": "2026-04",
@@ -2093,8 +2093,8 @@
             },
             {
               "period": "2026-11",
-              "min": 17.5,
-              "max": 38.5
+              "min": 14,
+              "max": 33.5
             }
           ]
         }
@@ -2107,9 +2107,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 20.5,
-          "maxMonths": 39.5,
-          "serviceRequestDate": "2023-07-22",
+          "minMonths": 22.5,
+          "maxMonths": 43,
+          "serviceRequestDate": "2023-04-27",
           "history": [
             {
               "period": "2026-04",
@@ -2148,8 +2148,8 @@
             },
             {
               "period": "2026-11",
-              "min": 20.5,
-              "max": 39.5
+              "min": 22.5,
+              "max": 43
             }
           ]
         }
@@ -2162,9 +2162,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 16.5,
-          "maxMonths": 33,
-          "serviceRequestDate": "2024-02-04",
+          "minMonths": 14.5,
+          "maxMonths": 29.5,
+          "serviceRequestDate": "2024-06-20",
           "history": [
             {
               "period": "2026-04",
@@ -2203,8 +2203,8 @@
             },
             {
               "period": "2026-11",
-              "min": 16.5,
-              "max": 33
+              "min": 14.5,
+              "max": 29.5
             }
           ]
         }
@@ -2217,9 +2217,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 15,
-          "maxMonths": 37,
-          "serviceRequestDate": "2023-10-18",
+          "minMonths": 13,
+          "maxMonths": 32,
+          "serviceRequestDate": "2024-03-31",
           "history": [
             {
               "period": "2026-04",
@@ -2258,8 +2258,8 @@
             },
             {
               "period": "2026-11",
-              "min": 15,
-              "max": 37
+              "min": 13,
+              "max": 32
             }
           ]
         }
@@ -2272,9 +2272,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 12.5,
-          "maxMonths": 24.5,
-          "serviceRequestDate": "2024-10-21",
+          "minMonths": 12,
+          "maxMonths": 22,
+          "serviceRequestDate": "2025-01-30",
           "history": [
             {
               "period": "2026-04",
@@ -2313,8 +2313,8 @@
             },
             {
               "period": "2026-11",
-              "min": 12.5,
-              "max": 24.5
+              "min": 12,
+              "max": 22
             }
           ]
         }
@@ -2327,9 +2327,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 19,
-          "maxMonths": 36,
-          "serviceRequestDate": "2023-11-18",
+          "minMonths": 22.5,
+          "maxMonths": 37.5,
+          "serviceRequestDate": "2023-10-22",
           "history": [
             {
               "period": "2026-04",
@@ -2368,8 +2368,8 @@
             },
             {
               "period": "2026-11",
-              "min": 19,
-              "max": 36
+              "min": 22.5,
+              "max": 37.5
             }
           ]
         }
@@ -2382,9 +2382,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13,
-          "maxMonths": 21.5,
-          "serviceRequestDate": "2025-01-18",
+          "minMonths": 13.5,
+          "maxMonths": 22,
+          "serviceRequestDate": "2025-02-06",
           "history": [
             {
               "period": "2026-04",
@@ -2423,8 +2423,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13,
-              "max": 21.5
+              "min": 13.5,
+              "max": 22
             }
           ]
         }
@@ -2437,9 +2437,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 22.5,
-          "maxMonths": 33,
-          "serviceRequestDate": "2024-02-14",
+          "minMonths": 23,
+          "maxMonths": 34,
+          "serviceRequestDate": "2024-02-03",
           "history": [
             {
               "period": "2026-04",
@@ -2478,8 +2478,8 @@
             },
             {
               "period": "2026-11",
-              "min": 22.5,
-              "max": 33
+              "min": 23,
+              "max": 34
             }
           ]
         }
@@ -2492,9 +2492,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 21.5,
-          "serviceRequestDate": "2025-01-23",
+          "minMonths": 16.5,
+          "maxMonths": 23,
+          "serviceRequestDate": "2024-12-29",
           "history": [
             {
               "period": "2026-04",
@@ -2533,8 +2533,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 21.5
+              "min": 16.5,
+              "max": 23
             }
           ]
         }
@@ -2547,9 +2547,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 21.5,
+          "minMonths": 17.5,
           "maxMonths": 40,
-          "serviceRequestDate": "2023-07-05",
+          "serviceRequestDate": "2023-07-27",
           "history": [
             {
               "period": "2026-04",
@@ -2588,7 +2588,7 @@
             },
             {
               "period": "2026-11",
-              "min": 21.5,
+              "min": 17.5,
               "max": 40
             }
           ]
@@ -2603,8 +2603,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 15.5,
-          "maxMonths": 32.5,
-          "serviceRequestDate": "2024-02-18",
+          "maxMonths": 38.5,
+          "serviceRequestDate": "2023-09-17",
           "history": [
             {
               "period": "2026-04",
@@ -2644,7 +2644,7 @@
             {
               "period": "2026-11",
               "min": 15.5,
-              "max": 32.5
+              "max": 38.5
             }
           ]
         }
@@ -2657,9 +2657,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 21.5,
-          "maxMonths": 33.5,
-          "serviceRequestDate": "2024-01-30",
+          "minMonths": 21,
+          "maxMonths": 31,
+          "serviceRequestDate": "2024-05-05",
           "history": [
             {
               "period": "2026-04",
@@ -2698,8 +2698,8 @@
             },
             {
               "period": "2026-11",
-              "min": 21.5,
-              "max": 33.5
+              "min": 21,
+              "max": 31
             }
           ]
         }
@@ -2713,8 +2713,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 22,
-          "maxMonths": 38,
-          "serviceRequestDate": "2023-09-18",
+          "maxMonths": 37.5,
+          "serviceRequestDate": "2023-10-13",
           "history": [
             {
               "period": "2026-04",
@@ -2754,7 +2754,7 @@
             {
               "period": "2026-11",
               "min": 22,
-              "max": 38
+              "max": 37.5
             }
           ]
         }
@@ -2767,9 +2767,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 17,
-          "maxMonths": 34.5,
-          "serviceRequestDate": "2023-12-27",
+          "minMonths": 16,
+          "maxMonths": 30,
+          "serviceRequestDate": "2024-06-08",
           "history": [
             {
               "period": "2026-04",
@@ -2808,8 +2808,8 @@
             },
             {
               "period": "2026-11",
-              "min": 17,
-              "max": 34.5
+              "min": 16,
+              "max": 30
             }
           ]
         }
@@ -2822,9 +2822,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 21,
-          "maxMonths": 36.5,
-          "serviceRequestDate": "2023-10-23",
+          "minMonths": 24,
+          "maxMonths": 38.5,
+          "serviceRequestDate": "2023-09-24",
           "history": [
             {
               "period": "2026-04",
@@ -2863,8 +2863,8 @@
             },
             {
               "period": "2026-11",
-              "min": 21,
-              "max": 36.5
+              "min": 24,
+              "max": 38.5
             }
           ]
         }
@@ -2877,9 +2877,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 19.5,
-          "maxMonths": 41,
-          "serviceRequestDate": "2023-06-17",
+          "minMonths": 20,
+          "maxMonths": 39,
+          "serviceRequestDate": "2023-09-04",
           "history": [
             {
               "period": "2026-04",
@@ -2918,8 +2918,8 @@
             },
             {
               "period": "2026-11",
-              "min": 19.5,
-              "max": 41
+              "min": 20,
+              "max": 39
             }
           ]
         }
@@ -2932,9 +2932,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13.5,
-          "maxMonths": 23.5,
-          "serviceRequestDate": "2024-11-24",
+          "minMonths": 15.5,
+          "maxMonths": 29.5,
+          "serviceRequestDate": "2024-06-09",
           "history": [
             {
               "period": "2026-04",
@@ -2973,8 +2973,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13.5,
-              "max": 23.5
+              "min": 15.5,
+              "max": 29.5
             }
           ]
         }
@@ -2987,9 +2987,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14.5,
-          "maxMonths": 33.5,
-          "serviceRequestDate": "2024-01-31",
+          "minMonths": 12,
+          "maxMonths": 28.5,
+          "serviceRequestDate": "2024-07-17",
           "history": [
             {
               "period": "2026-04",
@@ -3028,8 +3028,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14.5,
-              "max": 33.5
+              "min": 12,
+              "max": 28.5
             }
           ]
         }
@@ -3042,9 +3042,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 20,
-          "maxMonths": 29.5,
-          "serviceRequestDate": "2024-05-29",
+          "minMonths": 22.5,
+          "maxMonths": 32,
+          "serviceRequestDate": "2024-04-07",
           "history": [
             {
               "period": "2026-04",
@@ -3083,8 +3083,8 @@
             },
             {
               "period": "2026-11",
-              "min": 20,
-              "max": 29.5
+              "min": 22.5,
+              "max": 32
             }
           ]
         }
@@ -3097,9 +3097,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 20.5,
-          "maxMonths": 39,
-          "serviceRequestDate": "2023-08-13",
+          "minMonths": 17.5,
+          "maxMonths": 32.5,
+          "serviceRequestDate": "2024-03-11",
           "history": [
             {
               "period": "2026-04",
@@ -3138,8 +3138,8 @@
             },
             {
               "period": "2026-11",
-              "min": 20.5,
-              "max": 39
+              "min": 17.5,
+              "max": 32.5
             }
           ]
         }
@@ -3152,9 +3152,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 22.5,
-          "maxMonths": 39,
-          "serviceRequestDate": "2023-08-06",
+          "minMonths": 23,
+          "maxMonths": 42,
+          "serviceRequestDate": "2023-06-02",
           "history": [
             {
               "period": "2026-04",
@@ -3193,8 +3193,8 @@
             },
             {
               "period": "2026-11",
-              "min": 22.5,
-              "max": 39
+              "min": 23,
+              "max": 42
             }
           ]
         }
@@ -3207,9 +3207,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 12,
-          "maxMonths": 21,
-          "serviceRequestDate": "2025-02-02",
+          "minMonths": 13,
+          "maxMonths": 22.5,
+          "serviceRequestDate": "2025-01-17",
           "history": [
             {
               "period": "2026-04",
@@ -3248,8 +3248,8 @@
             },
             {
               "period": "2026-11",
-              "min": 12,
-              "max": 21
+              "min": 13,
+              "max": 22.5
             }
           ]
         }
@@ -3262,9 +3262,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18.5,
-          "maxMonths": 33,
-          "serviceRequestDate": "2024-02-15",
+          "minMonths": 19,
+          "maxMonths": 30.5,
+          "serviceRequestDate": "2024-05-23",
           "history": [
             {
               "period": "2026-04",
@@ -3303,8 +3303,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18.5,
-              "max": 33
+              "min": 19,
+              "max": 30.5
             }
           ]
         }
@@ -3317,9 +3317,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 15,
-          "maxMonths": 31,
-          "serviceRequestDate": "2024-04-11",
+          "minMonths": 15.5,
+          "maxMonths": 29,
+          "serviceRequestDate": "2024-06-24",
           "history": [
             {
               "period": "2026-04",
@@ -3358,8 +3358,8 @@
             },
             {
               "period": "2026-11",
-              "min": 15,
-              "max": 31
+              "min": 15.5,
+              "max": 29
             }
           ]
         }
@@ -3372,9 +3372,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14,
-          "maxMonths": 24.5,
-          "serviceRequestDate": "2024-10-25",
+          "minMonths": 12,
+          "maxMonths": 21.5,
+          "serviceRequestDate": "2025-02-22",
           "history": [
             {
               "period": "2026-04",
@@ -3413,8 +3413,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14,
-              "max": 24.5
+              "min": 12,
+              "max": 21.5
             }
           ]
         }
@@ -3427,9 +3427,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14,
-          "maxMonths": 27,
-          "serviceRequestDate": "2024-08-09",
+          "minMonths": 14.5,
+          "maxMonths": 26,
+          "serviceRequestDate": "2024-09-26",
           "history": [
             {
               "period": "2026-04",
@@ -3468,8 +3468,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14,
-              "max": 27
+              "min": 14.5,
+              "max": 26
             }
           ]
         }
@@ -3482,9 +3482,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 22.5,
-          "maxMonths": 36.5,
-          "serviceRequestDate": "2023-10-26",
+          "minMonths": 19,
+          "maxMonths": 35.5,
+          "serviceRequestDate": "2023-12-22",
           "history": [
             {
               "period": "2026-04",
@@ -3523,8 +3523,8 @@
             },
             {
               "period": "2026-11",
-              "min": 22.5,
-              "max": 36.5
+              "min": 19,
+              "max": 35.5
             }
           ]
         }
@@ -3538,8 +3538,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 16,
-          "maxMonths": 37,
-          "serviceRequestDate": "2023-10-14",
+          "maxMonths": 34.5,
+          "serviceRequestDate": "2024-01-13",
           "history": [
             {
               "period": "2026-04",
@@ -3579,7 +3579,7 @@
             {
               "period": "2026-11",
               "min": 16,
-              "max": 37
+              "max": 34.5
             }
           ]
         }
@@ -3594,7 +3594,7 @@
           "caseType": "Family-Based adjustment applications",
           "minMonths": 12.5,
           "maxMonths": 21,
-          "serviceRequestDate": "2025-02-13",
+          "serviceRequestDate": "2025-03-06",
           "history": [
             {
               "period": "2026-04",
@@ -3648,8 +3648,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 21,
-          "maxMonths": 40.5,
-          "serviceRequestDate": "2023-06-23",
+          "maxMonths": 40,
+          "serviceRequestDate": "2023-08-07",
           "history": [
             {
               "period": "2026-04",
@@ -3689,7 +3689,7 @@
             {
               "period": "2026-11",
               "min": 21,
-              "max": 40.5
+              "max": 40
             }
           ]
         }
@@ -3702,9 +3702,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 24.5,
+          "minMonths": 25,
           "maxMonths": 40,
-          "serviceRequestDate": "2023-07-13",
+          "serviceRequestDate": "2023-08-03",
           "history": [
             {
               "period": "2026-04",
@@ -3743,7 +3743,7 @@
             },
             {
               "period": "2026-11",
-              "min": 24.5,
+              "min": 25,
               "max": 40
             }
           ]
@@ -3757,9 +3757,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18,
+          "minMonths": 20,
           "maxMonths": 36.5,
-          "serviceRequestDate": "2023-10-28",
+          "serviceRequestDate": "2023-11-12",
           "history": [
             {
               "period": "2026-04",
@@ -3798,7 +3798,7 @@
             },
             {
               "period": "2026-11",
-              "min": 18,
+              "min": 20,
               "max": 36.5
             }
           ]
@@ -3812,9 +3812,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 27.5,
+          "minMonths": 30,
           "maxMonths": 43.5,
-          "serviceRequestDate": "2023-03-22",
+          "serviceRequestDate": "2023-04-12",
           "history": [
             {
               "period": "2026-04",
@@ -3853,7 +3853,7 @@
             },
             {
               "period": "2026-11",
-              "min": 27.5,
+              "min": 30,
               "max": 43.5
             }
           ]
@@ -3867,9 +3867,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18,
-          "maxMonths": 39,
-          "serviceRequestDate": "2023-08-15",
+          "minMonths": 16,
+          "maxMonths": 34.5,
+          "serviceRequestDate": "2024-01-15",
           "history": [
             {
               "period": "2026-04",
@@ -3908,8 +3908,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18,
-              "max": 39
+              "min": 16,
+              "max": 34.5
             }
           ]
         }
@@ -3922,9 +3922,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 14.5,
-          "maxMonths": 30,
-          "serviceRequestDate": "2024-05-16",
+          "minMonths": 15.5,
+          "maxMonths": 27.5,
+          "serviceRequestDate": "2024-08-18",
           "history": [
             {
               "period": "2026-04",
@@ -3963,8 +3963,8 @@
             },
             {
               "period": "2026-11",
-              "min": 14.5,
-              "max": 30
+              "min": 15.5,
+              "max": 27.5
             }
           ]
         }
@@ -3977,9 +3977,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 19,
-          "maxMonths": 33,
-          "serviceRequestDate": "2024-02-13",
+          "minMonths": 15,
+          "maxMonths": 28.5,
+          "serviceRequestDate": "2024-07-21",
           "history": [
             {
               "period": "2026-04",
@@ -4018,8 +4018,8 @@
             },
             {
               "period": "2026-11",
-              "min": 19,
-              "max": 33
+              "min": 15,
+              "max": 28.5
             }
           ]
         }
@@ -4032,9 +4032,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 36,
+          "minMonths": 38.5,
           "maxMonths": 56.5,
-          "serviceRequestDate": "2022-02-22",
+          "serviceRequestDate": "2022-03-16",
           "history": [
             {
               "period": "2026-04",
@@ -4073,7 +4073,7 @@
             },
             {
               "period": "2026-11",
-              "min": 36,
+              "min": 38.5,
               "max": 56.5
             }
           ]
@@ -4087,9 +4087,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18.5,
-          "maxMonths": 41.5,
-          "serviceRequestDate": "2023-05-22",
+          "minMonths": 15,
+          "maxMonths": 39,
+          "serviceRequestDate": "2023-08-27",
           "history": [
             {
               "period": "2026-04",
@@ -4128,8 +4128,8 @@
             },
             {
               "period": "2026-11",
-              "min": 18.5,
-              "max": 41.5
+              "min": 15,
+              "max": 39
             }
           ]
         }
@@ -4142,9 +4142,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13,
-          "maxMonths": 38.5,
-          "serviceRequestDate": "2023-08-28",
+          "minMonths": 12,
+          "maxMonths": 37,
+          "serviceRequestDate": "2023-10-28",
           "history": [
             {
               "period": "2026-04",
@@ -4183,8 +4183,8 @@
             },
             {
               "period": "2026-11",
-              "min": 13,
-              "max": 38.5
+              "min": 12,
+              "max": 37
             }
           ]
         }
@@ -4198,8 +4198,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 15,
-          "maxMonths": 21.5,
-          "serviceRequestDate": "2025-01-24",
+          "maxMonths": 22,
+          "serviceRequestDate": "2025-01-31",
           "history": [
             {
               "period": "2026-04",
@@ -4239,7 +4239,7 @@
             {
               "period": "2026-11",
               "min": 15,
-              "max": 21.5
+              "max": 22
             }
           ]
         }
@@ -4252,9 +4252,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 13,
+          "minMonths": 14,
           "maxMonths": 24.5,
-          "serviceRequestDate": "2024-10-29",
+          "serviceRequestDate": "2024-11-19",
           "history": [
             {
               "period": "2026-04",
@@ -4293,7 +4293,7 @@
             },
             {
               "period": "2026-11",
-              "min": 13,
+              "min": 14,
               "max": 24.5
             }
           ]
@@ -4308,8 +4308,8 @@
         {
           "caseType": "Family-Based adjustment applications",
           "minMonths": 13,
-          "maxMonths": 31.5,
-          "serviceRequestDate": "2024-04-02",
+          "maxMonths": 33.5,
+          "serviceRequestDate": "2024-02-16",
           "history": [
             {
               "period": "2026-04",
@@ -4349,7 +4349,7 @@
             {
               "period": "2026-11",
               "min": 13,
-              "max": 31.5
+              "max": 33.5
             }
           ]
         }
@@ -4362,9 +4362,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 32.5,
+          "minMonths": 27,
           "maxMonths": 43,
-          "serviceRequestDate": "2023-04-09",
+          "serviceRequestDate": "2023-04-26",
           "history": [
             {
               "period": "2026-04",
@@ -4403,7 +4403,7 @@
             },
             {
               "period": "2026-11",
-              "min": 32.5,
+              "min": 27,
               "max": 43
             }
           ]
@@ -4417,9 +4417,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 16.5,
-          "maxMonths": 34.5,
-          "serviceRequestDate": "2024-01-01",
+          "minMonths": 17.5,
+          "maxMonths": 34,
+          "serviceRequestDate": "2024-01-28",
           "history": [
             {
               "period": "2026-04",
@@ -4458,8 +4458,8 @@
             },
             {
               "period": "2026-11",
-              "min": 16.5,
-              "max": 34.5
+              "min": 17.5,
+              "max": 34
             }
           ]
         }
@@ -4472,9 +4472,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 22,
-          "maxMonths": 60.5,
-          "serviceRequestDate": "2021-10-27",
+          "minMonths": 16,
+          "maxMonths": 28.5,
+          "serviceRequestDate": "2024-07-15",
           "history": [
             {
               "period": "2026-04",
@@ -4513,8 +4513,8 @@
             },
             {
               "period": "2026-11",
-              "min": 22,
-              "max": 60.5
+              "min": 16,
+              "max": 28.5
             }
           ]
         }
@@ -4527,9 +4527,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 8.5,
-          "maxMonths": 12.5,
-          "serviceRequestDate": "2025-10-19",
+          "minMonths": 10.5,
+          "maxMonths": 16.5,
+          "serviceRequestDate": "2025-07-19",
           "history": [
             {
               "period": "2026-04",
@@ -4568,8 +4568,8 @@
             },
             {
               "period": "2026-11",
-              "min": 8.5,
-              "max": 12.5
+              "min": 10.5,
+              "max": 16.5
             }
           ]
         }
@@ -4582,9 +4582,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 12,
-          "maxMonths": 25,
-          "serviceRequestDate": "2024-10-08",
+          "minMonths": 13.5,
+          "maxMonths": 26,
+          "serviceRequestDate": "2024-10-05",
           "history": [
             {
               "period": "2026-04",
@@ -4623,8 +4623,8 @@
             },
             {
               "period": "2026-11",
-              "min": 12,
-              "max": 25
+              "min": 13.5,
+              "max": 26
             }
           ]
         }
@@ -4637,9 +4637,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 17,
-          "maxMonths": 26.5,
-          "serviceRequestDate": "2024-08-25",
+          "minMonths": 19.5,
+          "maxMonths": 32.5,
+          "serviceRequestDate": "2024-03-19",
           "history": [
             {
               "period": "2026-04",
@@ -4678,8 +4678,8 @@
             },
             {
               "period": "2026-11",
-              "min": 17,
-              "max": 26.5
+              "min": 19.5,
+              "max": 32.5
             }
           ]
         }
@@ -4692,9 +4692,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 8.5,
-          "maxMonths": 13.5,
-          "serviceRequestDate": "2025-09-22",
+          "minMonths": 11,
+          "maxMonths": 14.5,
+          "serviceRequestDate": "2025-09-14",
           "history": [
             {
               "period": "2026-04",
@@ -4733,8 +4733,8 @@
             },
             {
               "period": "2026-11",
-              "min": 8.5,
-              "max": 13.5
+              "min": 11,
+              "max": 14.5
             }
           ]
         }
@@ -4747,9 +4747,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 18,
+          "minMonths": 18.5,
           "maxMonths": 24,
-          "serviceRequestDate": "2024-11-09",
+          "serviceRequestDate": "2024-11-25",
           "history": [
             {
               "period": "2026-04",
@@ -4788,7 +4788,7 @@
             },
             {
               "period": "2026-11",
-              "min": 18,
+              "min": 18.5,
               "max": 24
             }
           ]
@@ -4802,9 +4802,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 11.5,
-          "maxMonths": 28.5,
-          "serviceRequestDate": "2024-07-01",
+          "minMonths": 14,
+          "maxMonths": 31,
+          "serviceRequestDate": "2024-05-04",
           "history": [
             {
               "period": "2026-04",
@@ -4843,8 +4843,8 @@
             },
             {
               "period": "2026-11",
-              "min": 11.5,
-              "max": 28.5
+              "min": 14,
+              "max": 31
             }
           ]
         }
@@ -4857,9 +4857,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 16.5,
-          "maxMonths": 29,
-          "serviceRequestDate": "2024-06-05",
+          "minMonths": 18,
+          "maxMonths": 31,
+          "serviceRequestDate": "2024-04-27",
           "history": [
             {
               "period": "2026-04",
@@ -4898,8 +4898,8 @@
             },
             {
               "period": "2026-11",
-              "min": 16.5,
-              "max": 29
+              "min": 18,
+              "max": 31
             }
           ]
         }
@@ -4912,9 +4912,9 @@
       "cases": [
         {
           "caseType": "Family-Based adjustment applications",
-          "minMonths": 21,
-          "maxMonths": 57.5,
-          "serviceRequestDate": "2022-02-02",
+          "minMonths": 27,
+          "maxMonths": 59,
+          "serviceRequestDate": "2022-01-01",
           "history": [
             {
               "period": "2026-04",
@@ -4953,8 +4953,8 @@
             },
             {
               "period": "2026-11",
-              "min": 21,
-              "max": 57.5
+              "min": 27,
+              "max": 59
             }
           ]
         }

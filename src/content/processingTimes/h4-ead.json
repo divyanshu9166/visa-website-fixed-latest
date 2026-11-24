@@ -6,7 +6,7 @@
   "category": "dependent",
   "seoTitle": "Current USCIS Processing Times for H-4 EAD (Work Permit) [2026]",
   "seoDesc": "Check official USCIS processing times for H-4 EAD (Work Permit) (Form I-765) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-11-20",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -17,9 +17,9 @@
       "cases": [
         {
           "caseType": "Based on being an H-4 spouse of an H-1B nonimmigrant (filed with I-539 H4) [(c)(26)]",
-          "minMonths": 6.5,
-          "maxMonths": 10,
-          "serviceRequestDate": "2026-01-11",
+          "minMonths": 7,
+          "maxMonths": 10.5,
+          "serviceRequestDate": "2026-01-17",
           "history": [
             {
               "period": "2026-04",
@@ -58,16 +58,16 @@
             },
             {
               "period": "2026-11",
-              "min": 6.5,
-              "max": 10
+              "min": 7,
+              "max": 10.5
             }
           ]
         },
         {
           "caseType": "Based on being an H-4 spouse of an H-1B nonimmigrant (Standalone; not filed with I-539 H4) [(c)(26)]",
-          "minMonths": 17.5,
-          "maxMonths": 19,
-          "serviceRequestDate": "2025-04-07",
+          "minMonths": 18.5,
+          "maxMonths": 19.5,
+          "serviceRequestDate": "2025-04-21",
           "history": [
             {
               "period": "2026-04",
@@ -106,8 +106,8 @@
             },
             {
               "period": "2026-11",
-              "min": 17.5,
-              "max": 19
+              "min": 18.5,
+              "max": 19.5
             }
           ]
         }

@@ -6,7 +6,7 @@
   "category": "dependent",
   "seoTitle": "Current USCIS Processing Times for H-4 Dependent Visa [2026]",
   "seoDesc": "Check official USCIS processing times for H-4 Dependent Visa (Form I-539) by service center, with historical trend charts and a receipt-date predictor.",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-11-20",
   "dataSource": "live",
   "sourceUrl": "https://immigrationtimes.org/data/",
   "servicecenters": [
@@ -19,7 +19,7 @@
           "caseType": "Change of status to H4 dependents",
           "minMonths": 10.5,
           "maxMonths": 14,
-          "serviceRequestDate": "2025-09-14",
+          "serviceRequestDate": "2025-09-24",
           "history": [
             {
               "period": "2026-04",
@@ -66,8 +66,8 @@
         {
           "caseType": "Change of status to H4 dependent with I-765",
           "minMonths": 7.5,
-          "maxMonths": 9.5,
-          "serviceRequestDate": "2026-01-25",
+          "maxMonths": 10,
+          "serviceRequestDate": "2026-01-31",
           "history": [
             {
               "period": "2026-04",
@@ -107,14 +107,14 @@
             {
               "period": "2026-11",
               "min": 7.5,
-              "max": 9.5
+              "max": 10
             }
           ]
         },
         {
           "caseType": "Extension of stay for H4 dependents",
-          "minMonths": 10.5,
-          "maxMonths": 13.5,
+          "minMonths": 11,
+          "maxMonths": 14,
           "serviceRequestDate": "2025-09-27",
           "history": [
             {
@@ -154,15 +154,15 @@
             },
             {
               "period": "2026-11",
-              "min": 10.5,
-              "max": 13.5
+              "min": 11,
+              "max": 14
             }
           ]
         },
         {
           "caseType": "Extension of stay for H4 dependents with I-765",
-          "minMonths": 5,
-          "maxMonths": 9,
+          "minMonths": 6,
+          "maxMonths": 9.5,
           "serviceRequestDate": "2026-02-10",
           "history": [
             {
@@ -202,8 +202,8 @@
             },
             {
               "period": "2026-11",
-              "min": 5,
-              "max": 9
+              "min": 6,
+              "max": 9.5
             }
           ]
         }
